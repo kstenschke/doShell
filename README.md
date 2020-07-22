@@ -106,7 +106,10 @@ Comments are prefixed by: ``//``.
 
 The following strings are replaced at runtime:  
 
-Date - current date in preferred format
+``__date__`` - current date in preferred format
+``__pwd__`` - working directory path
+``__timestamp__`` - current UNIX timestamp
+``__os__`` - ``linux`` or ``darwin``
 ... 
 
 
