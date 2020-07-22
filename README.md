@@ -70,7 +70,7 @@ given:
 ## Syntax general
 
 * Empty lines are ignored.
-* Whitespace preceding a comment, used e.g. for indenting is allowed
+* Whitespace preceding a commamd or comment, used e.g. for indenting is allowed
 * Each line is expected to contain no more than one command
 * Every command is expected to be ended by: ";\n"
 * Whitespace at the end of lines is NOT allowed
