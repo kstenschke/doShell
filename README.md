@@ -6,7 +6,21 @@ Desktop automation language for Linux and Mac OS.
 
 ## Table of Contents
 
-...
+- [autolang](#autolang)
+  * [What does (will) it do?](#what-does--will--it-do-)
+  * [Compiler modes](#compiler-modes)
+    + [Transpile](#transpile)
+    + [Transpile and execute](#transpile-and-execute)
+  * [Configuration](#configuration)
+  * [Syntax general](#syntax-general)
+  * [Comments](#comments)
+  * [Commands](#commands)
+    + [Control flow](#control-flow)
+    + [Simulate keyboard events](#simulate-keyboard-events)
+    + [Browser automation](#browser-automation)
+    + [Terminal automation](#terminal-automation)
+    + [Dialogs and popups](#dialogs-and-popups)
+
 
 ## What does (will) it do?
 
