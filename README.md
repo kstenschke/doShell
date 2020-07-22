@@ -1,12 +1,12 @@
-robo.sh
-=======
+DoSH (do shell) 
+===============
 
-Desktop automation language for Linux and Mac OS.
+Shell-based automation for Linux and Mac OS.
 
 
 ## Table of Contents
 
-- [robo.sh](#robo-sh)
+- [DoSH](#dosh-do-shell)
   * [What does (will) it do?](#what-does--will--it-do-)
   * [Compiler modes](#compiler-modes)
     + [Transpile](#transpile)
