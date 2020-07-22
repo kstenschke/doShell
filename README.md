@@ -85,7 +85,7 @@ given:
 ## Comments
 
 There are only single-line, no block comments.
-Comments are prefixed either by: ``#`` or ``//``.
+Comments are prefixed by: ``//``.
 
 ## Actions
 
