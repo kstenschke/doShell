@@ -37,14 +37,19 @@ Possible automations are: launching and switching among applications and
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 controlling a web browser, some advanced file manipulations and more. 
 
-All actual automation is performed using existing third party tools:
+All actual automation is performed using existing third party and some built-in
+tools:
 
 * **Linux:**
   * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
   * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
   * [xsel](https://linux.die.net/man/1/xsel)
+  * Shell script
+  * atl executable
 * **Mac OS:**
   * AppleScript (osascript)
+  * Shell script
+  * atl executable
 
 
 ## Compiler modes
