@@ -68,8 +68,10 @@ given:
 ``browser=firefox`` browser to be targeted  
 
 
-## Syntax general
+## Language / syntax general
 
+* autolang is a superset of SHell script:
+  Non atl-commands are interpreted as shell commands. 
 * Empty lines are ignored.
 * Whitespace preceding a commamd or comment, used e.g. for indenting is allowed
 * Each line is expected to contain no more than one command
