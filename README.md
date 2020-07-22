@@ -26,18 +26,15 @@ Shell-based automation for Linux and Mac OS.
 
 ## Idea - What does (will) it do?
 
-The idea behing autolang is to ease the process of scripting 
-cross-platform automation via a comparatively simple high-level 
-language, that transpiles to executable bash scripts which than evoke
-existing (third party and built-in) automation tools.
-The autolang executable is 1. a compiler and 2. provides a list of
-commands executable from bash. 
+DoSH is a superset of shell script, providing additional commamds 
+geared towards cross-platform system automation.
+DoSH can be transpiled into executable shell scripts.  
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 controlling a web browser, some advanced file manipulations and more. 
 
-All actual automation is performed using existing third party and some built-in
+Automation is ultimately performed using existing third party and some built-in
 tools:
 
 * **Linux:**
