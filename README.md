@@ -58,6 +58,9 @@ create ``.sh`` files with the same basename at the same path.
 Running ``alc -r script.atl``, the compiler will transpile the given 
 file and execute it (no transpiled file is saved).
 
+## Run built-in action
+
+... 
 
 ## Configuration
 
