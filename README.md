@@ -26,7 +26,7 @@ Shell-based automation for Linux and Mac OS.
 
 ## Idea - What does (will) it do?
 
-DoSH is a superset of shell script, providing additional commamds 
+DoSH is a superset of shell script, providing additional commands 
 geared towards cross-platform system automation.
 DoSH can be transpiled into executable shell scripts.  
 
