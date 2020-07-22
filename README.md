@@ -33,7 +33,7 @@ commands executable from bash.
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
-controlling a web browser and more. 
+controlling a web browser, some advanced file manipulations and more. 
 
 All actual automation is performed using existing third party tools:
 
