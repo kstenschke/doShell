@@ -1,12 +1,12 @@
-autolang
-========
+robo.sh
+=======
 
 Desktop automation language for Linux and Mac OS.
 
 
 ## Table of Contents
 
-- [autolang](#autolang)
+- [robo.sh](#robo-sh)
   * [What does (will) it do?](#what-does--will--it-do-)
   * [Compiler modes](#compiler-modes)
     + [Transpile](#transpile)
