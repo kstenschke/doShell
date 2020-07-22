@@ -31,11 +31,11 @@ and more.
 
 All actual automation is performed using existing third party tools:
 
-* Linux: 
+* **Linux:**
   * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
   * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
   * [xsel](https://linux.die.net/man/1/xsel)
-* Mac OS:
+* **Mac OS:**
   * AppleScript (osascript)
 
 
@@ -87,19 +87,19 @@ Comments are prefixed either by: ``#`` or ``//``.
 
 ### Simulate keyboard events
 
-*Hit single key:*  
+**Hit single key:**  
 ``keyStrokeBackspace;`` Hit BACKSPACE key  
 ``keyStrokeEnter;`` Hit ENTER key  
 ``keyStrokeEsc;`` Hit ESC key  
 ``keyStrokeTab;`` Hit TAB key  
 
-*Stroke key combination:*  
+**Stroke key combination:**  
 ``keyStrokeCopy;`` Hit CTRL+C or CMD+C  
 ``keyStrokeCut;`` Hit CTRL+X or CMD+X  
 ``keyStrokePaste;`` Hit CTRL+V or CMD+V   
 ``keyStrokeSelectAll;`` Hit CTRL+A or CMD+A  
 
-* Type Text:*  
+**Type text:**  
 ``type [string "TEXT"];`` Simulate typing given text on keyboard  
 ``type [string "TEXT"] [float SECONDS];`` Type text with given delay between characters  
 ``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];`` Type text with random delay within given range between characters  
