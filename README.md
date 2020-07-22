@@ -1,7 +1,8 @@
 autolang
 ========
 
-Desktop automation programming language for Linux and Mac OS.
+Desktop automation language for Linux and Mac OS.
+
 
 ## Table of Contents
 
