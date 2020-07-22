@@ -22,12 +22,16 @@ Desktop automation language for Linux and Mac OS.
     + [Dialogs and popups](#dialogs-and-popups)
 
 
-## What does (will) it do?
+## Idea - What does (will) it do?
 
-The autolang compiler transpiles .atl files to shell scripts, 
-executable on bash.  Resulting scripts can than start applications, 
-activate/switch windows, perform simulated mouse- and keyboard- events 
-and more. 
+The idea behing autolang is to ease the process of scripting 
+cross-platform automation via a comparatively simple high-level 
+language, that transpiles to executable bash scripts, containing prepared 
+functions and command calls which than evoke existing (third party) 
+automation tools.  
+
+Possible automations are: launching and switching among applications and 
+windows, simulating mouse- and keyboard- events and more. 
 
 All actual automation is performed using existing third party tools:
 
@@ -101,8 +105,10 @@ Comments are prefixed either by: ``#`` or ``//``.
 
 **Type text:**  
 ``type [string "TEXT"];`` Simulate typing given text on keyboard  
-``type [string "TEXT"] [float SECONDS];`` Type text with given delay between characters  
-``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];`` Type text with random delay within given range between characters  
+``type [string "TEXT"] [float SECONDS];`` Type text with given delay
+  between characters  
+``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];``
+  Type text with random delay within given range between characters  
 
 
 ### Browser automation
