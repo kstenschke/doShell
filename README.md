@@ -31,7 +31,8 @@ functions and command calls which than evoke existing (third party)
 automation tools.  
 
 Possible automations are: launching and switching among applications and 
-windows, simulating mouse- and keyboard- events and more. 
+windows, simulating mouse- and keyboard- events, running terminal commands, 
+controlling a web browser and more. 
 
 All actual automation is performed using existing third party tools:
 
