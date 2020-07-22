@@ -27,7 +27,7 @@ Desktop automation language for Linux and Mac OS.
 The idea behing autolang is to ease the process of scripting 
 cross-platform automation via a comparatively simple high-level 
 language, that transpiles to executable bash scripts which than evoke
-existing (third party) automation tools.
+existing (third party and built-in) automation tools.
 The autolang executable is 1. a compiler and 2. provides a list of
 commands executable from bash. 
 
