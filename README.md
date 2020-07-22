@@ -11,9 +11,11 @@ Desktop automation language for Linux and Mac OS.
   * [Compiler modes](#compiler-modes)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
+    + [Run built-in action] 
   * [Configuration](#configuration)
   * [Syntax general](#syntax-general)
   * [Comments](#comments)
+  * [Runtime macros] 
   * [Commands](#commands)
     + [Control flow](#control-flow)
     + [Simulate keyboard events](#simulate-keyboard-events)
@@ -58,9 +60,14 @@ create ``.sh`` files with the same basename at the same path.
 Running ``alc -r script.atl``, the compiler will transpile the given 
 file and execute it (no transpiled file is saved).
 
-## Run built-in action
+### Run built-in action
 
-... 
+A collection of shell tools, executable from the
+atl-binary. 
+
+
+``atl replaceInFile file search replace;``
+...  
 
 ## Configuration
 
@@ -90,13 +97,11 @@ given:
 There are only single-line, no block comments.
 Comments are prefixed by: ``//``.
 
-## Actions
+## Runtime macros
 
-A collection of shell tools, executable from the
-atl-binary. 
+The following strings are replaced at runtime:  
 
-
-``atl replaceInFile file search replace;``
+Date - current date in preferred format
 ... 
 
 
