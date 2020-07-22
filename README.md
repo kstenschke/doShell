@@ -87,48 +87,46 @@ Comments are prefixed either by: ``#`` or ``//``.
 
 ### Simulate keyboard events
 
-** Hit single key:**  
+*Hit single key:*  
 ``keyStrokeBackspace;`` Hit BACKSPACE key  
 ``keyStrokeEnter;`` Hit ENTER key  
 ``keyStrokeEsc;`` Hit ESC key  
 ``keyStrokeTab;`` Hit TAB key  
 
-** Stroke key combination:**  
+*Stroke key combination:*  
 ``keyStrokeCopy;`` Hit CTRL+C or CMD+C  
 ``keyStrokeCut;`` Hit CTRL+X or CMD+X  
-``keyStrokePaste;`` Hit CTRL+V or CMD+V  
+``keyStrokePaste;`` Hit CTRL+V or CMD+V   
 ``keyStrokeSelectAll;`` Hit CTRL+A or CMD+A  
 
-** Type Text:**  
-``type [string "TEXT"];`` Simulate typing given text on keyboard
-``type [string "TEXT"] [float SECONDS];`` Type text with given delay between characters
-``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];`` Type text with random delay within given range between characters
+* Type Text:*  
+``type [string "TEXT"];`` Simulate typing given text on keyboard  
+``type [string "TEXT"] [float SECONDS];`` Type text with given delay between characters  
+``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];`` Type text with random delay within given range between characters  
 
 
 ### Browser automation
 
-``activateBrowser;`` Launch or bring preferred browser window to front
-``closeBrowserTab;`` Hits CTRL+W or CMD+W
-``focusNextBrowserTab;`` Hits CTRL+TAB or CMD+TAB
-``focusBrowserURL;`` Hits CTRL+L or CMD+L
-``focusPrevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB
+``activateBrowser;`` Launch or bring preferred browser window to front  
+``closeBrowserTab;`` Hits CTRL+W or CMD+W  
+``focusNextBrowserTab;`` Hits CTRL+TAB or CMD+TAB  
+``focusBrowserURL;`` Hits CTRL+L or CMD+L  
+``focusPrevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB  
 ``openUrlInBrowser [string "URL"];`` Load given URL in new browser tab  
-``openFindInBrowser;`` Hits CTRL+F or CMD+F
-``openBrowserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I
-``openBrowserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J
-``openBrowserSettings;`` Hits CTRL+Comma or CMD+Comma
-``openNewBrowserTab;`` Hits CTRL+T or CMD+T
-``reopenBrowserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W
+``openFindInBrowser;`` Hits CTRL+F or CMD+F  
+``openBrowserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
+``openBrowserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
+``openBrowserSettings;`` Hits CTRL+Comma or CMD+Comma  
+``openNewBrowserTab;`` Hits CTRL+T or CMD+T  
+``reopenBrowserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W  
 
 ### Terminal automation
 
 ``openNewTerminal;``  
-``editInTerminal [string "FILE"];`` Open given file in bash editor
-
+``editInTerminal [string "FILE"];`` Open given file in bash editor  
 
 
 ### Dialogs and popups
 
-``alert [string "TEXT"];``
-
-``notify [string "TEXT"];``
+``alert [string "TEXT"];``  
+``notify [string "TEXT"];``  
