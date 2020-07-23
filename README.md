@@ -118,7 +118,7 @@ The following strings are replaced at runtime:
 ### Simulate keyboard events
 
 **Hit single key:**  
-``# keystroke backspace;`` 
+``# keystroke backspace;``  
 ``# keystroke enter;``   
 ``# keystroke esc;``  
 ``# keystroke tab;``   
