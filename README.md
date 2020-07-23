@@ -122,11 +122,15 @@ The following strings are replaced at runtime:
 
 ### Simulate keyboard events
 
+
 **Hit single key:**  
 ``# keystroke backspace;``  
 ``# keystroke enter;``   
 ``# keystroke esc;``  
-``# keystroke tab;``   
+``# keystroke f1;``
+``# keystroke tab;``  
+``# keystroke space;``
+
 
 **Stroke key combination:**  
 ``# key combo copy;`` = Hit CTRL+C or CMD+c  
