@@ -8,6 +8,7 @@ Shell-based automation for Linux and Mac OS.
 
 - [Shell-Do](#shell-do)
   * [What does (will) it do?](#what-does--will--it-do-)
+  * [Triggered automation tools](#triggered-automation-tools)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
@@ -33,6 +34,9 @@ Shell-Do scripts can be transpiled and run as shell scripts.
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 controlling a web browser, some advanced file manipulations and more. 
+
+
+## Triggered automation tools
 
 Automation is ultimately performed using existing tools from third parties, 
 and some built-in tools:
