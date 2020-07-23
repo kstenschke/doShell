@@ -53,19 +53,19 @@ tools:
 
 ### Transpile
 
-Running ``alc``, the compiler will find all ``.atl`` files within the 
-current working path, including its sub-directories at any level, and 
+Running ``dosh``, the compiler will find all ``.do.sh`` files within the 
+current working path, including its sub-directories, and 
 create ``.sh`` files with the same basename at the same path.
 
 ### Transpile and execute
 
-Running ``alc -r script.atl``, the compiler will transpile the given 
-file and execute it (no transpiled file is saved).
+Running ``dosh -r script.do.sh``, the compiler will transpile the given 
+file and execute it.
 
 ### Run built-in action
 
 A collection of shell tools, executable from the
-atl-binary. 
+DoSH binary. 
 
 
 ``atl replaceInFile file search replace;``
@@ -73,31 +73,25 @@ atl-binary.
 
 ## Configuration
 
-Via an optional ``.aml.ini`` file the following optional settings can be
+Via an optional ``.dosh.ini`` file, the following optional settings can be
 given:
 
 ``bash_editor=nano`` "editor" being e.g. ``vim``, ``nano``, etc.  
 ``browser=firefox`` browser to be targeted  
+``date_format=Ymn`` ... 
 
 
 ## Language / syntax
 
-* autolang is a superset of SHell script:
-  Non atl-commands are interpreted/passed-on as shell commands. 
-* Empty lines are ignored.
-* Whitespace preceding a commamd or comment, used e.g. for indenting is allowed
-* Each line is expected to contain no more than one command
-* Atl-commands are prefixed by #, allowing editors
-  to use existing SHell script highlightning 
+* DoSH is a superset of SHell script, 
+  scripts can contain all possible shell commands.
+* DoSH commands look similar to comments, containig pseudo-code
+* DoSH commands are prefixed by #, allowing editors
+  to use existing shell script highlightning 
+* DoSH commands can use any amount of lines
 * Every command is expected to be ended by: ";\n"
-* Whitespace at the end of lines is NOT allowed
-* Comments must be written on separate lines
+* Comments must be prefixed by ``//``
 
-
-## Comments
-
-There are only single-line, no block comments.
-Comments are prefixed by: ``//``.
 
 ## Runtime macros
 
@@ -110,6 +104,7 @@ The following strings are replaced at runtime:
 ``__timestamp__`` - current UNIX timestamp  
 
 ``__os__`` - ``linux`` or ``darwin``  
+
 ... 
 
 
@@ -117,20 +112,20 @@ The following strings are replaced at runtime:
 
 ### Control flow
 
-``sleep [float SECONDS];``  
+``#sleep 1.5 SECONDS;``  
 
 
 ### Simulate keyboard events
 
 **Hit single key:**  
-``keyStrokeBackspace;`` Hit BACKSPACE key  
-``keyStrokeEnter;`` Hit ENTER key  
-``keyStrokeEsc;`` Hit ESC key  
-``keyStrokeTab;`` Hit TAB key  
+``# keystroke backspace;`` 
+``# keystroke enter;``   
+``# keystroke esc;``  
+``# keystroke tab;``   
 
 **Stroke key combination:**  
-``keyStrokeCopy;`` Hit CTRL+C or CMD+C  
-``keyStrokeCut;`` Hit CTRL+X or CMD+X  
+``# key combo copy;`` = Hit CTRL+C or CMD+c  
+``# key combo cut;``  
 ``keyStrokePaste;`` Hit CTRL+V or CMD+V   
 ``keyStrokeSelectAll;`` Hit CTRL+A or CMD+A  
 
