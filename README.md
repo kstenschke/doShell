@@ -85,7 +85,7 @@ given:
 
 * DoSH is a superset of SHell script, 
   scripts can contain all possible shell commands.
-* DoSH commands look similar to comments, containig pseudo-code
+* DoSH commands look similar to comments containig pseudo-code
 * DoSH commands are prefixed by #, allowing editors
   to use existing shell script highlightning 
 * DoSH commands can use any amount of lines
