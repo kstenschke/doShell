@@ -42,7 +42,7 @@ and some built-in tools:
   * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
   * [xsel](https://linux.die.net/man/1/xsel)
   * Shell script
-  * atl executable
+  * Shell-Do executable
 * **Mac OS:**
   * AppleScript (osascript)
   * Shell script
