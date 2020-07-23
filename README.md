@@ -19,6 +19,7 @@ Shell-based automation for Linux and Mac OS.
   * [Comments](#comments)
   * [Runtime macros](#runtime-macros)
   * [Commands](#commands)
+    + [Imports](#imports)
     + [Control flow](#control-flow)
     + [Simulate keyboard events](#simulate-keyboard-events)
     + [Browser automation](#browser-automation)
@@ -116,25 +117,30 @@ given:
 
 ## Runtime macros
 
-The following strings are replaced at runtime:  
+The following macros are replaced at runtime by generic content:  
 
-``__date__`` - current date in preferred format  
-
-``__pwd__`` - working directory path  
-
-``__timestamp__`` - current UNIX timestamp  
-
-``__os__`` - ``linux`` or ``darwin``  
-
-... 
+| Macro             | Replaced by                                                      |
+| ----------------- | ---------------------------------------------------------------- |
+| ``__date__``      | Current date in preferred format                                 |
+| ``__pwd__``       | Working directory path                                           |
+| ``__timestamp__`` | Current UNIX timestamp                                           |
+| ``__os__``        | ``linux`` or ``darwin``                                          |
 
 
 ## Commands
 
+### Imports
+
+Before any other transposing and processing, Shell-Do imports extracted/separated 
+plaintext and/or scripts from given files:
+
+``# import another_file.do.sh;``  
+
+
 ### Control flow
 
-``#wait 1.5 SECONDS;``  
-``#wait for any keypress;``  
+``# wait 1.5 SECONDS;``  
+``# wait for any keypress;``  
 
 
 ### Simulate keyboard events
