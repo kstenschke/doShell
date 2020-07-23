@@ -11,11 +11,11 @@ Shell-based automation for Linux and Mac OS.
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
-    + [Run built-in action] 
+    + [Run built-in actions](#run-built-in-actions)
   * [Configuration](#configuration)
   * [Syntax general](#syntax-general)
   * [Comments](#comments)
-  * [Runtime macros] 
+  * [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Control flow](#control-flow)
     + [Simulate keyboard events](#simulate-keyboard-events)
@@ -66,23 +66,28 @@ create ``*.sh`` files with the same basename at the same path.
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
 file and execute it.
 
-### Run built-in action
+### Run built-in actions
 
 A collection of shell tools, executable via the
 Shell-Do binary. 
 
+| Command                                          | Description                              |
+| ------------------------------------------------ | ---------------------------------------- |
+| ``shdo replaceAllInFile file search replace;``   | Replace all occurrences of given string  |
+| ``shdo replaceFirstInFile file search replace;`` | Replace first occurrence of given string |
+| ``shdo replaceLastInFile file search replace;``  | Replace last occurrence of given string  |
 
-``atl replaceInFile file search replace;``
-...  
 
 ## Configuration
 
 Via an optional ``.shdo.ini`` file, the following optional settings can be
 given:
 
-``bash_editor=nano`` "editor" being e.g. ``vim``, ``nano``, etc.  
-``browser=firefox`` browser to be targeted  
-``date_format=Ymn`` ... 
+| Config                                           | Description                                                      |
+| ------------------------------------------------ | ---------------------------------------------------------------- |
+| ``bash_editor=nano``                             | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
+| ``browser=firefox``                              | Web browser to be targeted                                       |
+| ``date_format=Ymn`` ...                          | Date format in printf() syntax                                   |
 
 
 ## Language / syntax
