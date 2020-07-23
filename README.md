@@ -110,7 +110,6 @@ given:
 * Shell-Do commands look similar to comments containig pseudo-code
 * Shell-Do commands are prefixed by #, allowing editors
   to use existing shell script highlightning 
-* Shell-Do commands can use any amount of lines
 * Every command is expected to be ended by: ";\n"
 * Comments must be prefixed by ``//``
 
