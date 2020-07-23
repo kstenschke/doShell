@@ -150,7 +150,7 @@ plaintext and/or scripts from given files:
 ``#keystroke backspace;``  
 ``#keystroke enter;``   
 ``#keystroke esc;``  
-``#keystroke f1;``
+``#keystroke f1;``  
 ``#keystroke tab;``  
 ``#keystroke space;``
 
