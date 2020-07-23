@@ -74,8 +74,8 @@ file and execute it.
 
 ### Run built-in actions
 
-A collection of shell tools, executable via the
-Shell-Do binary. 
+Helpful shell tools, built-in and executable via the
+Shell-Do binary: 
 
 #### File manipulations
 
