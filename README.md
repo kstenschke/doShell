@@ -27,7 +27,7 @@ Shell-based automation for Linux and Mac OS.
 ## Idea - What does (will) it do?
 
 Shell-Do script is a superset of shell script, providing additional commands 
-geared towards cross-platform system automation.  
+geared towards cross-platform UI automation.  
 Shell-Do scripts can be transpiled and run as shell scripts.  
 
 Possible automations are: launching and switching among applications and 
