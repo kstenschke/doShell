@@ -8,12 +8,12 @@ Shell-based UI automation for Linux and Mac OS.
 
 - [Shell-Do](#shell-do)
   * [What does (will) it do?](#what-does--will--it-do-)
-  * [Triggered automation tools](#triggered-automation-tools)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
     + [Run built-in actions](#run-built-in-actions)
       + [File manipulations](#file-manipulations)
+  * [Triggered automation tools](#triggered-automation-tools) 
   * [Configuration](#configuration)
   * [Syntax general](#syntax-general)
   * [Comments](#comments)
@@ -36,23 +36,6 @@ Shell-Do scripts can be transpiled and run as shell scripts.
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 controlling a web browser, some advanced file manipulations and more. 
-
-
-## Triggered automation tools
-
-Automation is ultimately performed using existing tools from third parties, 
-and some built-in tools:
-
-* **Linux:**
-  * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
-  * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
-  * [xsel](https://linux.die.net/man/1/xsel)
-  * Shell script
-  * Shell-Do executable
-* **Mac OS:**
-  * AppleScript (osascript)
-  * Shell script
-  * Shell-Do executable
 
 
 ## Modes of Operation
@@ -89,6 +72,23 @@ given source file.
 | ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
 | ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
 | ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
+
+
+## Triggered automation tools
+
+Automation is ultimately performed using existing tools from third parties, 
+and some built-in tools:
+
+* **Linux:**
+  * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
+  * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
+  * [xsel](https://linux.die.net/man/1/xsel)
+  * Shell script
+  * Shell-Do executable
+* **Mac OS:**
+  * AppleScript (osascript)
+  * Shell script
+  * Shell-Do executable 
 
 
 ## Configuration
