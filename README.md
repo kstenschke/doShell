@@ -13,6 +13,7 @@ Shell-based automation for Linux and Mac OS.
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
     + [Run built-in actions](#run-built-in-actions)
+      + [File manipulations](#file-manipulations)
   * [Configuration](#configuration)
   * [Syntax general](#syntax-general)
   * [Comments](#comments)
@@ -75,11 +76,18 @@ file and execute it.
 A collection of shell tools, executable via the
 Shell-Do binary. 
 
-| Command                                          | Description                              |
-| ------------------------------------------------ | ---------------------------------------- |
-| ``shdo replaceAllInFile file search replace;``   | Replace all occurrences of given string  |
-| ``shdo replaceFirstInFile file search replace;`` | Replace first occurrence of given string |
-| ``shdo replaceLastInFile file search replace;``  | Replace last occurrence of given string  |
+#### File manipulations
+
+All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
+given source file.
+
+| Command                                          | Description                                             |
+| ------------------------------------------------ | ------------------------------------------------------- |
+| ``shdo replaceAllInFile file search replace``    | Replace all occurrences of given string                 |
+| ``shdo replaceFirstInFile file search replace``  | Replace first occurrence of given string                |
+| ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
+| ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
+| ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
 
 
 ## Configuration
