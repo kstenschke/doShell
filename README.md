@@ -8,7 +8,7 @@ Shell-based automation for Linux and Mac OS.
 
 - [Shell-Do](#shell-do)
   * [What does (will) it do?](#what-does--will--it-do-)
-  * [Compiler modes](#compiler-modes)
+  * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
     + [Run built-in action] 
@@ -49,7 +49,11 @@ and some built-in tools:
   * Shell-Do executable
 
 
-## Compiler modes
+## Modes of Operation
+
+The Do-Shell executable is a compiler, 
+can execute Do-Shell scripts and provides some built-in tools that can
+be run from the shell:
 
 ### Transpile
 
