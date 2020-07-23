@@ -50,10 +50,11 @@ Running ``shdo``, the compiler will find all ``*.do.sh`` files within the
 current working path, including its sub-directories, and 
 create ``*.sh`` files with the same basename at the same path.
 
-### Transpile and execute
+### Transpile and run
 
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
-file and execute it.
+file and execute it. Also already transpiled scripts or plain shell scripts
+not containing any Shell-Do commands can be executed. 
 
 ### Run built-in actions
 
