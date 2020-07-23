@@ -46,7 +46,7 @@ and some built-in tools:
 * **Mac OS:**
   * AppleScript (osascript)
   * Shell script
-  * atl executable
+  * Shell-Do executable
 
 
 ## Compiler modes
