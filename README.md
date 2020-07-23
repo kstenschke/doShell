@@ -134,63 +134,59 @@ The following macros are replaced at runtime by generic content:
 Before any other transposing and processing, Shell-Do imports extracted/separated 
 plaintext and/or scripts from given files:
 
-``# import another_file.do.sh;``  
+``#import another_file.do.sh;``  
 
 
 ### Control flow
 
-``# wait 1.5 SECONDS;``  
-``# wait for any keypress;``  
+``#wait 1.5 SECONDS;``  
+``#wait for any keypress;``  
 
 
 ### Simulate keyboard events
 
 
 **Hit single key:**  
-``# keystroke backspace;``  
-``# keystroke enter;``   
-``# keystroke esc;``  
-``# keystroke f1;``
-``# keystroke tab;``  
-``# keystroke space;``
+``#keystroke backspace;``  
+``#keystroke enter;``   
+``#keystroke esc;``  
+``#keystroke f1;``
+``#keystroke tab;``  
+``#keystroke space;``
 
 
 **Stroke key combination:**  
-``# key combo copy;`` = Hit CTRL+C or CMD+c  
-``# key combo cut;``  
-``keyStrokePaste;`` Hit CTRL+V or CMD+V   
-``keyStrokeSelectAll;`` Hit CTRL+A or CMD+A  
+``#key combo copy;`` = Hit CTRL+C or CMD+c  
+``#key combo cut;``  
+``#keystroke paste;`` Hit CTRL+V or CMD+V   
+``#keystroke selectAll;`` Hit CTRL+A or CMD+A  
 
 **Type text:**  
-``type [string "TEXT"];`` Simulate typing given text on keyboard  
-``type [string "TEXT"] [float SECONDS];`` Type text with given delay
-  between characters  
-``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];``
-  Type text with random delay within given range between characters  
+``#type [string "TEXT"];`` Simulate typing given text on keyboard  
 
 
 ### Browser automation
 
-``activateBrowser;`` Launch or bring preferred browser window to front  
-``closeBrowserTab;`` Hits CTRL+W or CMD+W  
-``focusNextBrowserTab;`` Hits CTRL+TAB or CMD+TAB  
-``focusBrowserURL;`` Hits CTRL+L or CMD+L  
-``focusPrevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB  
-``openUrlInBrowser [string "URL"];`` Load given URL in new browser tab  
-``openFindInBrowser;`` Hits CTRL+F or CMD+F  
-``openBrowserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
-``openBrowserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
-``openBrowserSettings;`` Hits CTRL+Comma or CMD+Comma  
-``openNewBrowserTab;`` Hits CTRL+T or CMD+T  
-``reopenBrowserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W  
+``#activate browser;`` Launch or bring preferred browser window to front  
+``#close browserTab;`` Hits CTRL+W or CMD+W  
+``#focus nextBrowserTab;`` Hits CTRL+TAB or CMD+TAB  
+``#focus BrowserURL;`` Hits CTRL+L or CMD+L  
+``#focus prevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB  
+``#open UrlInBrowser [string "URL"];`` Load given URL in new browser tab  
+``#open findInBrowser;`` Hits CTRL+F or CMD+F  
+``#open browserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
+``#open browserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
+``#open browserSettings;`` Hits CTRL+Comma or CMD+Comma  
+``#open newBrowserTab;`` Hits CTRL+T or CMD+T  
+``#reopen browserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W  
 
 ### Terminal automation
 
-``openNewTerminal;``  
-``editInTerminal [string "FILE"];`` Open given file in bash editor  
+``#open newTerminal;``  
+``#edit inTerminal [string "FILE"];`` Open given file in bash editor  
 
 
 ### Dialogs and popups
 
-``alert [string "TEXT"];``  
-``notify [string "TEXT"];``  
+``#alert [string "TEXT"];``  
+``#notify [string "TEXT"];``  
