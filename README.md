@@ -34,8 +34,8 @@ Possible automations are: launching and switching among applications and
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 controlling a web browser, some advanced file manipulations and more. 
 
-Automation is ultimately performed using existing third party and some built-in
-tools:
+Automation is ultimately performed using existing tools from third parties, 
+and some built-in tools:
 
 * **Linux:**
   * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
