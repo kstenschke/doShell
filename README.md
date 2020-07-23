@@ -105,7 +105,7 @@ given:
 
 ## Language / syntax
 
-* Shell-Do script is a superset of sbell script, 
+* Shell-Do script is a superset of shell script, 
   scripts can contain all possible shell commands.
 * Shell-Do commands look similar to comments containig pseudo-code
 * Shell-Do commands are prefixed by #, allowing editors
