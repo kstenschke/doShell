@@ -1,12 +1,12 @@
-DoSH (do shell) 
-===============
+Shell-Do
+========
 
 Shell-based automation for Linux and Mac OS.
 
 
 ## Table of Contents
 
-- [DoSH](#dosh-do-shell)
+- [Shell-Do](#shell-do)
   * [What does (will) it do?](#what-does--will--it-do-)
   * [Compiler modes](#compiler-modes)
     + [Transpile](#transpile)
@@ -26,9 +26,10 @@ Shell-based automation for Linux and Mac OS.
 
 ## Idea - What does (will) it do?
 
-DoSH is a superset of shell script, providing additional commands 
+Shell-Do script is a superset of shell script, providing additional commands 
 geared towards cross-platform system automation.
-DoSH can be transpiled into executable shell scripts.  
+Ms
+Shell-Do scripts can be transpiled and run as shell scripts.  
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
@@ -53,19 +54,19 @@ tools:
 
 ### Transpile
 
-Running ``dosh``, the compiler will find all ``.do.sh`` files within the 
+Running ``shdo``, the compiler will find all ``*.do.sh`` files within the 
 current working path, including its sub-directories, and 
-create ``.sh`` files with the same basename at the same path.
+create ``*.sh`` files with the same basename at the same path.
 
 ### Transpile and execute
 
-Running ``dosh -r script.do.sh``, the compiler will transpile the given 
+Running ``shdo -r script.do.sh``, the compiler will transpile the given 
 file and execute it.
 
 ### Run built-in action
 
-A collection of shell tools, executable from the
-DoSH binary. 
+A collection of shell tools, executable via the
+Shell-Do binary. 
 
 
 ``atl replaceInFile file search replace;``
@@ -73,7 +74,7 @@ DoSH binary.
 
 ## Configuration
 
-Via an optional ``.dosh.ini`` file, the following optional settings can be
+Via an optional ``.shdo.ini`` file, the following optional settings can be
 given:
 
 ``bash_editor=nano`` "editor" being e.g. ``vim``, ``nano``, etc.  
@@ -83,12 +84,12 @@ given:
 
 ## Language / syntax
 
-* DoSH is a superset of SHell script, 
+* Shell-Do script is a superset of sbell script, 
   scripts can contain all possible shell commands.
-* DoSH commands look similar to comments containig pseudo-code
-* DoSH commands are prefixed by #, allowing editors
+* Shell-Do commands look similar to comments containig pseudo-code
+* Shell-Do commands are prefixed by #, allowing editors
   to use existing shell script highlightning 
-* DoSH commands can use any amount of lines
+* Shell-Do commands can use any amount of lines
 * Every command is expected to be ended by: ";\n"
 * Comments must be prefixed by ``//``
 
