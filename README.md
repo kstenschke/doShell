@@ -59,7 +59,7 @@ and some built-in tools:
 
 The Do-Shell executable is a compiler, 
 can execute Do-Shell scripts and provides some built-in tools that can
-be run from the shell:
+be run from the shell.
 
 ### Transpile
 
