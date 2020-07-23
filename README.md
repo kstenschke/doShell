@@ -57,8 +57,8 @@ and some built-in tools:
 
 ## Modes of Operation
 
-The Do-Shell executable is a compiler, 
-can execute Do-Shell scripts and provides some built-in tools that can
+The Do-Shell executable is a *compiler*, 
+can *execute* Do-Shell scripts and provides some *built-in tools* that can
 be run from the shell.
 
 ### Transpile
