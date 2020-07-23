@@ -112,7 +112,8 @@ The following strings are replaced at runtime:
 
 ### Control flow
 
-``#sleep 1.5 SECONDS;``  
+``#wait 1.5 SECONDS;``  
+``#wait for any keypress;``  
 
 
 ### Simulate keyboard events
