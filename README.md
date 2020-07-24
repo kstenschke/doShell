@@ -1,5 +1,5 @@
-Shell-Do
-========
+shellDo
+=======
 
 Shell-based UI automation for Linux and Mac OS.
 
