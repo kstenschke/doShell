@@ -28,6 +28,12 @@ class Compiler {
  private:
   int argc_;
   std::vector<std::string> argv_;
+
+  std::string path_source_abs_;
+
+  bool CompileAllInPath();
+
+  std::string LoadSource();
 };
 
 }  // namespace doShell

@@ -42,7 +42,7 @@ bool App::Process() {
   bool result;
 
     switch (command) {
-      case AppCommands::Command_Compile: {
+      case AppCommands::Command_Compile: {  // c
         auto compiler = new Compiler(argc_, argv_);
         result = compiler->Compile();
 
