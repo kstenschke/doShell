@@ -13,7 +13,6 @@ Shell-based UI automation for Linux and Mac OS
     + [Transpile and execute](#transpile-and-execute)
     + [Run built-in actions](#run-built-in-actions)
       + [File manipulations](#file-manipulations)
-  * [Triggered automation tools](#triggered-automation-tools) 
   * [Configuration](#configuration)
   * [Syntax general](#syntax-general)
   * [Comments](#comments)
@@ -25,6 +24,7 @@ Shell-based UI automation for Linux and Mac OS
     + [Browser automation](#browser-automation)
     + [Terminal automation](#terminal-automation)
     + [Dialogs and popups](#dialogs-and-popups)
+  * [Third party dependencies](#third-party-dependencies)
 
 
 ## Idea - What does (will) it do?
@@ -69,23 +69,6 @@ given source file.
 | ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
 | ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
 | ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
-
-
-## Triggered automation tools
-
-Automation is ultimately performed using existing tools from third parties, 
-and some built-in tools:
-
-* **Linux:**
-  * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
-  * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
-  * [xsel](https://linux.die.net/man/1/xsel)
-  * Shell script
-  * Shell-Do executable
-* **Mac OS:**
-  * AppleScript (osascript)
-  * Shell script
-  * Shell-Do executable 
 
 
 ## Configuration
@@ -189,3 +172,23 @@ plaintext and/or scripts from given files:
 ``#confirm [string "TEXT"];``  - Yes/No Dialog
 ``#prompt [string "TEXT"];``  - Popup with input field
 
+
+## Third party dependencies
+
+Automation is ultimately performed using existing tools from third parties, 
+and some Do-Shell built-in tools.
+
+### Linux
+
+* [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
+* [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
+* [xsel](https://linux.die.net/man/1/xsel)
+* Shell script
+* Shell-Do executable
+
+
+### Mac OS
+
+* AppleScript (osascript)
+* Shell script
+* Shell-Do executable

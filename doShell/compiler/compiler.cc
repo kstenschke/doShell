@@ -18,6 +18,16 @@ bool Compiler::Compile() {
 
   auto source = LoadSource();
 
+  // resolve all #import statements, in loop until no more #import within code
+
+  // replace all runtime macros by generic values
+
+  // detect OS
+  // replace wait commands
+  // replace keyboard commands
+  //
+
+
   return true;
 }
 
