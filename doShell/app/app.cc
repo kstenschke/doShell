@@ -1,9 +1,9 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <robo/app/app.h>
+#include <doShell/app/app.h>
 
-namespace docxbox {
+namespace doShell {
 
 // Constructor: init (resolve) command and arguments
 App::App(int argc, const std::vector<std::string>& argv) {
@@ -59,9 +59,9 @@ bool App::Process() {
 
 
     switch (command) {
-      case AppCommands::Command_Compile:
-        result = docx_archive->Batch();
-        break;
+//      case AppCommands::Command_Compile:
+//        result = docx_archive->Batch();
+//        break;
       case AppCommands::Command_Help: {  // h
         AppCommands::Command kCommand;
         std::string command_identifier;
@@ -90,4 +90,4 @@ bool App::Process() {
   return result;
 }
 
-}  // namespace docxbox
+}  // namespace doShell

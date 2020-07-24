@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOCXBOX_HELPER_HELPER_DATETIME_H_
-#define DOCXBOX_HELPER_HELPER_DATETIME_H_
+#ifndef DOSHELL_HELPER_HELPER_DATETIME_H_
+#define DOSHELL_HELPER_HELPER_DATETIME_H_
 
 #include <regex> // NOLINT [build/c++11]
 #include <string>
@@ -25,4 +25,4 @@ extern bool IsIso8601Date(const std::string &str);
 }  // namespace DateTime
 }  // namespace helper
 
-#endif  // DOCXBOX_HELPER_HELPER_DATETIME_H_
+#endif  // DOSHELL_HELPER_HELPER_DATETIME_H_

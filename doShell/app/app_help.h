@@ -1,16 +1,16 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef ROBO_APP_APP_HELP_H_
-#define ROBO_APP_APP_HELP_H_
+#ifndef DOSHELL_APP_APP_HELP_H_
+#define DOSHELL_APP_APP_HELP_H_
 
-#include <robo/config.h>
-#include <robo/app/app.h>
+#include <doShell/config.h>
+#include <doShell/app/app.h>
 
 #include <string>
 #include <iostream>
 
-namespace robo {
+namespace doShell {
 
 class AppHelp {
  public:
@@ -29,6 +29,6 @@ class AppHelp {
   static void PrintUnknownArgumentMessage(const std::string& arg);
 };
 
-}  // namespace robo
+}  // namespace doShell
 
-#endif  // ROBO_APP_APP_HELP_H_
+#endif  // DOSHELL_APP_APP_HELP_H_

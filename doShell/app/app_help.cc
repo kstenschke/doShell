@@ -1,16 +1,16 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <robo/app/app_help.h>
+#include <doShell/app/app_help.h>
 
-namespace robo {
+namespace doShell {
 
 bool AppHelp::PrintVersion() {
   std::cout
       << "doShell" << " version "
-      << std::string(ROBO_VERSION_MAJOR) << "."
-      << std::string(ROBO_VERSION_MINOR) << "."
-      << std::string(ROBO_VERSION_PATCH)
+      << std::string(DOSHELL_VERSION_MAJOR) << "."
+      << std::string(DOSHELL_VERSION_MINOR) << "."
+      << std::string(DOSHELL_VERSION_PATCH)
       << "\n";
 
   return true;
@@ -45,8 +45,8 @@ bool AppHelp::PrintHelp(bool with_title,
 bool AppHelp::PrintOverview(bool with_title) {
   if (with_title)
     std::cout
-        << "doShell v" << ROBO_VERSION_MAJOR << "."
-        << ROBO_VERSION_MINOR << "." << ROBO_VERSION_PATCH
+        << "doShell v" << DOSHELL_VERSION_MAJOR << "."
+        << DOSHELL_VERSION_MINOR << "." << DOSHELL_VERSION_PATCH
         << " - Usage: dosh <command> [args]" << "\n\n"
             "Available commands:\n";
 
@@ -123,4 +123,4 @@ void AppHelp::PrintUnknownArgumentMessage(const std::string& arg) {
   PrintHelp(false, AppCommands::Command::Command_Invalid);
 }
 
-}  // namespace docxbox
+}  // namespace doShell

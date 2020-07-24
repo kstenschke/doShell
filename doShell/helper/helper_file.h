@@ -1,10 +1,10 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOCXBOX_HELPER_HELPER_FILE_H_
-#define DOCXBOX_HELPER_HELPER_FILE_H_
+#ifndef DOSHELL_HELPER_HELPER_FILE_H_
+#define DOSHELL_HELPER_HELPER_FILE_H_
 
-//#include <robo/app/app_log.h>
+//#include <doShell/app/app_log.h>
 
 #include <dirent.h>
 #include <sys/stat.h>
@@ -20,7 +20,7 @@
 #include <chrono>  // NOLINT [build/c++11]
 #endif
 
-#include <robo/helper/helper_string.h>
+#include <doShell/helper/helper_string.h>
 
 namespace helper {
 namespace File {
@@ -80,4 +80,4 @@ extern bool IsWordCompatibleImage(const std::string &filename);
 }  // namespace File
 }  // namespace helper
 
-#endif  // DOCXBOX_HELPER_HELPER_FILE_H_
+#endif  // DOSHELL_HELPER_HELPER_FILE_H_

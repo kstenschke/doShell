@@ -1,10 +1,10 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef ROBO_HELPER_HELPER_STRING_H_
-#define ROBO_HELPER_HELPER_STRING_H_
+#ifndef DOSHELL_HELPER_HELPER_STRING_H_
+#define DOSHELL_HELPER_HELPER_STRING_H_
 
-//#include <docxbox/helper/helper_numeric.h>
+#include <doshell/helper/helper_numeric.h>
 
 #include <fcntl.h>
 //#include <sys/sendfile.h>
@@ -131,4 +131,4 @@ extern std::string GetRandomNumericString(
 }  // namespace String
 }  // namespace helper
 
-#endif  // ROBO_HELPER_HELPER_STRING_H_
+#endif  // DOSHELL_HELPER_HELPER_STRING_H_
