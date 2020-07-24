@@ -24,9 +24,7 @@ class App {
   static const std::string kAppExecutableName;
 
   // Constructor: init (resolve) command and arguments
-  App(int argc,
-      const std::vector<std::string>& argv,
-      bool is_batch_mode = false);
+  App(int argc, const std::vector<std::string>& argv);
 
   virtual ~App();
 

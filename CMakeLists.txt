@@ -25,4 +25,12 @@ add_executable(robo
         robo/helper/helper_string.cc
         robo/helper/helper_string.h
         robo/helper/helper_file.cc
-        robo/helper/helper_file.h robo/app/app.cc robo/app/app.h robo/helper/helper_dateTime.cc robo/helper/helper_dateTime.h)
+        robo/helper/helper_file.h
+        robo/app/app.cc
+        robo/app/app.h
+        robo/helper/helper_dateTime.cc
+        robo/helper/helper_dateTime.h
+        robo/app/app_help.cc
+        robo/app/app_help.h
+        robo/app/app_command.cc
+        robo/app/app_command.h)
