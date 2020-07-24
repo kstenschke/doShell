@@ -1,7 +1,7 @@
 shellDo
 =======
 
-Shell-based UI automation for Linux and Mac OS.
+Shell-based UI automation for Linux and Mac OS
 
 
 ## Table of Contents
