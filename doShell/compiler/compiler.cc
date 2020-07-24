@@ -29,7 +29,6 @@ bool Compiler::Compile() {
   // replace keyboard commands
   //
 
-
   return true;
 }
 
@@ -53,15 +52,18 @@ bool Compiler::ResolveImports() {
 
     if (offset_end == std::string::npos) offset_end = source_.length();
 
-    std::string path_import_file = source_.substr(offset_start + 7, offset_end - offset_start);
+    std::string path_import_file = source_.substr(
+        offset_start + 7,
+        offset_end - (offset_start + 7));
     helper::String::Trim(&path_import_file);
 
-    if (!helper::File::ResolvePath(path_source_file_abs_, &path_import_file, true)) {
+    if (!helper::File::ResolvePath(path_source_directory_abs_, &path_import_file, true)) {
       return doShell::AppLog::NotifyError("Imported from " + path_source_file_abs_);
     }
 
     std::string import_content;
     helper::File::GetFileContents(path_import_file, &import_content);
+    import_content += "\n";
 
     source_.replace(offset_start, offset_end - offset_start, import_content);
   }

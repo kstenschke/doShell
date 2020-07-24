@@ -85,8 +85,8 @@ bool File::ResolvePath(const std::string &pwd,
             : pwd + "/" + (*path);
 
   return must_exist
-             && (!helper::File::IsDir(*path)
-                 && !helper::File::FileExists(*path))
+             && (helper::File::IsDir(*path)
+                 || !helper::File::FileExists(*path))
          ? doShell::AppLog::NotifyError(std::string("File not found: ") + *path)
          : true;
 }
