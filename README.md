@@ -186,3 +186,6 @@ plaintext and/or scripts from given files:
 
 ``#alert [string "TEXT"];``  
 ``#notify [string "TEXT"];``  
+``#confirm [string "TEXT"];``  - Yes/No Dialog
+``#prompt [string "TEXT"];``  - Popup with input field
+
