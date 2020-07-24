@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app.h>
+#include <doShell/compiler/compiler.h>
 
 namespace doShell {
 
@@ -33,35 +34,22 @@ void App::SetPathOut(const std::string &path_docx_out) {
   path_out_ = path_docx_out;
 }
 
-// Remap command + argument variations to rel. shorthand commands
-AppCommands::Command App::PreProcess(
-    AppArgument *arguments,
-    const AppCommands::Command &command) const {
-  switch (command) {
-    case AppCommands::Command_Compile:
-//      return arguments->Matches(3, "-s", "--segments")
-//             ? AppCommands::Command_GetPlainTextSegments
-//             : command;
-    default:return command;
-  }
-}
-
 bool App::Process() {
   auto arguments = new AppArgument(argc_, argv_);
 
   AppCommands::Command command = command_->GetResolved();
 
-  // Preprocess: Remap command + argument(s) to rel. shorthand commands
-  if (argc_ > 2) command = PreProcess(arguments, command);
-
   bool result;
 
-
-
     switch (command) {
-//      case AppCommands::Command_Compile:
-//        result = docx_archive->Batch();
-//        break;
+      case AppCommands::Command_Compile: {
+        auto compiler = new Compiler(argc_, argv_);
+        result = compiler->Compile();
+
+        delete compiler;
+
+        return result;
+      }
       case AppCommands::Command_Help: {  // h
         AppCommands::Command kCommand;
         std::string command_identifier;

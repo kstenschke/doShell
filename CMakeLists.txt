@@ -32,6 +32,8 @@ add_executable(dosh
         doShell/app/app_help.h
         doShell/app/app_log.cc
         doShell/app/app_log.h
+        doShell/compiler/compiler.cc
+        doShell/compiler/compiler.h
         doShell/helper/helper_dateTime.cc
         doShell/helper/helper_dateTime.h
         doShell/helper/helper_file.cc

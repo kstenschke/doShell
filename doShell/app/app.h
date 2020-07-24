@@ -42,9 +42,6 @@ class App {
 
   std::string path_in_;
   std::string path_out_;  // Output path with/or filename
-
-  AppCommands::Command PreProcess(AppArgument *arguments,
-                                  const AppCommands::Command &command) const;
 };
 
 }  // namespace doShell

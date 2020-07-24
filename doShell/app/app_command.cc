@@ -21,8 +21,10 @@ AppCommands::Command AppCommands::Resolve() {
 
 AppCommands::Command AppCommands::ResolveCommandByName(
     const std::string &command) {
-//  if (command == "zpc") return Command_ZipCompressed;
-
+  if (command == "c" || command == "compile")
+    return Command_Compile;
+  if (command == "r" || command == "run")
+    return Command_Run;
   if (command == "h" || command == "help" || command == "?")
     return Command_Help;
   if (command == "v") return Command_Version;
