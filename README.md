@@ -1,22 +1,25 @@
-robo.sh
+shellDo
 =======
 
-Desktop automation language for Linux and Mac OS.
+Shell-based UI automation for Linux and Mac OS.
 
 
 ## Table of Contents
 
-- [robo.sh](#robo-sh)
+- [Shell-Do](#shell-do)
   * [What does (will) it do?](#what-does--will--it-do-)
-  * [Compiler modes](#compiler-modes)
+  * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
-    + [Run built-in action] 
+    + [Run built-in actions](#run-built-in-actions)
+      + [File manipulations](#file-manipulations)
+  * [Triggered automation tools](#triggered-automation-tools) 
   * [Configuration](#configuration)
   * [Syntax general](#syntax-general)
   * [Comments](#comments)
-  * [Runtime macros] 
+  * [Runtime macros](#runtime-macros)
   * [Commands](#commands)
+    + [Imports](#imports)
     + [Control flow](#control-flow)
     + [Simulate keyboard events](#simulate-keyboard-events)
     + [Browser automation](#browser-automation)
@@ -26,147 +29,164 @@ Desktop automation language for Linux and Mac OS.
 
 ## Idea - What does (will) it do?
 
-The idea behing autolang is to ease the process of scripting 
-cross-platform automation via a comparatively simple high-level 
-language, that transpiles to executable bash scripts which than evoke
-existing (third party and built-in) automation tools.
-The autolang executable is 1. a compiler and 2. provides a list of
-commands executable from bash. 
+Shell-Do script is a superset of shell script, providing additional commands 
+geared towards cross-platform UI automation.  
+Shell-Do scripts can be transpiled and run as shell scripts.  
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 controlling a web browser, some advanced file manipulations and more. 
 
-All actual automation is performed using existing third party and some built-in
-tools:
+
+## Modes of Operation
+
+The Do-Shell executable is a *compiler*, 
+can *execute* Do-Shell scripts and provides some *built-in tools* that can
+be run from the shell.
+
+### Transpile
+
+Running ``shdo``, the compiler will find all ``*.do.sh`` files within the 
+current working path, including its sub-directories, and 
+create ``*.sh`` files with the same basename at the same path.
+
+### Transpile and run
+
+Running ``shdo -r script.do.sh``, the compiler will transpile the given 
+file and execute it. Also already transpiled scripts or plain shell scripts
+not containing any Shell-Do commands can be executed. 
+
+### Run built-in actions
+
+Helpful shell tools, built-in and executable via the
+Shell-Do binary: 
+
+#### File manipulations
+
+All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
+given source file.
+
+| Command                                          | Description                                             |
+| ------------------------------------------------ | ------------------------------------------------------- |
+| ``shdo replaceAllInFile file search replace``    | Replace all occurrences of given string                 |
+| ``shdo replaceFirstInFile file search replace``  | Replace first occurrence of given string                |
+| ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
+| ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
+| ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
+
+
+## Triggered automation tools
+
+Automation is ultimately performed using existing tools from third parties, 
+and some built-in tools:
 
 * **Linux:**
   * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
   * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
   * [xsel](https://linux.die.net/man/1/xsel)
   * Shell script
-  * atl executable
+  * Shell-Do executable
 * **Mac OS:**
   * AppleScript (osascript)
   * Shell script
-  * atl executable
+  * Shell-Do executable 
 
-
-## Compiler modes
-
-### Transpile
-
-Running ``alc``, the compiler will find all ``.atl`` files within the 
-current working path, including its sub-directories at any level, and 
-create ``.sh`` files with the same basename at the same path.
-
-### Transpile and execute
-
-Running ``alc -r script.atl``, the compiler will transpile the given 
-file and execute it (no transpiled file is saved).
-
-### Run built-in action
-
-A collection of shell tools, executable from the
-atl-binary. 
-
-
-``atl replaceInFile file search replace;``
-...  
 
 ## Configuration
 
-Via an optional ``.aml.ini`` file the following optional settings can be
+Via an optional ``.shdo.ini`` file, the following optional settings can be
 given:
 
-``bash_editor=nano`` "editor" being e.g. ``vim``, ``nano``, etc.  
-``browser=firefox`` browser to be targeted  
+| Config                                           | Description                                                      |
+| ------------------------------------------------ | ---------------------------------------------------------------- |
+| ``bash_editor=nano``                             | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
+| ``browser=firefox``                              | Web browser to be targeted                                       |
+| ``date_format=Ymn`` ...                          | Date format in printf() syntax                                   |
 
 
 ## Language / syntax
 
-* autolang is a superset of SHell script:
-  Non atl-commands are interpreted/passed-on as shell commands. 
-* Empty lines are ignored.
-* Whitespace preceding a commamd or comment, used e.g. for indenting is allowed
-* Each line is expected to contain no more than one command
-* Atl-commands are prefixed by #, allowing editors
-  to use existing SHell script highlightning 
+* Shell-Do script is a superset of shell script, 
+  scripts can contain all possible shell commands.
+* Shell-Do commands look similar to comments containig pseudo-code
+* Shell-Do commands are prefixed by #, allowing editors
+  to use existing shell script highlightning 
 * Every command is expected to be ended by: ";\n"
-* Whitespace at the end of lines is NOT allowed
-* Comments must be written on separate lines
+* Comments must be prefixed by ``//``
 
-
-## Comments
-
-There are only single-line, no block comments.
-Comments are prefixed by: ``//``.
 
 ## Runtime macros
 
-The following strings are replaced at runtime:  
+The following macros are replaced at runtime by generic content:  
 
-``__date__`` - current date in preferred format  
-
-``__pwd__`` - working directory path  
-
-``__timestamp__`` - current UNIX timestamp  
-
-``__os__`` - ``linux`` or ``darwin``  
-... 
+| Macro             | Replaced by                                                      |
+| ----------------- | ---------------------------------------------------------------- |
+| ``__date__``      | Current date in preferred format                                 |
+| ``__pwd__``       | Working directory path                                           |
+| ``__timestamp__`` | Current UNIX timestamp                                           |
+| ``__os__``        | ``linux`` or ``darwin``                                          |
 
 
 ## Commands
 
+### Imports
+
+Before any other transposing and processing, Shell-Do imports extracted/separated 
+plaintext and/or scripts from given files:
+
+``#import another_file.do.sh;``  
+
+
 ### Control flow
 
-``sleep [float SECONDS];``  
+``#wait 1.5 SECONDS;``  
+``#wait for any keypress;``  
 
 
 ### Simulate keyboard events
 
+
 **Hit single key:**  
-``keyStrokeBackspace;`` Hit BACKSPACE key  
-``keyStrokeEnter;`` Hit ENTER key  
-``keyStrokeEsc;`` Hit ESC key  
-``keyStrokeTab;`` Hit TAB key  
+``#keystroke backspace;``  
+``#keystroke enter;``   
+``#keystroke esc;``  
+``#keystroke f1;``  
+``#keystroke tab;``  
+``#keystroke space;``
+
 
 **Stroke key combination:**  
-``keyStrokeCopy;`` Hit CTRL+C or CMD+C  
-``keyStrokeCut;`` Hit CTRL+X or CMD+X  
-``keyStrokePaste;`` Hit CTRL+V or CMD+V   
-``keyStrokeSelectAll;`` Hit CTRL+A or CMD+A  
+``#key combo copy;`` = Hit CTRL+C or CMD+c  
+``#key combo cut;``  
+``#keystroke paste;`` Hit CTRL+V or CMD+V   
+``#keystroke selectAll;`` Hit CTRL+A or CMD+A  
 
 **Type text:**  
-``type [string "TEXT"];`` Simulate typing given text on keyboard  
-``type [string "TEXT"] [float SECONDS];`` Type text with given delay
-  between characters  
-``type [string "TEXT"] [float MIN_SECONDS] [float MAX_SECONDS];``
-  Type text with random delay within given range between characters  
+``#type [string "TEXT"];`` Simulate typing given text on keyboard  
 
 
 ### Browser automation
 
-``activateBrowser;`` Launch or bring preferred browser window to front  
-``closeBrowserTab;`` Hits CTRL+W or CMD+W  
-``focusNextBrowserTab;`` Hits CTRL+TAB or CMD+TAB  
-``focusBrowserURL;`` Hits CTRL+L or CMD+L  
-``focusPrevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB  
-``openUrlInBrowser [string "URL"];`` Load given URL in new browser tab  
-``openFindInBrowser;`` Hits CTRL+F or CMD+F  
-``openBrowserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
-``openBrowserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
-``openBrowserSettings;`` Hits CTRL+Comma or CMD+Comma  
-``openNewBrowserTab;`` Hits CTRL+T or CMD+T  
-``reopenBrowserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W  
+``#activate browser;`` Launch or bring preferred browser window to front  
+``#close browserTab;`` Hits CTRL+W or CMD+W  
+``#focus nextBrowserTab;`` Hits CTRL+TAB or CMD+TAB  
+``#focus BrowserURL;`` Hits CTRL+L or CMD+L  
+``#focus prevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB  
+``#open UrlInBrowser [string "URL"];`` Load given URL in new browser tab  
+``#open findInBrowser;`` Hits CTRL+F or CMD+F  
+``#open browserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
+``#open browserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
+``#open browserSettings;`` Hits CTRL+Comma or CMD+Comma  
+``#open newBrowserTab;`` Hits CTRL+T or CMD+T  
+``#reopen browserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W  
 
 ### Terminal automation
 
-``openNewTerminal;``  
-``editInTerminal [string "FILE"];`` Open given file in bash editor  
+``#open newTerminal;``  
+``#edit inTerminal [string "FILE"];`` Open given file in bash editor  
 
 
 ### Dialogs and popups
 
-``alert [string "TEXT"];``  
-``notify [string "TEXT"];``  
+``#alert [string "TEXT"];``  
+``#notify [string "TEXT"];``  
