@@ -16,9 +16,11 @@ Compiler::Compiler(int argc, const std::vector<std::string> &argv) {
 bool Compiler::Compile() {
   if (argc_ <= 1) return CompileAllInPath();
 
-  auto source = LoadSource();
+  if (!LoadSource()) return false;
 
-  // resolve all #import statements, in loop until no more #import within code
+  ResolveImports();
+
+  std::cout << source_;
 
   // replace all runtime macros by generic values
 
@@ -31,22 +33,43 @@ bool Compiler::Compile() {
   return true;
 }
 
+bool Compiler::ResolveImports() {
+  unsigned long offset_start;
+
+  while ((offset_start = source_.find("#import ")) != std::string::npos) {
+    unsigned long offset_end = source_.find('\n', offset_start);
+
+    if (offset_end == std::string::npos) offset_end = source_.length();
+
+    std::string path_import_file = source_.substr(offset_start + 7, offset_end - offset_start);
+    helper::String::Trim(&path_import_file);
+
+    if (!helper::File::ResolvePath(path_source_abs_, &path_import_file, true)) {
+      return doShell::AppLog::NotifyError("Imported from " + path_source_abs_);
+    }
+
+    std::string import_content;
+    helper::File::GetFileContents(path_import_file, &import_content);
+
+    source_.replace(offset_start, offset_end - offset_start, import_content);
+  }
+
+  return true;
+}
+
 bool Compiler::CompileAllInPath() {
   // TODO(kay): implement
   return true;
 }
 
-std::string Compiler::LoadSource() {
+bool Compiler::LoadSource() {
   auto pwd = std::getenv("PWD");
 
   path_source_abs_ = argv_[2];
 
-  if (!helper::File::ResolvePath(pwd, &path_source_abs_, true)) return "";
-
-  std::string code;
-  helper::File::GetFileContents(path_source_abs_, &code);
-
-  return code;
+  return helper::File::ResolvePath(pwd, &path_source_abs_, true)
+      ? helper::File::GetFileContents(path_source_abs_, &source_)
+      : false;
 }
 
 Compiler::~Compiler() {

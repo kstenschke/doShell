@@ -30,10 +30,12 @@ class Compiler {
   std::vector<std::string> argv_;
 
   std::string path_source_abs_;
+  std::string source_;
 
   bool CompileAllInPath();
 
-  std::string LoadSource();
+  bool LoadSource();
+  bool ResolveImports();
 };
 
 }  // namespace doShell
