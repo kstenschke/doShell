@@ -26,11 +26,11 @@ App::~App() {
 }
 
 void App::SetPathIn(const std::string &path_docx_in) {
-  path_docx_in_ = path_docx_in;
+  path_in_ = path_docx_in;
 }
 
 void App::SetPathOut(const std::string &path_docx_out) {
-  path_docx_out_ = path_docx_out;
+  path_out_ = path_docx_out;
 }
 
 // Remap command + argument variations to rel. shorthand commands

@@ -13,8 +13,9 @@ class AppCommands {
  public:
   enum Command {
     Command_Compile,
-    Command_Run,
     Command_Help,
+    Command_Run,
+    Command_Version,
     Command_Invalid
   };
 

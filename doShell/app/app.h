@@ -38,10 +38,9 @@ class App {
   int argc_;
   std::vector<std::string> argv_;
 
-  bool is_batch_mode_ = false;
-
   AppCommands *command_ = nullptr;
 
+  std::string path_in_;
   std::string path_out_;  // Output path with/or filename
 
   AppCommands::Command PreProcess(AppArgument *arguments,

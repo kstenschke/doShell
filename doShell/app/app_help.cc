@@ -20,16 +20,13 @@ bool AppHelp::PrintHelp(bool with_title,
                         AppCommands::Command command,
                         const std::string &command_identifier) {
   switch (command) {
-    case AppCommands::Command_ListFields:
-    case AppCommands::Command_ListFieldsAsJson:
-      return PrintHelpOnListMergeFields(true);
-
-    case AppCommands::Command_ListMeta:
-    case AppCommands::Command_ListMetaAsJson:return PrintHelpOnListMeta(true);
+//    case AppCommands::Command_ListFields:
+//    case AppCommands::Command_ListFieldsAsJson:
+//      return PrintHelpOnListMergeFields(true);
 
     case AppCommands::Command_Invalid:
       if (!command_identifier.empty()) {
-        docxbox::AppLog::NotifyError("Unknown command: " + command_identifier);
+        doShell::AppLog::NotifyError("Unknown command: " + command_identifier);
 
         with_title = true;
       }
