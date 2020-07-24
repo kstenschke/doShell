@@ -32,14 +32,14 @@ bool Compiler::Compile() {
 
   return true;
 }
-void Compiler::InitPathSourceDirectory() {
-  unsigned long offset_last_slash = 0;
 
-  offset_last_slash = static_cast<unsigned long>(helper::String::FindLast(
-      path_source_file_abs_,
-        "/",
-        0,
-        path_source_file_abs_.length()));
+void Compiler::InitPathSourceDirectory() {
+  unsigned long offset_last_slash =
+      static_cast<unsigned long>(helper::String::FindLast(
+          path_source_file_abs_,
+          "/",
+          0,
+          path_source_file_abs_.length()));
 
   path_source_directory_abs_ =
       path_source_file_abs_.substr(0, offset_last_slash) + "/";
