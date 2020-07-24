@@ -1,7 +1,7 @@
 shellDo
 =======
 
-Shell-based UI automation for Linux and Mac OS.
+Shell-based UI automation for Linux and Mac OS
 
 
 ## Table of Contents
@@ -29,9 +29,9 @@ Shell-based UI automation for Linux and Mac OS.
 
 ## Idea - What does (will) it do?
 
-Shell-Do script is a superset of shell script, providing additional commands 
-geared towards cross-platform UI automation.  
-Shell-Do scripts can be transpiled and run as shell scripts.  
+Shell-Do script is a superset of shell script, providing commands geared towards 
+cross-platform UI and system automation.  
+This project is a compiler for transpiling and running Shell-Do scripts.  
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
@@ -39,10 +39,6 @@ controlling a web browser, some advanced file manipulations and more.
 
 
 ## Modes of Operation
-
-The Do-Shell executable is a *compiler*, 
-can *execute* Do-Shell scripts and provides some *built-in tools* that can
-be run from the shell.
 
 ### Transpile
 
@@ -53,8 +49,8 @@ create ``*.sh`` files with the same basename at the same path.
 ### Transpile and run
 
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
-file and execute it. Also already transpiled scripts or plain shell scripts
-not containing any Shell-Do commands can be executed. 
+file and execute it. Also already transpiled scripts or plain shell scripts,
+not containing any Shell-Do commands, can be executed. 
 
 ### Run built-in actions
 
@@ -190,3 +186,6 @@ plaintext and/or scripts from given files:
 
 ``#alert [string "TEXT"];``  
 ``#notify [string "TEXT"];``  
+``#confirm [string "TEXT"];``  - Yes/No Dialog
+``#prompt [string "TEXT"];``  - Popup with input field
+
