@@ -120,8 +120,8 @@ int64_t String::FindNthOccurrence(const std::string &haystack,
 
 int String::FindLast(const std::string &str,
                      const std::string &needle,
-                     int offset_start,
-                     int offset_end) {
+                     unsigned long offset_start,
+                     unsigned long offset_end) {
   int offset_needle = offset_start;
   int offset_needle_prev = offset_needle;
 

@@ -18,9 +18,9 @@ bool Compiler::Compile() {
 
   if (!LoadSource()) return false;
 
-  ResolveImports();
+  InitPathSourceDirectory();
 
-  std::cout << source_;
+  ResolveImports();
 
   // replace all runtime macros by generic values
 
@@ -31,6 +31,18 @@ bool Compiler::Compile() {
 
 
   return true;
+}
+void Compiler::InitPathSourceDirectory() {
+  unsigned long offset_last_slash = 0;
+
+  offset_last_slash = static_cast<unsigned long>(helper::String::FindLast(
+      path_source_file_abs_,
+        "/",
+        0,
+        path_source_file_abs_.length()));
+
+  path_source_directory_abs_ =
+      path_source_file_abs_.substr(0, offset_last_slash) + "/";
 }
 
 bool Compiler::ResolveImports() {
@@ -44,8 +56,8 @@ bool Compiler::ResolveImports() {
     std::string path_import_file = source_.substr(offset_start + 7, offset_end - offset_start);
     helper::String::Trim(&path_import_file);
 
-    if (!helper::File::ResolvePath(path_source_abs_, &path_import_file, true)) {
-      return doShell::AppLog::NotifyError("Imported from " + path_source_abs_);
+    if (!helper::File::ResolvePath(path_source_file_abs_, &path_import_file, true)) {
+      return doShell::AppLog::NotifyError("Imported from " + path_source_file_abs_);
     }
 
     std::string import_content;
@@ -65,10 +77,10 @@ bool Compiler::CompileAllInPath() {
 bool Compiler::LoadSource() {
   auto pwd = std::getenv("PWD");
 
-  path_source_abs_ = argv_[2];
+  path_source_file_abs_ = argv_[2];
 
-  return helper::File::ResolvePath(pwd, &path_source_abs_, true)
-      ? helper::File::GetFileContents(path_source_abs_, &source_)
+  return helper::File::ResolvePath(pwd, &path_source_file_abs_, true)
+      ? helper::File::GetFileContents(path_source_file_abs_, &source_)
       : false;
 }
 

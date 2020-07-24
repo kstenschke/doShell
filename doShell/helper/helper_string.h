@@ -57,8 +57,8 @@ extern int64_t FindNthOccurrence(const std::string &haystack,
 
 int FindLast(const std::string &str,
              const std::string &needle,
-             int offset_start,
-             int offset_end);
+             unsigned long offset_start,
+             unsigned long offset_end);
 
 extern bool IsWhiteSpace(const std::string &str);
 
