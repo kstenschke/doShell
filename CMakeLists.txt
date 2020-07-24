@@ -3,6 +3,14 @@ project(robo)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
+set (VERSION_MAJOR "0")
+set (VERSION_MINOR "0")
+set (VERSION_PATCH "1")
+
+# configure config.h to be generated from config.h.in,
+# with injected version number
+configure_file ("robo/config.h.in" "docxbox/config.h")
+
 set(CMAKE_CXX_STANDARD 17)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
