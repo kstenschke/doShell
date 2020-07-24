@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/helper/helper_file.h>
+#include <doShell/app/app_log.h>
 
 namespace helper {
 
@@ -19,8 +20,8 @@ bool File::FileExists(const std::string &path_file) {
 
 bool File::GetFileContents(const std::string &path_file,
                            std::string *contents) {
-//  if (!FileExists(path_file))
-//    return docxbox::AppLog::NotifyError("File not found: "  + path_file);
+  if (!FileExists(path_file))
+    return doShell::AppLog::NotifyError("File not found: "  + path_file);
 
   std::ifstream file(path_file);
 
@@ -86,8 +87,7 @@ bool File::ResolvePath(const std::string &pwd,
   return must_exist
              && (!helper::File::IsDir(*path)
                  && !helper::File::FileExists(*path))
-//         ? docxbox::AppLog::NotifyError(std::string("File not found: ") + *path)
-         ? false
+         ? doShell::AppLog::NotifyError(std::string("File not found: ") + *path)
          : true;
 }
 
@@ -130,9 +130,9 @@ int File::AppendToFile(const std::string &filename,
 
 bool File::CopyFile(const std::string &path_source,
                     const std::string &path_destination) {
-//  if (!FileExists(path_source))
-//    return docxbox::AppLog::NotifyError(
-//        "Copy file failed - file not found: " + path_source);
+  if (!FileExists(path_source))
+    return doShell::AppLog::NotifyError(
+        "Copy file failed - file not found: " + path_source);
 
   std::ifstream source(path_source, std::ios::binary);
   std::ofstream destination(path_destination, std::ios::binary);

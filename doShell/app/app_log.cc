@@ -16,10 +16,10 @@ AppLog::AppLog() {
 }
 
 void AppLog::InitMode() {
-  auto env_var = std::getenv("docxBox_verbose");
+  auto env_var = std::getenv("doShell_verbose");
   verbose_ = env_var != nullptr && 0 == strcmp(env_var, "1");
 
-  env_var = std::getenv("docxBox_notify");
+  env_var = std::getenv("doShell_notify");
 
   std::string option = env_var == nullptr
                        ? ""
@@ -39,7 +39,7 @@ void AppLog::InitMode() {
 }
 
 void AppLog::InitLogFile() {
-  auto env_var = std::getenv("docxBox_log_path");
+  auto env_var = std::getenv("doShell_log_path");
 
   std::string setting_path = env_var == nullptr
                              ? ""
@@ -49,7 +49,7 @@ void AppLog::InitLogFile() {
                    ? std::string(std::getenv("PWD")) + "/out.log"
                    : setting_path;
 
-  env_var = std::getenv("docxBox_clear_log_on_start");
+  env_var = std::getenv("doShell_clear_log_on_start");
 
   if (env_var != nullptr) {
     std::string setting_flush_on_start = std::string(env_var);
@@ -99,7 +99,7 @@ void AppLog::Notify(const std::string& message,
                ? "Warning"
                : "Info";
 
-  messages_.push_back("docxBox " + type_str + " - " + message);
+  messages_.push_back("doShell " + type_str + " - " + message);
 }
 
 // Store given error message for later output to stdout / logout
@@ -126,13 +126,13 @@ bool AppLog::NotifyInfo(const std::string& message, bool file_only) {
   return true;
 }
 
-// Log docxBox execution arguments to log file
+// Log doShell execution arguments to log file
 void AppLog::LogStartUp(const std::vector<std::string>& arguments) {
   std::string arg_values;
 
   for (const auto& argument : arguments) arg_values += argument + " ";
 
-  NotifyInfo("docxBox executing w/ arguments: " + arg_values, true);
+  NotifyInfo("doShell executing w/ arguments: " + arg_values, true);
 }
 
 // Remember current dateTime (notification occurred)
