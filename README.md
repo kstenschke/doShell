@@ -107,7 +107,9 @@ The following macros are only replaced at runtime by generic content.
 | ``__TIMESTAMP__`` | Current UNIX timestamp                                           |
 | ``__OS__``        | ``linux`` or ``darwin``                                          |
 | ``__LINE__``      | Line number in current file                                      |
-| ``__FILE__``      | Absolute path of current file                                    |
+| ``__FILE__``      | Absolute path of current file including the                      |
+| ``__PATH__``      | Absolute path of current file                                    |
+
 
 ## Commands
 
