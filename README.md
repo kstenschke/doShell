@@ -150,14 +150,16 @@ plaintext and/or scripts from given files:
 ``#type [string "TEXT"];`` Simulate typing given text on keyboard  
 
 
-### Browser automation
+### Web Browser automation
 
-``#activate browser;`` Launch or bring preferred browser window to front  
-``#close browserTab;`` Hits CTRL+W or CMD+W  
-``#focus nextBrowserTab;`` Hits CTRL+TAB or CMD+TAB  
-``#focus BrowserURL;`` Hits CTRL+L or CMD+L  
-``#focus prevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB  
-``#open UrlInBrowser [string "URL"];`` Load given URL in new browser tab  
+| Command                    | Description  |
+| -------------------------- | ------------ |
+| ``#activate browser;``     | Launch or bring preferred browser window to front | 
+| ``#close browserTab;``     | Hits CTRL+W or CMD+W                              |
+| ``#focus nextBrowserTab;`` | Hits CTRL+TAB or CMD+TAB                          |
+| ``#focus BrowserURL;``     | Hits CTRL+L or CMD+L                              |
+| ``#focus prevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                  |
+``#open UrlInBrowser [string "URL"];`` Load given URL in new browser tab         | 
 ``#open findInBrowser;`` Hits CTRL+F or CMD+F  
 ``#open browserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
 ``#open browserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
