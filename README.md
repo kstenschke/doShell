@@ -102,11 +102,12 @@ The following macros are only replaced at runtime by generic content.
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
-| ``__date__``      | Current date in preferred format                                 |
-| ``__pwd__``       | Working directory path                                           |
-| ``__timestamp__`` | Current UNIX timestamp                                           |
-| ``__os__``        | ``linux`` or ``darwin``                                          |
-
+| ``__DATE__``      | Current date in preferred format                                 |
+| ``__PWD__``       | Working directory path                                           |
+| ``__TIMESTAMP__`` | Current UNIX timestamp                                           |
+| ``__OS__``        | ``linux`` or ``darwin``                                          |
+| ``__LINE__``      | Line number in current file                                      |
+| ``__FILE__``      | Absolute path of current file                                    |
 
 ## Commands
 
