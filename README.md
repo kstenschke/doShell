@@ -36,7 +36,7 @@ cross-platform UI and system automation.
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
-controlling a web browser, some advanced file manipulations and more. 
+controlling a web browser, some file manipulations and more. 
 
 
 ## Modes of Operation
