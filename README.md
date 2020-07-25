@@ -29,9 +29,10 @@ Shell-based UI automation for Linux and Mac OS
 
 ## Idea - What does (will) it do?
 
+This project is a compiler for transpiling and running Shell-Do scripts.  
+
 Shell-Do script is a superset of shell script, providing commands geared towards 
 cross-platform UI and system automation.  
-This project is a compiler for transpiling and running Shell-Do scripts.  
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
