@@ -36,7 +36,8 @@ cross-platform browser / UI and system automation.
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
-controlling a web browser, some file manipulations and more. 
+and more. Focus of shellDo are simulated user interactions to control and manipulate
+web browsers by scripted interaction with the web browser's developer tools. 
 
 
 ## Modes of Operation
