@@ -32,7 +32,7 @@ Shell-based UI automation for Linux and Mac OS
 This project is a compiler for transpiling and running ShellDo scripts.  
 
 ShellDo script is a superset of shell script, providing commands geared towards 
-cross-platform UI and system automation.  
+cross-platform browser / UI and system automation.  
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
