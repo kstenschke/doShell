@@ -108,7 +108,7 @@ The following macros are only replaced at runtime by generic content.
 | ``__OS__``        | ``linux`` or ``darwin``                                          |
 | ``__LINE__``      | Line number in current file                                      |
 | ``__FILE__``      | Absolute path of current file including the                      |
-| ``__PATH__``      | Absolute path of current file                                    |
+| ``__DIR__``       | Absolute path of current file                                    |
 
 
 ## Commands
