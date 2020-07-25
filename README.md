@@ -98,7 +98,7 @@ given:
 
 The following macros are only replaced at runtime by generic content.  
 **Note:** Scripts making use of runtime macros require the shellDo binary fro being executed 
-(they cannot be run just by using just the plain shell).
+(they cannot be run just by using the plain shell).
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
@@ -185,6 +185,7 @@ and some shellDo built-in tools.
 * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
 * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
 * [xsel](https://linux.die.net/man/1/xsel)
+* xdialog
 * Shell script
 * Shell-Do executable
 
