@@ -6,7 +6,7 @@ Shell-based UI automation for Linux and Mac OS
 
 ## Table of Contents
 
-- [Shell-Do](#shell-do)
+- [ShellDo](#shelldo)
   * [What does (will) it do?](#what-does--will--it-do-)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
@@ -29,9 +29,9 @@ Shell-based UI automation for Linux and Mac OS
 
 ## Idea - What does (will) it do?
 
-This project is a compiler for transpiling and running Shell-Do scripts.  
+This project is a compiler for transpiling and running ShellDo scripts.  
 
-Shell-Do script is a superset of shell script, providing commands geared towards 
+ShellDo script is a superset of shell script, providing commands geared towards 
 cross-platform UI and system automation.  
 
 Possible automations are: launching and switching among applications and 
@@ -55,8 +55,7 @@ not containing any Shell-Do commands, can be executed.
 
 ### Run built-in actions
 
-Helpful shell tools, built-in and executable via the
-Shell-Do binary: 
+Helpful shell tools, built-in and executable via the shellDo binary: 
 
 #### File manipulations
 
@@ -86,7 +85,7 @@ given:
 
 ## Language / syntax
 
-* Shell-Do script is a superset of shell script, 
+* ShellDo script is a superset of shell script, 
   scripts can contain all possible shell commands.
 * Shell-Do commands look similar to comments containig pseudo-code
 * Shell-Do commands are prefixed by #, allowing editors
@@ -97,7 +96,9 @@ given:
 
 ## Runtime macros
 
-The following macros are replaced at runtime by generic content:  
+The following macros are only replaced at runtime by generic content.  
+**Note:** Scripts making use of runtime macros require the shellDo binary fro being executed 
+(they cannot be run just by using just the plain shell).
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
@@ -111,7 +112,7 @@ The following macros are replaced at runtime by generic content:
 
 ### Imports
 
-Before any other transposing and processing, Shell-Do imports extracted/separated 
+Before any other transposing and processing, shellDo imports extracted/separated 
 plaintext and/or scripts from given files:
 
 ``#import another_file.do.sh;``  
@@ -177,7 +178,7 @@ plaintext and/or scripts from given files:
 ## Third party dependencies
 
 Automation is ultimately performed using existing tools from third parties, 
-and some Do-Shell built-in tools.
+and some shellDo built-in tools.
 
 ### Linux
 
@@ -192,4 +193,4 @@ and some Do-Shell built-in tools.
 
 * AppleScript (osascript)
 * Shell script
-* Shell-Do executable
+* shellDo executable
