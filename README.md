@@ -51,7 +51,7 @@ create ``*.sh`` files with the same basename at the same path.
 
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
 file and execute it. Also already transpiled scripts or plain shell scripts,
-not containing any Shell-Do commands, can be executed. 
+not containing any shellDo commands, can be executed. 
 
 ### Run built-in actions
 
