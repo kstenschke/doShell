@@ -106,6 +106,17 @@ bool Compiler::ResolveImports() {
     helper::File::GetFileContents(path_import_file, &import_content);
     import_content += "\n";
 
+    auto separation = helper::String::Repeat(
+        "-",
+        static_cast<u_int16_t>(67 - path_import_file.length()));
+
+    import_content =
+        std::string("// ").append(separation)
+            .append(" imported: ").append(path_import_file).append("\n")
+            .append(import_content).append("\n")
+            .append("// ").append(separation)
+            .append(" import end. \n").append("\n");
+
     source_.replace(offset_start, offset_end - offset_start, import_content);
   }
 
