@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/compiler/compiler.h>
+#include <doShell/helper/helper_cli.h>
 
 namespace doShell {
 
@@ -42,6 +43,20 @@ bool Compiler::Compile() {
 // 3. Execute runtime copy
 // 4. Delete runtime copy
 bool Compiler::Execute() {
+  if (!Compile()) return false;
+
+  InitPathFileRuntime();
+  ReplaceRunTimeMacros();
+
+  helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
+
+  return true;
+}
+
+bool Compiler::ReplaceRunTimeMacros() {
+  if (helper::String::Contains(source_, "TIMESTAMP"))
+    helper::String::ReplaceAll(&source_, "__TIMESTAMP__", helper::DateTime::GetTimestamp());
+
   return true;
 }
 
@@ -63,7 +78,11 @@ void Compiler::InitPathFileCompiled() {
         path_source_file_abs_.substr(0, path_source_file_abs_.length() - 8);
   }
 
-  path_compiled_file_abs_ += + ".sh";
+  path_compiled_file_abs_ += ".sh";
+}
+
+void Compiler::InitPathFileRuntime() {
+  path_compiled_file_abs_ = path_compiled_file_abs_ += ".run.sh";
 }
 
 bool Compiler::ResolveImports() {

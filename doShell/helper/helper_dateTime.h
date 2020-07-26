@@ -16,6 +16,8 @@ static const char FORMAT_ISO_8601[] = "%Y-%m-%dT%H:%M:%SZ";
 static const char kRegExIso8601DateTime[] =
     R"(^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])Z$)";
 
+std::string GetTimestamp();
+
 std::string GetCurrentDateTimeFormatted(const std::string& format);
 
 std::string GetCurrentDateTimeInIso8601();

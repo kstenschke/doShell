@@ -5,6 +5,10 @@
 
 namespace helper {
 
+std::string DateTime::GetTimestamp() {
+  return "12345678";
+}
+
 // Get string of current timestamp, w/ given offset in days added,
 // in given format.
 std::string DateTime::GetCurrentDateTimeFormatted(const std::string& format) {

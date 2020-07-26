@@ -46,9 +46,14 @@ class Compiler {
   bool CompileAllInPath();
 
   bool LoadSource();
+
   bool ResolveImports();
+
   void InitPathSourceDirectory();
   void InitPathFileCompiled();
+  void InitPathFileRuntime();
+
+  bool ReplaceRunTimeMacros();
 };
 
 }  // namespace doShell
