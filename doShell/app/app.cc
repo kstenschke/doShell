@@ -42,7 +42,7 @@ bool App::Process() {
   bool result;
 
     switch (command) {
-      case AppCommands::Command_Compile: {  // c
+      case AppCommands::Command_Compile: {  // c - compile
         auto compiler = new Compiler(argc_, argv_);
         result = compiler->Compile();
 
@@ -50,7 +50,7 @@ bool App::Process() {
 
         return result;
       }
-      case AppCommands::Command_Help: {  // h
+      case AppCommands::Command_Help: {  // h - help
         AppCommands::Command kCommand;
         std::string command_identifier;
 
@@ -64,6 +64,22 @@ bool App::Process() {
         result = AppHelp::PrintHelp(true, kCommand, command_identifier);
       }
         break;
+      case AppCommands::Command_Run: {  // r - compile and run
+        auto compiler = new Compiler(argc_, argv_);
+        result = compiler->Compile();
+
+        if (!result) {
+          delete compiler;
+
+          return false;
+        }
+
+        result = compiler->Execute();
+
+        delete compiler;
+
+        return result;
+      }
       case AppCommands::Command_Version:  // v
         result = AppHelp::PrintVersion();
         break;

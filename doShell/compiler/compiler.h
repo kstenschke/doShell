@@ -21,7 +21,14 @@ class Compiler {
   // Constructor: init (resolve) command and arguments
   Compiler(int argc, const std::vector<std::string>& argv);
 
+  // Transpile given *.do.sh file to *.sh
   bool Compile();
+
+  // 1. Transpile given *.do.sh file to *.sh,
+  // 2. Create temporary runtime copy of *.sh w/ runtime macros replaced
+  // 3. Execute runtime copy
+  // 4. Delete runtime copy
+  bool Execute();
 
   virtual ~Compiler();
 
@@ -30,7 +37,10 @@ class Compiler {
   std::vector<std::string> argv_;
 
   std::string path_source_file_abs_;
+  std::string path_compiled_file_abs_;
+  std::string path_runtime_file_abs_;
   std::string path_source_directory_abs_;
+
   std::string source_;
 
   bool CompileAllInPath();
@@ -38,6 +48,7 @@ class Compiler {
   bool LoadSource();
   bool ResolveImports();
   void InitPathSourceDirectory();
+  void InitPathFileCompiled();
 };
 
 }  // namespace doShell

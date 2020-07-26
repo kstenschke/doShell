@@ -13,6 +13,7 @@ Compiler::Compiler(int argc, const std::vector<std::string> &argv) {
   // ...
 }
 
+// Transpile given *.do.sh file to *.sh
 bool Compiler::Compile() {
   if (argc_ <= 1) return CompileAllInPath();
 
@@ -29,6 +30,18 @@ bool Compiler::Compile() {
   // replace keyboard commands
   //
 
+  InitPathFileCompiled();
+
+  helper::File::WriteToNewFile(path_compiled_file_abs_, source_);
+
+  return true;
+}
+
+// 1. Transpile given *.do.sh file to *.sh,
+// 2. Create temporary runtime copy of *.sh w/ runtime macros replaced
+// 3. Execute runtime copy
+// 4. Delete runtime copy
+bool Compiler::Execute() {
   return true;
 }
 
@@ -42,6 +55,15 @@ void Compiler::InitPathSourceDirectory() {
 
   path_source_directory_abs_ =
       path_source_file_abs_.substr(0, offset_last_slash) + "/";
+}
+
+void Compiler::InitPathFileCompiled() {
+  if (helper::String::EndsWith(path_source_file_abs_, ".do.sh")) {
+    path_compiled_file_abs_ =
+        path_source_file_abs_.substr(0, path_source_file_abs_.length() - 8);
+  }
+
+  path_compiled_file_abs_ += + ".sh";
 }
 
 bool Compiler::ResolveImports() {
