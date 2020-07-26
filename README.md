@@ -1,7 +1,7 @@
 shellDo
 =======
 
-Shell-based UI automation for Linux and Mac OS
+Shell-based browser / UI automation for Linux and Mac OS
 
 
 ## Table of Contents
@@ -33,6 +33,12 @@ This project is a compiler for transpiling and running ShellDo scripts.
 
 ShellDo script is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
+
+The aim of shellDo script is to leverage otherwise more complex shell commands,
+that invoke existing tools (foremost) to simulate UI interactions, by providing new commands
+that translate into pre-scripted shell-script methods. Furthermore shellDo script enriches
+shell script with commands for increased authoring convenience, e.g. allowing imports of 
+code from separated files and use of runtime macros. 
 
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
@@ -91,8 +97,7 @@ given:
 * Shell-Do commands look similar to comments containig pseudo-code
 * Shell-Do commands are prefixed by #, allowing editors
   to use existing shell script highlightning 
-* Every command is expected to be ended by: ";\n"
-* Comments must be prefixed by ``//``
+* Comments should be prefixed by ``//``
 
 
 ## Runtime macros
