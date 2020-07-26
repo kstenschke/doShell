@@ -42,5 +42,5 @@ add_executable(dosh
         doShell/helper/helper_numeric.h
         doShell/helper/helper_string.cc
         doShell/helper/helper_string.h
-        )
+        doShell/helper/helper_cli.cc doShell/helper/helper_cli.h)
 

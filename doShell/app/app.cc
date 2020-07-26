@@ -50,7 +50,7 @@ bool App::Process() {
 
         return result;
       }
-      case AppCommands::Command_Help: {  // h - help
+      case AppCommands::Command_Help: {  // h - output help
         AppCommands::Command kCommand;
         std::string command_identifier;
 
@@ -80,7 +80,7 @@ bool App::Process() {
 
         return result;
       }
-      case AppCommands::Command_Version:  // v
+      case AppCommands::Command_Version:  // v - output version
         result = AppHelp::PrintVersion();
         break;
       case AppCommands::Command_Invalid:
