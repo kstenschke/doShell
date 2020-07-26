@@ -34,6 +34,12 @@ This project is a compiler for transpiling and running ShellDo scripts.
 ShellDo script is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
 
+The aim of shellDo script is to leverage otherwise more complex shell commands,
+that invoke existing tools (foremost) to simulate UI interactions, by providing new commands
+that translate into pre-scripted shell-script methods. Furthermore shellDo script enriches
+shell script with commands for increased authoring convenience, e.g. allowing imports of 
+code from separated files and use of runtime macros. 
+
 Possible automations are: launching and switching among applications and 
 windows, simulating mouse- and keyboard- events, running terminal commands, 
 and more. Focus of shellDo are simulated user interactions to control and manipulate
