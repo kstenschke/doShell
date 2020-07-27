@@ -43,10 +43,9 @@ Furthermore shellDo script enriches shell script for increased
 authoring convenience, e.g. allowing imports of 
 code from separated files and use of runtime macros. 
 
-Possible automations are: launching and switching among applications and 
-windows, simulating mouse- and keyboard- events, running terminal commands, 
-and more. Focus of shellDo are simulated user interactions to control and manipulate
-web browsers by scripted interaction with the web browser's developer tools. 
+shellDo aims at providing an alternative to selenium, puppetteer
+and userscripts or browser extensions, for web browser automation, 
+but with a less traceable footprint. 
 
 
 ## Modes of Operation
