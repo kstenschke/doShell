@@ -14,8 +14,6 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Run built-in actions](#run-built-in-actions)
       + [File manipulations](#file-manipulations)
   * [Configuration](#configuration)
-  * [Syntax general](#syntax-general)
-  * [Comments](#comments)
   * [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Imports](#imports)
@@ -93,15 +91,6 @@ given:
 | ``date_format=Ymn`` ...                          | Date format in printf() syntax                                   |
 
 
-## Language / syntax
-
-* ShellDo script is a superset of shell script, 
-  scripts can contain all possible shell commands.
-* Shell-Do commands look similar to comments containing pseudo-code
-* Shell-Do commands are prefixed by #, allowing editors
-  to use existing shell script highlightning 
-
-
 ## Runtime macros
 
 The following macros are only replaced at runtime by generic content.  
@@ -131,61 +120,73 @@ plaintext and/or scripts from given files:
 
 ### Control flow
 
-``#wait 1.5 SECONDS;``  
-``#wait for any keypress;``  
+``#wait 1.5 seconds``  
+``#wait for any keypress``  
 
 
 ### Simulate keyboard events
 
-
 **Hit single key:**  
-``#keystroke backspace;``  
-``#keystroke enter;``   
-``#keystroke esc;``  
-``#keystroke f1;``  
-``#keystroke tab;``  
-``#keystroke space;``
+
+| Command                  | Description                            |
+| ------------------------ | -------------------------------------- |  
+| ``#keystroke backspace`` |                                        |
+| ``#keystroke enter``     |                                        |
+| ``#keystroke esc``       |                                        |
+| ``#keystroke f1``        |                                        |
+| ``#keystroke tab``       |                                        |
+| ``#keystroke space``     |                                        |
 
 
-**Stroke key combination:**  
-``#key combo copy;`` = Hit CTRL+C or CMD+c  
-``#key combo cut;``  
-``#keystroke paste;`` Hit CTRL+V or CMD+V   
-``#keystroke selectAll;`` Hit CTRL+A or CMD+A  
+**Stroke key combination:**
 
-**Type text:**  
-``#type [string "TEXT"];`` Simulate typing given text on keyboard  
+| Command            | Description             |
+| ------------------ | ----------------------- |  
+|``#keys copy``      | Hit CTRL+C or CMD+c     |
+|``#keys cut``       |                         |
+|``#keys paste``     | Hit CTRL+V or CMD+V     |
+|``#keys selectAll`` | Hit CTRL+A or CMD+A     |
+
+**Type text:**
+
+| Command            | Description                            |
+| ------------------ | -------------------------------------- |  
+| ``#type "TEXT"``   | Simulate typing given text on keyboard | 
 
 
 ### Web Browser automation
 
-| Command                    | Description  |
-| -------------------------- | ------------ |
-| ``#activate browser;``     | Launch or bring preferred browser window to front | 
-| ``#close browserTab;``     | Hits CTRL+W or CMD+W                              |
-| ``#focus nextBrowserTab;`` | Hits CTRL+TAB or CMD+TAB                          |
-| ``#focus BrowserURL;``     | Hits CTRL+L or CMD+L                              |
-| ``#focus prevBrowserTab;`` Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                  |
-``#open UrlInBrowser [string "URL"];`` Load given URL in new browser tab         | 
-``#open findInBrowser;`` Hits CTRL+F or CMD+F  
-``#open browserDevTools;`` Hits CTRL+SHIFT+I or CMD+OPT+I  
-``#open browserDevConsole;`` Hits CTRL+SHIFT+J or CMD+SHIFT+J  
-``#open browserSettings;`` Hits CTRL+Comma or CMD+Comma  
-``#open newBrowserTab;`` Hits CTRL+T or CMD+T  
-``#reopen browserTab;`` Hits CTRL+SHIFT+W or CMD+SHIFT+W  
+| Command                     | Description                                       |
+| --------------------------- | ------------------------------------------------- |
+| ``#activate browser``       | Launch or bring preferred browser window to front | 
+| ``#close browserTab``       | Hits CTRL+W or CMD+W                              |
+| ``#focus next browserTab``  | Hits CTRL+TAB or CMD+TAB                          |
+| ``#focus browserURL``       | Hits CTRL+L or CMD+L                              |
+| ``#focus prevBrowserTab``   | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                |
+| ``#open inBrowser "URL"``   | Load given URL in new browser tab                 | 
+| ``#open find inBrowser``    | Hits CTRL+F or CMD+F                              |
+| ``#open browserDevTools``   | Hits CTRL+SHIFT+I or CMD+OPT+I                    |
+| ``#open browserDevConsole`` | Hits CTRL+SHIFT+J or CMD+SHIFT+J                  |
+| ``#open browserSettings;``  | Hits CTRL+Comma or CMD+Comma                      |
+| ``#open new browserTab``    | Hits CTRL+T or CMD+T                              |
+| ``#reopen browserTab``      | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
 
 ### Terminal automation
 
-``#open newTerminal;``  
-``#edit inTerminal [string "FILE"];`` Open given file in bash editor  
+| Command                     | Description                    |
+| --------------------------- | ------------------------------ |
+| ``#open newTerminal``       |                                |
+| ``#edit inTerminal FILE``   | Open given file in bash editor | 
 
 
 ### Dialogs and popups
 
-``#alert [string "TEXT"];``  
-``#notify [string "TEXT"];``  
-``#confirm [string "TEXT"];``  - Yes/No Dialog
-``#prompt [string "TEXT"];``  - Popup with input field
+| Command                     | Description            |
+| --------------------------- | ---------------------- |
+| ``#alert "MESSAGE"``        |                        |
+| ``#notify "MESSAGE"``       |                        |
+| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
+| ``#prompt "MESSAGE"``       | Popup with input field |
 
 
 ## Third party dependencies
