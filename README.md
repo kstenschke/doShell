@@ -43,9 +43,9 @@ Furthermore shellDo script enriches shell script for increased
 authoring convenience, e.g. allowing imports of 
 code from separated files and use of runtime macros. 
 
-shellDo aims at providing an alternative to selenium, puppetteer
-and userscripts or browser extensions, for web browser automation, 
-but with a less traceable footprint. 
+shellDo aims at providing an option for browser automation,
+similar to selenium, puppetteer, userscripts or 
+browser extensions, but with a less traceable footprint. 
 
 
 ## Modes of Operation
