@@ -4,7 +4,7 @@
 #ifndef DOSHELL_HELPER_HELPER_STRING_H_
 #define DOSHELL_HELPER_HELPER_STRING_H_
 
-#include <doshell/helper/helper_numeric.h>
+#include <doShell/helper/helper_numeric.h>
 
 #include <fcntl.h>
 //#include <sys/sendfile.h>

@@ -53,7 +53,13 @@ class Compiler {
   void InitPathFileCompiled();
   void InitPathFileRuntime();
 
-  bool ReplaceRunTimeMacros();
+  bool ReplaceRunTimeMacrosInSource();
+
+  static bool RemoveSheBangLine(std::string *import_content);
+
+  void CleanupSource();
+  void MakeRuntimeScriptExecutable() const;
+  void SaveSourceToRuntimeScript();
 };
 
 }  // namespace doShell

@@ -33,6 +33,8 @@ bool Compiler::Compile() {
 
   InitPathFileCompiled();
 
+  CleanupSource();
+
   helper::File::WriteToNewFile(path_compiled_file_abs_, source_);
 
   return true;
@@ -46,14 +48,26 @@ bool Compiler::Execute() {
   if (!Compile()) return false;
 
   InitPathFileRuntime();
-  ReplaceRunTimeMacros();
+  ReplaceRunTimeMacrosInSource();
+  SaveSourceToRuntimeScript();
+  MakeRuntimeScriptExecutable();
 
-  helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
+  std::cout << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
 
   return true;
 }
 
-bool Compiler::ReplaceRunTimeMacros() {
+void Compiler::SaveSourceToRuntimeScript() {
+  helper::File::WriteToNewFile(path_runtime_file_abs_, source_);
+}
+
+void Compiler::MakeRuntimeScriptExecutable() const {
+  std::string command = "chmod +x " + path_runtime_file_abs_;
+
+  helper::Cli::Execute(command.c_str());
+}
+
+bool Compiler::ReplaceRunTimeMacrosInSource() {
   if (helper::String::Contains(source_, "TIMESTAMP"))
     helper::String::ReplaceAll(&source_, "__TIMESTAMP__", helper::DateTime::GetTimestamp());
 
@@ -75,14 +89,14 @@ void Compiler::InitPathSourceDirectory() {
 void Compiler::InitPathFileCompiled() {
   if (helper::String::EndsWith(path_source_file_abs_, ".do.sh")) {
     path_compiled_file_abs_ =
-        path_source_file_abs_.substr(0, path_source_file_abs_.length() - 8);
+        path_source_file_abs_.substr(0, path_source_file_abs_.length() - 6);
   }
 
-  path_compiled_file_abs_ += ".sh";
+  path_compiled_file_abs_ += ".compiled.sh";
 }
 
 void Compiler::InitPathFileRuntime() {
-  path_compiled_file_abs_ = path_compiled_file_abs_ += ".run.sh";
+  path_runtime_file_abs_ = path_compiled_file_abs_ += ".run.sh";
 }
 
 bool Compiler::ResolveImports() {
@@ -106,15 +120,17 @@ bool Compiler::ResolveImports() {
     helper::File::GetFileContents(path_import_file, &import_content);
     import_content += "\n";
 
+    RemoveSheBangLine(&import_content);
+
     auto separation = helper::String::Repeat(
         "-",
         static_cast<u_int16_t>(67 - path_import_file.length()));
 
     import_content =
-        std::string("// ").append(separation)
+        std::string("# ").append(separation)
             .append(" imported: ").append(path_import_file).append("\n")
             .append(import_content).append("\n")
-            .append("// ").append(separation)
+            .append("# ").append(separation)
             .append(" import end. \n").append("\n");
 
     source_.replace(offset_start, offset_end - offset_start, import_content);
@@ -136,6 +152,40 @@ bool Compiler::LoadSource() {
   return helper::File::ResolvePath(pwd, &path_source_file_abs_, true)
       ? helper::File::GetFileContents(path_source_file_abs_, &source_)
       : false;
+}
+
+bool Compiler::RemoveSheBangLine(std::string *code) {
+  auto offset_first_newline = code->find('\n');
+
+  if (offset_first_newline == std::string::npos) return false;
+
+  std::string first_line = code->substr(0, offset_first_newline);
+
+  if (!helper::String::StartsWith(first_line.c_str(), "#!")) return false;
+
+  *code = code->substr(offset_first_newline);
+}
+
+void Compiler::CleanupSource() {
+  auto lines = helper::String::Explode(source_, '\n');
+
+  std::string clean;
+
+  bool prev_line_was_empty = false;
+
+  for (auto line : lines) {
+    helper::String::Trim(&line);
+
+    if (line.empty()) {
+      if (!prev_line_was_empty) clean += line + "\n";
+      prev_line_was_empty = true;
+    } else {
+      clean += line + "\n";
+      prev_line_was_empty = false;
+    }
+  }
+
+  source_ = clean;
 }
 
 Compiler::~Compiler() {
