@@ -35,11 +35,12 @@ cross-platform browser / UI and system automation.
 
 This project is a compiler for transpiling and running ShellDo scripts.  
 
-shellDo script enriches shell script with a vocabulary of specialized commands, mainly for
-UI interaction automation. 
-that invoke existing tools (foremost) to simulate UI interactions which in "vanilla" by providing new commands
-that translate into pre-scripted shell-script methods. Furthermore shellDo script enriches
-shell script with commands for increased authoring convenience, e.g. allowing imports of 
+shellDo script enriches shell script with a vocabulary of commands,
+that invoke existing tools (foremost) to simulate UI interactions. 
+Translated into "vanilla" shell script, the commands resolve to more
+complex scripts, that vary by target platform.
+Furthermore shellDo script enriches shell script with for increased 
+authoring convenience, e.g. allowing imports of 
 code from separated files and use of runtime macros. 
 
 Possible automations are: launching and switching among applications and 
