@@ -55,6 +55,8 @@ class Compiler {
 
   bool ReplaceRunTimeMacrosInSource();
 
+  bool TranspileActivateBrowser();
+
   static bool RemoveSheBangLine(std::string *import_content);
 
   void CleanupSource();

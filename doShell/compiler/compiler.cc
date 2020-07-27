@@ -24,8 +24,7 @@ bool Compiler::Compile() {
 
   ResolveImports();
 
-  // replace all runtime macros by generic values
-
+  TranspileActivateBrowser();
   // detect OS
   // replace wait commands
   // replace keyboard commands
@@ -52,7 +51,8 @@ bool Compiler::Execute() {
   SaveSourceToRuntimeScript();
   MakeRuntimeScriptExecutable();
 
-  std::cout << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
+  std::cout
+      << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
 
   return true;
 }
@@ -69,7 +69,18 @@ void Compiler::MakeRuntimeScriptExecutable() const {
 
 bool Compiler::ReplaceRunTimeMacrosInSource() {
   if (helper::String::Contains(source_, "TIMESTAMP"))
-    helper::String::ReplaceAll(&source_, "__TIMESTAMP__", helper::DateTime::GetTimestamp());
+    helper::String::ReplaceAll(
+      &source_,
+      "__TIMESTAMP__",
+      helper::DateTime::GetTimestamp());
+
+  return true;
+}
+
+bool Compiler::TranspileActivateBrowser() {
+  if (!helper::String::Contains(source_, "#activate browser")) return false;
+
+  // ...
 
   return true;
 }
@@ -112,8 +123,11 @@ bool Compiler::ResolveImports() {
         offset_end - (offset_start + 7));
     helper::String::Trim(&path_import_file);
 
-    if (!helper::File::ResolvePath(path_source_directory_abs_, &path_import_file, true)) {
-      return doShell::AppLog::NotifyError("Imported from " + path_source_file_abs_);
+    if (!helper::File::ResolvePath(path_source_directory_abs_,
+                                   &path_import_file,
+                                   true)) {
+      return doShell::AppLog::NotifyError(
+          "Imported from " + path_source_file_abs_);
     }
 
     std::string import_content;
@@ -150,8 +164,8 @@ bool Compiler::LoadSource() {
   path_source_file_abs_ = argv_[2];
 
   return helper::File::ResolvePath(pwd, &path_source_file_abs_, true)
-      ? helper::File::GetFileContents(path_source_file_abs_, &source_)
-      : false;
+         ? helper::File::GetFileContents(path_source_file_abs_, &source_)
+         : false;
 }
 
 bool Compiler::RemoveSheBangLine(std::string *code) {
@@ -164,6 +178,8 @@ bool Compiler::RemoveSheBangLine(std::string *code) {
   if (!helper::String::StartsWith(first_line.c_str(), "#!")) return false;
 
   *code = code->substr(offset_first_newline);
+
+  return true;
 }
 
 void Compiler::CleanupSource() {

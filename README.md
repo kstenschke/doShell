@@ -128,14 +128,14 @@ plaintext and/or scripts from given files:
 
 **Hit single key:**  
 
-| Command                  | Description                            |
-| ------------------------ | -------------------------------------- |  
-| ``#keystroke backspace`` |                                        |
-| ``#keystroke enter``     |                                        |
-| ``#keystroke esc``       |                                        |
-| ``#keystroke f1``        |                                        |
-| ``#keystroke tab``       |                                        |
-| ``#keystroke space``     |                                        |
+| Command            | Description                            |
+| ------------------ | -------------------------------------- |  
+| ``#hit backspace`` |                                        |
+| ``#hit enter``     |                                        |
+| ``#hit esc``       |                                        |
+| ``#hit f1``        |                                        |
+| ``#hit tab``       |                                        |
+| ``#hit space``     |                                        |
 
 
 **Stroke key combination:**
