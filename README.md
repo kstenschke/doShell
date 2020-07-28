@@ -105,8 +105,10 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 
 ### Control flow
 
-``#wait 1.5 seconds``  
-``#wait for any keypress``  
+| Command                    | Description                               |
+| -------------------------- | ----------------------------------------- |
+| ``#wait 1.5``              | Pause execution for 1.5 seconds           | 
+| ``#wait for any keypress`` | Pause execution until any key was pressed | 
 
 
 ### Simulate keyboard events
@@ -128,7 +130,7 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 | Command       | Description             |
 | ------------- | ----------------------- |  
 |``#copy``      | Hit CTRL+C or CMD+c     |
-|``#cut``       |                         |
+|``#cut``       | Hit CTRL+X or CMD+x     |
 |``#paste``     | Hit CTRL+V or CMD+V     |
 |``#selectAll`` | Hit CTRL+A or CMD+A     |
 
@@ -141,20 +143,36 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 
 ### Web Browser automation
 
-| Command                     | Description                                       |
-| --------------------------- | ------------------------------------------------- |
-| ``#activate browser``       | Launch or bring preferred browser window to front | 
-| ``#close browserTab``       | Hits CTRL+W or CMD+W                              |
-| ``#focus next browserTab``  | Hits CTRL+TAB or CMD+TAB                          |
-| ``#focus browserURL``       | Hits CTRL+L or CMD+L                              |
-| ``#focus prevBrowserTab``   | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                |
-| ``#open inBrowser "URL"``   | Load given URL in new browser tab                 | 
-| ``#open find inBrowser``    | Hits CTRL+F or CMD+F                              |
-| ``#open browserDevTools``   | Hits CTRL+SHIFT+I or CMD+OPT+I                    |
-| ``#open browserDevConsole`` | Hits CTRL+SHIFT+J or CMD+SHIFT+J                  |
-| ``#open browserSettings;``  | Hits CTRL+Comma or CMD+Comma                      |
-| ``#open new browserTab``    | Hits CTRL+T or CMD+T                              |
-| ``#reopen browserTab``      | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
+**Activate and toggle browser and its panels:**
+
+| Command                        | Description                                       |
+| ------------------------------ | ------------------------------------------------- |
+| ``#activate browser``          | Launch or bring preferred browser window to front | 
+| ``#close browserTab``          | Hits CTRL+W or CMD+W                              |
+| ``#focus browserURL``          | Hits CTRL+L or CMD+L                              |
+| ``#focus next browserTab``     | Hits CTRL+TAB or CMD+TAB                          |
+| ``#focus previous browserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                |
+| ``#open browserDevConsole``    | Hits CTRL+SHIFT+J or CMD+SHIFT+J                  |
+| ``#open browserDevTools``      | Hits CTRL+SHIFT+I or CMD+OPT+I                    |
+| ``#open browserSettings;``     | Hits CTRL+Comma or CMD+Comma                      |
+| ``#open new browserTab``       | Hits CTRL+T or CMD+T                              |
+| ``#reopen browserTab``         | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
+
+**General browser control**
+
+| Command                        | Description                                       |
+| ------------------------------ | ------------------------------------------------- |
+| ``#open "URL" inBrowser``      | Load given URL in new browser tab                 |
+| ``#open find inBrowser``       | Hits CTRL+F or CMD+F                              |
+
+
+**Actions upon elements in current browser page**
+
+| Command                                         | Description                                       |
+| ----------------------------------------------- | ------------------------------------------------- |
+| ``#click domElement by id "someId"``            | Invokes mouse click on given element              |
+| ``#click domElement by query "#id .someClass"`` | Invokes mouse click on given element              |
+| ``#click button containing text "Hit me!"``     | Invokes mouse click on given button               |
 
 
 ### Terminal automation
