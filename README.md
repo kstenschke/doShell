@@ -33,9 +33,9 @@ This project is a transpiler and an interpreter
 for running ShellDo scripts.  
 
 ShellDo aims at providing a unified cross-platform option
-for scripting non-headless browser automation, helpful e.g.
-for End-to-End testing, infoSec reconnaisance and for creating
-productivity macros. 
+for non-headless browser automation via extended shell script. 
+It is helpful e.g. for End-to-End testing, infoSec reconnaisance
+and for creating productivity macros. 
 ShellDo's abilities intersect with tools like selenium, puppeteer,
 userscripts or browser extensions, but with a less traceable footprint. 
 
