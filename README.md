@@ -20,7 +20,6 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Terminal automation](#terminal-automation)
     + [Dialogs and popups](#dialogs-and-popups)
     + [File manipulations](#file-manipulations)
-  *
   * [Configuration](#configuration)
   * [Third party dependencies](#third-party-dependencies)
 
