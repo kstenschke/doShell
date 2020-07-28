@@ -164,7 +164,7 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 | Command                        | Description                                       |
 | ------------------------------ | ------------------------------------------------- |
 | ``#open "URL" inBrowser``      | Load given URL in new browser tab                 |
-| ``#open find inBrowser``       | Hits CTRL+F or CMD+F                              |
+| ``#find inBrowser "..."``       | Hits CTRL+F or CMD+F                              |
 
 
 **Actions upon elements in current browser page**
