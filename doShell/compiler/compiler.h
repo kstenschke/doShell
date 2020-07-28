@@ -8,6 +8,9 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
+#include <doShell/compiler/transpileKeystrokes.h>
+#include <doShell/compiler/transpileBrowser.h>
+#include <doShell/helper/helper_cli.h>
 
 #include <cstring>
 #include <iostream>
@@ -36,6 +39,12 @@ class Compiler {
   int argc_;
   std::vector<std::string> argv_;
 
+#ifdef __linux__
+  bool is_linux_ = true;
+#else
+  bool is_linux_ = false;
+#endif
+
   std::string path_source_file_abs_;
   std::string path_compiled_file_abs_;
   std::string path_runtime_file_abs_;
@@ -55,9 +64,11 @@ class Compiler {
 
   bool ReplaceRunTimeMacrosInSource();
 
-  bool TranspileActivateBrowser();
-
   static bool RemoveSheBangLine(std::string *import_content);
+
+  void TranspileCommands();
+
+  bool TranspileType();
 
   void CleanupSource();
   void MakeRuntimeScriptExecutable() const;

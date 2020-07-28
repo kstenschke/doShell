@@ -140,12 +140,12 @@ plaintext and/or scripts from given files:
 
 **Stroke key combination:**
 
-| Command            | Description             |
-| ------------------ | ----------------------- |  
-|``#keys copy``      | Hit CTRL+C or CMD+c     |
-|``#keys cut``       |                         |
-|``#keys paste``     | Hit CTRL+V or CMD+V     |
-|``#keys selectAll`` | Hit CTRL+A or CMD+A     |
+| Command       | Description             |
+| ------------- | ----------------------- |  
+|``#copy``      | Hit CTRL+C or CMD+c     |
+|``#cut``       |                         |
+|``#paste``     | Hit CTRL+V or CMD+V     |
+|``#selectAll`` | Hit CTRL+A or CMD+A     |
 
 **Type text:**
 

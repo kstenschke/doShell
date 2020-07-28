@@ -2,7 +2,6 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/compiler/compiler.h>
-#include <doShell/helper/helper_cli.h>
 
 namespace doShell {
 
@@ -23,20 +22,26 @@ bool Compiler::Compile() {
   InitPathSourceDirectory();
 
   ResolveImports();
-
-  TranspileActivateBrowser();
-  // detect OS
-  // replace wait commands
-  // replace keyboard commands
-  //
+  TranspileCommands();
 
   InitPathFileCompiled();
-
   CleanupSource();
-
   helper::File::WriteToNewFile(path_compiled_file_abs_, source_);
 
   return true;
+}
+
+void Compiler::TranspileCommands() {
+  transpileKeystrokes::TranspileCopy(&source_, is_linux_);
+  transpileKeystrokes::TranspileCut(&source_, is_linux_);
+  transpileKeystrokes::TranspilePaste(&source_, is_linux_);
+  transpileKeystrokes::TranspileSelectAll(&source_, is_linux_);
+
+  transpileBrowser::TranspileActivate(&source_, is_linux_);
+  transpileBrowser::TranspileOpenNewTab(&source_, is_linux_);
+  transpileBrowser::TranspileFocusUrl(&source_, is_linux_);
+
+  TranspileType();
 }
 
 // 1. Transpile given *.do.sh file to *.sh,
@@ -77,12 +82,25 @@ bool Compiler::ReplaceRunTimeMacrosInSource() {
   return true;
 }
 
-bool Compiler::TranspileActivateBrowser() {
-  if (!helper::String::Contains(source_, "#activate browser")) return false;
+bool Compiler::TranspileType() {
+  if (is_linux_) return helper::String::ReplaceAll(
+      &source_,
+      "#type",
+      "xdotool type ") > 0;
 
-  // ...
+  // mac os:
+  /*
+   tell application "System Events"
+     set textToType to "text here"
+     delay 3
 
-  return true;
+     repeat
+       delay 1
+       keystroke textToType
+       keystroke return
+     end repeat
+   end tell
+   */
 }
 
 void Compiler::InitPathSourceDirectory() {
