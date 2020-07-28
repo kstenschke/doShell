@@ -33,10 +33,12 @@ cross-platform browser / UI and system automation.
 
 This project is a compiler for transpiling and running ShellDo scripts.  
 
-shellDo aims at providing a unified cross-platform option
-for scripting non-headless browser automation. 
-ShellDo's abilities cover a similar range like selenium, puppeteer, userscripts or 
-browser extensions, but with a less traceable footprint. 
+ShellDo aims at providing a unified cross-platform option
+for scripting non-headless browser automation, helpful e.g.
+for End-to-End testing, infoSec reconnaisance and for creating
+macros for enhanced productivity. 
+ShellDo's abilities cover a similar range like selenium, puppeteer,
+userscripts or browser extensions, but with a less traceable footprint. 
 
 
 ## Modes of Operation
