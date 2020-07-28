@@ -13,7 +13,6 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Transpile and execute](#transpile-and-execute)
     + [Run built-in actions](#run-built-in-actions)
       + [File manipulations](#file-manipulations)
-  * [Configuration](#configuration)
   * [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Imports](#imports)
@@ -22,6 +21,7 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Browser automation](#browser-automation)
     + [Terminal automation](#terminal-automation)
     + [Dialogs and popups](#dialogs-and-popups)
+  * [Configuration](#configuration)
   * [Third party dependencies](#third-party-dependencies)
 
 
@@ -77,18 +77,6 @@ given source file.
 | ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
 | ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
 | ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
-
-
-## Configuration
-
-Via an optional ``.shdo.ini`` file, the following optional settings can be
-given:
-
-| Config                                           | Description                                                      |
-| ------------------------------------------------ | ---------------------------------------------------------------- |
-| ``bash_editor=nano``                             | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
-| ``browser=firefox``                              | Web browser to be targeted                                       |
-| ``date_format=Ymn`` ...                          | Date format in printf() syntax                                   |
 
 
 ## Runtime macros
@@ -187,6 +175,18 @@ plaintext and/or scripts from given files:
 | ``#notify "MESSAGE"``       |                        |
 | ``#confirm "MESSAGE"``      | Yes/No Dialog          |
 | ``#prompt "MESSAGE"``       | Popup with input field |
+
+
+## Configuration
+
+Via an optional ``.shdo.ini`` file, the following optional settings can be
+given:
+
+| Config                                           | Description                                                      |
+| ------------------------------------------------ | ---------------------------------------------------------------- |
+| ``bash_editor=nano``                             | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
+| ``browser=firefox``                              | Web browser to be targeted                                       |
+| ``date_format=Ymn`` ...                          | Date format in printf() syntax                                   |
 
 
 ## Third party dependencies
