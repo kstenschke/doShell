@@ -45,20 +45,21 @@ userscripts or browser extensions, but with a less traceable footprint.
 
 Running ``shdo``, the compiler will find all ``*.do.sh`` files within the 
 current working path, including its sub-directories, and 
-create ``*.sh`` files with the same basename at the same path.
+transpile them into ``*.do.x.sh`` files in the same path.
+``*.do.x.sh`` are doShell executable files, that can contain shellDo specific
+runtime macros and calls to shell tools, built-in into the shellDo binary, 
+these files can be executed via the shellDo interpreter. 
+
 
 ### Transpile and run
 
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
-file and execute it. Also already transpiled scripts or plain shell scripts,
-not containing any shellDo commands, can be executed. 
-
+file and execute it. Also already transpiled ``*.do.x.sh`` scripts can
+be executed. 
 
 ## Runtime macros
 
 The following macros are only replaced at runtime by generic content.  
-**Note:** Scripts making use of runtime macros require the shellDo binary fro being executed 
-(they cannot be run just by using the plain shell).
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
