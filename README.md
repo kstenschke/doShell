@@ -33,18 +33,9 @@ cross-platform browser / UI and system automation.
 
 This project is a compiler for transpiling and running ShellDo scripts.  
 
-shellDo enriches shell script with a vocabulary of commands,
-that invoke existing tools (foremost) to simulate UI interactions. 
-Compiled, the commands resolve to more
-complex scripts, that vary by target platform.
-Furthermore shellDo script enriches shell script for increased 
-authoring convenience, e.g. allowing imports of 
-code from separated files and use of runtime macros. 
-
 shellDo aims at providing a unified cross-platform option
 for scripting non-headless browser automation. 
-similar to apple script or xdotool, 
-with abilities similar to selenium, puppeteer, userscripts or 
+ShellDo's abilities cover a similar range like selenium, puppeteer, userscripts or 
 browser extensions, but with a less traceable footprint. 
 
 
