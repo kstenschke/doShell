@@ -21,7 +21,7 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Dialogs and popups](#dialogs-and-popups)
     + [File manipulations](#file-manipulations)
   * [Configuration](#configuration)
-  * [Third party dependencies](#third-party-dependencies)
+  * [Dependencies](#dependencies)
 
 
 ## Idea - What does (will) it do?
@@ -48,8 +48,9 @@ Running ``shdo``, the compiler will find all ``*.do.sh`` files within the
 current working path, including its sub-directories, and 
 transpile them into ``*.do.x.sh`` files in the same path.
 ``*.do.x.sh`` are shellDo executable files, that can contain shellDo specific
-runtime macros and calls to shell tools, built-in into the shellDo binary, 
-these files can be executed via the shellDo interpreter. 
+runtime macros and calls to [third party tools](#dependencies) and calls to shell tools,
+built-in into the shellDo binary. 
+These files can be executed via the shellDo interpreter. 
 
 
 ### Transpile and run
@@ -196,7 +197,7 @@ given:
 | ``date_format=Ymn`` ...              | Date format in printf() syntax                                   |
 
 
-## Third party dependencies
+## Dependencies
 
 Automation is ultimately performed using existing tools from third parties, 
 and some shellDo built-in tools.
