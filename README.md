@@ -198,11 +198,11 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 Via an optional ``.shdo.ini`` file, the following optional settings can be
 given:
 
-| Config                                           | Description                                                      |
-| ------------------------------------------------ | ---------------------------------------------------------------- |
-| ``bash_editor=nano``                             | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
-| ``browser=firefox``                              | Web browser to be targeted                                       |
-| ``date_format=Ymn`` ...                          | Date format in printf() syntax                                   |
+| Config                               | Description                                                      |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
+| ``browser=firefox``                  | Web browser to be targeted                                       |
+| ``date_format=Ymn`` ...              | Date format in printf() syntax                                   |
 
 
 ## Third party dependencies
