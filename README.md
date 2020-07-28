@@ -37,7 +37,7 @@ ShellDo aims at providing a unified cross-platform option
 for scripting non-headless browser automation, helpful e.g.
 for End-to-End testing, infoSec reconnaisance and for creating
 productivity macros. 
-ShellDo's abilities cover a similar range like selenium, puppeteer,
+ShellDo's abilities intersect with tools like selenium, puppeteer,
 userscripts or browser extensions, but with a less traceable footprint. 
 
 
