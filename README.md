@@ -35,7 +35,7 @@ This project is a compiler for transpiling and running ShellDo scripts.
 
 shellDo script enriches shell script with a vocabulary of commands,
 that invoke existing tools (foremost) to simulate UI interactions. 
-Translated into "vanilla" shell script, the commands resolve to more
+Compiled, the commands resolve to more
 complex scripts, that vary by target platform.
 Furthermore shellDo script enriches shell script for increased 
 authoring convenience, e.g. allowing imports of 
