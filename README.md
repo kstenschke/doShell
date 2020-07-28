@@ -11,9 +11,7 @@ Shell-based browser / UI automation for Linux and Mac OS
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and execute](#transpile-and-execute)
-    + [Run built-in actions](#run-built-in-actions)
-      + [File manipulations](#file-manipulations)
-  * [Runtime macros](#runtime-macros)
+    + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Imports](#imports)
     + [Control flow](#control-flow)
@@ -21,12 +19,13 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Browser automation](#browser-automation)
     + [Terminal automation](#terminal-automation)
     + [Dialogs and popups](#dialogs-and-popups)
+    + [File manipulations](#file-manipulations)
+  *
   * [Configuration](#configuration)
   * [Third party dependencies](#third-party-dependencies)
 
 
 ## Idea - What does (will) it do?
-
 
 ShellDo is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
@@ -54,23 +53,6 @@ create ``*.sh`` files with the same basename at the same path.
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
 file and execute it. Also already transpiled scripts or plain shell scripts,
 not containing any shellDo commands, can be executed. 
-
-### Run built-in actions
-
-Helpful shell tools, built-in and executable via the shellDo binary: 
-
-#### File manipulations
-
-All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
-given source file.
-
-| Command                                          | Description                                             |
-| ------------------------------------------------ | ------------------------------------------------------- |
-| ``shdo replaceAllInFile file search replace``    | Replace all occurrences of given string                 |
-| ``shdo replaceFirstInFile file search replace``  | Replace first occurrence of given string                |
-| ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
-| ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
-| ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
 
 
 ## Runtime macros
@@ -185,6 +167,20 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 | ``#alert "MESSAGE"``        |                        |
 | ``#confirm "MESSAGE"``      | Yes/No Dialog          |
 | ``#prompt "MESSAGE"``       | Popup with input field |
+
+
+### File manipulations
+
+All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
+given source file.
+
+| Command                                          | Description                                             |
+| ------------------------------------------------ | ------------------------------------------------------- |
+| ``shdo replaceAllInFile file search replace``    | Replace all occurrences of given string                 |
+| ``shdo replaceFirstInFile file search replace``  | Replace first occurrence of given string                |
+| ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
+| ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
+| ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
 
 
 ## Configuration
