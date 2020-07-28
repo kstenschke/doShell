@@ -15,7 +15,7 @@ Shell-based browser / UI automation for Linux and Mac OS
   * [Commands](#commands)
     + [Imports](#imports)
     + [Control flow](#control-flow)
-    + [Simulate keyboard events](#simulate-keyboard-events)
+    + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#browser-automation)
     + [Terminal automation](#terminal-automation)
     + [Dialogs and popups](#dialogs-and-popups)
@@ -98,7 +98,7 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 | ``#wait for any keypress`` | Display notification and pause execution until any key was pressed | 
 
 
-### Simulate keyboard events
+### Send keyboard events
 
 **Hit single key:**  
 
