@@ -100,10 +100,7 @@ The following macros are only replaced at runtime by generic content.
 
 ### Imports
 
-Before any other transposing and processing, shellDo imports extracted/separated 
-plaintext and/or scripts from given files:
-
-``#import another_file.do.sh;``  
+shellDo can import extracted/separated plaintext and/or scripts from given files via: ``#import another_file.do.sh;``  
 
 
 ### Control flow
@@ -159,6 +156,7 @@ plaintext and/or scripts from given files:
 | ``#open new browserTab``    | Hits CTRL+T or CMD+T                              |
 | ``#reopen browserTab``      | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
 
+
 ### Terminal automation
 
 | Command                     | Description                    |
@@ -171,8 +169,8 @@ plaintext and/or scripts from given files:
 
 | Command                     | Description            |
 | --------------------------- | ---------------------- |
-| ``#alert "MESSAGE"``        |                        |
 | ``#notify "MESSAGE"``       |                        |
+| ``#alert "MESSAGE"``        |                        |
 | ``#confirm "MESSAGE"``      | Yes/No Dialog          |
 | ``#prompt "MESSAGE"``       | Popup with input field |
 
@@ -206,6 +204,6 @@ and some shellDo built-in tools.
 
 ### Mac OS
 
-* AppleScript (osascript)
+* AppleScript (osascript) - **Note:** Assistive access must be enabled
 * Shell script
 * shellDo executable
