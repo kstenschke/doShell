@@ -174,13 +174,13 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
 given source file.
 
-| Command                                          | Description                                             |
-| ------------------------------------------------ | ------------------------------------------------------- |
-| ``shdo replaceAllInFile file search replace``    | Replace all occurrences of given string                 |
-| ``shdo replaceFirstInFile file search replace``  | Replace first occurrence of given string                |
-| ``shdo replaceLastInFile file search replace``   | Replace last occurrence of given string                 |
-| ``shdo removeBetweenInFile file before after``   | Remove text including and between "before" and "after"  |
-| ``shdo extractBetweenInFile file before after``  | Extract text excluding but between "before" and "after" |
+| Command                                                           | Description                                             |
+| ----------------------------------------------------------------- | ------------------------------------------------------- |
+| ``#replaceAll in file path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirst in file path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLast in file path/file search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetween in file path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetween in file path/file before after``                | Extract text excluding but between "before" and "after" |
 
 
 ## Configuration
