@@ -1,4 +1,4 @@
-shellDo
+doShell
 =======
 
 Shell-based browser / UI automation for Linux and Mac OS
@@ -6,17 +6,17 @@ Shell-based browser / UI automation for Linux and Mac OS
 
 ## Table of Contents
 
-- [ShellDo](#shelldo)
-  * [What does (will) it do?](#what-does--will--it-do-)
+- [DoShell](#doshell)
+  * [What does (will) it do?](#idea---what-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
-    + [Transpile and execute](#transpile-and-execute)
+    + [Transpile and/or run](#transpile-and/or-run)
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Imports](#imports)
     + [Control flow](#control-flow)
     + [Send keyboard events](#send-keyboard-events)
-    + [Browser automation](#browser-automation)
+    + [Browser automation](#web-browser-automation)
     + [Terminal automation](#terminal-automation)
     + [Dialogs and popups](#dialogs-and-popups)
     + [File manipulations](#file-manipulations)
@@ -26,17 +26,17 @@ Shell-based browser / UI automation for Linux and Mac OS
 
 ## Idea - What does (will) it do?
 
-ShellDo is a superset of shell script, providing commands geared towards 
+DoShell is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
 
 This project is a transpiler and an interpreter
-for running ShellDo scripts.  
+for running DoShell scripts.  
 
-ShellDo aims at providing a unified cross-platform option
+DoShell aims at providing a unified cross-platform option
 for non-headless browser automation via extended shell script. 
 It is helpful e.g. for End-to-End testing, infoSec reconnaisance
 and for creating productivity macros. 
-ShellDo's abilities intersect with tools like selenium, puppeteer,
+DoShell's abilities intersect with tools like selenium, puppeteer,
 userscripts or browser extensions, but with a less traceable footprint. 
 
 
@@ -53,7 +53,7 @@ built-in into the shellDo binary.
 These files can be executed via the shellDo interpreter. 
 
 
-### Transpile and run
+### Transpile and/or run
 
 Running ``shdo -r script.do.sh``, the compiler will transpile the given 
 file and execute it. Also already transpiled ``*.do.x.sh`` scripts can
