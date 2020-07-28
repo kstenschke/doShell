@@ -79,7 +79,7 @@ when invoking the shellDo interpreter to run a ``*.do.x.sh`` file.
 **Example**
 
 Replace all occurences of ``__FOO__`` by ``bar`` before
-running the given file:
+running the given file:  
 ``shdo -r script.do.x.sh "{\"__FOO__\":\"bar\"}"`` 
 
 
