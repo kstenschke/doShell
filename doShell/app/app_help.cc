@@ -25,6 +25,7 @@ bool AppHelp::PrintHelp(bool with_title,
 //      return PrintHelpOnListMergeFields(true);
 
     case AppCommands::Command_Invalid:
+    default:
       if (!command_identifier.empty()) {
         doShell::AppLog::NotifyError("Unknown command: " + command_identifier);
 
@@ -51,12 +52,12 @@ bool AppHelp::PrintOverview(bool with_title) {
       "\n  Compile and execute script:"
       "\n    <no arguments> - Find and compile script files recursively"
       "\n                     at current path and its sub directories"
-      "\n    c              - Compile given script file"
-      "\n    r              - Compile and run given script file"
+      "\n    -c             - Compile given script file"
+      "\n    -r             - Compile and run given script file"
       "\n"
       "\n  Meta commands:"
-      "\n    h     - Help: Describe usage of this program"
-      "\n    v     - Version: Output version number"
+      "\n    -h             - Help: Describe usage of this program"
+      "\n    -v             - Version: Output version number"
       "\n\n"
       "Type 'dosh help <command>' "
       "for more help on a specific command."

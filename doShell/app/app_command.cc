@@ -21,13 +21,13 @@ AppCommands::Command AppCommands::Resolve() {
 
 AppCommands::Command AppCommands::ResolveCommandByName(
     const std::string &command) {
-  if (command == "c" || command == "compile")
+  if (command == "-c" || command == "compile")
     return Command_Compile;
-  if (command == "r" || command == "run")
+  if (command == "-r" || command == "run")
     return Command_Run;
-  if (command == "h" || command == "help" || command == "?")
+  if (command == "-h" || command == "help" || command == "?")
     return Command_Help;
-  if (command == "v") return Command_Version;
+  if (command == "-v" || command == "version") return Command_Version;
 
   return Command_Invalid;
 }

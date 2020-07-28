@@ -101,6 +101,8 @@ bool Compiler::TranspileType() {
      end repeat
    end tell
    */
+
+  return false;
 }
 
 void Compiler::InitPathSourceDirectory() {
