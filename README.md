@@ -61,7 +61,7 @@ be executed.
 
 ## Runtime macros
 
-The following macros are only replaced at runtime by generic content.  
+The following predefined macros are replaced at runtime by generic content.  
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
@@ -72,6 +72,15 @@ The following macros are only replaced at runtime by generic content.
 | ``__LINE__``      | Line number in current file                                      |
 | ``__FILE__``      | Absolute path of current file including the                      |
 | ``__DIR__``       | Absolute path of current file                                    |
+
+Arbitrary user-defined runtime macros can be passed JSON formatted 
+when invoking the shellDo interpreter to run a ``*.do.x.sh`` file. 
+
+**Example**
+
+Replace all occurences of ``__FOO__`` by ``bar`` before
+running the given file:
+``shdo -r script.do.x.sh`` "{\"__FOO__\":\"bar\"}"  
 
 
 ## Commands
