@@ -42,7 +42,8 @@ authoring convenience, e.g. allowing imports of
 code from separated files and use of runtime macros. 
 
 shellDo aims at providing a unified cross-platform option
-for automation scripting, similar to apple script or xdotool, 
+for scripting non-headless browser automation. 
+similar to apple script or xdotool, 
 with abilities similar to selenium, puppeteer, userscripts or 
 browser extensions, but with a less traceable footprint. 
 
