@@ -47,7 +47,7 @@ userscripts or browser extensions, but with a less traceable footprint.
 Running ``shdo``, the compiler will find all ``*.do.sh`` files within the 
 current working path, including its sub-directories, and 
 transpile them into ``*.do.x.sh`` files in the same path.
-``*.do.x.sh`` are doShell executable files, that can contain shellDo specific
+``*.do.x.sh`` are shellDo executable files, that can contain shellDo specific
 runtime macros and calls to shell tools, built-in into the shellDo binary, 
 these files can be executed via the shellDo interpreter. 
 
