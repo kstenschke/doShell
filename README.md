@@ -33,7 +33,7 @@ cross-platform browser / UI and system automation.
 
 This project is a compiler for transpiling and running ShellDo scripts.  
 
-shellDo script enriches shell script with a vocabulary of commands,
+shellDo enriches shell script with a vocabulary of commands,
 that invoke existing tools (foremost) to simulate UI interactions. 
 Compiled, the commands resolve to more
 complex scripts, that vary by target platform.
