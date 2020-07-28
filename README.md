@@ -92,10 +92,10 @@ shellDo can import extracted/separated plaintext and/or scripts from given files
 
 ### Control flow
 
-| Command                    | Description                               |
-| -------------------------- | ----------------------------------------- |
-| ``#wait 1.5``              | Pause execution for 1.5 seconds           | 
-| ``#wait for any keypress`` | Pause execution until any key was pressed | 
+| Command                    | Description                                                        |
+| -------------------------- | ------------------------------------------------------------------ |
+| ``#wait 1.5``              | Pause execution for 1.5 seconds                                    | 
+| ``#wait for any keypress`` | Display notification and pause execution until any key was pressed | 
 
 
 ### Simulate keyboard events
