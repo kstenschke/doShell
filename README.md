@@ -28,7 +28,7 @@ Shell-based browser / UI automation for Linux and Mac OS
 ## Idea - What does (will) it do?
 
 
-ShellDo script is a superset of shell script, providing commands geared towards 
+ShellDo is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
 
 This project is a compiler for transpiling and running ShellDo scripts.  
