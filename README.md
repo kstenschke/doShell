@@ -225,14 +225,6 @@ All file manipulations allow as optional last argument a destination file path, 
 given source file.
 
 
-### Functions, Iteractions, Conditions
-
-As doShell is a superset of shell script, 
-all language constructs of regular shell script
-can also be used within doShell script. 
-
-
-
 | Command                                                           | Description                                             |
 | ----------------------------------------------------------------- | ------------------------------------------------------- |
 | ``#replaceAll in file path/file search replace``                  | Replace all occurrences of given string                 |
@@ -240,6 +232,13 @@ can also be used within doShell script.
 | ``#replaceLast in file path/file search replace``                 | Replace last occurrence of given string                 |
 | ``#replaceBetween in file path/file before after replacement ``   | Remove text including and between "before" and "after"  |
 | ``#extractBetween in file path/file before after``                | Extract text excluding but between "before" and "after" |
+
+
+### Functions, Iteractions, Conditions
+
+As doShell is a superset of shell script, 
+all language constructs of regular shell script
+can also be used within doShell script. 
 
 
 ## Configuration
