@@ -40,7 +40,7 @@ cross-platform browser / UI and system automation.
 This project is a transpiler and an interpreter
 for running doShell scripts.  
 
-Some possible usecases for doShell are End-to-End testing, 
+Some possible doShell usecases are End-to-End testing, 
 infoSec reconnaisance and creation of productivity macros. 
 
 
