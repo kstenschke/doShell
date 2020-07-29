@@ -40,7 +40,7 @@ cross-platform browser / UI and system automation.
 This project is a transpiler and an interpreter
 for running DoShell scripts.  
 
-DoShell aims at providing a unified cross-platform option
+DoShell aims at providing a cross-platform option
 for non-headless browser automation via extended shell script. 
 It is helpful e.g. for End-to-End testing, infoSec reconnaisance
 and for creating productivity macros. 
