@@ -53,6 +53,7 @@ userscripts or browser extensions, but with a less traceable footprint.
 * Support the same language on linux and mac os
 * Keep commands as short as possible, while as much
   self-explanatory as possible
+* Don't reinvent the wheel: invoke and reference existing tools
 
 
 ## Modes of Operation
