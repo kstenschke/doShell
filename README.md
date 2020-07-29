@@ -14,7 +14,6 @@ Shell-based browser / UI automation for Linux and Mac OS
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Import](#import)
-    + [Control flow](#control-flow)
     + [Dialogs](#dialogs)
     + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
@@ -51,10 +50,14 @@ infoSec reconnaisance and creation of productivity macros.
 2. Support the same language on linux and mac os
 3. Make the language concise: commands should be as short as possible, 
   while as much self-explanatory as possible
-4. Don't reinvent the wheel: invoke and reference existing tools
-5. (following 4.) While there is no editor, linter or syntax highlightning:
-   Enable IDEs to identify doShell as shell script 
-   (mask doShell commands as shell script comments) 
+4. Keep it brief: automation commands include a plausible delay, so that
+   following commands wont fire too early (if they do though, 
+   additional delays can be scripted vai ``sleep`` commands).
+5. Don't reinvent the wheel:  
+   1. Reuse existing tools  (shell script, xdotool / apple script, ...)  
+   2. While there is no dedicated editor, linter or syntax highlightning
+   for doShell: Enable IDEs to identify doShell as shell script 
+   (mask doShell commands as shell script comments)   
 
 
 ## Modes of Operation
@@ -107,13 +110,6 @@ running the given file:
 doShell can import extracted/separated plaintext
 and/or scripts from given files via:  
 ``#import another_file.do.sh;``  
-
-
-### Control flow
-
-| Command                    | Description                                                        |
-| -------------------------- | ------------------------------------------------------------------ |
-| ``#sleep 1.5``             | Pause execution for 1.5 seconds                                    | 
 
 
 ### Dialogs
