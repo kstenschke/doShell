@@ -24,7 +24,8 @@ Shell-based browser / UI automation for Linux and Mac OS
       * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
     + [Clipboard](#clipboard)
-    + [File manipulations](#file-manipulations)
+    + [File manipulation](#file-manipulation)
+    + [Functions](#functions) 
   * [Configuration](#configuration)
   * [Dependencies](#dependencies)
   * [Build Instructions](#build-instructions)
@@ -218,10 +219,19 @@ and/or scripts from given files via:
 | ``$value=#getClipboard``       |                        |
 
 
-### File manipulations
+### File manipulation
 
 All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
 given source file.
+
+
+### Functions, Iteractions, Conditions
+
+As doShell is a superset of shell script, 
+all language constructs of regular shell script
+can also be used within doShell script. 
+
+
 
 | Command                                                           | Description                                             |
 | ----------------------------------------------------------------- | ------------------------------------------------------- |
