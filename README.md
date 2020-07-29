@@ -34,18 +34,15 @@ Shell-based browser / UI automation for Linux and Mac OS
 
 ## Idea - What does (will) it do?
 
-DoShell is a superset of shell script, providing commands geared towards 
+doShell is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
 
 This project is a transpiler and an interpreter
-for running DoShell scripts.  
+for running doShell scripts.  
 
-DoShell aims at providing a cross-platform option
-for non-headless browser automation via extended shell script. 
-It is helpful e.g. for End-to-End testing, infoSec reconnaisance
-and for creating productivity macros. 
-DoShell's abilities intersect with tools like selenium, puppeteer,
-userscripts or browser extensions, but with a less traceable footprint. 
+Some possible usecases for doShell are End-to-End testing, 
+infoSec reconnaisance and creation of productivity macros. 
+
 
 ### Mission targets
 
