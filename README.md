@@ -15,6 +15,7 @@ Shell-based browser / UI automation for Linux and Mac OS
   * [Commands](#commands)
     + [Import](#import)
     + [Control flow](#control-flow)
+    + [Dialogs](#dialogs)
     + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
       * [Toggle browser panels](#toggle-browser-panels)
@@ -23,7 +24,6 @@ Shell-based browser / UI automation for Linux and Mac OS
       * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
     + [Clipboard](#clipboard)
-    + [Dialogs and popups](#dialogs-and-popups)
     + [File manipulations](#file-manipulations)
   * [Configuration](#configuration)
   * [Dependencies](#dependencies)
@@ -101,16 +101,6 @@ running the given file:
 
 ## Commands
 
-### General
-
-All commands accept an optional last argument for pausing execution after having
-invoked that command.  
-
-**Example:** Type: "hello", wait 0.5 seconds, type: " world"  
-
-``#type "hello" 0.5``  
-``#type " word"`` 
-
 ### Import
 
 doShell can import extracted/separated plaintext
@@ -122,8 +112,17 @@ and/or scripts from given files via:
 
 | Command                    | Description                                                        |
 | -------------------------- | ------------------------------------------------------------------ |
-| ``sleep 1.5``              | Pause execution for 1.5 seconds (Shell script command)             | 
-| ``#wait for any keypress`` | Display notification and pause execution until any key was pressed | 
+| ``#sleep 1.5``             | Pause execution for 1.5 seconds                                    | 
+
+
+### Dialogs
+
+| Command                     | Description            |
+| --------------------------- | ---------------------- |
+| ``#notify "MESSAGE"``       |                        |
+| ``#alert "MESSAGE"``        |                        |
+| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
+| ``#prompt "MESSAGE"``       | Popup with input field |
 
 
 ### Send keyboard events
@@ -217,16 +216,6 @@ and/or scripts from given files via:
 | ------------------------------ | ---------------------- |
 | ``#setClipboard: $value``      |                        |
 | ``$value=#getClipboard``       |                        |
-
-
-### Dialogs and popups
-
-| Command                     | Description            |
-| --------------------------- | ---------------------- |
-| ``#notify "MESSAGE"``       |                        |
-| ``#alert "MESSAGE"``        |                        |
-| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
-| ``#prompt "MESSAGE"``       | Popup with input field |
 
 
 ### File manipulations
