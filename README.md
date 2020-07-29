@@ -13,7 +13,7 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Transpile and/or run](#transpile-and/or-run)
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
-    + [Imports](#imports)
+    + [Import](#import)
     + [Control flow](#control-flow)
     + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
@@ -85,9 +85,11 @@ running the given file:
 
 ## Commands
 
-### Imports
+### Import
 
-shellDo can import extracted/separated plaintext and/or scripts from given files via: ``#import another_file.do.sh;``  
+shellDo can import extracted/separated plaintext
+and/or scripts from given files via:  
+``#import another_file.do.sh;``  
 
 
 ### Control flow
