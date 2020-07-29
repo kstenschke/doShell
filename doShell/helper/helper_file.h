@@ -4,8 +4,6 @@
 #ifndef DOSHELL_HELPER_HELPER_FILE_H_
 #define DOSHELL_HELPER_HELPER_FILE_H_
 
-//#include <doShell/app/app_log.h>
-
 #include <dirent.h>
 #include <sys/stat.h>
 

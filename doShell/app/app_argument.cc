@@ -43,7 +43,8 @@ bool AppArgument::IsArgumentGiven(int argc,
                                   int index,
                                   const std::string &argument_description) {
   return argc <= index
-         ? doShell::AppLog::NotifyError("Missing argument: " + argument_description)
+         ? doShell::AppLog::NotifyError(
+             "Missing argument: " + argument_description)
          : true;
 }
 

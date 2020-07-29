@@ -26,6 +26,9 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [File manipulations](#file-manipulations)
   * [Configuration](#configuration)
   * [Dependencies](#dependencies)
+  * [Build Instructions](#build-instructions)
+  * [Code Convention](#code-convention)
+  * [License](#license)
 
 
 ## Idea - What does (will) it do?
@@ -245,3 +248,28 @@ and some doShell built-in tools.
 * AppleScript (osascript) - **Note:** Assistive access must be enabled
 * Shell script
 * doShell executable
+
+
+
+Build Instructions
+------------------
+
+`cmake CMakeLists.txt; make`
+
+
+Code Convention
+---------------
+
+It is recommended to write doShell scripts according to 
+[Google Shell Style Guide](https://google.github.io/styleguide/shell.xml)
+where applicable.
+
+The source code of the doShell transpiler and interpreter follows the 
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).  
+
+
+License
+-------
+
+doShell is licensed under
+[The MIT License (MIT)](https://opensource.org/licenses/MIT)

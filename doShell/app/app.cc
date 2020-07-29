@@ -8,7 +8,6 @@ namespace doShell {
 
 // Constructor: init (resolve) command and arguments
 App::App(int argc, const std::vector<std::string>& argv) {
-
   if (argv.size() == 1) {
     // No command given
     AppHelp::PrintHelp(true, AppCommands::Command::Command_Invalid);

@@ -65,11 +65,13 @@ bool AppHelp::PrintOverview(bool with_title) {
 
   std::string column_2 =
       "\n  Built-in shell tools:"
-      "\n    replaceAllInFile     - Replace all occurrences of given string in file"
-      "\n    replaceFirstInFile   - Replace first occurrence of given string in file"
-      "\n    replaceLastInFile    - Replace last occurrence of given string in file"
-      "\n    removeBetweenInFile  - Remove text between and including given strings in file"
-      "\n    extractBetweenInFile - Save text between (excluding) given strings of given to new file"
+      "\n    replaceAllInFile     - Replace all occurrences of string in file"
+      "\n    replaceFirstInFile   - Replace first occurrence of string in file"
+      "\n    replaceLastInFile    - Replace last occurrence of string in file"
+      "\n    removeBetweenInFile  - Remove text between and including given "
+      "strings in file"
+      "\n    extractBetweenInFile - Save text between (excluding) given strings"
+      " of given to new file"
       "\n";
 
   std::cout << helper::String::RenderTwoColumns(column_1, column_2);

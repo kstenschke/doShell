@@ -227,7 +227,6 @@ void Compiler::CleanupSource() {
 }
 
 Compiler::~Compiler() {
-
 }
 
 }  // namespace doShell

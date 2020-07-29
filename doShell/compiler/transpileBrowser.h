@@ -9,11 +9,11 @@
 #include <string>
 
 namespace doShell {
-  class transpileBrowser {
-   public:
-    static bool TranspileActivate(std::string *code, bool is_linux);
-    static bool TranspileOpenNewTab(std::string *code, bool is_linux);
-    static bool TranspileFocusUrl(std::string *code, bool is_linux);
-  };
+class transpileBrowser {
+ public:
+  static bool TranspileActivate(std::string *code, bool is_linux);
+  static bool TranspileOpenNewTab(std::string *code, bool is_linux);
+  static bool TranspileFocusUrl(std::string *code, bool is_linux);
+};
 }  // namespace doShell
-#endif  //DOSHELL_COMPILER_TRANSPILEBROWSER_H_
+#endif  // DOSHELL_COMPILER_TRANSPILEBROWSER_H_

@@ -26,8 +26,7 @@ namespace doShell {
         is_linux
           ? "xdotool key ctrl+t"
           : "osascript -e 'tell application \"System Events\" "
-            "to keystroke \"t\" using command down'"
-    ) > 0;
+            "to keystroke \"t\" using command down'") > 0;
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {
@@ -37,7 +36,6 @@ namespace doShell {
         is_linux
           ? "xdotool key ctrl+l"
           : "osascript -e 'tell application \"System Events\" "
-            "to keystroke \"l\" using command down'"
-    ) > 0;
+            "to keystroke \"l\" using command down'") > 0;
   }
 }  // namespace doShell

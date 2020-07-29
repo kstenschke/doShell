@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOCXBOX_HELPER_HELPER_CLI_H_
-#define DOCXBOX_HELPER_HELPER_CLI_H_
+#ifndef DOSHELL_HELPER_HELPER_CLI_H_
+#define DOSHELL_HELPER_HELPER_CLI_H_
 
 #include <doShell/helper/helper_numeric.h>
 
@@ -47,4 +47,4 @@ extern std::string GetExecutionResponse(const char *command);
 }  // namespace Cli
 }  // namespace helper
 
-#endif  // DOCXBOX_HELPER_HELPER_CLI_H_
+#endif  // DOSHELL_HELPER_HELPER_CLI_H_
