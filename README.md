@@ -25,7 +25,7 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Terminal automation](#terminal-automation)
     + [Clipboard](#clipboard)
     + [File manipulation](#file-manipulation)
-    + [Functions](#functions) 
+    + [Functions, iterations, conditions](#functions-iterations-conditions) 
   * [Configuration](#configuration)
   * [Dependencies](#dependencies)
   * [Build Instructions](#build-instructions)
@@ -234,7 +234,7 @@ given source file.
 | ``#extractBetween in file path/file before after``                | Extract text excluding but between "before" and "after" |
 
 
-### Functions, Iteractions, Conditions
+### Functions, iterations, conditions
 
 As doShell is a superset of shell script, 
 all language constructs of regular shell script
