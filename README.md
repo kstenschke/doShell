@@ -52,7 +52,7 @@ infoSec reconnaisance and creation of productivity macros.
   while as much self-explanatory as possible
 4. Don't reinvent the wheel: invoke and reference existing tools
 5. (following 4.) While there is no editor, linter or syntax highlightning:
-   Enable editors to identify doShell as shell script 
+   Enable IDEs to identify doShell as shell script 
    (mask doShell commands as shell script comments) 
 
 
