@@ -172,6 +172,16 @@ and/or scripts from given files via:
 | ``#edit inTerminal FILE``   | Open given file in bash editor | 
 
 
+### Clipboard
+
+| Command                     | Description            |
+| --------------------------- | ---------------------- |
+| ``#notify "MESSAGE"``       |                        |
+| ``#alert "MESSAGE"``        |                        |
+| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
+| ``#prompt "MESSAGE"``       | Popup with input field |
+
+
 ### Dialogs and popups
 
 | Command                     | Description            |
