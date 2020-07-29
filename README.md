@@ -108,7 +108,7 @@ invoked that command.
 
 **Example:** Type: "hello", wait 0.5 seconds, type: " world"  
 
-``#type "hello" 0.5`` 
+``#type "hello" 0.5``  
 ``#type " word"`` 
 
 ### Import
