@@ -51,8 +51,8 @@ userscripts or browser extensions, but with a less traceable footprint.
 
 1. Ease scripted automation of controlling web browser in- and output
 2. Support the same language on linux and mac os
-3. Keep commands as short as possible, while as much
-  self-explanatory as possible
+3. Make the language concise: commands should be as short as possible, 
+  while as much self-explanatory as possible
 4. Don't reinvent the wheel: invoke and reference existing tools
 5. (following 4.) While there is no editor, linter or syntax highlightning:
    Enable editors to identify doShell as shell script 
