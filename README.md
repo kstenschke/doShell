@@ -47,6 +47,13 @@ and for creating productivity macros.
 DoShell's abilities intersect with tools like selenium, puppeteer,
 userscripts or browser extensions, but with a less traceable footprint. 
 
+### Mission targets
+
+* Ease scripting of browser automation
+* Support the same language on linux and mac os
+* Keep commands as short as possible, while as much
+  self-explanatory as possible
+
 
 ## Modes of Operation
 
