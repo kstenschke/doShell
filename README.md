@@ -49,7 +49,7 @@ userscripts or browser extensions, but with a less traceable footprint.
 
 ### Mission targets
 
-1. Ease scripting of browser automation
+1. Ease scripted automation of controlling web browser in- and output
 2. Support the same language on linux and mac os
 3. Keep commands as short as possible, while as much
   self-explanatory as possible
