@@ -51,7 +51,7 @@ infoSec reconnaisance and creation of productivity macros.
 3. Make it concise: 
    1. Commands should be as short as possible, but as self-explanatory as possible
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
-   automation commands include a plausible minimum delay. 
+   automation commands imply a plausible successive minimum delay 
 5. Don't reinvent the wheel:  
    1. Reuse existing tools  (shell script, xdotool / apple script, ...)  
    2. While there is no dedicated editor, linter or syntax highlightning
