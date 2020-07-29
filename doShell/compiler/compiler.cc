@@ -32,18 +32,19 @@ bool Compiler::Compile() {
 }
 
 void Compiler::TranspileCommands() {
+  // High-level commands come 1st, as they insert lower-level commands
+  transpileBrowser::TranspileActivate(&source_, is_linux_);
+  transpileBrowser::TranspileOpenUrlInNewBrowserTab(&source_, is_linux_);
+  transpileBrowser::TranspileOpenNewTab(&source_, is_linux_);
+  transpileBrowser::TranspileFocusUrl(&source_, is_linux_);
+
+  transpileKeystrokes::TranspileType(&source_, is_linux_);
+  transpileKeystrokes::TranspileHitKey(&source_, is_linux_);
+
   transpileKeystrokes::TranspileCopy(&source_, is_linux_);
   transpileKeystrokes::TranspileCut(&source_, is_linux_);
   transpileKeystrokes::TranspilePaste(&source_, is_linux_);
   transpileKeystrokes::TranspileSelectAll(&source_, is_linux_);
-
-  transpileKeystrokes::TranspileHitKey(&source_, is_linux_);
-
-  transpileBrowser::TranspileActivate(&source_, is_linux_);
-  transpileBrowser::TranspileOpenNewTab(&source_, is_linux_);
-  transpileBrowser::TranspileFocusUrl(&source_, is_linux_);
-
-  TranspileType();
 }
 
 // 1. Transpile given *.do.sh file to *.sh,
@@ -82,29 +83,6 @@ bool Compiler::ReplaceRunTimeMacrosInSource() {
       helper::DateTime::GetTimestamp());
 
   return true;
-}
-
-bool Compiler::TranspileType() {
-  if (is_linux_) return helper::String::ReplaceAll(
-      &source_,
-      "#type",
-      "xdotool type ") > 0;
-
-  // mac os:
-  /*
-   tell application "System Events"
-     set textToType to "text here"
-     delay 3
-
-     repeat
-       delay 1
-       keystroke textToType
-       keystroke return
-     end repeat
-   end tell
-   */
-
-  return false;
 }
 
 void Compiler::InitPathSourceDirectory() {

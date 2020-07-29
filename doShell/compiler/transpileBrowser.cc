@@ -19,6 +19,26 @@ namespace doShell {
         : "tell application \"Firefox\" to activate") > 0;
   }
 
+
+  bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code,
+                                                         bool is_linux) {
+    return helper::String::ReplaceAll(
+        code,
+        "#open url in new browserTab:",
+        is_linux
+        ? "#open new browserTab\n"
+          "sleep 0.3\n"
+          "#focus browserURL\n"
+          "sleep 0.3\n"
+          "#type \"https://duckduckgo.com/\"\n"  // TODO(kay) make url dynamic
+          "sleep 0.5\n"
+          "#hit enter"
+          "\n#"  // TODO(kay) remove comment-out url when replaced dynamically
+
+        : "osascript -e 'tell application \"System Events\" "
+          "to keystroke \"t\" using command down'") > 0;
+  }
+
   bool transpileBrowser::TranspileOpenNewTab(std::string *code, bool is_linux) {
     return helper::String::ReplaceAll(
         code,

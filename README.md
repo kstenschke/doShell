@@ -17,9 +17,10 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Control flow](#control-flow)
     + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
-      * Toggle browser / -panels
-      * General browser control
-      * Interact with DOM elements
+      * [Toggle browser panels](#toggle-browser-panels)
+      * [Load and manipulate URLs](#load-and-manipulate-urls)
+      * [Interact with DOM elements](#interact-with-dom-elements)
+      * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
     + [Clipboard](#clipboard)
     + [Dialogs and popups](#dialogs-and-popups)
@@ -92,6 +93,16 @@ running the given file:
 
 ## Commands
 
+### General
+
+All commands accept an optional last argument for pausing execution after having
+invoked that command.  
+
+**Example:** Type: "hello", wait 0.5 seconds, type: " world"  
+
+``#type "hello" 0.5`` 
+``#type " word"`` 
+
 ### Import
 
 doShell can import extracted/separated plaintext
@@ -139,7 +150,7 @@ and/or scripts from given files via:
 
 ### Web Browser automation
 
-#### Toggle browser / -panels
+#### Toggle browser panels
 
 | Command                        | Description                                       |
 | ------------------------------ | ------------------------------------------------- |
@@ -154,41 +165,49 @@ and/or scripts from given files via:
 | ``#open new browserTab``       | Hits CTRL+T or CMD+T                              |
 | ``#reopen browserTab``         | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
 
-#### General browser control
 
-| Command                        | Description                                          |
-| ------------------------------ | ---------------------------------------------------- |
-| ``$var=#get browserUrl``       | Get current URL                                      |
-| ``$var=#get browserReferrer``  | Get referrer URL                                     |
-| ``#open "URL" inBrowser``      | Load given URL in new browser tab                    |
-| ``#find inBrowser "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
+#### Load and manipulate URLs
+
+| Command                                                     | Description                                          |
+| ----------------------------------------------------------- | ---------------------------------------------------- |
+| ``$var=#get browserUrl``                                    | Get current URL                                      |
+| ``$var=#get browserReferrer``                               | Get referrer URL                                     |
+| ``##open url in new browsertab: "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
 
 
 #### Interact with DOM elements
 
-| Command                                         | Description                                       |
-| ----------------------------------------------- | ------------------------------------------------- |
-| ``#focus domElement by id "someId"``            |                                                   |
-| ``#focus domElement by query "#id .someClass"`` |                                                   |
-| ``#click domElement by id "someId"``            | Invokes mouse click on given element              |
-| ``#click domElement by query "#id .someClass"`` | Invokes mouse click on given element              |
-| ``#click button containing text "Hit me!"``     | Invokes mouse click on given button               |
-| ``#click link containing text "Hit me!"``       | Invokes mouse click on given link                 |
+| Command                                            | Description                            |
+| -------------------------------------------------- | -------------------------------------- |
+| ``#focus domElement by id: "someId"``              |                                        |
+| ``#focus domElement by query: "#id .someClass"``   |                                        |
+| ``#click domElement by id: "someId"``              | Invokes mouse click on given element   |
+| ``#click domElement by query: "#id .someClass"``   | Invokes mouse click on given element   |
+| ``#click button containing text: "Hit me!"``       | Invokes mouse click on given button    |
+| ``#click link containing text: "Hit me!"``         | Invokes mouse click on given link      |
+
+
+#### Miscellaneous
+
+| Command                         | Description                                          |
+| ------------------------------- | ---------------------------------------------------- |
+| ``#find inBrowser: "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
 
 
 ### Terminal automation
 
 | Command                     | Description                    |
 | --------------------------- | ------------------------------ |
-| ``#open newTerminal``       |                                |
-| ``#edit inTerminal FILE``   | Open given file in bash editor | 
+| ``#open new terminal``      |                                |
+| ``#open new terminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
+| ``#edit inTerminal: FILE``  | Open given file in bash editor | 
 
 
 ### Clipboard
 
 | Command                        | Description            |
 | ------------------------------ | ---------------------- |
-| ``#setClipboard $value``       |                        |
+| ``#setClipboard: $value``      |                        |
 | ``$value=#getClipboard``       |                        |
 
 

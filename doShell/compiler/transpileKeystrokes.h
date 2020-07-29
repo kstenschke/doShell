@@ -17,6 +17,8 @@ class transpileKeystrokes {
   static bool TranspileSelectAll(std::string *code, bool is_linux);
 
   static bool TranspileHitKey(std::string *code, bool is_linux);
+
+  static bool TranspileType(std::string *code, bool is_linux);
 };
 }  // namespace doShell
 

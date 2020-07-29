@@ -56,4 +56,27 @@ namespace doShell {
 
     return replaced;
   }
+
+bool transpileKeystrokes::TranspileType(std::string *code, bool is_linux) {
+  if (is_linux) return helper::String::ReplaceAll(
+        code,
+        "#type",
+        "xdotool type ") > 0;
+
+  // mac os:
+  /*
+   tell application "System Events"
+     set textToType to "text here"
+     delay 3
+
+     repeat
+       delay 1
+       keystroke textToType
+       keystroke return
+     end repeat
+   end tell
+   */
+
+  return false;
+}
 }  // namespace doShell

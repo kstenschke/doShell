@@ -68,8 +68,6 @@ class Compiler {
 
   void TranspileCommands();
 
-  bool TranspileType();
-
   void CleanupSource();
   void MakeRuntimeScriptExecutable() const;
   void SaveSourceToRuntimeScript();
