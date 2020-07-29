@@ -10,11 +10,11 @@ namespace doShell {
         "#activate browser",
         is_linux
         ? "if pidof -s firefox > /dev/null; then\n"
-          "    # bring firefox to front\n"
           "    wmctrl -a Firefox\n"
           "else\n"
-          "    me=$SUDO_USER\n"
-          "    sudo -u $me nohup firefox > /dev/null &\n"
+//          "    me=$SUDO_USER\n"
+//          "    sudo -u $me nohup firefox > /dev/null &\n"
+          "    nohup firefox > /dev/null &\n"
           "fi"
         : "tell application \"Firefox\" to activate") > 0;
   }

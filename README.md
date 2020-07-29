@@ -51,10 +51,10 @@ userscripts or browser extensions, but with a less traceable footprint.
 Running ``shdo``, the compiler will find all ``*.do.sh`` files within the 
 current working path, including its sub-directories, and 
 transpile them into ``*.do.x.sh`` files in the same path.
-``*.do.x.sh`` are shellDo executable files, that can contain shellDo specific
-runtime macros and calls to [third party tools](#dependencies) and calls to shell tools,
-built-in into the shellDo binary. 
-These files can be executed via the shellDo interpreter. 
+``*.do.x.sh`` are doShell executable files, that can contain doShell specific
+runtime macros and calls to [third party tools](#dependencies) and calls to 
+shell tools, built-in into the doShell binary. 
+These files can be executed via the doShell interpreter. 
 
 
 ### Transpile and/or run
@@ -78,7 +78,7 @@ The following predefined macros are replaced at runtime by generic content.
 | ``__DIR__``       | Absolute path of current file                                    |
 
 Arbitrary user-defined runtime macros can be passed JSON-formatted 
-when invoking the shellDo interpreter to run a ``*.do.x.sh`` file. 
+when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
 
 **Example**
 
@@ -91,7 +91,7 @@ running the given file:
 
 ### Import
 
-shellDo can import extracted/separated plaintext
+doShell can import extracted/separated plaintext
 and/or scripts from given files via:  
 ``#import another_file.do.sh;``  
 
@@ -100,7 +100,7 @@ and/or scripts from given files via:
 
 | Command                    | Description                                                        |
 | -------------------------- | ------------------------------------------------------------------ |
-| ``#wait 1.5``              | Pause execution for 1.5 seconds                                    | 
+| ``sleep 1.5``              | Pause execution for 1.5 seconds (Shell script command)             | 
 | ``#wait for any keypress`` | Display notification and pause execution until any key was pressed | 
 
 
@@ -183,12 +183,10 @@ and/or scripts from given files via:
 
 ### Clipboard
 
-| Command                     | Description            |
-| --------------------------- | ---------------------- |
-| ``#notify "MESSAGE"``       |                        |
-| ``#alert "MESSAGE"``        |                        |
-| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
-| ``#prompt "MESSAGE"``       | Popup with input field |
+| Command                        | Description            |
+| ------------------------------ | ---------------------- |
+| ``#setClipboard $value``       |                        |
+| ``$value=#getClipboard``       |                        |
 
 
 ### Dialogs and popups
@@ -230,7 +228,7 @@ given:
 ## Dependencies
 
 Automation is ultimately performed using existing tools from third parties, 
-and some shellDo built-in tools.
+and some doShell built-in tools.
 
 ### Linux
 
@@ -239,11 +237,11 @@ and some shellDo built-in tools.
 * [xsel](https://linux.die.net/man/1/xsel)
 * xdialog
 * Shell script
-* Shell-Do executable
+* doShell executable
 
 
 ### Mac OS
 
 * AppleScript (osascript) - **Note:** Assistive access must be enabled
 * Shell script
-* shellDo executable
+* doShell executable

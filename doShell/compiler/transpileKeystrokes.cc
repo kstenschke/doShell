@@ -47,4 +47,16 @@ namespace doShell {
           "using command down'"
     ) > 0;
   }
+
+  bool transpileKeystrokes::TranspileHitKey(std::string *code, bool is_linux) {
+    bool replaced = helper::String::ReplaceAll(
+        code,
+        "#hit enter",
+        is_linux
+        ? "xdotool key KP_Enter"
+        : "osascript -e 'tell application \"System Events\" to key code 36'"
+    ) > 0;
+
+    return replaced;
+  }
 }  // namespace doShell

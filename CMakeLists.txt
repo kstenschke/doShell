@@ -34,10 +34,12 @@ add_executable(dosh
         doShell/app/app_log.h
         doShell/compiler/compiler.cc
         doShell/compiler/compiler.h
-        doShell/compiler/transpileKeystrokes.cc
-        doShell/compiler/transpileKeystrokes.h
         doShell/compiler/transpileBrowser.cc
         doShell/compiler/transpileBrowser.h
+        doShell/compiler/transpileControlFlow.cc
+        doShell/compiler/transpileControlFlow.h
+        doShell/compiler/transpileKeystrokes.cc
+        doShell/compiler/transpileKeystrokes.h
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h
         doShell/helper/helper_dateTime.cc

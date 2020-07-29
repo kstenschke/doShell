@@ -15,6 +15,8 @@ namespace doShell {
     static bool TranspileCut(std::string *code, bool is_linux);
     static bool TranspilePaste(std::string *code, bool is_linux);
     static bool TranspileSelectAll(std::string *code, bool is_linux);
+
+    static bool TranspileHitKey(std::string *code, bool is_linux);
   };
 }  // namespace doShell
 

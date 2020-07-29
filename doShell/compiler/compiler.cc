@@ -37,6 +37,8 @@ void Compiler::TranspileCommands() {
   transpileKeystrokes::TranspilePaste(&source_, is_linux_);
   transpileKeystrokes::TranspileSelectAll(&source_, is_linux_);
 
+  transpileKeystrokes::TranspileHitKey(&source_, is_linux_);
+
   transpileBrowser::TranspileActivate(&source_, is_linux_);
   transpileBrowser::TranspileOpenNewTab(&source_, is_linux_);
   transpileBrowser::TranspileFocusUrl(&source_, is_linux_);
@@ -123,7 +125,7 @@ void Compiler::InitPathFileCompiled() {
         path_source_file_abs_.substr(0, path_source_file_abs_.length() - 6);
   }
 
-  path_compiled_file_abs_ += ".compiled.sh";
+  path_compiled_file_abs_ += ".x.sh";
 }
 
 void Compiler::InitPathFileRuntime() {
