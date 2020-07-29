@@ -18,6 +18,7 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
     + [Terminal automation](#terminal-automation)
+    + [Clipboard](#clipboard)
     + [Dialogs and popups](#dialogs-and-popups)
     + [File manipulations](#file-manipulations)
   * [Configuration](#configuration)
@@ -149,19 +150,24 @@ and/or scripts from given files via:
 
 **General browser control**
 
-| Command                        | Description                                       |
-| ------------------------------ | ------------------------------------------------- |
-| ``#open "URL" inBrowser``      | Load given URL in new browser tab                 |
-| ``#find inBrowser "..."``       | Hits CTRL+F or CMD+F                              |
+| Command                        | Description                                          |
+| ------------------------------ | ---------------------------------------------------- |
+| ``$var=#get browserUrl``       | Get current URL                                      |
+| ``$var=#get browserReferrer``  | Get referrer URL                                     |
+| ``#open "URL" inBrowser``      | Load given URL in new browser tab                    |
+| ``#find inBrowser "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
 
 
 **Actions upon elements in current browser page**
 
 | Command                                         | Description                                       |
 | ----------------------------------------------- | ------------------------------------------------- |
+| ``#focus domElement by id "someId"``            |                                                   |
+| ``#focus domElement by query "#id .someClass"`` |                                                   |
 | ``#click domElement by id "someId"``            | Invokes mouse click on given element              |
 | ``#click domElement by query "#id .someClass"`` | Invokes mouse click on given element              |
 | ``#click button containing text "Hit me!"``     | Invokes mouse click on given button               |
+| ``#click link containing text "Hit me!"``       | Invokes mouse click on given link                 |
 
 
 ### Terminal automation
