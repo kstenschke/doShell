@@ -49,11 +49,14 @@ userscripts or browser extensions, but with a less traceable footprint.
 
 ### Mission targets
 
-* Ease scripting of browser automation
-* Support the same language on linux and mac os
-* Keep commands as short as possible, while as much
+1. Ease scripting of browser automation
+2. Support the same language on linux and mac os
+3. Keep commands as short as possible, while as much
   self-explanatory as possible
-* Don't reinvent the wheel: invoke and reference existing tools
+4. Don't reinvent the wheel: invoke and reference existing tools
+5. (following 4.) While there is no editor, linter or syntax highlightning:
+   Enable editors to identify doShell as shell script 
+   (mask doShell commands as shell script comments) 
 
 
 ## Modes of Operation
