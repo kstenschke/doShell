@@ -17,6 +17,9 @@ Shell-based browser / UI automation for Linux and Mac OS
     + [Control flow](#control-flow)
     + [Send keyboard events](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
+      * Activate and toggle browser and its panels
+      * General browser control
+      * Interact with DOM elements
     + [Terminal automation](#terminal-automation)
     + [Clipboard](#clipboard)
     + [Dialogs and popups](#dialogs-and-popups)
@@ -158,7 +161,7 @@ and/or scripts from given files via:
 | ``#find inBrowser "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
 
 
-**Actions upon elements in current browser page**
+**Interact with DOM elements**
 
 | Command                                         | Description                                       |
 | ----------------------------------------------- | ------------------------------------------------- |
