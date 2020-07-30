@@ -146,6 +146,9 @@ and/or scripts from given files via:
 
 **Type text:**
 
+Note: Oftentimes a faster alternative over simulated typing
+is putting text into the clipboard and than pasting it. 
+
 | Command            | Description                            |
 | ------------------ | -------------------------------------- |  
 | ``#type "TEXT"``   | Simulate typing given text on keyboard | 
