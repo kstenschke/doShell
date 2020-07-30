@@ -11,6 +11,7 @@ Shell-based browser / UI automation for Linux and Mac OS
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and/or run](#transpile-and/or-run)
+    + [Communication between browsers and runtime system](Communication between browsers and runtime system)
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Import](#import)
