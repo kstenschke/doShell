@@ -75,4 +75,18 @@ namespace doShell {
     return helper::String::ReplaceAll(
         code, "#focus browserURL", replacement) > 0;
   }
+
+  bool transpileBrowser::TranspileSendJsResult(std::string *code, bool is_linux) {
+    return helper::String::ReplaceAll(
+        code,
+        "#getBrowserHtml",
+          "(()=>{\n"
+            "data=new FormData();\n"
+            "data.set('html',document.documentElement.innerHTML);\n"
+            "req=new XMLHttpRequest();\n"
+            "req.open(\"POST\", 'http://localhost:8765', true);\n"
+            "req.send(data);\n"
+            "})()"
+    ) > 0;
+  }
 }  // namespace doShell
