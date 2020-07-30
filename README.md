@@ -163,8 +163,7 @@ and/or scripts from given files via:
 | ``#type "TEXT"``      | Simulate typing given text on keyboard         |
 | ``#copyPaste: 'foo'`` | Copy text to clipboard and invoke paste. ``*`` |
 
-``* Oftentimes a faster alternative over simulated typing
-    is putting text into the clipboard and than pasting it.``  
+``* Oftentimes a faster alternative over typing``  
 
 
 ### Clipboard 
