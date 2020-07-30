@@ -65,13 +65,13 @@ for executing doShell scripts.
 
 ### Transpile
 
-Running ``shdo``, the compiler will find all ``*.do.sh`` files within the 
+Running ``dosh``, doShell will locate all ``*.do.sh`` files within the 
 current working path, including its sub-directories, and 
-transpile them into ``*.do.x.sh`` files in the same path.
+transpile them into ``*.do.x.sh`` files in the same path.  
 ``*.do.x.sh`` are doShell executable files, that can contain doShell specific
 runtime macros and calls to [third party tools](#dependencies) and calls to 
 shell tools, built-in into the doShell binary. 
-These files can be executed via the doShell interpreter. 
+These files can be executed via the doShell runtime. 
 
 
 ### Transpile and/or run
