@@ -33,18 +33,9 @@ bool Compiler::Compile() {
 
 void Compiler::TranspileCommands() {
   // High-level commands come 1st, as they insert lower-level commands
-  transpileBrowser::TranspileActivate(&source_, is_linux_);
-  transpileBrowser::TranspileOpenUrlInNewBrowserTab(&source_, is_linux_);
-  transpileBrowser::TranspileOpenNewTab(&source_, is_linux_);
-  transpileBrowser::TranspileFocusUrl(&source_, is_linux_);
-
-  transpileKeystrokes::TranspileType(&source_, is_linux_);
-  transpileKeystrokes::TranspileHitKey(&source_, is_linux_);
-
-  transpileKeystrokes::TranspileCopy(&source_, is_linux_);
-  transpileKeystrokes::TranspileCut(&source_, is_linux_);
-  transpileKeystrokes::TranspilePaste(&source_, is_linux_);
-  transpileKeystrokes::TranspileSelectAll(&source_, is_linux_);
+  transpileClipboard::Transpile(&source_, is_linux_);
+  transpileBrowser::Transpile(&source_, is_linux_);
+  transpileKeystrokes::Transpile(&source_, is_linux_);
 }
 
 // 1. Transpile given *.do.sh file to *.sh,

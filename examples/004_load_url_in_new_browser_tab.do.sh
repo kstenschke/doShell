@@ -3,5 +3,5 @@
 #activate browser
 #open new browserTab
 #focus browserURL
-#type "https://www.github.com" 
+#copyPaste: 'https://www.github.com/'
 #hit enter

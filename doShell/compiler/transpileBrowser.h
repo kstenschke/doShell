@@ -11,8 +11,10 @@
 namespace doShell {
 class transpileBrowser {
  public:
-  static bool TranspileOpenUrlInNewBrowserTab(std::string *code, bool is_linux);
+  static void Transpile(std::string *code, bool is_linux);
 
+ private:
+  static bool TranspileOpenUrlInNewBrowserTab(std::string *code, bool is_linux);
   static bool TranspileActivate(std::string *code, bool is_linux);
   static bool TranspileOpenNewTab(std::string *code, bool is_linux);
   static bool TranspileFocusUrl(std::string *code, bool is_linux);

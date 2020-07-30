@@ -4,6 +4,16 @@
 #include <doShell/compiler/transpileKeystrokes.h>
 
 namespace doShell {
+  void transpileKeystrokes::Transpile(std::string *code, bool is_linux) {
+    TranspileType(code, is_linux);
+    TranspileHitKey(code, is_linux);
+
+    TranspileCopy(code, is_linux);
+    TranspileCut(code, is_linux);
+    TranspilePaste(code, is_linux);
+    TranspileSelectAll(code, is_linux);
+  }
+  
   bool transpileKeystrokes::TranspileCopy(std::string *code, bool is_linux) {
     return helper::String::ReplaceAll(
         code,
@@ -59,9 +69,7 @@ namespace doShell {
 
 bool transpileKeystrokes::TranspileType(std::string *code, bool is_linux) {
   if (is_linux) return helper::String::ReplaceAll(
-        code,
-        "#type",
-        "xdotool type ") > 0;
+        code, "#type", "xdotool type ") > 0;
 
   // mac os:
   /*

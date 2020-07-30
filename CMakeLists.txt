@@ -36,6 +36,8 @@ add_executable(dosh
         doShell/compiler/compiler.h
         doShell/compiler/transpileBrowser.cc
         doShell/compiler/transpileBrowser.h
+        doShell/compiler/transpileClipboard.cc
+        doShell/compiler/transpileClipboard.h
         doShell/compiler/transpileControlFlow.cc
         doShell/compiler/transpileControlFlow.h
         doShell/compiler/transpileKeystrokes.cc

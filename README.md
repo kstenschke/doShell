@@ -211,10 +211,11 @@ is putting text into the clipboard and than pasting it.
 
 ### String manipulation and clipboard
 
-| Command                        | Description            |
-| ------------------------------ | ---------------------- |
-| ``#setClipboard: $value``      | Copy text to clipboard |
-| ``$value=#getClipboard`        |                        |
+| Command                        | Description                             |
+| ------------------------------ | --------------------------------------- |
+| ``#setClipboard: $value``      | Copy text to clipboard                  |
+| ``#copyPaste: 'foo'``          | Copy text to clipboard and invoke paste |
+| ``$value=#getClipboard`        |                                         |
 
 | Command                                                      | Description            |
 | ------------------------------------------------------------ | ---------------------- |
@@ -268,6 +269,7 @@ and some doShell built-in tools.
 
 * [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
 * [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
+* [xclip](https://linux.die.net/man/1/xclip)
 * [xsel](https://linux.die.net/man/1/xsel)
 * xdialog
 * Shell script
