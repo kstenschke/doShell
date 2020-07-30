@@ -15,14 +15,15 @@ Shell-based browser / UI automation for Linux and Mac OS
   * [Commands](#commands)
     + [Import](#import)
     + [Dialogs](#dialogs)
-    + [Send keyboard events](#send-keyboard-events)
+    + [String manipulation](#string-manipulation)
+    + [Send keystrokes](#send-keyboard-events)
+    + [Clipboard](#clipboard)
     + [Browser automation](#web-browser-automation)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
       * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
-    + [String manipulation and clipboard](#string-manipulation-and-clipboard)
     + [File manipulation](#file-manipulation)
     + [Functions, iterations, conditions](#functions-iterations-conditions) 
   * [Configuration](#configuration)
@@ -121,7 +122,18 @@ and/or scripts from given files via:
 | ``#prompt "MESSAGE"``       | Popup with input field |
 
 
-### Send keyboard events
+# String manipulation
+
+| Command                                                     | Description                                             |
+| ----------------------------------------------------------- | ------------------------------------------------------- |
+| ``#replaceAll in var $VAR search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirst in var $VAR search replace``                | Replace first occurrence of given string                |
+| ``#replaceLast in var $VAR search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetween in var $VAR before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetween in var $VAR before after``                | Extract text excluding but between "before" and "after" |
+
+
+### Send keystrokes
 
 **Hit single key:**  
 
@@ -149,9 +161,27 @@ and/or scripts from given files via:
 Note: Oftentimes a faster alternative over simulated typing
 is putting text into the clipboard and than pasting it. 
 
-| Command            | Description                            |
-| ------------------ | -------------------------------------- |  
-| ``#type "TEXT"``   | Simulate typing given text on keyboard | 
+| Command               | Description                             |
+| --------------------- | --------------------------------------- |  
+| ``#type "TEXT"``      | Simulate typing given text on keyboard  |
+| ``#copyPaste: 'foo'`` | Copy text to clipboard and invoke paste | 
+
+
+### Clipboard 
+
+| Command                        | Description                             |
+| ------------------------------ | --------------------------------------- |
+| ``#setClipboard: $value``      | Copy text to clipboard                  |
+| ``#copyPaste: 'foo'``          | Copy text to clipboard and invoke paste |
+| ``$value=#getClipboard`        |                                         |
+
+| Command                                                      | Description            |
+| ------------------------------------------------------------ | ---------------------- |
+| ``#replaceAll in clipboard search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirst in clipboard search replace``                | Replace first occurrence of given string                |
+| ``#replaceLast in clipboard search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetween in clipboard before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetween in clipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Web Browser automation
@@ -207,23 +237,6 @@ is putting text into the clipboard and than pasting it.
 | ``#open new terminal``      |                                |
 | ``#open new terminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
 | ``#edit inTerminal: FILE``  | Open given file in bash editor | 
-
-
-### String manipulation and clipboard
-
-| Command                        | Description                             |
-| ------------------------------ | --------------------------------------- |
-| ``#setClipboard: $value``      | Copy text to clipboard                  |
-| ``#copyPaste: 'foo'``          | Copy text to clipboard and invoke paste |
-| ``$value=#getClipboard`        |                                         |
-
-| Command                                                      | Description            |
-| ------------------------------------------------------------ | ---------------------- |
-| ``#replaceAll in clipboard search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirst in clipboard search replace``                | Replace first occurrence of given string                |
-| ``#replaceLast in clipboard search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetween in clipboard before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetween in clipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### File manipulation
