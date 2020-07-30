@@ -36,7 +36,7 @@ Shell-based browser / UI automation for Linux and Mac OS
 ## Idea - What does (will) it do?
 
 doShell is a superset of shell script, providing commands geared towards 
-cross-platform browser / UI and system automation.  
+non-headless cross-platform browser and terminal automation.  
 
 Some possible doShell usecases are End-to-End testing, 
 infoSec reconnaisance and creation of productivity macros.  
