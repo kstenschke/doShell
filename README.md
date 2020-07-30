@@ -7,7 +7,7 @@ Shell-based browser / UI automation for Linux and Mac OS
 ## Table of Contents
 
 - [DoShell](#doshell)
-  * [What does (will) it do?](#idea---what-does-(will)-it-do?)
+  * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile)
     + [Transpile and/or run](#transpile-and/or-run)
@@ -211,12 +211,15 @@ and/or scripts from given files via:
 | Command                        | Description            |
 | ------------------------------ | ---------------------- |
 | ``#setClipboard: $value``      | Copy text to clipboard |
-| ``$value=#getClipboard``       |                        |
-| ``#replaceAll in file path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirst in file path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLast in file path/file search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetween in file path/file before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetween in file path/file before after``                | Extract text excluding but between "before" and "after" |
+| ``$value=#getClipboard`        |                        |
+
+| Command                                                      | Description            |
+| ------------------------------------------------------------ | ---------------------- |
+| ``#replaceAll in clipboard search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirst in clipboard search replace``                | Replace first occurrence of given string                |
+| ``#replaceLast in clipboard search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetween in clipboard before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetween in clipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### File manipulation
