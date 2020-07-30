@@ -22,7 +22,7 @@ Shell-based browser / UI automation for Linux and Mac OS
       * [Interact with DOM elements](#interact-with-dom-elements)
       * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
-    + [Clipboard](#clipboard)
+    + [String manipulation and clipboard](#string-manipulation-and-clipboard)
     + [File manipulation](#file-manipulation)
     + [Functions, iterations, conditions](#functions-iterations-conditions) 
   * [Configuration](#configuration)
@@ -206,12 +206,17 @@ and/or scripts from given files via:
 | ``#edit inTerminal: FILE``  | Open given file in bash editor | 
 
 
-### Clipboard
+### String manipulation and clipboard
 
 | Command                        | Description            |
 | ------------------------------ | ---------------------- |
-| ``#setClipboard: $value``      |                        |
+| ``#setClipboard: $value``      | Copy text to clipboard |
 | ``$value=#getClipboard``       |                        |
+| ``#replaceAll in file path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirst in file path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLast in file path/file search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetween in file path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetween in file path/file before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### File manipulation
