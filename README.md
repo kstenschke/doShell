@@ -54,7 +54,7 @@ infoSec reconnaisance and creation of productivity macros.
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
 5. Don't reinvent the wheel:  
-   1. Reuse existing tools  (shell script, xdotool / apple script, ...)  
+   1. Reuse existing tools  (shell script, xdotool / applescript, ...)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
    (mask doShell commands as shell script comments)   
