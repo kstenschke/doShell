@@ -38,8 +38,8 @@ Shell-based browser / UI automation for Linux and Mac OS
 doShell is a superset of shell script, providing commands geared towards 
 cross-platform browser / UI and system automation.  
 
-This project is a transpiler and an interpreter
-for running doShell scripts.  
+This project is a source-to-source (S2S) transpiler and a runtime system
+for executing doShell scripts.  
 
 Some possible doShell usecases are End-to-End testing, 
 infoSec reconnaisance and creation of productivity macros. 
@@ -75,9 +75,21 @@ These files can be executed via the doShell interpreter.
 
 ### Transpile and/or run
 
-Running ``shdo -r script.do.sh``, the compiler will transpile the given 
-file and execute it. Also already transpiled ``*.do.x.sh`` scripts can
-be executed. 
+Running ``shdo -r script.do.sh``, the transpiler will translate the given 
+file and the runtime system will execute it.
+When running an already transpiled ``*.do.x.sh`` script, the translation is skipped.
+
+doShell transpiles to regular shell script, which additionally to conventional shell script code 
+can contain runtime macros: placeholder-strings for generic content.  
+The doShell runtime system replaces runtime macros before execution in a sandboxed shell-thread. 
+
+### Communication between browsers and runtime system
+
+For communication from web browsers with the runtime sytem, the doShell runtime system in 
+parallel to the shell for script execution, launches another shell thread which listens to 
+a local network port and stores incoming data for further processing.  
+Web browsers than can send-out data to the open port, by the help of JavaScript.
+
 
 ## Runtime macros
 
