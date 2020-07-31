@@ -63,6 +63,8 @@ for executing doShell scripts.
 
 ## Modes of Operation
 
+![Transpiler](/images/transpiler.png)
+
 ### Transpile
 
 Running ``dosh``, doShell will locate all ``*.do.sh`` files within the 
