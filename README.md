@@ -51,7 +51,7 @@ for executing doShell scripts.
 1. Ease scripted automation of controlling web browser in- and output
 2. Support the same language on linux and mac os
 3. Make it concise: 
-   1. Commands should be as short, but as self-explanatory as possible
+   1. Commands should be short, but as self-explanatory as possible
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
 5. Don't reinvent the wheel:  
