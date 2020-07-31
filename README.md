@@ -88,7 +88,7 @@ The doShell runtime system replaces runtime macros before execution in a sandbox
 
 ### Communication between browsers and runtime system
 
-For communication from web browsers with the runtime sytem, the doShell runtime system in 
+For communication from web browsers back to the runtime sytem, the doShell runtime system in 
 parallel to the shell for script execution, launches another shell thread which listens to 
 a local network port and stores incoming data for further processing.  
 Web browsers than can send-out data to the open port, by the help of JavaScript.
