@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/runtime/transpiler/transpileClipboard.h>
+#include <doShell/dosh/transpiler/transpileClipboard.h>
 
 namespace doShell {
 

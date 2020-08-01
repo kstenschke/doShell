@@ -2,7 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app.h>
-#include <doShell/runtime/runtime.h>
+#include <doShell/dosh/runtime.h>
 
 namespace doShell {
 

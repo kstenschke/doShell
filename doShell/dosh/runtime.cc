@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/runtime/runtime.h>
+#include <doShell/dosh/runtime.h>
 
 namespace doShell {
 
@@ -45,9 +45,9 @@ void Compiler::PortListener(int port) {
 }
 
 // 1. Transpile given *.do.sh file to *.sh,
-// 2. Create temporary runtime copy of *.sh w/ runtime macros replaced
-// 3. Execute runtime copy
-// 4. Delete runtime copy
+// 2. Create temporary dosh copy of *.sh w/ dosh macros replaced
+// 3. Execute dosh copy
+// 4. Delete dosh copy
 bool Compiler::Execute() {
   if (!Compile()) return false;
 

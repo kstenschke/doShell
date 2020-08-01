@@ -8,9 +8,9 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/runtime/transpiler/transpileClipboard.h>
-#include <doShell/runtime/transpiler/transpileBrowser.h>
-#include <doShell/runtime/transpiler/transpileKeystrokes.h>
+#include <doShell/dosh/transpiler/transpileClipboard.h>
+#include <doShell/dosh/transpiler/transpileBrowser.h>
+#include <doShell/dosh/transpiler/transpileKeystrokes.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
@@ -32,9 +32,9 @@ class Compiler {
   static void PortListener(int port);
 
   // 1. Transpile given *.do.sh file to *.sh,
-  // 2. Create temporary runtime copy of *.sh w/ runtime macros replaced
-  // 3. Execute runtime copy
-  // 4. Delete runtime copy
+  // 2. Create temporary dosh copy of *.sh w/ dosh macros replaced
+  // 3. Execute dosh copy
+  // 4. Delete dosh copy
   bool Execute();
 
   virtual ~Compiler();
