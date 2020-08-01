@@ -8,16 +8,16 @@ namespace doShell {
     TranspileType(code, is_linux);
     TranspileHitKey(code, is_linux);
 
-    TranspileCopy(code, is_linux);
     TranspileCopyInTerminal(code, is_linux);
+    TranspileCopy(code, is_linux);
     TranspileCut(code, is_linux);
-    TranspilePaste(code, is_linux);
     TranspilePasteInTerminal(code, is_linux);
+    TranspilePaste(code, is_linux);
     TranspileSelectAll(code, is_linux);
   }
   
   bool transpileKeystrokes::TranspileCopy(std::string *code, bool is_linux) {
-    if (std::string::npos == code->find("#copy ")) return false;
+    if (std::string::npos == code->find("#copy")) return false;
 
     return helper::String::ReplaceAll(
         code,
@@ -74,6 +74,8 @@ namespace doShell {
 
   bool transpileKeystrokes::TranspileSelectAll(std::string *code,
                                                bool is_linux) {
+    if (std::string::npos == code->find("#selectAll")) return false;
+
     return helper::String::ReplaceAll(
         code,
         "#selectAll",

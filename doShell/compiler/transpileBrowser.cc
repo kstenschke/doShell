@@ -12,7 +12,7 @@ namespace doShell {
   }
 
   bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
-    if (std::string::npos == code->find("#activateBrowser ")) return false;
+    if (std::string::npos == code->find("#activateBrowser")) return false;
 
     std::string replacement =
         is_linux
@@ -34,14 +34,13 @@ namespace doShell {
 
   bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code,
                                                          bool is_linux) {
-    if (std::string::npos==code->find("#openUrlInNewBrowserTab ")) return false;
+    if (std::string::npos == code->find("#openUrlInNewBrowserTab")) return false;
 
     std::string replacement =
-        "#activate browser\n"
-            "#open new browserTab\n"
-            "#focus browserURL\n"
-            "#copyPaste: '$1/'\n"
-            "#hit enter";
+        "#openNewBrowserTab\n"
+        "#focusBrowserURL\n"
+        "#copyPaste: '$1/'\n"
+        "#hit enter";
 
     std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
     *code = std::regex_replace(*code, exp, replacement);
@@ -50,7 +49,7 @@ namespace doShell {
   }
 
   bool transpileBrowser::TranspileOpenNewTab(std::string *code, bool is_linux) {
-    if (std::string::npos == code->find("#openNewBrowserTab ")) return false;
+    if (std::string::npos == code->find("#openNewBrowserTab")) return false;
 
     std::string replacement =
         is_linux
@@ -65,7 +64,7 @@ namespace doShell {
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {
-    if (std::string::npos == code->find("#focusBrowserURL ")) return false;
+    if (std::string::npos == code->find("#focusBrowserURL")) return false;
 
     std::string replacement =
         is_linux

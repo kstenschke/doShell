@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#activate browser
+#activateBrowser
 #openUrlInNewBrowserTab "https://duckduckgo.com/"
 #type "what is new?"
 #hit enter
