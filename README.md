@@ -174,9 +174,6 @@ and/or scripts from given files via:
 |``#pasteInTerminal`` | Varies by OS            |
 |``#selectAll``       | Hit CTRL+A or CMD+A     |
 
-NOTE: Depending on OS and active application, the actual key combinations vary.
-E.g. the "copy" key combination within linux terminal is CTRL+SHIFT+C, 
-while in other linux application the standard is CTRL+C.
 
 **Type text:**
 
