@@ -22,7 +22,6 @@ Browser UI and terminal automation for Linux and Mac OS
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
-      * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
     + [File manipulation](#file-manipulation)
     + [Functions, iterations, conditions](#functions-iterations-conditions) 
@@ -231,13 +230,6 @@ and/or scripts from given files via:
 | ``#clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
 | ``#clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
 | ``#clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
-
-
-#### Miscellaneous
-
-| Command                       | Description                                          |
-| ----------------------------- | ---------------------------------------------------- |
-| ``#findInBrowser "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
 
 
 ### Terminal automation
