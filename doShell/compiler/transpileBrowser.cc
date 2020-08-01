@@ -26,7 +26,7 @@ namespace doShell {
     replacement += "\nsleep 0.3";
 
     return helper::String::ReplaceAll(
-        code, "#activate browser", replacement) > 0;
+        code, "#activateBrowser", replacement) > 0;
   }
 
 
@@ -34,12 +34,10 @@ namespace doShell {
                                                          bool is_linux) {
     std::string replacement =
         is_linux
-        ? "#open new browserTab\n"
-          "sleep 0.3\n"
+        ? "#activate browser\n"
+          "#open new browserTab\n"
           "#focus browserURL\n"
-          "sleep 0.3\n"
-          "#type \"https://duckduckgo.com/\"\n"  // TODO(kay) make url dynamic
-          "sleep 0.5\n"
+          "#copyPaste: 'https://www.github.com/'\n" // TODO(kay) make url dynamic
           "#hit enter"
           "\n#"  // TODO(kay) remove comment-out url when replaced dynamically
 
@@ -47,7 +45,7 @@ namespace doShell {
           "to keystroke \"t\" using command down'";
 
     return helper::String::ReplaceAll(
-        code, "#open url in new browserTab:", replacement) > 0;
+        code, "#openUrlInNewBrowserTab:", replacement) > 0;
   }
 
   bool transpileBrowser::TranspileOpenNewTab(std::string *code, bool is_linux) {
@@ -60,7 +58,7 @@ namespace doShell {
     replacement += "\nsleep 0.1";
 
     return helper::String::ReplaceAll(
-        code, "#open new browserTab", replacement) > 0;
+        code, "#openNewBrowserTab", replacement) > 0;
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {
@@ -73,7 +71,7 @@ namespace doShell {
     replacement += "\nsleep 0.1";
 
     return helper::String::ReplaceAll(
-        code, "#focus browserURL", replacement) > 0;
+        code, "#focusBrowserURL", replacement) > 0;
   }
 
   bool transpileBrowser::TranspileSendJsResult(std::string *code, bool is_linux) {

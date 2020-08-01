@@ -140,13 +140,13 @@ and/or scripts from given files via:
 
 # String manipulation
 
-| Command                                                     | Description                                             |
-| ----------------------------------------------------------- | ------------------------------------------------------- |
-| ``#replaceAll in var $VAR search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirst in var $VAR search replace``                | Replace first occurrence of given string                |
-| ``#replaceLast in var $VAR search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetween in var $VAR before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetween in var $VAR before after``                | Extract text excluding but between "before" and "after" |
+| Command                                                   | Description                                             |
+| --------------------------------------------------------- | ------------------------------------------------------- |
+| ``#replaceAllInVar $VAR search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInVar $VAR search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInVar $VAR search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInVar $VAR before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInVar $VAR before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Send keystrokes
@@ -177,7 +177,7 @@ and/or scripts from given files via:
 | Command               | Description                                    |
 | --------------------- | ---------------------------------------------- |  
 | ``#type "TEXT"``      | Simulate typing given text on keyboard         |
-| ``#copyPaste: 'foo'`` | Copy text to clipboard and invoke paste. ``*`` |
+| ``#copyPaste "foo"`` | Copy text to clipboard and invoke paste. ``*`` |
 
 ``* Oftentimes a faster alternative over typing``  
 
@@ -186,72 +186,72 @@ and/or scripts from given files via:
 
 | Command                        | Description                             |
 | ------------------------------ | --------------------------------------- |
-| ``#setClipboard: $value``      | Copy text to clipboard                  |
-| ``#copyPaste: 'foo'``          | Copy text to clipboard and invoke paste |
+| ``#setClipboard $value``      | Copy text to clipboard                  |
+| ``#copyPaste "foo"``          | Copy text to clipboard and invoke paste |
 | ``$value=#getClipboard`        |                                         |
 
 | Command                                                      | Description            |
 | ------------------------------------------------------------ | ---------------------- |
-| ``#replaceAll in clipboard search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirst in clipboard search replace``                | Replace first occurrence of given string                |
-| ``#replaceLast in clipboard search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetween in clipboard before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetween in clipboard before after``                | Extract text excluding but between "before" and "after" |
+| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Web Browser automation
 
 #### Toggle browser panels
 
-| Command                        | Description                                       |
-| ------------------------------ | ------------------------------------------------- |
-| ``#activate browser``          | Launch or bring preferred browser window to front | 
-| ``#close browserTab``          | Hits CTRL+W or CMD+W                              |
-| ``#focus browserURL``          | Hits CTRL+L or CMD+L                              |
-| ``#focus next browserTab``     | Hits CTRL+TAB or CMD+TAB                          |
-| ``#focus previous browserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                |
-| ``#open browserDevConsole``    | Hits CTRL+SHIFT+J or CMD+SHIFT+J                  |
-| ``#open browserDevTools``      | Hits CTRL+SHIFT+I or CMD+OPT+I                    |
-| ``#open browserSettings;``     | Hits CTRL+Comma or CMD+Comma                      |
-| ``#open new browserTab``       | Hits CTRL+T or CMD+T                              |
-| ``#reopen browserTab``         | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
+| Command                      | Description                                       |
+| ---------------------------- | ------------------------------------------------- |
+| ``#activateBrowser``         | Launch or bring preferred browser window to front | 
+| ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                              |
+| ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                              |
+| ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                          |
+| ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                |
+| ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J                  |
+| ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                    |
+| ``#openBrowserSettings;``    | Hits CTRL+Comma or CMD+Comma                      |
+| ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                              |
+| ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
 
 
 #### Load and manipulate URLs
 
-| Command                                                     | Description                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------- |
-| ``$var=#get browserUrl``                                    | Get current URL                                      |
-| ``$var=#get browserReferrer``                               | Get referrer URL                                     |
-| ``##open url in new browsertab: "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
+| Command                                               | Description                                          |
+| ----------------------------------------------------- | ---------------------------------------------------- |
+| ``$var=#get browserUrl``                              | Get current URL                                      |
+| ``$var=#get browserReferrer``                         | Get referrer URL                                     |
+| ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
 
 
 #### Interact with DOM elements
 
-| Command                                            | Description                            |
-| -------------------------------------------------- | -------------------------------------- |
-| ``#focus domElement by id: "someId"``              |                                        |
-| ``#focus domElement by query: "#id .someClass"``   |                                        |
-| ``#click domElement by id: "someId"``              | Invokes mouse click on given element   |
-| ``#click domElement by query: "#id .someClass"``   | Invokes mouse click on given element   |
-| ``#click button containing text: "Hit me!"``       | Invokes mouse click on given button    |
-| ``#click link containing text: "Hit me!"``         | Invokes mouse click on given link      |
+| Command                                        | Description                            |
+| ---------------------------------------------- | -------------------------------------- |
+| ``#focusDomElementById "someId"``              |                                        |
+| ``#focusDomElementByQuery "#id .someClass"``   |                                        |
+| ``#clickDomElementById "someId"``              | Invokes mouse click on given element   |
+| ``#clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
+| ``#clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
+| ``#clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
 
 
 #### Miscellaneous
 
-| Command                         | Description                                          |
-| ------------------------------- | ---------------------------------------------------- |
-| ``#find inBrowser: "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
+| Command                       | Description                                          |
+| ----------------------------- | ---------------------------------------------------- |
+| ``#findInBrowser "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
 
 
 ### Terminal automation
 
-| Command                     | Description                    |
-| --------------------------- | ------------------------------ |
-| ``#open new terminal``      |                                |
-| ``#open new terminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
-| ``#edit inTerminal: FILE``  | Open given file in bash editor | 
+| Command                   | Description                    |
+| ------------------------- | ------------------------------ |
+| ``#openNewTerminal``      |                                |
+| ``#openNewTerminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
+| ``#editInTerminal FILE``  | Open given file in bash editor | 
 
 
 ### File manipulation
@@ -260,13 +260,13 @@ All file manipulations allow as optional last argument a destination file path, 
 given source file.
 
 
-| Command                                                           | Description                                             |
-| ----------------------------------------------------------------- | ------------------------------------------------------- |
-| ``#replaceAll in file path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirst in file path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLast in file path/file search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetween in file path/file before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetween in file path/file before after``                | Extract text excluding but between "before" and "after" |
+| Command                                                         | Description                                             |
+| --------------------------------------------------------------- | ------------------------------------------------------- |
+| ``#replaceAllInFile path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInFile path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInFile path/file search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInFile path/file before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Functions, iterations, conditions

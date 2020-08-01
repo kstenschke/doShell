@@ -19,7 +19,7 @@ bool transpileClipboard::TranspileSetClipboard(std::string *code,
       : "osascript -e 'set the clipboard to \"https://www.github.com/\"'";
 
   return helper::String::ReplaceAll(
-      code, "#setClipboard:", replacement) > 0;
+      code, "#setClipboard", replacement) > 0;
 }
 
 bool transpileClipboard::TranspileCopyPaste(std::string *code,
@@ -34,6 +34,6 @@ bool transpileClipboard::TranspileCopyPaste(std::string *code,
           "to keystroke \"v\" using command down'";
 
   return helper::String::ReplaceAll(
-      code, "#copyPaste:", replacement) > 0;
+      code, "#copyPaste", replacement) > 0;
 }
 }  // namespace doShell
