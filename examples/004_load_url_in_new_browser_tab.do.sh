@@ -3,5 +3,5 @@
 #activateBrowser
 #openNewBrowserTab
 #focusBrowserURL
-#copyPaste "https://www.github.com/"
+#copyPaste "https://www.google.com/"
 #hit enter

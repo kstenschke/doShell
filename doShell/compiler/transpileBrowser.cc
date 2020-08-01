@@ -12,6 +12,8 @@ namespace doShell {
   }
 
   bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#activateBrowser ")) return false;
+
     std::string replacement =
         is_linux
         ? "if pidof -s firefox > /dev/null; then\n"
@@ -32,23 +34,24 @@ namespace doShell {
 
   bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code,
                                                          bool is_linux) {
+    if (std::string::npos==code->find("#openUrlInNewBrowserTab ")) return false;
+
     std::string replacement =
-        is_linux
-        ? "#activate browser\n"
-          "#open new browserTab\n"
-          "#focus browserURL\n"
-          "#copyPaste: 'https://www.github.com/'\n" // TODO(kay) make url dynamic
-          "#hit enter"
-          "\n#"  // TODO(kay) remove comment-out url when replaced dynamically
+        "#activate browser\n"
+            "#open new browserTab\n"
+            "#focus browserURL\n"
+            "#copyPaste: '$1/'\n"
+            "#hit enter";
 
-        : "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"t\" using command down'";
+    std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
+    *code = std::regex_replace(*code, exp, replacement);
 
-    return helper::String::ReplaceAll(
-        code, "#openUrlInNewBrowserTab:", replacement) > 0;
+    return true;
   }
 
   bool transpileBrowser::TranspileOpenNewTab(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#openNewBrowserTab ")) return false;
+
     std::string replacement =
         is_linux
         ? "xdotool key ctrl+t"
@@ -62,6 +65,8 @@ namespace doShell {
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#focusBrowserURL ")) return false;
+
     std::string replacement =
         is_linux
         ? "xdotool key ctrl+l"

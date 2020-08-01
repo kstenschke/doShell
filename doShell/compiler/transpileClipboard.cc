@@ -12,28 +12,34 @@ void transpileClipboard::Transpile(std::string *code, bool is_linux) {
 
 bool transpileClipboard::TranspileSetClipboard(std::string *code,
                                                bool is_linux) {
+  if (std::string::npos == code->find("#setClipboard ")) return false;
+
   std::string replacement =
       is_linux
-      // TODO(kay): instead of commenting-out maintain text to be copied
-      ? "echo 'https://www.github.com/' | xclip -sel clip #"
-      : "osascript -e 'set the clipboard to \"https://www.github.com/\"'";
+      ? "echo '$1' | xclip -sel clip #"
+      : "osascript -e 'set the clipboard to \"$1\"'";
 
-  return helper::String::ReplaceAll(
-      code, "#setClipboard", replacement) > 0;
+  std::regex exp (R"(#setClipboard \"(.*)\")");
+  *code = std::regex_replace(*code, exp, replacement);
+
+  return true;
 }
 
 bool transpileClipboard::TranspileCopyPaste(std::string *code,
                                             bool is_linux) {
+  if (std::string::npos == code->find("#copyPaste ")) return false;
+
   std::string replacement =
       is_linux
-      // TODO(kay): instead of commenting-out maintain text to be copied
-      ? "echo 'https://www.github.com/' | xclip -sel clip #\n"
+      ? "echo '$1' | xclip -sel clip #\n"
         "xdotool key ctrl+v"
-      : "osascript -e 'set the clipboard to \"https://www.github.com/\"'\n"
+      : "osascript -e 'set the clipboard to \"$1\"'\n"
         "osascript -e 'tell app \"System Events\" "
           "to keystroke \"v\" using command down'";
 
-  return helper::String::ReplaceAll(
-      code, "#copyPaste", replacement) > 0;
+  std::regex exp (R"(#copyPaste \"(.*)\")");
+  *code = std::regex_replace(*code, exp, replacement);
+
+  return true;
 }
 }  // namespace doShell
