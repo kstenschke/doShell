@@ -9,7 +9,6 @@ Browser UI and terminal automation for Linux and Mac OS
 - [DoShell](#doshell)
   * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
-    + [Transpile](#transpile)
     + [Transpile and/or run](#transpile-and/or-run)
     + [Communication between browsers and runtime system](#communication-between-browsers-and-runtime-system)
   + [Runtime macros](#runtime-macros)
@@ -64,16 +63,6 @@ for executing doShell scripts.
 ## Modes of Operation
 
 ![Transpiler](/images/doshell_diagram.png)
-
-### Transpile
-
-Running ``dosh``, doShell will locate all ``*.do.sh`` files within the 
-current working path, including its sub-directories, and 
-transpile them into ``*.do.x.sh`` files in the same path.  
-``*.do.x.sh`` are doShell executable files, that can contain doShell specific
-runtime macros and calls to [third party tools](#dependencies) and calls to 
-shell tools, built-in into the doShell binary. 
-These files can be executed via the doShell runtime. 
 
 
 ### Transpile and/or run
