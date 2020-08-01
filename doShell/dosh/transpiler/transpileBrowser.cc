@@ -89,8 +89,10 @@ namespace doShell {
         ? "xdotool key f12"
         : "osascript -e 'tell application \"System Events\" "
           "to keystroke \"F12\"'"
-          "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"p\" with {command down, shift down} '";  // chromium
+          "sleep 0.1"
+          "osascript -e 'tell application \"System Events\" "  // chromium
+          "to keystroke \"p\" with {command down, shift down} '"
+          "sleep 0.1";
 
     replacement += "\nsleep 0.1";
 
