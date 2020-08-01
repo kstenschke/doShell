@@ -165,12 +165,16 @@ and/or scripts from given files via:
 
 **Stroke key combination:**
 
-| Command       | Description             |
-| ------------- | ----------------------- |  
-|``#copy``      | Hit CTRL+C or CMD+c     |
-|``#cut``       | Hit CTRL+X or CMD+x     |
-|``#paste``     | Hit CTRL+V or CMD+V     |
+| Command       | Description                                           |
+| ------------- | ----------------------------------------------------- |  
+|``#copy``      | Invoke key combination for "copy selection"           |
+|``#cut``       | Hit CTRL+X or CMD+x                                   |
+|``#paste``     | Invoke key combination for "paste from clipboard"     |
 |``#selectAll`` | Hit CTRL+A or CMD+A     |
+
+NOTE: Depending on OS and active application, the actual key combinations vary.
+E.g. the "copy" key combination within linux terminal is CTRL+SHIFT+C, 
+while in other linux application the standard is CTRL+C.
 
 **Type text:**
 
