@@ -10,6 +10,7 @@ namespace doShell {
     TranspileOpenNewTab(code, is_linux);
     TranspileFocusUrl(code, is_linux);
     TranspileOpenBrowserDevTools(code, is_linux);
+    TranspileOpenBrowserDevConsole(code, is_linux);
   }
 
   bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
@@ -78,6 +79,23 @@ namespace doShell {
 
     return helper::String::ReplaceAll(
         code, "#openBrowserDevTools", replacement) > 0;
+  }
+
+  bool transpileBrowser::TranspileOpenBrowserDevConsole(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#openBrowserDevConsole")) return false;
+
+    std::string replacement =
+        is_linux
+        ? "xdotool key f12"
+        : "osascript -e 'tell application \"System Events\" "
+          "to keystroke \"F12\"'"
+          "osascript -e 'tell application \"System Events\" "
+          "to keystroke \"p\" with {command down, shift down} '";  // chromium
+
+    replacement += "\nsleep 0.1";
+
+    return helper::String::ReplaceAll(
+        code, "#openBrowserDevConsole", replacement) > 0;
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {

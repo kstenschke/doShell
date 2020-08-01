@@ -20,7 +20,6 @@ Browser UI and terminal automation for Linux and Mac OS
     + [Send keystrokes](#send-keyboard-events)
     + [Clipboard](#clipboard)
     + [Browser automation](#web-browser-automation)
-      * [Activate browser](#activate-browser)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
@@ -64,7 +63,7 @@ for executing doShell scripts.
 
 ## Modes of Operation
 
-![Transpiler](/images/transpiler.png)
+![Transpiler](/images/doshell_diagram.png)
 
 ### Transpile
 
@@ -181,7 +180,7 @@ and/or scripts from given files via:
 | Command               | Description                                    |
 | --------------------- | ---------------------------------------------- |  
 | ``#type "TEXT"``      | Simulate typing given text on keyboard         |
-| ``#copyPaste "foo"`` | Copy text to clipboard and invoke paste. ``*`` |
+| ``#copyPaste "foo"``  | Copy text to clipboard and invoke paste. ``*`` |
 
 ``* Oftentimes a faster alternative over typing``  
 
@@ -190,8 +189,8 @@ and/or scripts from given files via:
 
 | Command                        | Description                             |
 | ------------------------------ | --------------------------------------- |
-| ``#setClipboard $value``      | Copy text to clipboard                  |
-| ``#copyPaste "foo"``          | Copy text to clipboard and invoke paste |
+| ``#setClipboard $value``       | Copy text to clipboard                  |
+| ``#copyPaste "foo"``           | Copy text to clipboard and invoke paste |
 | ``$value=#getClipboard`        |                                         |
 
 | Command                                                      | Description            |
@@ -203,31 +202,25 @@ and/or scripts from given files via:
 | ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
-### Web Browser automation
+### Web Browser automation  
 
-#### Activate browser
-
-| Command                      | Description                                       |
-| ---------------------------- | ------------------------------------------------- |
-| ``#activateBrowser``         | Launch or bring preferred browser window to front | 
-| ``#activate chrome``         | Launch or bring chrome window to front            | 
-| ``#activate chromium``       | Launch or bring chromium window to front          | 
-| ``#activate firefox``        | Launch or bring firefox window to front           |  
+**Note:** At the time being doShell was tested using Chromium and Firefox.
 
 
 #### Toggle browser panels
 
-| Command                      | Description                                       |
-| ---------------------------- | ------------------------------------------------- |
-| ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                              |
-| ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                              |
-| ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                          |
-| ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                |
-| ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J                  |
-| ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                    |
-| ``#openBrowserSettings;``    | Hits CTRL+Comma or CMD+Comma                      |
-| ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                              |
-| ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                  |
+| Command                      | Description                                                                                 |
+| ---------------------------- | ------------------------------------------------------------------------------------------- |
+| ``#activateBrowser``         | Launch or bring preferred browser window to front                                           | 
+| ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                                                                        |
+| ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                                                                        |
+| ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                                                                    |
+| ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
+| ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
+| ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
+| ``#openBrowserSettings;``    | Hits CTRL+Comma or CMD+Comma                                                                |
+| ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
+| ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                                                            |
 
 
 #### Load and manipulate URLs
