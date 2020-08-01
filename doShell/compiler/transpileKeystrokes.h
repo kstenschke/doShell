@@ -15,8 +15,10 @@ class transpileKeystrokes {
 
  private:
   static bool TranspileCopy(std::string *code, bool is_linux);
+  static bool TranspileCopyInTerminal(std::string *code, bool is_linux);
   static bool TranspileCut(std::string *code, bool is_linux);
   static bool TranspilePaste(std::string *code, bool is_linux);
+  static bool TranspilePasteInTerminal(std::string *code, bool is_linux);
   static bool TranspileSelectAll(std::string *code, bool is_linux);
   static bool TranspileHitKey(std::string *code, bool is_linux);
   static bool TranspileType(std::string *code, bool is_linux);

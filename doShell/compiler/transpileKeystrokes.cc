@@ -9,17 +9,33 @@ namespace doShell {
     TranspileHitKey(code, is_linux);
 
     TranspileCopy(code, is_linux);
+    TranspileCopyInTerminal(code, is_linux);
     TranspileCut(code, is_linux);
     TranspilePaste(code, is_linux);
+    TranspilePasteInTerminal(code, is_linux);
     TranspileSelectAll(code, is_linux);
   }
   
   bool transpileKeystrokes::TranspileCopy(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#copy ")) return false;
+
     return helper::String::ReplaceAll(
         code,
         "#copy",
         is_linux
         ? "xdotool key ctrl+c"
+        : "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
+          "using command down'") > 0;
+  }
+
+  bool transpileKeystrokes::TranspileCopyInTerminal(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#copyInTerminal ")) return false;
+
+    return helper::String::ReplaceAll(
+        code,
+        "#copyInTerminal",
+        is_linux
+        ? "xdotool key ctrl+shift+c"
         : "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
           "using command down'") > 0;
   }
@@ -40,6 +56,18 @@ namespace doShell {
         "#paste",
         is_linux
         ? "xdotool key ctrl+v"
+        : "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
+          "using command down'") > 0;
+  }
+
+  bool transpileKeystrokes::TranspilePasteInTerminal(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#pasteInTerminal ")) return false;
+
+    return helper::String::ReplaceAll(
+        code,
+        "#pasteInTerminal",
+        is_linux
+        ? "xdotool key ctrl+shift+v"
         : "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
           "using command down'") > 0;
   }
