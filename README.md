@@ -20,6 +20,7 @@ Browser UI and terminal automation for Linux and Mac OS
     + [Send keystrokes](#send-keyboard-events)
     + [Clipboard](#clipboard)
     + [Browser automation](#web-browser-automation)
+      * [Activate browser](#activate-browser)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
@@ -204,11 +205,20 @@ and/or scripts from given files via:
 
 ### Web Browser automation
 
-#### Toggle browser panels
+#### Activate browser
 
 | Command                      | Description                                       |
 | ---------------------------- | ------------------------------------------------- |
 | ``#activateBrowser``         | Launch or bring preferred browser window to front | 
+| ``#activate chrome``         | Launch or bring chrome window to front            | 
+| ``#activate chromium``       | Launch or bring chromium window to front          | 
+| ``#activate firefox``        | Launch or bring firefox window to front           |  
+
+
+#### Toggle browser panels
+
+| Command                      | Description                                       |
+| ---------------------------- | ------------------------------------------------- |
 | ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                              |
 | ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                              |
 | ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                          |
