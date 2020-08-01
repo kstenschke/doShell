@@ -32,14 +32,14 @@ add_executable(dosh
         doShell/app/app_help.h
         doShell/app/app_log.cc
         doShell/app/app_log.h
-        doShell/compiler/compiler.cc
-        doShell/compiler/compiler.h
-        doShell/compiler/transpileBrowser.cc
-        doShell/compiler/transpileBrowser.h
-        doShell/compiler/transpileClipboard.cc
-        doShell/compiler/transpileClipboard.h
-        doShell/compiler/transpileKeystrokes.cc
-        doShell/compiler/transpileKeystrokes.h
+        doShell/runtime/runtime.cc
+        doShell/runtime/runtime.h
+        doShell/runtime/transpiler/transpileBrowser.cc
+        doShell/runtime/transpiler/transpileBrowser.h
+        doShell/runtime/transpiler/transpileClipboard.cc
+        doShell/runtime/transpiler/transpileClipboard.h
+        doShell/runtime/transpiler/transpileKeystrokes.cc
+        doShell/runtime/transpiler/transpileKeystrokes.h
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h
         doShell/helper/helper_dateTime.cc

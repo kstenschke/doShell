@@ -8,14 +8,15 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/compiler/transpileClipboard.h>
-#include <doShell/compiler/transpileBrowser.h>
-#include <doShell/compiler/transpileKeystrokes.h>
+#include <doShell/runtime/transpiler/transpileClipboard.h>
+#include <doShell/runtime/transpiler/transpileBrowser.h>
+#include <doShell/runtime/transpiler/transpileKeystrokes.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
 #include <iostream>
 #include <string>
+#include <thread>
 #include <vector>
 
 namespace doShell {
@@ -27,6 +28,8 @@ class Compiler {
 
   // Transpile given *.do.sh file to *.sh
   bool Compile();
+
+  static void PortListener(int port);
 
   // 1. Transpile given *.do.sh file to *.sh,
   // 2. Create temporary runtime copy of *.sh w/ runtime macros replaced

@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/compiler/compiler.h>
+#include <doShell/runtime/runtime.h>
 
 namespace doShell {
 
@@ -38,12 +38,21 @@ void Compiler::TranspileCommands() {
   transpileKeystrokes::Transpile(&source_, is_linux_);
 }
 
+void Compiler::PortListener(int port) {
+  std::string netcat = "nc -l " + std::to_string(port) + " > /Users/kay/CLionProjects/robo/out.txt";
+
+  helper::Cli::GetExecutionResponse(netcat.c_str());
+}
+
 // 1. Transpile given *.do.sh file to *.sh,
 // 2. Create temporary runtime copy of *.sh w/ runtime macros replaced
 // 3. Execute runtime copy
 // 4. Delete runtime copy
 bool Compiler::Execute() {
   if (!Compile()) return false;
+
+  // Create and execute the netcat port-listener thread
+  std::thread thread(doShell::Compiler::PortListener, 8765);
 
   InitPathFileRuntime();
   ReplaceRunTimeMacrosInSource();
@@ -52,6 +61,9 @@ bool Compiler::Execute() {
 
   std::cout
       << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
+
+  // Wait for the thread to finish; we stay here until it is done
+  thread.join();
 
   return true;
 }
