@@ -13,6 +13,12 @@ configure_file ("doShell/config.h.in" "doShell/config.h")
 
 set(CMAKE_CXX_STANDARD 17)
 
+if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
+    # Use libc++ explicitly so we can compile for
+    # CMAKE_OSX_DEPLOYMENT_TARGET=10.7 or 10.8
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+endif()
+
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin/mac)
 else()
@@ -53,3 +59,7 @@ add_executable(dosh
         doShell/helper/helper_string.cc
         doShell/helper/helper_string.h
         )
+
+add_subdirectory(vendor/clip/)
+include_directories(../vendor/clip/)
+target_link_libraries(dosh clip)
