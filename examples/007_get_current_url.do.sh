@@ -11,4 +11,5 @@ sleep 0.4
 # ctrl+a
 # ctrl+c
 
-# transport back
+# transport back - use https://github.com/dacap/clip within doShell
+# append to out-file than
