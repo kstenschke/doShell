@@ -5,5 +5,4 @@
 #focusBrowserURL
 #selectAll
 #hit copy
-
 #saveClipboardToFile "clip.txt"
