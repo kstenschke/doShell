@@ -64,6 +64,12 @@ for executing doShell scripts.
 ![Transpiler](/images/doshell_diagram.png)
 
 
+### Transpile
+
+Running ``shdo -t script.do.sh`` transpiles the given doShell
+script to a new file ``script.do.x.sh``
+
+
 ### Transpile and/or run
 
 Running ``shdo -r script.do.sh``, the transpiler will translate the given 
