@@ -10,7 +10,7 @@ Browser UI and terminal automation for Linux and Mac OS
   * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile and/or run](#transpile-and/or-run)
-    + [Communication between browsers and runtime system](#communication-between-browsers-and-runtime-system)
+    + [Communication from browser to runtime system](#communication-from-browser-to-runtime-system)
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Import](#import)
@@ -74,7 +74,7 @@ doShell transpiles to regular shell script, which additionally to conventional s
 can contain runtime macros: placeholder-strings for generic content.  
 The doShell runtime system replaces runtime macros before execution in a sandboxed shell-thread. 
 
-### Communication between browsers and runtime system
+### Communication from browser to runtime system
 
 For communication from web browsers back to the runtime sytem, the doShell runtime system in 
 parallel to the shell for script execution, launches another shell thread which listens to 
