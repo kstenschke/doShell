@@ -53,21 +53,12 @@ bool Compiler::ContainsCommands() {
       std::sregex_iterator());
 }
 
-void Compiler::PortListener(int port) {
-  std::string netcat = "nc -l " + std::to_string(port) + " > /Users/kay/CLionProjects/robo/out.txt";
-
-  helper::Cli::GetExecutionResponse(netcat.c_str());
-}
-
 // 1. Transpile given *.do.sh file to *.sh,
 // 2. Create temporary dosh copy of *.sh w/ dosh macros replaced
 // 3. Execute dosh copy
 // 4. Delete dosh copy
 bool Compiler::Execute() {
   if (!Compile()) return false;
-
-  // Create and execute the netcat port-listener thread
-  std::thread thread(doShell::Compiler::PortListener, 8765);
 
   InitPathFileRuntime();
   ReplaceRunTimeMacrosInSource();
@@ -76,9 +67,6 @@ bool Compiler::Execute() {
 
   std::cout
       << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
-
-  // Wait for the thread to finish; we stay here until it is done
-  thread.join();
 
   return true;
 }

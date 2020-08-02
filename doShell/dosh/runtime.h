@@ -29,8 +29,6 @@ class Compiler {
   // Transpile given *.do.sh file to *.sh
   bool Compile();
 
-  static void PortListener(int port);
-
   // 1. Transpile given *.do.sh file to *.sh,
   // 2. Create temporary dosh copy of *.sh w/ dosh macros replaced
   // 3. Execute dosh copy
