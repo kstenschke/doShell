@@ -9,6 +9,7 @@ Browser UI and terminal automation for Linux and Mac OS
 - [DoShell](#doshell)
   * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
+    + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run)
     + [Communication from browser to runtime system](#communication-from-browser-to-runtime-system)
   + [Runtime macros](#runtime-macros)
