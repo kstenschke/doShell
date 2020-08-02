@@ -25,6 +25,8 @@ AppCommands::Command AppCommands::ResolveCommandByName(
     return Command_Compile;
   if (command == "-r" || command == "run")
     return Command_Run;
+  if (command == "saveClipboardToFile")
+    return Command_SaveClipboardToFile;
   if (command == "-h" || command == "help" || command == "?")
     return Command_Help;
   if (command == "-v" || command == "version") return Command_Version;

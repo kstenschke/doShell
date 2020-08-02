@@ -8,6 +8,7 @@ namespace doShell {
 void transpileClipboard::Transpile(std::string *code, bool is_linux) {
   TranspileSetClipboard(code, is_linux);
   TranspileCopyPaste(code, is_linux);
+  TranspileSaveClipboardToFile(code, is_linux);
 }
 
 bool transpileClipboard::TranspileSetClipboard(std::string *code,
@@ -20,6 +21,19 @@ bool transpileClipboard::TranspileSetClipboard(std::string *code,
       : "osascript -e 'set the clipboard to \"$1\"'";
 
   std::regex exp (R"(#setClipboard \"(.*)\")");
+  *code = std::regex_replace(*code, exp, replacement);
+
+  return true;
+}
+
+bool transpileClipboard::TranspileSaveClipboardToFile(std::string *code,
+                                               bool is_linux) {
+  if (std::string::npos == code->find("#saveClipboardToFile ")) return false;
+
+  std::string replacement =
+      "/Users/kay/CLionProjects/robo/bin/mac/dosh saveClipboardToFile $1";
+
+  std::regex exp (R"(#saveClipboardToFile \"(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;

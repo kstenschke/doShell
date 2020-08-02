@@ -15,6 +15,7 @@ class AppCommands {
     Command_Compile,
     Command_Help,
     Command_Run,
+    Command_SaveClipboardToFile,
     Command_Version,
     Command_Invalid
   };
@@ -22,9 +23,6 @@ class AppCommands {
   explicit AppCommands(std::string argc);
 
   static Command ResolveCommandByName(const std::string &command);
-
-  static bool IsListCommand(Command command);
-  static bool IsReplaceCommand(Command command);
 
   Command GetResolved();
 

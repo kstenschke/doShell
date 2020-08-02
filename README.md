@@ -190,11 +190,12 @@ and/or scripts from given files via:
 
 ### Clipboard 
 
-| Command                        | Description                             |
-| ------------------------------ | --------------------------------------- |
-| ``#setClipboard $value``       | Copy text to clipboard                  |
-| ``#copyPaste "foo"``           | Copy text to clipboard and invoke paste |
-| ``$value=#getClipboard`        |                                         |
+| Command                              | Description                             |
+| ------------------------------------ | --------------------------------------- |
+| ``#setClipboard $value``             | Copy text to clipboard                  |
+| ``#copyPaste "foo"``                 | Copy text to clipboard and invoke paste |
+| ``$value=#getClipboard``             |                                         |
+| ``#saveClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
 
 | Command                                                      | Description            |
 | ------------------------------------------------------------ | ---------------------- |

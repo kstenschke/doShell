@@ -79,6 +79,9 @@ bool App::Process() {
 
         return result;
       }
+      case AppCommands::Command_SaveClipboardToFile:  // saveClipboardToFile
+        result = AppHelp::PrintVersion();
+        break;
       case AppCommands::Command_Version:  // v - output version
         result = AppHelp::PrintVersion();
         break;

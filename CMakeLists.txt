@@ -34,6 +34,8 @@ add_executable(dosh
         doShell/app/app_log.h
         doShell/dosh/runtime.cc
         doShell/dosh/runtime.h
+        doShell/dosh/shellCommand/shellCommandClipboard.cc
+        doShell/dosh/shellCommand/shellCommandClipboard.h
         doShell/dosh/transpiler/transpileBrowser.cc
         doShell/dosh/transpiler/transpileBrowser.h
         doShell/dosh/transpiler/transpileClipboard.cc
