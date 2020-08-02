@@ -30,6 +30,7 @@ Browser UI and terminal automation for Linux and Mac OS
   * [Dependencies](#dependencies)
   * [Build Instructions](#build-instructions)
   * [Code Convention](#code-convention)
+  * [Third Party References](#third-party-references)
   * [License](#license)
 
 
@@ -343,6 +344,26 @@ where applicable.
 
 The source code of the doShell transpiler and interpreter follows the 
 [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).  
+
+
+Third Party References
+----------------------
+
+doShell was built using the following third party libraries and tools:
+
+| Library                                       | Description                                                        | License                                                          |
+| --------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| [Clip Library](https://github.com/dacap/clip) | Library to copy/retrieve content to/from the clipboard/pasteboard. | [MIT License](https://opensource.org/licenses/MIT)               |
+
+| Tool                                                            | Description                                                                | License                                                                                                   |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [Clang](https://clang.llvm.org)                                 | A C language family frontend for LLVM                                      | [Apache License](https://www.apache.org/licenses/)                                                        |      
+| [Cmake](https://cmake.org)                                      | Family of tools designed to build, test and package software               | [New BSD License](https://en.wikipedia.org/wiki/New_BSD_License)                                          |      
+| [Cppcheck](http://cppcheck.sourceforge.net/)                    | Static analysis tool for C/C++ code                                        | [GNU General Public License version 3](https://www.gnu.org/licenses/gpl-3.0.html)                         |      
+| [cpplint](https://github.com/cpplint/cpplint)                   | Static code checker for C++                                                | [BSD-3 Clause](https://opensource.org/licenses/BSD-3-Clause)                                              |      
+| [GCC](https://gcc.gnu.org)                                      | GCC, the GNU Compiler Collection                                           | [GNU General Public License version 3](https://gcc.gnu.org/onlinedocs/libstdc++/manual/appendix_gpl.html) |      
+
+Thanks a lot!
 
 
 License

@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/dosh/shellCommand/shellCommandClipboard.h>
+#include <vendor/clip/clip.h>
 
 namespace doShell {
 
@@ -17,9 +18,10 @@ shellCommandClipboard::~shellCommandClipboard() {
 }
 
 bool shellCommandClipboard::saveClipboardToFile(std::string path_file) {
+  std::string value;
+  clip::get_text(value);
 
-  return true;
+  return helper::File::WriteToNewFile(path_file, value);
 }
-
 
 }  // namespace doShell
