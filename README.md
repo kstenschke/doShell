@@ -190,6 +190,7 @@ and/or scripts from given files via:
 | ``#saveClipboardToFile "clip.txt"``  | Append clipboard-text to given file     |
 | ``#copyCurrentUrl``                  |                                         |
 |``#copyInTerminal``                   | Varies by OS                            |
+|``#pasteInTerminal``                  | Varies by OS            |
 
 
 | Command                                                      | Description            |
