@@ -9,7 +9,6 @@ Browser UI and terminal automation for Linux and Mac OS
 - [DoShell](#doshell)
   * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
-    + [Transpile](#transpile)
     + [Transpile and/or run](#transpile-and/or-run)
     + [Communication between browsers and runtime system](#communication-between-browsers-and-runtime-system)
   + [Runtime macros](#runtime-macros)
@@ -23,7 +22,6 @@ Browser UI and terminal automation for Linux and Mac OS
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
-      * [Miscellaneous](#miscellaneous)
     + [Terminal automation](#terminal-automation)
     + [File manipulation](#file-manipulation)
     + [Functions, iterations, conditions](#functions-iterations-conditions) 
@@ -65,16 +63,6 @@ for executing doShell scripts.
 
 ![Transpiler](/images/doshell_diagram.png)
 
-### Transpile
-
-Running ``dosh``, doShell will locate all ``*.do.sh`` files within the 
-current working path, including its sub-directories, and 
-transpile them into ``*.do.x.sh`` files in the same path.  
-``*.do.x.sh`` are doShell executable files, that can contain doShell specific
-runtime macros and calls to [third party tools](#dependencies) and calls to 
-shell tools, built-in into the doShell binary. 
-These files can be executed via the doShell runtime. 
-
 
 ### Transpile and/or run
 
@@ -93,6 +81,16 @@ parallel to the shell for script execution, launches another shell thread which 
 a local network port and stores incoming data for further processing.  
 Web browsers than can send-out data to the open port, via HTTP POST invoked by JavaScript 
 run from the browser's devConsole.
+
+#### Enable CORS in Firefox
+
+Open Firefox, and on the address bar, type about:config.  
+Click on I'll be careful,I promise!".  
+Search for security.fileuri.strict_origin_policy.  
+Right-click and select Toggle to change the value from true to false.  
+Close the browser and launch it again.   
+
+In Chrome, cross scripting is handled automatically
 
 
 ## Runtime macros
@@ -242,13 +240,6 @@ and/or scripts from given files via:
 | ``#clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
 | ``#clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
 | ``#clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
-
-
-#### Miscellaneous
-
-| Command                       | Description                                          |
-| ----------------------------- | ---------------------------------------------------- |
-| ``#findInBrowser "..."``      | Hits CTRL+F or CMD+F, enters given text, hits return |
 
 
 ### Terminal automation
