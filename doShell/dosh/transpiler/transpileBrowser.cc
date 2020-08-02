@@ -11,6 +11,8 @@ namespace doShell {
     TranspileFocusUrl(code, is_linux);
     TranspileOpenBrowserDevTools(code, is_linux);
     TranspileActivateDevConsole(code, is_linux);
+    TranspileRunJs(code, is_linux);
+    TranspileExecDevConsole(code, is_linux);
   }
 
   bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
@@ -48,7 +50,7 @@ namespace doShell {
     std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
     *code = std::regex_replace(*code, exp, replacement);
 
-    transpileClipboard::Transpile(code, is_linux);
+//    transpileClipboard::Transpile(code, is_linux);
 
     return true;
   }
@@ -96,6 +98,33 @@ namespace doShell {
 
     return helper::String::ReplaceAll(
         code, "#openBrowserDevConsole", replacement) > 0;
+  }
+
+  bool transpileBrowser::TranspileRunJs(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#runJs")) return false;
+
+    std::string replacement =
+        "#openBrowserDevConsole\n"
+        "#copyPaste \"$2\"\n"
+        "#execDevConsole";
+
+    std::regex exp(R"(#runJs \"(.*)\")");
+    *code = std::regex_replace(*code, exp, replacement);
+
+    return true;
+  }
+
+  bool transpileBrowser::TranspileExecDevConsole(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#execDevConsole")) return false;
+
+    std::string replacement =
+        is_linux
+        ? "xdotool key ctrl+enter"
+        : "osascript -e 'tell application \"System Events\" "
+            "to key code 36 using command down'";
+
+    return helper::String::ReplaceAll(
+        code, "#execDevConsole", replacement) > 0;
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {

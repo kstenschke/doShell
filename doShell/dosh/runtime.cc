@@ -32,10 +32,20 @@ bool Compiler::Compile() {
 }
 
 void Compiler::TranspileCommands() {
-  // High-level commands come 1st, as they insert lower-level commands
-  transpileClipboard::Transpile(&source_, is_linux_);
-  transpileBrowser::Transpile(&source_, is_linux_);
-  transpileKeystrokes::Transpile(&source_, is_linux_);
+  bool contains_commands;
+
+  do {
+    contains_commands = ContainsCommands(source);
+
+    if (contains_commands) {
+      // High-level commands come 1st, as they insert lower-level commands
+      transpileClipboard::Transpile(&source_, is_linux_);
+      transpileBrowser::Transpile(&source_, is_linux_);
+      transpileKeystrokes::Transpile(&source_, is_linux_);
+
+      contains_commands = ContainsCommands(source);
+    }
+  } while (contains_commands);
 }
 
 void Compiler::PortListener(int port) {

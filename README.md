@@ -230,6 +230,18 @@ and/or scripts from given files via:
 | ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
 
 
+#### Use devTools and devConsole
+
+| Command                        | Description                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------- |
+| ``#openBrowserDevConsole``     | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
+| ``#openBrowserDevTools``       | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
+| ``#runJs "alert('hello')"``    | Open and focus devConsole, paste and execute given script                                   |
+| ``#execDevConsole``            | Hits CTRL+ENTER or CMD+ENTER                                                                |
+
+
+#runJsInDevConsole
+
 #### Interact with DOM elements
 
 | Command                                        | Description                            |

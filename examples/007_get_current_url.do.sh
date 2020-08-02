@@ -3,4 +3,8 @@
 #activateBrowser
 #openUrlInNewBrowserTab "https://duckduckgo.com/"
 #openBrowserDevConsole
-#copyPaste "hello world!"
+
+#runJsInDevConsole "document.location.href"
+
+sleep 120000
+
