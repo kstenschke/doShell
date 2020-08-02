@@ -243,6 +243,7 @@ and/or scripts from given files via:
 | ``#openBrowserDevTools``       | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
 | ``#runJs "alert('hello')"``    | Open and focus devConsole, paste and execute given script                                   |
 | ``#execDevConsole``            | Hits CTRL+ENTER or CMD+ENTER                                                                |
+| ``#clearDevConsole``           | Clears current commands from devConsole                                                     |
 
 
 #runJsInDevConsole

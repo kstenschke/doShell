@@ -71,6 +71,7 @@ class Compiler {
   static bool RemoveSheBangLine(std::string *import_content);
 
   void TranspileCommands();
+  bool ContainsCommands();
 
   void CleanupSource();
   void MakeRuntimeScriptExecutable() const;

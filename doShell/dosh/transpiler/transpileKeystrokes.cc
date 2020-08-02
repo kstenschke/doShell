@@ -6,13 +6,15 @@
 namespace doShell {
   void transpileKeystrokes::Transpile(std::string *code, bool is_linux) {
     TranspileType(code, is_linux);
-    TranspileHitKey(code, is_linux);
+    TranspileHitEnter(code, is_linux);
+    TranspileHitBackspace(code, is_linux);
 
     TranspileCopyInTerminal(code, is_linux);
     TranspileCopy(code, is_linux);
     TranspileCut(code, is_linux);
     TranspilePasteInTerminal(code, is_linux);
     TranspilePaste(code, is_linux);
+
     TranspileSelectAll(code, is_linux);
   }
   
@@ -85,7 +87,9 @@ namespace doShell {
           "using command down'") > 0;
   }
 
-  bool transpileKeystrokes::TranspileHitKey(std::string *code, bool is_linux) {
+  bool transpileKeystrokes::TranspileHitEnter(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#hit enter")) return false;
+
     bool replaced = helper::String::ReplaceAll(
         code,
         "#hit enter",
@@ -93,6 +97,20 @@ namespace doShell {
         ? "xdotool key KP_Enter"
         : "osascript -e 'tell application \"System Events\" "
           "to key code 36'") > 0;
+
+    return replaced;
+  }
+
+  bool transpileKeystrokes::TranspileHitBackspace(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#hit backspace")) return false;
+
+    bool replaced = helper::String::ReplaceAll(
+        code,
+        "#hit backspace",
+        is_linux
+        ? "xdotool key BackSpace"
+        : "osascript -e 'tell application \"System Events\" "
+          "to key code 51'") > 0;
 
     return replaced;
   }

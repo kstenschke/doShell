@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 #activateBrowser
-#openUrlInNewBrowserTab "https://duckduckgo.com/"
-#openBrowserDevConsole
+#openUrlInNewBrowserTab "https://duckduckgo.com"
 
-#runJsInDevConsole "document.location.href"
+sleep 0.5
 
-sleep 120000
-
+#runJs "document.location.href"
+#clearDevConsole

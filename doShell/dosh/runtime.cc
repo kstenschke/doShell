@@ -35,17 +35,22 @@ void Compiler::TranspileCommands() {
   bool contains_commands;
 
   do {
-    contains_commands = ContainsCommands(source);
-
-    if (contains_commands) {
-      // High-level commands come 1st, as they insert lower-level commands
+    if ((contains_commands = ContainsCommands())) {
       transpileClipboard::Transpile(&source_, is_linux_);
       transpileBrowser::Transpile(&source_, is_linux_);
       transpileKeystrokes::Transpile(&source_, is_linux_);
 
-      contains_commands = ContainsCommands(source);
+      contains_commands = ContainsCommands();
     }
   } while (contains_commands);
+}
+
+bool Compiler::ContainsCommands() {
+  std::regex exp("#[a-z]");
+
+  return 0 < std::distance(  // Count the number of matches inside the iterator
+      std::sregex_iterator(source_.begin(), source_.end(), exp),
+      std::sregex_iterator());
 }
 
 void Compiler::PortListener(int port) {

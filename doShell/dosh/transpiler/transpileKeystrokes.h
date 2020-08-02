@@ -20,7 +20,8 @@ class transpileKeystrokes {
   static bool TranspilePaste(std::string *code, bool is_linux);
   static bool TranspilePasteInTerminal(std::string *code, bool is_linux);
   static bool TranspileSelectAll(std::string *code, bool is_linux);
-  static bool TranspileHitKey(std::string *code, bool is_linux);
+  static bool TranspileHitEnter(std::string *code, bool is_linux);
+  static bool TranspileHitBackspace(std::string *code, bool is_linux);
   static bool TranspileType(std::string *code, bool is_linux);
 };
 }  // namespace doShell

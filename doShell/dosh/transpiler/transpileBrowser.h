@@ -20,6 +20,7 @@ class transpileBrowser {
   static bool TranspileFocusUrl(std::string *code, bool is_linux);
   static bool TranspileRunJs(std::string *code, bool is_linux);
   static bool TranspileExecDevConsole(std::string *code, bool is_linux);
+  static bool TranspileClearDevConsole(std::string *code, bool is_linux);
   static bool TranspileOpenBrowserDevTools(std::string *code, bool is_linux);
   static bool TranspileActivateDevConsole(std::string *code, bool is_linux);
 

@@ -13,6 +13,7 @@ namespace doShell {
     TranspileActivateDevConsole(code, is_linux);
     TranspileRunJs(code, is_linux);
     TranspileExecDevConsole(code, is_linux);
+    TranspileClearDevConsole(code, is_linux);
   }
 
   bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
@@ -105,7 +106,8 @@ namespace doShell {
 
     std::string replacement =
         "#openBrowserDevConsole\n"
-        "#copyPaste \"$2\"\n"
+        "#copyPaste \"$1\"\n"
+        "sleep 0.1\n"
         "#execDevConsole";
 
     std::regex exp(R"(#runJs \"(.*)\")");
@@ -125,6 +127,18 @@ namespace doShell {
 
     return helper::String::ReplaceAll(
         code, "#execDevConsole", replacement) > 0;
+  }
+
+  bool transpileBrowser::TranspileClearDevConsole(std::string *code, bool is_linux) {
+    if (std::string::npos == code->find("#clearDevConsole")) return false;
+
+    std::string replacement =
+        "#openBrowserDevConsole\n"
+        "#selectAll\n"
+        "#hit backspace\n";
+
+    return helper::String::ReplaceAll(
+        code, "#clearDevConsole", replacement) > 0;
   }
 
   bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {
