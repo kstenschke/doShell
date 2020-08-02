@@ -10,8 +10,7 @@ Browser UI and terminal automation for Linux and Mac OS
   * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile) 
-    + [Transpile and/or run](#transpile-and/or-run)
-    + [Communication from browser to runtime system](#communication-from-browser-to-runtime-system)
+    + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Import](#import)
@@ -89,14 +88,6 @@ parallel to the shell for script execution, launches another shell thread which 
 a local network port and stores incoming data for further processing.  
 Web browsers than can send-out data to the open port, via HTTP POST invoked by JavaScript 
 run from the browser's devConsole.
-
-#### Enable CORS in Firefox
-
-Open Firefox, and on the address bar, type about:config.  
-Click on I'll be careful,I promise!".  
-Search for security.fileuri.strict_origin_policy.  
-Right-click and select Toggle to change the value from true to false.  
-Close the browser and launch it again.  
 
 
 ## Runtime macros
