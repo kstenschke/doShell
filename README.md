@@ -9,8 +9,9 @@ Browser UI and terminal automation for Linux and Mac OS
 - [DoShell](#doshell)
   * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
+    + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run)
-    + [Communication between browsers and runtime system](#communication-between-browsers-and-runtime-system)
+    + [Communication from browser to runtime system](#communication-from-browser-to-runtime-system)
   + [Runtime macros](#runtime-macros)
   * [Commands](#commands)
     + [Import](#import)
@@ -64,6 +65,12 @@ for executing doShell scripts.
 ![Transpiler](/images/doshell_diagram.png)
 
 
+### Transpile
+
+Running ``shdo -t script.do.sh`` transpiles the given doShell
+script to a new file ``script.do.x.sh``
+
+
 ### Transpile and/or run
 
 Running ``shdo -r script.do.sh``, the transpiler will translate the given 
@@ -74,7 +81,7 @@ doShell transpiles to regular shell script, which additionally to conventional s
 can contain runtime macros: placeholder-strings for generic content.  
 The doShell runtime system replaces runtime macros before execution in a sandboxed shell-thread. 
 
-### Communication between browsers and runtime system
+### Communication from browser to runtime system
 
 For communication from web browsers back to the runtime sytem, the doShell runtime system in 
 parallel to the shell for script execution, launches another shell thread which listens to 
@@ -88,9 +95,7 @@ Open Firefox, and on the address bar, type about:config.
 Click on I'll be careful,I promise!".  
 Search for security.fileuri.strict_origin_policy.  
 Right-click and select Toggle to change the value from true to false.  
-Close the browser and launch it again.   
-
-In Chrome, cross scripting is handled automatically
+Close the browser and launch it again.  
 
 
 ## Runtime macros
