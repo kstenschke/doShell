@@ -79,9 +79,11 @@ bool App::Process() {
 
         return result;
       }
-      case AppCommands::Command_SaveClipboardToFile:  // saveClipboardToFile
-        result = AppHelp::PrintVersion();
+      case AppCommands::Command_SaveClipboardToFile: { // saveClipboardToFile
+        std::string path_file = argv_[2];
+        result = shellCommandClipboard::saveClipboardToFile(path_file);
         break;
+      }
       case AppCommands::Command_Version:  // v - output version
         result = AppHelp::PrintVersion();
         break;
