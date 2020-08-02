@@ -187,7 +187,8 @@ and/or scripts from given files via:
 | ``#setClipboard $value``             | Copy text to clipboard                  |
 | ``#copyPaste "foo"``                 | Copy text to clipboard and invoke paste |
 | ``$value=#getClipboard``             |                                         |
-| ``#saveClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
+| ``#saveClipboardToFile "clip.txt"``  | Append clipboard-text to given file     |
+| ``#copyCurrentUrl``                  |                                         |
 
 | Command                                                      | Description            |
 | ------------------------------------------------------------ | ---------------------- |
