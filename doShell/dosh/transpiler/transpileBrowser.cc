@@ -90,10 +90,9 @@ namespace doShell {
         is_linux
         ? "xdotool key f12"
         : "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"k\" using {command down, option down}'\n"
-          "sleep 0.1";
+          "to keystroke \"k\" using {command down, option down}'\n";
 
-    replacement += "\nsleep 0.1";
+    replacement += "\nsleep 0.5";
 
     return helper::String::ReplaceAll(
         code, "#openBrowserDevConsole", replacement) > 0;

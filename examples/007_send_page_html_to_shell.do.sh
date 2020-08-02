@@ -2,14 +2,9 @@
 
 #activateBrowser
 #openUrlInNewBrowserTab "https://duckduckgo.com/"
-sleep 0.5
 #openBrowserDevConsole
 
-# #copyPaste "(()=>{data=new FormData();"
-# #copyPaste "data.set('html','hello');"
-# #copyPaste "req=new XMLHttpRequest();"
-# #copyPaste "req.open("POST", 'http://localhost:8765', true);"
-# #copyPaste "req.send(data);})()"
+#copyPaste "(()=>{data=new FormData(); data.set(\"html\",\"hello\"); req=new XMLHttpRequest(); req.open(\"POST\", \"http://localhost:8765\", true); req.send(data);})()"
 
 #hit enter
 
