@@ -88,9 +88,7 @@ Open Firefox, and on the address bar, type about:config.
 Click on I'll be careful,I promise!".  
 Search for security.fileuri.strict_origin_policy.  
 Right-click and select Toggle to change the value from true to false.  
-Close the browser and launch it again.   
-
-In Chrome, cross scripting is handled automatically
+Close the browser and launch it again.  
 
 
 ## Runtime macros
