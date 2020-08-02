@@ -38,6 +38,7 @@ bool transpileClipboard::TranspileCopyPaste(std::string *code,
           "to keystroke \"v\" using command down'";
 
   std::regex exp (R"(#copyPaste \"(.*)\")");
+
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;

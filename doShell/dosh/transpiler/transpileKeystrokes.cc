@@ -17,11 +17,11 @@ namespace doShell {
   }
   
   bool transpileKeystrokes::TranspileCopy(std::string *code, bool is_linux) {
-    if (std::string::npos == code->find("#copy")) return false;
+    if (std::string::npos == code->find("#hit copy")) return false;
 
     return helper::String::ReplaceAll(
         code,
-        "#copy",
+        "#hit copy",
         is_linux
         ? "xdotool key ctrl+c"
         : "osascript -e 'tell application \"System Events\" to keystroke \"c\" "

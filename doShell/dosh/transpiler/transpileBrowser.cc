@@ -10,7 +10,7 @@ namespace doShell {
     TranspileOpenNewTab(code, is_linux);
     TranspileFocusUrl(code, is_linux);
     TranspileOpenBrowserDevTools(code, is_linux);
-    TranspileOpenBrowserDevConsole(code, is_linux);
+    TranspileActivateDevConsole(code, is_linux);
   }
 
   bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
@@ -25,8 +25,7 @@ namespace doShell {
 //          "    sudo -u $me nohup firefox > /dev/null &\n"
           "    nohup firefox > /dev/null &\n"
           "fi"
-//        : "osascript -e 'tell application \"Firefox\" to activate'";
-        : "osascript -e 'tell application \"Chromium\" to activate'";
+        : "osascript -e 'tell application \"Firefox\" to activate'";
 
     replacement += "\nsleep 0.3";
 
@@ -37,16 +36,19 @@ namespace doShell {
 
   bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code,
                                                          bool is_linux) {
-    if (std::string::npos == code->find("#openUrlInNewBrowserTab")) return false;
+    if (std::string::npos == code->find("#openUrlInNewBrowserTab ")) return false;
 
     std::string replacement =
         "#openNewBrowserTab\n"
         "#focusBrowserURL\n"
-        "#copyPaste: '$1/'\n"
+        "#copyPaste \"$1/\"\n"
+        "sleep 0.2\n"
         "#hit enter";
 
     std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
     *code = std::regex_replace(*code, exp, replacement);
+
+    transpileClipboard::Transpile(code, is_linux);
 
     return true;
   }
@@ -75,23 +77,20 @@ namespace doShell {
         : "osascript -e 'tell application \"System Events\" "
           "to keystroke \"F12\"'";
 
-    replacement += "\nsleep 0.1";
+    replacement += "\nsleep 0.5";
 
     return helper::String::ReplaceAll(
         code, "#openBrowserDevTools", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileOpenBrowserDevConsole(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileActivateDevConsole(std::string *code, bool is_linux) {
     if (std::string::npos == code->find("#openBrowserDevConsole")) return false;
 
     std::string replacement =
         is_linux
         ? "xdotool key f12"
         : "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"F12\"'"
-          "sleep 0.1"
-          "osascript -e 'tell application \"System Events\" "  // chromium
-          "to keystroke \"p\" with {command down, shift down} '"
+          "to keystroke \"k\" using {command down, option down}'\n"
           "sleep 0.1";
 
     replacement += "\nsleep 0.1";

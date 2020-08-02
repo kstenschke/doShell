@@ -4,8 +4,8 @@
 #ifndef DOSHELL_COMPILER_TRANSPILEBROWSER_H_
 #define DOSHELL_COMPILER_TRANSPILEBROWSER_H_
 
+#include "transpileClipboard.h"
 #include <doShell/helper/helper_string.h>
-
 #include <string>
 
 namespace doShell {
@@ -19,7 +19,7 @@ class transpileBrowser {
   static bool TranspileOpenNewTab(std::string *code, bool is_linux);
   static bool TranspileFocusUrl(std::string *code, bool is_linux);
   static bool TranspileOpenBrowserDevTools(std::string *code, bool is_linux);
-  static bool TranspileOpenBrowserDevConsole(std::string *code, bool is_linux);
+  static bool TranspileActivateDevConsole(std::string *code, bool is_linux);
 
   static bool TranspileSendJsResult(std::string *code, bool is_linux);
 };

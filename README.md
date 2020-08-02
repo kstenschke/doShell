@@ -167,7 +167,7 @@ and/or scripts from given files via:
 
 | Command             | Description             |
 | ------------------- | ----------------------- |  
-|``#copy``            | Hit CTRL+C or CMD+c     |
+|``#hit copy``        | Hit CTRL+C or CMD+c     |
 |``#copyInTerminal``  | Varies by OS            |
 |``#cut``             | Hit CTRL+X or CMD+x     |
 |``#paste``           | Hit CTRL+V or CMD+V     |
