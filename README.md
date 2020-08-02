@@ -189,6 +189,8 @@ and/or scripts from given files via:
 | ``$value=#getClipboard``             |                                         |
 | ``#saveClipboardToFile "clip.txt"``  | Append clipboard-text to given file     |
 | ``#copyCurrentUrl``                  |                                         |
+|``#copyInTerminal``                   | Varies by OS                            |
+
 
 | Command                                                      | Description            |
 | ------------------------------------------------------------ | ---------------------- |
