@@ -42,12 +42,12 @@ add_executable(dosh
         doShell/dosh/runtime.h
         doShell/dosh/shellCommand/shellCommandClipboard.cc
         doShell/dosh/shellCommand/shellCommandClipboard.h
-        doShell/dosh/transpiler/transpileBrowser.cc
-        doShell/dosh/transpiler/transpileBrowser.h
-        doShell/dosh/transpiler/transpileClipboard.cc
-        doShell/dosh/transpiler/transpileClipboard.h
-        doShell/dosh/transpiler/transpileKeystrokes.cc
-        doShell/dosh/transpiler/transpileKeystrokes.h
+        doShell/dosh/transpile/transpileBrowser.cc
+        doShell/dosh/transpile/transpileBrowser.h
+        doShell/dosh/transpile/transpileClipboard.cc
+        doShell/dosh/transpile/transpileClipboard.h
+        doShell/dosh/transpile/transpileKeystrokes.cc
+        doShell/dosh/transpile/transpileKeystrokes.h
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h
         doShell/helper/helper_dateTime.cc

@@ -8,9 +8,9 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/dosh/transpiler/transpileClipboard.h>
-#include <doShell/dosh/transpiler/transpileBrowser.h>
-#include <doShell/dosh/transpiler/transpileKeystrokes.h>
+#include <doShell/dosh/transpile/transpileClipboard.h>
+#include <doShell/dosh/transpile/transpileBrowser.h>
+#include <doShell/dosh/transpile/transpileKeystrokes.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
