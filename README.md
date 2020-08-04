@@ -83,11 +83,9 @@ The doShell runtime system replaces runtime macros before execution in a sandbox
 
 ### Communication from browser to runtime system
 
-For communication from web browsers back to the runtime sytem, the doShell runtime system in 
-parallel to the shell for script execution, launches another shell thread which listens to 
-a local network port and stores incoming data for further processing.  
-Web browsers than can send-out data to the open port, via HTTP POST invoked by JavaScript 
-run from the browser's devConsole.
+For communication from web browsers back to the runtime sytem, the system clipboard is used. 
+doShell has some built-in commands for manipulation and file-import and - export of text from/to
+the clipboard. 
 
 
 ## Runtime macros
