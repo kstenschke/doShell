@@ -150,24 +150,26 @@ and/or scripts from given files via:
 
 | Command            | Description                            |
 | ------------------ | -------------------------------------- |  
-| ``#hit backspace`` |                                        |
-| ``#hit enter``     |                                        |
-| ``#hit esc``       |                                        |
-| ``#hit f1``        |                                        |
-| ``#hit tab``       |                                        |
-| ``#hit space``     |                                        |
+| ``#hitBackspace`` |                                        |
+| ``#hitEnter``     |                                        |
+| ``#hitEsc``       |                                        |
+| ``#hitF1``        |                                        |
+| ``#hitTab``       |                                        |
+| ``#hitSpace``     |                                        |
 
 
 **Stroke key combination:**
 
-| Command             | Description             |
-| ------------------- | ----------------------- |  
-|``#hit copy``        | Hit CTRL+C or CMD+c     |
-|``#copyInTerminal``  | Varies by OS            |
-|``#cut``             | Hit CTRL+X or CMD+x     |
-|``#paste``           | Hit CTRL+V or CMD+V     |
-|``#pasteInTerminal`` | Varies by OS            |
-|``#selectAll``       | Hit CTRL+A or CMD+A     |
+| Command                | Description                    |
+| ---------------------- | ------------------------------ |   
+|``#hitCopy``            | Hit CTRL+C or CMD+c            |
+|``#hitFindInTerminal``  | Hit CTRL+SHIFT+F or CMD+F      | 
+|``#hitFind``            | Hit CTRL+F or CMD+F            | 
+|``#copyInTerminal``     | Varies by OS                   |
+|``#cut``                | Hit CTRL+X or CMD+x            |
+|``#paste``              | Hit CTRL+V or CMD+V            |
+|``#pasteInTerminal``    | Varies by OS                   |
+|``#selectAll``          | Hit CTRL+A or CMD+A            |
 
 
 **Type text:**
@@ -264,6 +266,7 @@ and/or scripts from given files via:
 | ``#openNewTerminal``      |                                |
 | ``#openNewTerminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
 | ``#editInTerminal FILE``  | Open given file in bash editor | 
+| ``#openFindInTerminal``   | Hit CTRL+SHIFT+F or CMD+F      | 
 
 
 ### File manipulation

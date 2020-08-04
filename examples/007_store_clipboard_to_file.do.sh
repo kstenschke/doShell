@@ -4,5 +4,5 @@
 #openUrlInNewBrowserTab "https://duckduckgo.com"
 #focusBrowserURL
 #selectAll
-#hit copy
+#hitCopy
 #saveClipboardToFile "clip.txt"

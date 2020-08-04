@@ -14,14 +14,21 @@ class transpileKeystrokes {
   static void Transpile(std::string *code, bool is_linux);
 
  private:
-  static bool TranspileCopy(std::string *code, bool is_linux);
-  static bool TranspileCopyInTerminal(std::string *code, bool is_linux);
+  static bool TranspileHitCopy(std::string *code, bool is_linux);
+  static bool TranspileHitFind(std::string *code, bool is_linux);
   static bool TranspileCut(std::string *code, bool is_linux);
   static bool TranspilePaste(std::string *code, bool is_linux);
-  static bool TranspilePasteInTerminal(std::string *code, bool is_linux);
   static bool TranspileSelectAll(std::string *code, bool is_linux);
-  static bool TranspileHitEnter(std::string *code, bool is_linux);
+
+  static bool TranspileHitCopyInTerminal(std::string *code, bool is_linux);
+  static bool TranspileHitFindInTerminal(std::string *code, bool is_linux);
+  static bool TranspilePasteInTerminal(std::string *code, bool is_linux);
+
   static bool TranspileHitBackspace(std::string *code, bool is_linux);
+  static bool TranspileHitEnter(std::string *code, bool is_linux);
+  static bool TranspileHitEsc(std::string *code, bool is_linux);
+  static bool TranspileHitTab(std::string *code, bool is_linux);
+
   static bool TranspileType(std::string *code, bool is_linux);
 };
 }  // namespace doShell

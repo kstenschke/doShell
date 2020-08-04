@@ -46,7 +46,7 @@ namespace doShell {
         "#focusBrowserURL\n"
         "#copyPaste \"$1/\"\n"
         "sleep 0.2\n"
-        "#hit enter";
+        "#hitEnter";
 
     std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
     *code = std::regex_replace(*code, exp, replacement);
@@ -135,7 +135,7 @@ namespace doShell {
     std::string replacement =
         "#openBrowserDevConsole\n"
         "#selectAll\n"
-        "#hit backspace\n";
+        "#hitBackspace\n";
 
     return helper::String::ReplaceAll(
         code, "#clearDevConsole", replacement) > 0;

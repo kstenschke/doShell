@@ -4,4 +4,4 @@
 #openNewBrowserTab
 #focusBrowserURL
 #copyPaste "https://www.google.com/"
-#hit enter
+#hitEnter

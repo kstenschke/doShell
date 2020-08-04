@@ -4,4 +4,4 @@
 #openUrlInNewBrowserTab "https://duckduckgo.com/"
 
 #type "what is new?"
-#hit enter
+#hitEnter

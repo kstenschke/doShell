@@ -5,8 +5,8 @@
 sleep 0.4
 #runJs "document.location.href"
 #clearDevConsole
-
-# ctrl+f
+#hitFind
+#hitTab
 # tab
 # ctrl+a
 # ctrl+c
