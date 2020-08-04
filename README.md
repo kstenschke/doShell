@@ -7,7 +7,7 @@ Browser UI and terminal automation for Linux and Mac OS
 ## Table of Contents
 
 - [DoShell](#doshell)
-  * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
+  * [What does it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
@@ -33,7 +33,7 @@ Browser UI and terminal automation for Linux and Mac OS
   * [License](#license)
 
 
-## Idea - What does (will) it do?
+## Idea - What does it do?
 
 doShell is a superset of shell script, providing commands geared towards 
 non-headless cross-platform browser and terminal automation.  
