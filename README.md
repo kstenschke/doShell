@@ -264,7 +264,7 @@ and/or scripts from given files via:
 | ``#openNewTerminal``      |                                |
 | ``#openNewTerminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
 | ``#editInTerminal FILE``  | Open given file in bash editor | 
-| ``#openFindInTerminal``   | Hit CTRL+SHIFT+F or CMD+F      | 
+| ``#hitFindInTerminal``    | Hit CTRL+SHIFT+F or CMD+F      | 
 
 
 ### File manipulation
