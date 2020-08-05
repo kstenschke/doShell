@@ -48,7 +48,7 @@ for executing doShell scripts.
 ### Mission targets
 
 1. Ease scripted automation of controlling web browser in- and output, 
-   supporing the same language on linux and mac os
+   supporting the same language on linux and mac os
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
