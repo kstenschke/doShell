@@ -76,7 +76,7 @@ namespace doShell {
 
     std::string replacement =
         is_linux
-        ? "xdotool key f12"
+        ? "xdotool key F12"
         : "osascript -e 'tell application \"System Events\" "
           "to keystroke \"F12\"'";
 
@@ -91,7 +91,7 @@ namespace doShell {
 
     std::string replacement =
         is_linux
-        ? "xdotool key f12"
+        ? "xdotool key ctrl+shift+k"
         : "osascript -e 'tell application \"System Events\" "
           "to keystroke \"k\" using {command down, option down}'\n";
 
@@ -121,7 +121,7 @@ namespace doShell {
 
     std::string replacement =
         is_linux
-        ? "xdotool key ctrl+enter"
+        ? "xdotool key ctrl+KP_Enter"
         : "osascript -e 'tell application \"System Events\" "
             "to key code 36 using command down'";
 

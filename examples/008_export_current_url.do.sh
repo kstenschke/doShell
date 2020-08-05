@@ -2,14 +2,11 @@
 
 #activateBrowser
 #openUrlInNewBrowserTab "https://duckduckgo.com"
-sleep 0.4
+sleep 1.0
+
 #runJs "document.location.href"
-#clearDevConsole
-#hitFind
-#hitTab
-# tab
-# ctrl+a
-# ctrl+c
+#copyAll
+#saveClipboardToFile "clip.txt"
 
 # transport back - use https://github.com/dacap/clip within doShell
 # append to out-file than

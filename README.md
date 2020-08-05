@@ -187,12 +187,13 @@ and/or scripts from given files via:
 | Command                              | Description                             |
 | ------------------------------------ | --------------------------------------- |
 | ``#setClipboard $value``             | Copy text to clipboard                  |
+| ``#copyAll``                         | Select All, than copy                   |
 | ``#copyPaste "foo"``                 | Copy text to clipboard and invoke paste |
 | ``$value=#getClipboard``             |                                         |
 | ``#saveClipboardToFile "clip.txt"``  | Append clipboard-text to given file     |
 | ``#copyCurrentUrl``                  |                                         |
 |``#copyInTerminal``                   | Varies by OS                            |
-|``#pasteInTerminal``                  | Varies by OS            |
+|``#pasteInTerminal``                  | Varies by OS                            |
 
 
 | Command                                                      | Description            |
