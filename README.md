@@ -41,7 +41,7 @@ Possible doShell usecases are end-to-end testing,
 infoSec reconnaisance and creation of productivity macros.  
 
 
-This project is a source-to-source (S2S) transpiler and a runtime system
+This project is a source-to-source (S2S) transpiler and runtime system
 for executing doShell scripts.
 
 
