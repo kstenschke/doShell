@@ -185,8 +185,9 @@ and/or scripts from given files via:
 | Command                              | Description                             |
 | ------------------------------------ | --------------------------------------- |
 | ``#setClipboard $value``             | Copy text to clipboard                  |
-| ``#copyAll``                         | Select All, than copy                   |
+| ``#copyAll``                         | Select all, than copy                   |
 | ``#copyPaste "foo"``                 | Copy text to clipboard and invoke paste |
+| ``#cutAll``                          | Select all, than cut                    |
 | ``$value=#getClipboard``             |                                         |
 | ``#saveClipboardToFile "clip.txt"``  | Append clipboard-text to given file     |
 | ``#copyCurrentUrl``                  |                                         |

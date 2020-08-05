@@ -7,6 +7,7 @@ namespace doShell {
 void transpileKeystrokes::Transpile(std::string *code, bool is_linux) {
   TranspileType(code, is_linux);
   TranspileHitBackspace(code, is_linux);
+  TranspileHitDelete(code, is_linux);
   TranspileHitEnter(code, is_linux);
   TranspileHitEsc(code, is_linux);
   TranspileHitTab(code, is_linux);
@@ -141,6 +142,21 @@ bool transpileKeystrokes::TranspileHitBackspace(std::string *code,
       "#hitBackspace",
       is_linux
       ? "xdotool key BackSpace"
+      : "osascript -e 'tell application \"System Events\" "
+        "to key code 51'") > 0;
+
+  return replaced;
+}
+
+bool transpileKeystrokes::TranspileHitDelete(std::string *code,
+                                             bool is_linux) {
+  if (std::string::npos == code->find("#hitDelete")) return false;
+
+  bool replaced = helper::String::ReplaceAll(
+      code,
+      "#hitDelete",
+      is_linux
+      ? "xdotool key Delete"
       : "osascript -e 'tell application \"System Events\" "
         "to key code 51'") > 0;
 

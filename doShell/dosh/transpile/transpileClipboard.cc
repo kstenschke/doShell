@@ -9,6 +9,7 @@ void transpileClipboard::Transpile(std::string *code, bool is_linux) {
   TranspileSetClipboard(code, is_linux);
   TranspileCopyPaste(code, is_linux);
   TranspileCopyAll(code, is_linux);
+  TranspileCutAll(code, is_linux);
   TranspileSaveClipboardToFile(code, is_linux);
 }
 
@@ -65,5 +66,9 @@ bool transpileClipboard::TranspileCopyAll(std::string *code,
 
   return helper::String::ReplaceAll(
       code, "#selectAll\n#hitCopy", "xdotool type ") > 0;
+}
+
+bool transpileClipboard::TranspileCutAll(std::string *code, bool is_linux) {
+  return helper::String::ReplaceAll(code, "#cutAll", "#selectAll\n#hitCut") > 0;
 }
 }  // namespace doShell
