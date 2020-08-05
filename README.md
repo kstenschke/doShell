@@ -182,17 +182,18 @@ and/or scripts from given files via:
 
 ### Clipboard 
 
-| Command                              | Description                             |
-| ------------------------------------ | --------------------------------------- |
-| ``#setClipboard $value``             | Copy text to clipboard                  |
-| ``#copyAll``                         | Select all, than copy                   |
-| ``#copyPaste "foo"``                 | Copy text to clipboard and invoke paste |
-| ``#cutAll``                          | Select all, than cut                    |
-| ``$value=#getClipboard``             |                                         |
-| ``#saveClipboardToFile "clip.txt"``  | Append clipboard-text to given file     |
-| ``#copyCurrentUrl``                  |                                         |
-|``#copyInTerminal``                   | Varies by OS                            |
-|``#pasteInTerminal``                  | Varies by OS                            |
+| Command                                | Description                             |
+| -------------------------------------- | --------------------------------------- |
+|``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
+|``#setClipboard $value``                | Copy text to clipboard                  |
+|``#copyAll``                            | Select all, than copy                   |
+|``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
+|``#cutAll``                             | Select all, than cut                    |
+|``$value=#getClipboard``                |                                         |
+|``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
+|``#copyCurrentUrl``                     |                                         |
+|``#copyInTerminal``                     | Varies by OS                            |
+|``#pasteInTerminal``                    | Varies by OS                            |
 
 
 | Command                                                      | Description            |

@@ -7,9 +7,12 @@ namespace doShell {
 
 void transpileClipboard::Transpile(std::string *code, bool is_linux) {
   TranspileSetClipboard(code, is_linux);
+
   TranspileCopyPaste(code, is_linux);
   TranspileCopyAll(code, is_linux);
   TranspileCutAll(code, is_linux);
+
+  TranspileAppendClipboardToFile(code, is_linux);
   TranspileSaveClipboardToFile(code, is_linux);
 }
 
@@ -23,6 +26,19 @@ bool transpileClipboard::TranspileSetClipboard(std::string *code,
       : "osascript -e 'set the clipboard to \"$1\"'";
 
   std::regex exp (R"(#setClipboard \"(.*)\")");
+  *code = std::regex_replace(*code, exp, replacement);
+
+  return true;
+}
+
+bool transpileClipboard::TranspileAppendClipboardToFile(std::string *code,
+                                               bool is_linux) {
+  if (std::string::npos == code->find("#appendClipboardToFile ")) return false;
+
+  std::string replacement =
+      "/home/kay/CLionProjects/shellDo/bin/linux/dosh appendClipboardToFile $1";
+
+  std::regex exp (R"(#appendClipboardToFile \"(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;

@@ -41,6 +41,11 @@ bool App::Process() {
   bool result;
 
     switch (command) {
+      case AppCommands::Command_AppendClipboardToFile: { // appendClipboardToFile
+        std::string path_file = argv_[2];
+        result = shellCommandClipboard::appendClipboardToFile(path_file);
+        break;
+      }
       case AppCommands::Command_Compile: {  // c - compile
         auto compiler = new Compiler(argc_, argv_);
         result = compiler->Compile();

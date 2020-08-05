@@ -21,6 +21,8 @@ AppCommands::Command AppCommands::Resolve() {
 
 AppCommands::Command AppCommands::ResolveCommandByName(
     const std::string &command) {
+  if (command == "appendClipboardToFile")
+    return Command_AppendClipboardToFile;
   if (command == "-c" || command == "compile")
     return Command_Compile;
   if (command == "-r" || command == "run")

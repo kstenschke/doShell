@@ -15,6 +15,7 @@ class AppCommands {
     Command_Compile,
     Command_Help,
     Command_Run,
+    Command_AppendClipboardToFile,
     Command_SaveClipboardToFile,
     Command_Version,
     Command_Invalid

@@ -28,6 +28,7 @@ class shellCommandClipboard {
 
   virtual ~shellCommandClipboard();
 
+  static bool appendClipboardToFile(std::string path_file);
   static bool saveClipboardToFile(std::string path_file);
 
  private:

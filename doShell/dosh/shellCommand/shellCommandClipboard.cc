@@ -24,4 +24,11 @@ bool shellCommandClipboard::saveClipboardToFile(std::string path_file) {
   return helper::File::WriteToNewFile(path_file, value);
 }
 
+bool shellCommandClipboard::appendClipboardToFile(std::string path_file) {
+  std::string value;
+  clip::get_text(value);
+
+  return helper::File::AppendToFile(path_file, value);
+}
+
 }  // namespace doShell
