@@ -7,7 +7,7 @@ Browser UI and terminal automation for Linux and Mac OS
 ## Table of Contents
 
 - [DoShell](#doshell)
-  * [What does (will) it do?](#idea---wat-does-(will)-it-do?)
+  * [What does it do?](#idea---wat-does-(will)-it-do?)
   * [Modes of Operation](#modes-of-operation)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
@@ -33,7 +33,7 @@ Browser UI and terminal automation for Linux and Mac OS
   * [License](#license)
 
 
-## Idea - What does (will) it do?
+## Idea - What does it do?
 
 doShell is a superset of shell script, providing commands geared towards 
 non-headless cross-platform browser and terminal automation.  
@@ -83,11 +83,9 @@ The doShell runtime system replaces runtime macros before execution in a sandbox
 
 ### Communication from browser to runtime system
 
-For communication from web browsers back to the runtime sytem, the doShell runtime system in 
-parallel to the shell for script execution, launches another shell thread which listens to 
-a local network port and stores incoming data for further processing.  
-Web browsers than can send-out data to the open port, via HTTP POST invoked by JavaScript 
-run from the browser's devConsole.
+For communication from web browsers back to the runtime sytem, the system clipboard is used. 
+doShell has some built-in commands for manipulation and file-import and - export of text from/to
+the clipboard. 
 
 
 ## Runtime macros
@@ -267,7 +265,7 @@ and/or scripts from given files via:
 | ``#openNewTerminal``      |                                |
 | ``#openNewTerminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
 | ``#editInTerminal FILE``  | Open given file in bash editor | 
-| ``#openFindInTerminal``   | Hit CTRL+SHIFT+F or CMD+F      | 
+| ``#hitFindInTerminal``    | Hit CTRL+SHIFT+F or CMD+F      | 
 
 
 ### File manipulation
