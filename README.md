@@ -41,19 +41,19 @@ Possible doShell usecases are end-to-end testing,
 infoSec reconnaisance and creation of productivity macros.  
 
 
-This project is a source-to-source (S2S) transpiler and a runtime system
+This project is a source-to-source (S2S) transpiler and runtime system
 for executing doShell scripts.
 
 
 ### Mission targets
 
-1. Ease scripted automation of controlling web browser in- and output
-2. Support the same language on linux and mac os
-3. Make it concise: 
+1. Ease scripted automation of controlling web browser in- and output, 
+   supporting the same language on linux and mac os
+2. Make it concise: 
    1. Commands should be short, but self-explanatory
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
-5. Don't reinvent the wheel:  
+3. Don't reinvent the wheel:  
    1. Reuse existing tools  (shell script, xdotool / applescript, ...)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
