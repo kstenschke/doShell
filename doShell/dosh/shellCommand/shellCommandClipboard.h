@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_SHELLCOMMANDCLIPBOARD_H
-#define DOSHELL_SHELLCOMMANDCLIPBOARD_H
+#ifndef DOSHELL_DOSH_SHELLCOMMAND_SHELLCOMMANDCLIPBOARD_H_
+#define DOSHELL_DOSH_SHELLCOMMAND_SHELLCOMMANDCLIPBOARD_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
@@ -38,4 +38,4 @@ class shellCommandClipboard {
 
 }  // namespace doShell
 
-#endif  // DOSHELL_SHELLCOMMANDCLIPBOARD_H
+#endif  // DOSHELL_DOSH_SHELLCOMMAND_SHELLCOMMANDCLIPBOARD_H_

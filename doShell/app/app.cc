@@ -41,7 +41,8 @@ bool App::Process() {
   bool result;
 
     switch (command) {
-      case AppCommands::Command_AppendClipboardToFile: { // appendClipboardToFile
+      case AppCommands::Command_AppendClipboardToFile: {
+        // appendClipboardToFile
         std::string path_file = argv_[2];
         result = shellCommandClipboard::appendClipboardToFile(path_file);
         break;
@@ -84,7 +85,7 @@ bool App::Process() {
 
         return result;
       }
-      case AppCommands::Command_SaveClipboardToFile: { // saveClipboardToFile
+      case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
         std::string path_file = argv_[2];
         result = shellCommandClipboard::saveClipboardToFile(path_file);
         break;

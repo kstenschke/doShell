@@ -25,7 +25,7 @@ bool transpileClipboard::TranspileSetClipboard(std::string *code,
       ? "echo '$1' | xclip -sel clip #"
       : "osascript -e 'set the clipboard to \"$1\"'";
 
-  std::regex exp (R"(#setClipboard \"(.*)\")");
+  std::regex exp(R"(#setClipboard \"(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;
@@ -38,7 +38,7 @@ bool transpileClipboard::TranspileAppendClipboardToFile(std::string *code,
   std::string replacement =
       "/home/kay/CLionProjects/shellDo/bin/linux/dosh appendClipboardToFile $1";
 
-  std::regex exp (R"(#appendClipboardToFile \"(.*)\")");
+  std::regex exp(R"(#appendClipboardToFile \"(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;
@@ -51,7 +51,7 @@ bool transpileClipboard::TranspileSaveClipboardToFile(std::string *code,
   std::string replacement =
       "/home/kay/CLionProjects/shellDo/bin/linux/dosh saveClipboardToFile $1";
 
-  std::regex exp (R"(#saveClipboardToFile \"(.*)\")");
+  std::regex exp(R"(#saveClipboardToFile \"(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;
@@ -69,7 +69,7 @@ bool transpileClipboard::TranspileCopyPaste(std::string *code,
         "osascript -e 'tell app \"System Events\" "
           "to keystroke \"v\" using command down'";
 
-  std::regex exp (R"(#copyPaste \"(.*)\")");
+  std::regex exp(R"(#copyPaste \"(.*)\")");
 
   *code = std::regex_replace(*code, exp, replacement);
 

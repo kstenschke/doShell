@@ -39,7 +39,8 @@ namespace doShell {
 
   bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code,
                                                          bool is_linux) {
-    if (std::string::npos == code->find("#openUrlInNewBrowserTab ")) return false;
+    if (std::string::npos == code->find("#openUrlInNewBrowserTab "))
+      return false;
 
     std::string replacement =
         "#openNewBrowserTab\n"
@@ -71,7 +72,8 @@ namespace doShell {
         code, "#openNewBrowserTab", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileOpenBrowserDevTools(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileOpenBrowserDevTools(
+      std::string *code, bool is_linux) {
     if (std::string::npos == code->find("#openBrowserDevTools")) return false;
 
     std::string replacement =
@@ -86,7 +88,8 @@ namespace doShell {
         code, "#openBrowserDevTools", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileActivateDevConsole(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileActivateDevConsole(
+      std::string *code, bool is_linux) {
     if (std::string::npos == code->find("#openBrowserDevConsole")) return false;
 
     std::string replacement =
@@ -116,7 +119,8 @@ namespace doShell {
     return true;
   }
 
-  bool transpileBrowser::TranspileExecDevConsole(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileExecDevConsole(
+      std::string *code, bool is_linux) {
     if (std::string::npos == code->find("#execDevConsole")) return false;
 
     std::string replacement =
@@ -129,7 +133,8 @@ namespace doShell {
         code, "#execDevConsole", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileClearDevConsole(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileClearDevConsole(
+      std::string *code, bool is_linux) {
     if (std::string::npos == code->find("#clearDevConsole")) return false;
 
     std::string replacement =
@@ -156,7 +161,8 @@ namespace doShell {
         code, "#focusBrowserURL", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileSendJsResult(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileSendJsResult(
+      std::string *code, bool is_linux) {
     return helper::String::ReplaceAll(
         code,
         "#getBrowserHtml",
@@ -166,10 +172,10 @@ namespace doShell {
             "req=new XMLHttpRequest();\n"
             "req.open(\"POST\", 'http://localhost:8765', true);\n"
             "req.send(data);\n"
-            "})()"
-    ) > 0;
+            "})()") > 0;
   }
 }  // namespace doShell
+
 /*
 (()=>{
 data=new FormData();
@@ -177,5 +183,4 @@ data.set('html',document.documentElement.innerHTML);
 req=new XMLHttpRequest();
 req.open("POST", 'http://localhost:8765', true);
 req.send(data);
-})()
-*/
+})()*/

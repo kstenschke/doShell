@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_COMPILER_TRANSPILEKEYSTROKES_H_
-#define DOSHELL_COMPILER_TRANSPILEKEYSTROKES_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILEKEYSTROKES_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILEKEYSTROKES_H_
 
 #include <doShell/helper/helper_string.h>
 
@@ -28,10 +28,11 @@ class transpileKeystrokes {
   static bool TranspileHitDelete(std::string *code, bool is_linux);
   static bool TranspileHitEnter(std::string *code, bool is_linux);
   static bool TranspileHitEsc(std::string *code, bool is_linux);
+  static bool TranspileHitFunctionKeys(std::string *code, bool is_linux);
   static bool TranspileHitTab(std::string *code, bool is_linux);
 
   static bool TranspileType(std::string *code, bool is_linux);
 };
 }  // namespace doShell
 
-#endif  // DOSHELL_COMPILER_TRANSPILEKEYSTROKES_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEKEYSTROKES_H_

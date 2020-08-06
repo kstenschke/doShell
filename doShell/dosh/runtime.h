@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_COMPILER_COMPILER_H_
-#define DOSHELL_COMPILER_COMPILER_H_
+#ifndef DOSHELL_DOSH_RUNTIME_H_
+#define DOSHELL_DOSH_RUNTIME_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
@@ -78,4 +78,4 @@ class Compiler {
 
 }  // namespace doShell
 
-#endif  // DOSHELL_COMPILER_COMPILER_H_
+#endif  // DOSHELL_DOSH_RUNTIME_H_

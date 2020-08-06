@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_COMPILER_TRANSPILEBROWSER_H_
-#define DOSHELL_COMPILER_TRANSPILEBROWSER_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_
 
 #include "transpileClipboard.h"
 #include <doShell/helper/helper_string.h>
@@ -14,10 +14,13 @@ class transpileBrowser {
   static void Transpile(std::string *code, bool is_linux);
 
  private:
-  static bool TranspileOpenUrlInNewBrowserTab(std::string *code, bool is_linux);
   static bool TranspileActivate(std::string *code, bool is_linux);
+
   static bool TranspileOpenNewTab(std::string *code, bool is_linux);
+  static bool TranspileOpenUrlInNewBrowserTab(std::string *code, bool is_linux);
+
   static bool TranspileFocusUrl(std::string *code, bool is_linux);
+
   static bool TranspileRunJs(std::string *code, bool is_linux);
   static bool TranspileExecDevConsole(std::string *code, bool is_linux);
   static bool TranspileClearDevConsole(std::string *code, bool is_linux);
@@ -27,4 +30,4 @@ class transpileBrowser {
   static bool TranspileSendJsResult(std::string *code, bool is_linux);
 };
 }  // namespace doShell
-#endif  // DOSHELL_COMPILER_TRANSPILEBROWSER_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_

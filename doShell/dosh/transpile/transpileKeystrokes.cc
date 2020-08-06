@@ -10,6 +10,7 @@ void transpileKeystrokes::Transpile(std::string *code, bool is_linux) {
   TranspileHitDelete(code, is_linux);
   TranspileHitEnter(code, is_linux);
   TranspileHitEsc(code, is_linux);
+  TranspileHitFunctionKeys(code, is_linux);
   TranspileHitTab(code, is_linux);
 
   TranspileHitCopyInTerminal(code, is_linux);
@@ -191,6 +192,22 @@ bool transpileKeystrokes::TranspileHitEsc(std::string *code,
         "to key code 53'") > 0;
 
   return replaced;
+}
+
+bool transpileKeystrokes::TranspileHitFunctionKeys(std::string *code,
+                                          bool is_linux) {
+  if (std::string::npos == code->find("#hitF")) return false;
+
+  if (is_linux) {
+    std::string replacement = "xdotool key F$1";
+
+    std::regex exp(R"(#hitF(\d+))");
+    *code = std::regex_replace(*code, exp, replacement);
+  }
+
+  // TODO(kay): add applescript
+
+  return true;
 }
 
 bool transpileKeystrokes::TranspileType(std::string *code, bool is_linux) {

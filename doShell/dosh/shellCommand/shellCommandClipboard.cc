@@ -7,7 +7,8 @@
 namespace doShell {
 
 // Constructor: init (resolve) command and arguments
-shellCommandClipboard::shellCommandClipboard(int argc, const std::vector<std::string> &argv) {
+shellCommandClipboard::shellCommandClipboard(
+    int argc, const std::vector<std::string> &argv) {
   argc_ = argc;
   argv_ = argv;
 
