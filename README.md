@@ -112,6 +112,8 @@ when invoking the doShell interpreter to run a ``*.do.x.sh`` file.
 Replace all occurences of ``__FOO__`` by ``bar`` before
 running the given file:  
 ``shdo -r script.do.x.sh "{\"__FOO__\":\"bar\"}"``  
+
+**Rules:**  
 * Variables enclosed in ``__`` are replaced
 * Variables not enclosed ``__`` are declared: 
   * If a given variable is declared already within a script, the declaration at
