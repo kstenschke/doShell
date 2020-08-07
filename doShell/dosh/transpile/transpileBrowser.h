@@ -27,7 +27,7 @@ class transpileBrowser {
   static bool TranspileOpenBrowserDevTools(std::string *code, bool is_linux);
   static bool TranspileActivateDevConsole(std::string *code, bool is_linux);
 
-  static bool TranspileSendJsResult(std::string *code, bool is_linux);
+  static bool TranspilePostFormData(std::string *code, bool is_linux);
 };
 }  // namespace doShell
 #endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_

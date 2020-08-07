@@ -111,8 +111,13 @@ when invoking the doShell interpreter to run a ``*.do.x.sh`` file.
 
 Replace all occurences of ``__FOO__`` by ``bar`` before
 running the given file:  
-``shdo -r script.do.x.sh "{\"__FOO__\":\"bar\"}"`` 
-
+``shdo -r script.do.x.sh "{\"__FOO__\":\"bar\"}"``  
+* Variables enclosed in ``__`` are replaced
+* Variables not enclosed ``__`` are declared: 
+  * If a given variable is declared already within a script, the declaration at
+    is replaced at its original place
+  * If a given variable is NOT declared, a declaration is added at the beginning
+    of the transpiled runtime script  
 
 ## Commands
 

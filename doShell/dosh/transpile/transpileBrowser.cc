@@ -161,7 +161,7 @@ namespace doShell {
         code, "#focusBrowserURL", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileSendJsResult(
+  bool transpileBrowser::TranspilePostFormData(
       std::string *code, bool is_linux) {
     return helper::String::ReplaceAll(
         code,

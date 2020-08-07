@@ -8,7 +8,7 @@
 sleep 1.0
 
 #runScript...
-# [].forEach.call( "
+# [].forEach.call("
 #  document.querySelectorAll("script[src]"),
 #  function(src) {
 #    console.log(src);
