@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/dosh/runtime.h>
+#include <doShell/dosh/transpile/transpileTerminal.h>
 
 namespace doShell {
 
@@ -39,6 +40,7 @@ void Compiler::TranspileCommands() {
       transpileClipboard::Transpile(&source_, is_linux_);
       transpileBrowser::Transpile(&source_, is_linux_);
       transpileKeystrokes::Transpile(&source_, is_linux_);
+      transpileTerminal::Transpile(&source_, is_linux_);
 
       contains_commands = ContainsCommands();
     }

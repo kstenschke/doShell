@@ -166,13 +166,13 @@ namespace doShell {
     return helper::String::ReplaceAll(
         code,
         "#getBrowserHtml",
-          "(()=>{\n"
-            "data=new FormData();\n"
-            "data.set('html',document.documentElement.innerHTML);\n"
-            "req=new XMLHttpRequest();\n"
-            "req.open(\"POST\", 'http://localhost:8765', true);\n"
-            "req.send(data);\n"
-            "})()") > 0;
+          "(()=>{"
+            "data=new FormData();"
+            "data.set('html',document.documentElement.innerHTML);"
+            "req=new XMLHttpRequest();"
+            "req.open(\"POST\", 'http://localhost:8765', true);"
+            "req.send(data);"
+          "})()") > 0;
   }
 }  // namespace doShell
 

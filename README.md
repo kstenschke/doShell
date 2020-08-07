@@ -74,18 +74,20 @@ script to a new file ``script.do.x.sh``
 ### Transpile and/or run
 
 Running ``shdo -r script.do.sh``, the transpiler will translate the given 
-file and the runtime system will execute it.
-When running an already transpiled ``*.do.x.sh`` script, the translation is skipped.
+file and the runtime system will execute it.  
+When running an already transpiled ``*.do.x.sh`` script, the translation is 
+skipped.
 
-doShell transpiles to regular shell script, which additionally to conventional shell script code 
-can contain runtime macros: placeholder-strings for generic content.  
-The doShell runtime system replaces runtime macros before execution in a sandboxed shell-thread. 
+doShell transpiles to regular shell script, which additionally to conventional 
+shell script code can contain runtime macros: placeholder-strings for generic 
+content.  The doShell runtime system replaces runtime macros before execution in
+a sandboxed shell-thread. 
 
 ### Communication from browser to runtime system
 
-For communication from web browsers back to the runtime sytem, the system clipboard is used. 
-doShell has some built-in commands for manipulation and file-import and - export of text from/to
-the clipboard. 
+For communication from web browsers back to the runtime sytem, the system 
+clipboard is used. doShell has some built-in commands for manipulation and 
+import / export of text from/to the clipboard. 
 
 
 ## Runtime macros
@@ -158,16 +160,16 @@ and/or scripts from given files via:
 
 **Stroke key combination:**
 
-| Command                | Description                    |
-| ---------------------- | ------------------------------ |   
-|``#hitCopy``            | Hit CTRL+C or CMD+c            |
-|``#hitFindInTerminal``  | Hit CTRL+SHIFT+F or CMD+F      | 
-|``#hitFind``            | Hit CTRL+F or CMD+F            | 
-|``#copyInTerminal``     | Varies by OS                   |
-|``#cut``                | Hit CTRL+X or CMD+x            |
-|``#paste``              | Hit CTRL+V or CMD+V            |
-|``#pasteInTerminal``    | Varies by OS                   |
-|``#selectAll``          | Hit CTRL+A or CMD+A            |
+| Command                 | Description                    |
+| ----------------------- | ------------------------------ |   
+| ``#hitCopy``            | Hit CTRL+C or CMD+c            |
+| ``#hitFindInTerminal``  | Hit CTRL+SHIFT+F or CMD+F      | 
+| ``#hitFind``            | Hit CTRL+F or CMD+F            | 
+| ``#copyInTerminal``     | Varies by OS                   |
+| ``#cut``                | Hit CTRL+X or CMD+x            |
+| ``#paste``              | Hit CTRL+V or CMD+V            |
+| ``#pasteInTerminal``    | Varies by OS                   |
+| ``#selectAll``          | Hit CTRL+A or CMD+A            |
 
 
 **Type text:**
@@ -182,18 +184,21 @@ and/or scripts from given files via:
 
 ### Clipboard 
 
-| Command                                | Description                             |
-| -------------------------------------- | --------------------------------------- |
-|``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
-|``#setClipboard $value``                | Copy text to clipboard                  |
-|``#copyAll``                            | Select all, than copy                   |
-|``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
-|``#cutAll``                             | Select all, than cut                    |
-|``$value=#getClipboard``                |                                         |
-|``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
-|``#copyCurrentUrl``                     |                                         |
-|``#copyInTerminal``                     | Varies by OS                            |
-|``#pasteInTerminal``                    | Varies by OS                            |
+| Command                                 | Description                             |
+| --------------------------------------- | --------------------------------------- |
+| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
+| ``#setClipboard $value``                | Copy text to clipboard                  |
+| ``#copyAll``                            | Select all, than copy                   |
+| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
+| ``#copyPaste $VAR``                     | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
+| ``#cutAll``                             | Select all, than cut                    |
+| ``$value=#getClipboard``                |                                         |
+| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
+| ``#copyCurrentUrl``                     |                                         |
+| ``#copyInTerminal``                     | Varies by OS                            |
+| ``#pasteInTerminal``                    | Varies by OS                            |
 
 
 | Command                                                      | Description            |
@@ -262,18 +267,21 @@ and/or scripts from given files via:
 
 ### Terminal automation
 
-| Command                   | Description                    |
-| ------------------------- | ------------------------------ |
-| ``#openNewTerminal``      |                                |
-| ``#openNewTerminalTab``   | Hit CTRL+SHIT+T or CMD+T       |
-| ``#editInTerminal FILE``  | Open given file in bash editor | 
-| ``#hitFindInTerminal``    | Hit CTRL+SHIFT+F or CMD+F      | 
+| Command                           | Description                             |
+| --------------------------------- | --------------------------------------- |
+| ``#openNewTerminal``              |                                         |
+| ``#openNewTerminalTab``           | Hit CTRL+SHIT+T or CMD+T                |
+| ``#editInTerminal FILE``          | Open given file in bash editor          | 
+| ``#hitFindInTerminal``            | Hit CTRL+SHIFT+F or CMD+F               |
+| ``#copyPasteInTerminal "foo"``    | Copy text to clipboard and invoke paste | 
+| ``#copyPasteInTerminal $VAR``     | Copy text to clipboard and invoke paste |
+| ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
 
 
 ### File manipulation
 
-All file manipulations allow as optional last argument a destination file path, if not given, they overwrite the
-given source file.
+All file manipulations allow as optional last argument a destination file path,
+if not given, they overwrite the given source file.
 
 
 | Command                                                         | Description                                             |

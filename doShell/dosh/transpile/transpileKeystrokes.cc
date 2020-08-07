@@ -13,12 +13,9 @@ void transpileKeystrokes::Transpile(std::string *code, bool is_linux) {
   TranspileHitFunctionKeys(code, is_linux);
   TranspileHitTab(code, is_linux);
 
-  TranspileHitCopyInTerminal(code, is_linux);
   TranspileHitCopy(code, is_linux);
   TranspileCut(code, is_linux);
   TranspileHitFind(code, is_linux);
-  TranspileHitFindInTerminal(code, is_linux);
-  TranspilePasteInTerminal(code, is_linux);
   TranspilePaste(code, is_linux);
 
   TranspileSelectAll(code, is_linux);
@@ -48,32 +45,6 @@ bool transpileKeystrokes::TranspileHitFind(std::string *code, bool is_linux) {
         "using command down'") > 0;
 }
 
-bool transpileKeystrokes::TranspileHitFindInTerminal(std::string *code,
-                                                     bool is_linux) {
-  if (std::string::npos == code->find("#hitFindInTerminal")) return false;
-
-  return helper::String::ReplaceAll(
-      code,
-      "#hitFindInTerminal",
-      is_linux
-      ? "xdotool key ctrl+shift+f"
-      : "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
-        "using command down'") > 0;
-}
-
-bool transpileKeystrokes::TranspileHitCopyInTerminal(std::string *code,
-                                                     bool is_linux) {
-  if (std::string::npos == code->find("#copyInTerminal ")) return false;
-
-  return helper::String::ReplaceAll(
-      code,
-      "#copyInTerminal",
-      is_linux
-      ? "xdotool key ctrl+shift+c"
-      : "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
-        "using command down'") > 0;
-}
-
 bool transpileKeystrokes::TranspileCut(std::string *code, bool is_linux) {
   return helper::String::ReplaceAll(
       code,
@@ -90,19 +61,6 @@ bool transpileKeystrokes::TranspilePaste(std::string *code, bool is_linux) {
       "#paste",
       is_linux
       ? "xdotool key ctrl+v"
-      : "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
-        "using command down'") > 0;
-}
-
-bool transpileKeystrokes::TranspilePasteInTerminal(std::string *code,
-                                                   bool is_linux) {
-  if (std::string::npos == code->find("#pasteInTerminal ")) return false;
-
-  return helper::String::ReplaceAll(
-      code,
-      "#pasteInTerminal",
-      is_linux
-      ? "xdotool key ctrl+shift+v"
       : "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
         "using command down'") > 0;
 }
