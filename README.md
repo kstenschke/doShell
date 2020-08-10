@@ -78,8 +78,9 @@ skipped.
 
 doShell transpiles to regular shell script, which additionally to conventional 
 shell script code can contain runtime macros: placeholder-strings for generic 
-content.  The doShell runtime system replaces runtime macros before execution in
-a sandboxed shell-thread. 
+content, and runtime variables: variable-value tuples that can be given as execution
+arguments. The doShell runtime system replaces runtime macros and declares runtime variables
+before the eventual execution in a sandboxed shell-thread. 
 
 ### Communication from browser to runtime system
 
