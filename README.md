@@ -1,8 +1,7 @@
 doShell
 =======
 
-Browser UI and terminal automation for Linux and Mac OS
-
+Headful browser and terminal automation for Linux and Mac OS
 
 ## Table of Contents
 
