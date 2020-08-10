@@ -7,7 +7,7 @@ Headful browser and terminal automation for Linux and Mac OS
 
 - [DoShell](#doshell)
   * [What does it do?](#idea---wat-does-(will)-it-do?)
-  * [Modes of Operation](#modes-of-operation)
+  * [Functional Flow](#functional-flow)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros](#runtime-macros)
@@ -58,7 +58,7 @@ for executing doShell scripts.
    (mask doShell commands as shell script comments)   
 
 
-## Modes of Operation
+## Functional Flow
 
 ![Transpiler](/images/doshell_diagram.png)
 
