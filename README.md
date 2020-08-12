@@ -11,6 +11,7 @@ Headful browser and terminal automation for Linux and Mac OS
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros](#runtime-macros)
+  + [Inline PHTML](#inline-phtml) 
   * [Commands](#commands)
     + [Import](#import)
     + [Dialogs](#dialogs)
@@ -96,20 +97,6 @@ The following predefined macros are replaced at runtime by generic content.
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
-| ``__TIME.a__``    | Abbreviated weekday name                                         |
-| ``__TIME.A__``    | Full weekday name                                                |
-| ``__TIME.b__``    | Abbreviated month name                                           |
-| ``__TIME.B__``    | Full month name                                                  |
-| ``__TIME.D__``    | Short MM/DD/YY date, equivalent to %m/%d/%y                      |
-| ``__TIME.F__``    | Short YYYY-MM-DD date, equivalent to %Y-%m-%                     |
-| ``__TIME.H__``    | Hour in 24h format (00-23)                                       |
-| ``__TIME.I__``    | Hour in 12h format (01-12)                                       |
-| ``__TIME.m__``    | Month as a decimal number (01-12)                                |
-| ``__TIME.M__``    | Minute (00-59)                                                   |
-| ``__TIME.p__``    | AM or PM designation                                             |
-| ``__TIME.r__``    | 12-hour clock time, e.g: 02:55:02 pm                             |
-| ``__PWD__``       | Working directory path                                           |
-| ``__TIMESTAMP__`` | Current UNIX timestamp                                           |
 | ``__OS__``        | ``linux`` or ``darwin``                                          |
 | ``__LINE__``      | Line number in current file                                      |
 | ``__FILE__``      | Absolute path of current file including the                      |
@@ -131,6 +118,9 @@ running the given file:
     is replaced at its original place
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
+
+## Inline PHTML
+
 
 ## Commands
 
