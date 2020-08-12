@@ -53,7 +53,7 @@ for executing doShell scripts.
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
-   1. Reuse existing tools  (shell script, xdotool / applescript, ...)  
+   1. Reuse and integrate existing tools  (shell script, xdotool / applescript, php, ...)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
    (mask doShell commands as shell script comments)   
