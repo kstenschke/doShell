@@ -10,7 +10,7 @@ Headful browser and terminal automation for Linux and Mac OS
   * [Functional Flow](#functional-flow)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
-  + [Runtime macros](#runtime-macros)
+  + [Runtime macros and variables](#runtime-macros-and-variables)
   + [Inline PHTML](#inline-phtml) 
   * [Commands](#commands)
     + [Import](#import)
@@ -91,7 +91,7 @@ clipboard is used. doShell has some built-in commands for manipulation and
 import / export of text from/to the clipboard. 
 
 
-## Runtime macros
+## Runtime macros and variables
 
 The following predefined macros are replaced at runtime by generic content.  
 
@@ -102,7 +102,7 @@ The following predefined macros are replaced at runtime by generic content.
 | ``__FILE__``      | Absolute path of current file including the                      |
 | ``__DIR__``       | Absolute path of current file                                    |
 
-Arbitrary user-defined runtime macros can be passed JSON-formatted 
+Arbitrary user-defined runtime variables can be passed JSON-formatted 
 when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
 
 **Example**
