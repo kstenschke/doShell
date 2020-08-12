@@ -121,6 +121,9 @@ running the given file:
 
 ## Inline PHTML
 
+doShell script can contain inlined PHTML (see functional flow) 
+like: ``#<?php echo time() ?>``  
+
 
 ## Commands
 
