@@ -11,7 +11,7 @@ Headful browser and terminal automation for Linux and Mac OS
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros and variables](#runtime-macros-and-variables)
-  + [Inline PHTML](#inline-phtml) 
+  + [Inline PHP](#inline-php) 
   * [Commands](#commands)
     + [Import](#import)
     + [Dialogs](#dialogs)
@@ -119,9 +119,9 @@ running the given file:
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
 
-## Inline PHTML
+## Inline PHP
 
-doShell script can contain inlined PHTML (see functional flow) 
+doShell script can contain inlined PHP (see functional flow) 
 like:  
 ``#<?php echo time() ?>``  
 
