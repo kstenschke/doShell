@@ -11,11 +11,13 @@ int main(int argc, char **argv) {
   std::vector<std::string> arguments;
   arguments.reserve(argc);
 
+/*
   argc = 5;
   argv[1] = "replaceAll";
   argv[2] = "hello";
   argv[3] = "l";
   argv[4] = "x";
+*/
 
   for (int index = 0; index < argc; ++index)
     arguments.emplace_back(argv[index]);
