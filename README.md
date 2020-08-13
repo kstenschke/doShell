@@ -227,7 +227,8 @@ and/or scripts from given files via:
 
 ### Web Browser automation  
 
-**Note:** At the time being doShell was tested using Chromium and Firefox.
+**Note:** At the time being doShell was tested using Firefox, but should be easily adaptable
+to other web browsers. 
 
 
 #### Toggle browser panels
