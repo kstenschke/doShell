@@ -43,6 +43,9 @@ class App {
 
   std::string path_in_;
   std::string path_out_;  // Output path with/or filename
+
+  bool ReplaceAll() const;
+  bool ReplaceFirst() const;
 };
 
 }  // namespace doShell

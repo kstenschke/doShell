@@ -25,6 +25,9 @@ AppCommands::Command AppCommands::ResolveCommandByName(
     return Command_AppendClipboardToFile;
   if (command == "-c" || command == "compile")
     return Command_Compile;
+  if (command == "replaceAll") return Command_ReplaceAll;
+  if (command == "replaceFirst") return Command_ReplaceFirst;
+  if (command == "replaceLast") return Command_ReplaceLast;
   if (command == "-r" || command == "run")
     return Command_Run;
   if (command == "saveClipboardToFile")

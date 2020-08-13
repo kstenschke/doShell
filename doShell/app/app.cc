@@ -38,7 +38,7 @@ bool App::Process() {
 
   AppCommands::Command command = command_->GetResolved();
 
-  bool result;
+  bool result = true;
 
     switch (command) {
       case AppCommands::Command_AppendClipboardToFile: {
@@ -69,11 +69,20 @@ bool App::Process() {
         result = AppHelp::PrintHelp(true, kCommand, command_identifier);
       }
         break;
+      case AppCommands::Command_ReplaceAll:  // replaceAll
+        result = ReplaceAll();
+
+        break;
+      case AppCommands::Command_ReplaceFirst:  // replaceFirst
+        result = ReplaceFirst();
+
+        break;
       case AppCommands::Command_Run: {  // r - compile and run
         auto compiler = new Compiler(argc_, argv_);
         result = compiler->Compile();
 
         if (!result) {
+          delete arguments;
           delete compiler;
 
           return false;
@@ -81,6 +90,7 @@ bool App::Process() {
 
         result = compiler->Execute();
 
+        delete arguments;
         delete compiler;
 
         return result;
@@ -102,6 +112,34 @@ bool App::Process() {
   delete arguments;
 
   return result;
+}
+
+bool App::ReplaceAll() const {
+  if (argc_ < 3) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kNeedle = argv_[3];
+  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+
+  helper::String::ReplaceAll(&kHaystack, kNeedle, kReplacement);
+
+  std::cout << kHaystack;
+
+  return true;
+}
+
+bool App::ReplaceFirst() const {
+  if (argc_ < 3) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kNeedle = argv_[3];
+  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+
+  helper::String::ReplaceFirst(&kHaystack, kNeedle, kReplacement);
+
+  std::cout << kHaystack;
+
+  return true;
 }
 
 }  // namespace doShell

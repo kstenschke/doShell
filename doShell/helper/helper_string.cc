@@ -179,7 +179,7 @@ int String::ReplaceAll(std::string *haystack,
 
   // Repeat till end is reached
   while (pos != std::string::npos) {
-    // Replace this occurrence of Sub String
+    // Replace this occurrence of sub string
     (*haystack).replace(pos, needle.size(), replacement);
 
     // Get the next occurrence from the current position
@@ -189,6 +189,20 @@ int String::ReplaceAll(std::string *haystack,
   }
 
   return amount_replaced;
+}
+
+int String::ReplaceFirst(std::string *haystack,
+                         const std::string &needle,
+                         const std::string &replacement) {
+  // Get first occurrence
+  size_t pos = (*haystack).find(needle);
+
+  if (pos == std::string::npos) return 0;
+
+  // Replace occurrence of sub String
+  (*haystack).replace(pos, needle.size(), replacement);
+
+  return 1;
 }
 
 // Get sub string between given surrounding left- and right-hand-side delimiters

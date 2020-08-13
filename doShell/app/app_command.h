@@ -14,6 +14,9 @@ class AppCommands {
   enum Command {
     Command_Compile,
     Command_Help,
+    Command_ReplaceAll,
+    Command_ReplaceFirst,
+    Command_ReplaceLast,
     Command_Run,
     Command_AppendClipboardToFile,
     Command_SaveClipboardToFile,
