@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Example on how to import doShell- or shell script from another file
+# Example on how to import external doShell- or shell scripts from other files
 
-#import 002_echo_hello.sh
+#import include/001_echo_hello.sh
 
 echo "world"

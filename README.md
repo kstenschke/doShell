@@ -24,7 +24,8 @@ Headful browser and terminal automation for Linux and Mac OS
       * [Interact with DOM elements](#interact-with-dom-elements)
     + [Terminal automation](#terminal-automation)
     + [File manipulation](#file-manipulation)
-    + [Functions, iterations, conditions](#functions-iterations-conditions) 
+    + [Functions, iterations, conditions](#functions-iterations-conditions)
+  * [Script Examples](#script-examples) 
   * [Configuration](#configuration)
   * [Dependencies](#dependencies)
   * [Build Instructions](#build-instructions)
@@ -147,13 +148,15 @@ and/or scripts from given files via:
 
 # String manipulation
 
-| Command                                                   | Description                                             |
-| --------------------------------------------------------- | ------------------------------------------------------- |
-| ``#replaceAllInVar $VAR search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirstInVar $VAR search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInVar $VAR search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInVar $VAR before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInVar $VAR before after``                | Extract text excluding but between "before" and "after" |
+| Command                                           | Description                                                              |
+| ------------------------------------------------- | ------------------------------------------------------------------------ |
+| ``#extractBetween $VAR before after``             | Extract text excluding but between "before" and "after"                  |
+| ``#replaceAfter $VAR search replace``             | Replace every before and including the first occurrences of given string |
+| ``#replaceAll $VAR search replace``               | Replace all occurrences of given string                                  |
+| ``#replaceBefore $VAR search replace``            | Replace every before and including the first occurrences of given string |
+| ``#replaceBetween $VAR before after replacement`` | Remove text including and between "before" and "after"                   |
+| ``#replaceFirst $VAR search replace``             | Replace first occurrence of given string                                 |
+| ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                  |
 
 
 ### Send keystrokes
@@ -312,22 +315,44 @@ all language constructs of regular shell script
 can also be used within doShell script. 
 
 
+## Script Examples
+
+The following example scripts can be found under ![/examples](/examples):
+
+| File                                                                                       | Description                                                                         |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| ![001_import.do.sh](/examples/001_import.do.sh)                                            | Importing external doShell- or shell scripts from other files                       |
+| ![002_using_macros.do.sh](/examples/001_import.do.sh)                                      | Using runtime macros                                                                |
+| ![003_load_url_in_new_browser_tab.do.sh](/examples/003_load_url_in_new_browser_tab.do.sh)  | Opening a new browser tab and than loading a URL in it                              |
+| ![004_search_with_duckduckgo.do.sh](/examples/004_search_with_duckduckgo.do.sh)            | Form fill-out and submission                                                        |
+| ![005_use_dev_console.do.sh](/examples/005_use_dev_console.do.sh)                          | Opening of the dev console, inserting and running script in it                      |
+| ![006_store_clipboard_to_file.do.sh](/examples/006_store_clipboard_to_file.do.sh)          | Copy text in the browser, than save the clipboard content to a file                 |
+| ![007_export_all_script_tags.do.sh](/examples/007_export_all_script_tags.do.sh)            | Extract all <script> tags from a page loaded in the browser and save them to a file |
+| ![008_parse_php.do.sh](/examples/008_parse_php.do.sh)                                      | Using PHP within doShell script                                                     |
+ 
+
 ## Configuration
 
-Via an optional ``.shdo.ini`` file, the following optional settings can be
-given:
+The following optional settings can be given as environment vars:
 
 | Config                               | Description                                                      |
 | ------------------------------------ | ---------------------------------------------------------------- |
 | ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
 | ``browser=firefox``                  | Web browser to be targeted                                       |
-| ``date_format=Ymn`` ...              | Date format in printf() syntax                                   |
+
+See also ![settings.sh](/bin/settings.sh)
 
 
 ## Dependencies
 
 Automation is ultimately performed using existing tools from third parties, 
 and some doShell built-in tools.
+
+### Optional dependencies
+
+* When using PHP within doShell scripts, [PHP](https://www.php.net/) must be 
+  installed
+
 
 ### Linux
 
