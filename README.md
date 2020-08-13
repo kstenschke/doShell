@@ -114,7 +114,7 @@ running the given file:
 
 **Rules:**  
 * Variables enclosed in ``__`` are replaced
-* Variables not enclosed ``__`` are declared: 
+* Variables not enclosed in ``__`` are declared: 
   * If a given variable is declared already within a script, the declaration at
     is replaced at its original place
   * If a given variable is NOT declared, a declaration is added at the beginning
