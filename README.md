@@ -330,6 +330,14 @@ The following example scripts can be found under [/examples](/examples):
 | [006_store_clipboard_to_file.do.sh](/examples/006_store_clipboard_to_file.do.sh)          | Copy text in the browser, than save the clipboard content to a file                 |
 | [007_export_all_script_tags.do.sh](/examples/007_export_all_script_tags.do.sh)            | Extract all <script> tags from a page loaded in the browser and save them to a file |
 | [008_parse_php.do.sh](/examples/008_parse_php.do.sh)                                      | Using PHP within doShell script                                                     |
+* export all commented out html
+* export all urls from html and all scripts
+* export all form fields w/ (and w/o) values
+* search in wikipedia, open article, export image urls
+* replace any domain by localhost, maintain rest of url
+* perform ajax request, copy as curl, re-run in terminal
+* prompt for sword, perform yahoo search,
+Export result urls of multiple pages (use paging) 
  
 
 ## Configuration
