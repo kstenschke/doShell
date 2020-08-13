@@ -318,18 +318,18 @@ can also be used within doShell script.
 
 ## Script Examples
 
-The following example scripts can be found under ![/examples](/examples):
+The following example scripts can be found under [/examples](/examples):
 
 | File                                                                                       | Description                                                                         |
 | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| ![001_import.do.sh](/examples/001_import.do.sh)                                            | Importing external doShell- or shell scripts from other files                       |
-| ![002_using_macros.do.sh](/examples/001_import.do.sh)                                      | Using runtime macros                                                                |
-| ![003_load_url_in_new_browser_tab.do.sh](/examples/003_load_url_in_new_browser_tab.do.sh)  | Opening a new browser tab and than loading a URL in it                              |
-| ![004_search_with_duckduckgo.do.sh](/examples/004_search_with_duckduckgo.do.sh)            | Form fill-out and submission                                                        |
-| ![005_use_dev_console.do.sh](/examples/005_use_dev_console.do.sh)                          | Opening of the dev console, inserting and running script in it                      |
-| ![006_store_clipboard_to_file.do.sh](/examples/006_store_clipboard_to_file.do.sh)          | Copy text in the browser, than save the clipboard content to a file                 |
-| ![007_export_all_script_tags.do.sh](/examples/007_export_all_script_tags.do.sh)            | Extract all <script> tags from a page loaded in the browser and save them to a file |
-| ![008_parse_php.do.sh](/examples/008_parse_php.do.sh)                                      | Using PHP within doShell script                                                     |
+| [001_import.do.sh](/examples/001_import.do.sh)                                            | Importing external doShell- or shell scripts from other files                       |
+| [002_using_macros.do.sh](/examples/001_import.do.sh)                                      | Using runtime macros                                                                |
+| [003_load_url_in_new_browser_tab.do.sh](/examples/003_load_url_in_new_browser_tab.do.sh)  | Opening a new browser tab and than loading a URL in it                              |
+| [004_search_with_duckduckgo.do.sh](/examples/004_search_with_duckduckgo.do.sh)            | Form fill-out and submission                                                        |
+| [005_use_dev_console.do.sh](/examples/005_use_dev_console.do.sh)                          | Opening of the dev console, inserting and running script in it                      |
+| [006_store_clipboard_to_file.do.sh](/examples/006_store_clipboard_to_file.do.sh)          | Copy text in the browser, than save the clipboard content to a file                 |
+| [007_export_all_script_tags.do.sh](/examples/007_export_all_script_tags.do.sh)            | Extract all <script> tags from a page loaded in the browser and save them to a file |
+| [008_parse_php.do.sh](/examples/008_parse_php.do.sh)                                      | Using PHP within doShell script                                                     |
  
 
 ## Configuration
@@ -341,7 +341,7 @@ The following optional settings can be given as environment vars:
 | ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
 | ``browser=firefox``                  | Web browser to be targeted                                       |
 
-See also ![settings.sh](/bin/settings.sh)
+See also [settings.sh](/bin/settings.sh)
 
 
 ## Dependencies
