@@ -64,6 +64,7 @@ bool Compiler::Execute() {
 
   InitPathFileRuntime();
   ReplaceRunTimeMacrosInSource();
+  ParsePhp();
   SaveSourceToRuntimeScript();
   MakeRuntimeScriptExecutable();
 
@@ -71,6 +72,27 @@ bool Compiler::Execute() {
       << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
 
   return true;
+}
+
+bool Compiler::ParsePhp() {
+  if (!helper::String::Contains(source_, "<?php")) return false;
+
+  std::string phtml = source_;
+  helper::String::ReplaceAll(&phtml, "#<?php", "<?php");
+
+  InitPathPhtml();
+
+  if (!helper::File::WriteToNewFile(path_phtml_file_abs_, phtml)) return false;
+
+  std::string command = "php " + path_phtml_file_abs_;
+
+  source_ = helper::Cli::GetExecutionResponse(command.c_str());
+
+  return helper::File::Remove(path_phtml_file_abs_.c_str());
+}
+
+void Compiler::InitPathPhtml() {
+  path_phtml_file_abs_= path_compiled_file_abs_ += ".phtml";
 }
 
 void Compiler::SaveSourceToRuntimeScript() {

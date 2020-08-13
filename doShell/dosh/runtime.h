@@ -49,6 +49,7 @@ class Compiler {
 
   std::string path_source_file_abs_;
   std::string path_compiled_file_abs_;
+  std::string path_phtml_file_abs_;
   std::string path_runtime_file_abs_;
   std::string path_source_directory_abs_;
 
@@ -62,6 +63,7 @@ class Compiler {
 
   void InitPathSourceDirectory();
   void InitPathFileCompiled();
+  void InitPathPhtml();
   void InitPathFileRuntime();
 
   bool ReplaceRunTimeMacrosInSource();
@@ -70,6 +72,8 @@ class Compiler {
 
   void TranspileCommands();
   bool ContainsCommands();
+
+  bool ParsePhp();
 
   void CleanupSource();
   void MakeRuntimeScriptExecutable() const;
