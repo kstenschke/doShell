@@ -115,7 +115,7 @@ running the given file:
 **Rules:**  
 * Variables enclosed in ``__`` are replaced
 * Variables not enclosed in ``__`` are declared: 
-  * If a given variable is declared already within a script, the declaration at
+  * If a given variable is declared already within a script, the declaration
     is replaced at its original place
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
