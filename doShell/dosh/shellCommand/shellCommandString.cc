@@ -17,6 +17,7 @@ shellCommandString::shellCommandString(
 shellCommandString::~shellCommandString() {
 }
 
+// Replace all occurrences of given string
 bool shellCommandString::ReplaceAll() const {
   if (argc_ < 3) return false;
 
@@ -31,6 +32,7 @@ bool shellCommandString::ReplaceAll() const {
   return true;
 }
 
+// Replace first occurrence of given string
 bool shellCommandString::ReplaceFirst() const {
   if (argc_ < 3) return false;
 
@@ -68,7 +70,16 @@ bool shellCommandString::ReplaceBefore() const {
   return true;
 }
 
+// Extract text excluding but between "before" and "after"
 bool shellCommandString::ExtractBetween() const {
+  if (argc_ < 3) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kBefore = argv_[3];
+  const std::string kAfter = argc_ < 5 ? "" : argv_[4];
+
+  std::cout << helper::String::GetSubStrBetween(kHaystack, kBefore.c_str(), kAfter.c_str());
+
   return true;
 }
 

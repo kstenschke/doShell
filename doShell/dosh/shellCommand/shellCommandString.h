@@ -28,13 +28,16 @@ class shellCommandString {
 
   virtual ~shellCommandString();
 
+  // Extract text excluding but between "before" and "after"
   bool ExtractBetween() const;
 
+  // Replace all occurrences of given string
   bool ReplaceAll() const;
 
   // Replace everything before and including the first occurrences of given string
   bool ReplaceBefore() const;
 
+  // Replace first occurrence of given string
   bool ReplaceFirst() const;
 
  private:
