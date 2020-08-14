@@ -1,7 +1,7 @@
 doShell
 =======
 
-Headful browser and terminal automation for Linux and Mac OS
+Efficient scripting language for headful browser- and terminal-automation on Linux and Mac OS
 
 ## Table of Contents
 
