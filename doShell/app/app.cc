@@ -73,6 +73,10 @@ bool App::Process() {
         result = ReplaceAll();
 
         break;
+      case AppCommands::Command_ReplaceBefore:  // replaceBefore
+        result = ReplaceBefore();
+
+        break;
       case AppCommands::Command_ReplaceFirst:  // replaceFirst
         result = ReplaceFirst();
 
@@ -136,6 +140,29 @@ bool App::ReplaceFirst() const {
   const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
 
   helper::String::ReplaceFirst(&kHaystack, kNeedle, kReplacement);
+
+  std::cout << kHaystack;
+
+  return true;
+}
+
+// Replace everything before and including the first occurrences of given string
+bool App::ReplaceBefore() const {
+  if (argc_ < 3) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kNeedle = argv_[3];
+  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+
+  auto offset_needle = kHaystack.find(kNeedle);
+
+  if (offset_needle == std::string::npos) {
+    std::cout << kHaystack;
+
+    return false;
+  }
+
+  kHaystack.replace(0, offset_needle + kNeedle.length(), kReplacement);
 
   std::cout << kHaystack;
 

@@ -26,6 +26,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "-c" || command == "compile")
     return Command_Compile;
   if (command == "replaceAll") return Command_ReplaceAll;
+  if (command == "replaceBefore") return Command_ReplaceBefore;
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
   if (command == "-r" || command == "run")

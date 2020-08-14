@@ -15,6 +15,7 @@ class AppCommands {
     Command_Compile,
     Command_Help,
     Command_ReplaceAll,
+    Command_ReplaceBefore,
     Command_ReplaceFirst,
     Command_ReplaceLast,
     Command_Run,

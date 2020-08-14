@@ -133,7 +133,7 @@ like:
 
 doShell can import extracted/separated plaintext
 and/or scripts from given files via:  
-``#import another_file.do.sh;``  
+``#import another_file.do.sh``  
 
 
 ### Dialogs
@@ -242,7 +242,7 @@ to other web browsers.
 | ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
 | ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
 | ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``#openBrowserSettings;``    | Hits CTRL+Comma or CMD+Comma                                                                |
+| ``#openBrowserSettings``    | Hits CTRL+Comma or CMD+Comma                                                                |
 | ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
 | ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                                                            |
 
