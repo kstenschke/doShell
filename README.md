@@ -37,7 +37,7 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
 ## Idea - What does it do?
 
 doShell is a superset of shell script, providing commands geared towards 
-non-headless cross-platform browser and terminal automation.  
+headfull cross-platform browser- and terminal-automation.  
 Possible usecases are end-to-end testing, infoSec reconnaisance and creation of productivity macros.  
 
 This project is a source-to-source (S2S) transpiler and runtime system
