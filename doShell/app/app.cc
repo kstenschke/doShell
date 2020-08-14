@@ -119,6 +119,10 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
       result = StringCommands->ReplaceAll();
 
       break;
+    case AppCommands::Command_ReplaceAfter:  // replaceAfter
+      result = StringCommands->ReplaceAfter();
+
+      break;
     case AppCommands::Command_ReplaceBefore:  // replaceBefore
       result = StringCommands->ReplaceBefore();
 

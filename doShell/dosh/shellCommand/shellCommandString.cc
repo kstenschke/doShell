@@ -32,6 +32,22 @@ bool shellCommandString::ReplaceAll() const {
   return true;
 }
 
+// Replace everything after and including the first occurrences of given string
+bool shellCommandString::ReplaceAfter() const {
+  if (argc_ < 3) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kNeedle = argv_[3];
+  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+
+  auto offset_needle = kHaystack.find(kNeedle);
+  if (offset_needle == std::string::npos) offset_needle = kHaystack.length();
+
+  std::cout << kHaystack.substr(0, offset_needle) + kReplacement;
+
+  return true;
+}
+
 // Replace first occurrence of given string
 bool shellCommandString::ReplaceFirst() const {
   if (argc_ < 3) return false;

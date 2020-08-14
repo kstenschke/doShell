@@ -34,6 +34,9 @@ class shellCommandString {
   // Replace all occurrences of given string
   bool ReplaceAll() const;
 
+  // Replace everything after and including the first occurrences of given string
+  bool ReplaceAfter() const;
+
   // Replace everything before and including the first occurrences of given string
   bool ReplaceBefore() const;
 

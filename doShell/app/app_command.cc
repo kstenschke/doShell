@@ -27,6 +27,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
     return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
   if (command == "replaceAll") return Command_ReplaceAll;
+  if (command == "replaceAfter") return Command_ReplaceAfter;
   if (command == "replaceBefore") return Command_ReplaceBefore;
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
@@ -45,6 +46,7 @@ bool AppCommands::IsStringManipulationCommand(AppCommands::Command command) {
   switch (command) {
     case Command_ExtractBetween:
     case Command_ReplaceAll:
+    case Command_ReplaceAfter:
     case Command_ReplaceBefore:
     case Command_ReplaceFirst:
     case Command_ReplaceLast:

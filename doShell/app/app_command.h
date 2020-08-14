@@ -16,6 +16,7 @@ class AppCommands {
     Command_ExtractBetween,
     Command_Help,
     Command_ReplaceAll,
+    Command_ReplaceAfter,
     Command_ReplaceBefore,
     Command_ReplaceFirst,
     Command_ReplaceLast,
