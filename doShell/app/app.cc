@@ -2,8 +2,6 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app.h>
-#include <doShell/dosh/runtime.h>
-#include <doShell/dosh/shellCommand/shellCommandString.h>
 
 namespace doShell {
 

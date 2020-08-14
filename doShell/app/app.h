@@ -8,7 +8,9 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
+#include <doShell/dosh/runtime.h>
 #include <doShell/dosh/shellCommand/shellCommandClipboard.h>
+#include <doShell/dosh/shellCommand/shellCommandString.h>
 #include <doShell/helper/helper_dateTime.h>
 
 #include <cstring>
