@@ -151,7 +151,7 @@ and/or scripts from given files via:
 | Command                                           | Description                                                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------------------- |
 | ``#extractBetween $VAR before after``             | Extract text excluding but between "before" and "after"                       |
-| ``#replaceAfter $VAR search replace``             | Replace everything before and including the first occurrences of given string |
+| ``#replaceAfter $VAR search replace``             | Replace everything after and including the first occurrences of given string  |
 | ``#replaceAll $VAR search replace``               | Replace all occurrences of given string                                       |
 | ``#replaceBefore $VAR search replace``            | Replace everything before and including the first occurrences of given string |
 | ``#replaceBetween $VAR before after replacement`` | Remove text including and between "before" and "after"                        |
