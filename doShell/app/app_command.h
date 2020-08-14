@@ -13,6 +13,7 @@ class AppCommands {
  public:
   enum Command {
     Command_Compile,
+    Command_ExtractBetween,
     Command_Help,
     Command_ReplaceAll,
     Command_ReplaceBefore,
@@ -28,6 +29,8 @@ class AppCommands {
   explicit AppCommands(std::string argc);
 
   static Command ResolveCommandByName(const std::string &command);
+
+  static bool IsStringManipulationCommand(AppCommands::Command command);
 
   Command GetResolved();
 

@@ -3,6 +3,7 @@
 
 #include <doShell/app/app.h>
 #include <doShell/dosh/runtime.h>
+#include <doShell/dosh/shellCommand/shellCommandString.h>
 
 namespace doShell {
 
@@ -40,6 +41,9 @@ bool App::Process() {
 
   bool result = true;
 
+  if (AppCommands::IsStringManipulationCommand(command)) {
+    result = ProcessStringCommand(command);
+  } else {
     switch (command) {
       case AppCommands::Command_AppendClipboardToFile: {
         // appendClipboardToFile
@@ -68,18 +72,6 @@ bool App::Process() {
 
         result = AppHelp::PrintHelp(true, kCommand, command_identifier);
       }
-        break;
-      case AppCommands::Command_ReplaceAll:  // replaceAll
-        result = ReplaceAll();
-
-        break;
-      case AppCommands::Command_ReplaceBefore:  // replaceBefore
-        result = ReplaceBefore();
-
-        break;
-      case AppCommands::Command_ReplaceFirst:  // replaceFirst
-        result = ReplaceFirst();
-
         break;
       case AppCommands::Command_Run: {  // r - compile and run
         auto compiler = new Compiler(argc_, argv_);
@@ -111,62 +103,40 @@ bool App::Process() {
       default:AppHelp::PrintUnknownArgumentMessage(argv_[1]);
         result = false;
     }
-
+  }
 
   delete arguments;
 
   return result;
 }
 
-bool App::ReplaceAll() const {
-  if (argc_ < 3) return false;
+bool App::ProcessStringCommand(AppCommands::Command command) {
+  bool result;
+  auto *StringCommands = new shellCommandString(argc_, argv_);
 
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+  switch (command) {
+    case AppCommands::Command_ReplaceAll:  // replaceAll
+      result = StringCommands->ReplaceAll();
 
-  helper::String::ReplaceAll(&kHaystack, kNeedle, kReplacement);
+      break;
+    case AppCommands::Command_ReplaceBefore:  // replaceBefore
+      result = StringCommands->ReplaceBefore();
 
-  std::cout << kHaystack;
+      break;
+    case AppCommands::Command_ExtractBetween:  // extractBetween
+      result = StringCommands->ExtractBetween();
 
-  return true;
-}
+      break;    case AppCommands::Command_ReplaceFirst:  // replaceFirst
+      result = StringCommands->ReplaceFirst();
 
-bool App::ReplaceFirst() const {
-  if (argc_ < 3) return false;
-
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
-
-  helper::String::ReplaceFirst(&kHaystack, kNeedle, kReplacement);
-
-  std::cout << kHaystack;
-
-  return true;
-}
-
-// Replace everything before and including the first occurrences of given string
-bool App::ReplaceBefore() const {
-  if (argc_ < 3) return false;
-
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
-
-  auto offset_needle = kHaystack.find(kNeedle);
-
-  if (offset_needle == std::string::npos) {
-    std::cout << kHaystack;
-
-    return false;
+      break;
+    default:
+      return false;
   }
 
-  kHaystack.replace(0, offset_needle + kNeedle.length(), kReplacement);
+  delete StringCommands;
 
-  std::cout << kHaystack;
-
-  return true;
+  return result;
 }
 
 }  // namespace doShell

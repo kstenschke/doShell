@@ -44,12 +44,7 @@ class App {
   std::string path_in_;
   std::string path_out_;  // Output path with/or filename
 
-  bool ReplaceAll() const;
-
-  // Replace everything before and including the first occurrences of given string
-  bool ReplaceBefore() const;
-
-  bool ReplaceFirst() const;
+  bool ProcessStringCommand(AppCommands::Command command);
 };
 
 }  // namespace doShell
