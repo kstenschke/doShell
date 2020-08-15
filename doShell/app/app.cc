@@ -2,7 +2,6 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app.h>
-#include <doShell/dosh/shellCommand/shellCommandUrlParser.h>
 
 namespace doShell {
 

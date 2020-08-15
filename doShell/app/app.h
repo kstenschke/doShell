@@ -11,6 +11,7 @@
 #include <doShell/dosh/runtime.h>
 #include <doShell/dosh/shellCommand/shellCommandClipboard.h>
 #include <doShell/dosh/shellCommand/shellCommandString.h>
+#include <doShell/dosh/shellCommand/shellCommandUrlParser.h>
 #include <doShell/helper/helper_dateTime.h>
 
 #include <cstring>
