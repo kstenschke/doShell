@@ -14,9 +14,9 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
   * [Commands](#commands)
     + [Import](#import)
     + [Inline PHP](#inline-php) 
-    + [Dialogs](#dialogs)
     + [String manipulation](#string-manipulation)
     + [URL parsing](#url-parsing)
+    + [Dialogs](#dialogs)
     + [Send keystrokes](#send-keyboard-events)
     + [Clipboard](#clipboard)
     + [Browser automation](#web-browser-automation)
@@ -138,16 +138,6 @@ like:
 ``#<?php echo time() ?>``  
 
 
-### Dialogs
-
-| Command                     | Description            |
-| --------------------------- | ---------------------- |
-| ``#notify "MESSAGE"``       |                        |
-| ``#alert "MESSAGE"``        |                        |
-| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
-| ``#prompt "MESSAGE"``       | Popup with input field |
-
-
 # String manipulation
 
 | Command                                           | Description                                                                   |
@@ -169,6 +159,16 @@ like:
 | ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
 | ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
 | ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+
+
+### Dialogs
+
+| Command                     | Description            |
+| --------------------------- | ---------------------- |
+| ``#notify "MESSAGE"``       |                        |
+| ``#alert "MESSAGE"``        |                        |
+| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
+| ``#prompt "MESSAGE"``       | Popup with input field |
 
 
 ### Send keystrokes
