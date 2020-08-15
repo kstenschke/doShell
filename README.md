@@ -262,14 +262,14 @@ to other web browsers.
 
 | Command                      | Description                                                                                 |
 | ---------------------------- | ------------------------------------------------------------------------------------------- |
-| ``#activateBrowser``         | Launch or bring preferred browser window to front                                           | 
+| ``#activateBrowser``         | Launch or bring browser window to front                                                     | 
 | ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                                                                        |
 | ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                                                                        |
 | ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                                                                    |
 | ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
 | ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
 | ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``#openBrowserSettings``    | Hits CTRL+Comma or CMD+Comma                                                                |
+| ``#openBrowserSettings``     | Hits CTRL+Comma or CMD+Comma                                                                |
 | ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
 | ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                                                            |
 
