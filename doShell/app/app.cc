@@ -154,11 +154,11 @@ bool App::ProcessUrlParserCommand(AppCommands::Command command) {
 
   switch (command) {
     case AppCommands::Command_GetSchemeFromUrl:  // getSchemeFromUrl
-//      result = StringCommands->ReplaceAfter();
+      result = UrlParser->GetSchemeFromUrl();
 
       break;
     case AppCommands::Command_GetHostFromUrl:  // getHostFromUrl
-//      result = StringCommands->ReplaceAll();
+      result = UrlParser->GetHostFromUrl();
 
       break;
     case AppCommands::Command_GetPathFromUrl:  // getPathFromUrl

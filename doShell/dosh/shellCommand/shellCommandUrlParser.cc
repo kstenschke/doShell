@@ -19,12 +19,36 @@ shellCommandUrlParser::~shellCommandUrlParser() {
 
 // Extract scheme from given URL, e.g. http or https
 bool shellCommandUrlParser::GetSchemeFromUrl() const {
+  if (argc_ < 3) return false;
 
+  std::string kUrl = argv_[2];
+
+  unsigned long offsetColon = kUrl.find(':');
+
+  if (offsetColon == std::string::npos) return false;
+
+  std::cout << kUrl.substr(0, offsetColon);
+
+  return true;
 }
 
 // Extract host from given URL, e.g. www.example.com
 bool shellCommandUrlParser::GetHostFromUrl() const {
+  if (argc_ < 3) return false;
 
+  std::string kUrl = argv_[2];
+
+  unsigned long offsetColon = kUrl.find(':');
+
+  if (offsetColon == std::string::npos) return false;
+
+  unsigned long offsetSlash = kUrl.find('/', offsetColon);
+
+  if (offsetSlash == std::string::npos) offsetSlash = kUrl.length();
+
+  std::cout << kUrl.substr(offsetColon + 1, offsetSlash - offsetColon);
+
+  return true;
 }
 
 // Extract path from given URL, e.g. /foo/bar
