@@ -154,7 +154,7 @@ and/or scripts from given files via:
 | ``#replaceAfter $VAR search replace``             | Replace everything after and including the first occurrences of given string  |
 | ``#replaceAll $VAR search replace``               | Replace all occurrences of given string                                       |
 | ``#replaceBefore $VAR search replace``            | Replace everything before and including the first occurrences of given string |
-| ``#replaceBetween $VAR before after replacement`` | Remove text including and between "before" and "after"                        |
+| ``#replaceBetween $VAR before after replacement`` | Replace text including and between "before" and "after"                       |
 | ``#replaceFirst $VAR search replace``             | Replace first occurrence of given string                                      |
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
