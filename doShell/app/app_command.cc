@@ -54,4 +54,16 @@ bool AppCommands::IsStringManipulationCommand(AppCommands::Command command) {
   }
 }
 
+bool AppCommands::IsUrlParserCommand(AppCommands::Command command) {
+  switch (command) {
+    case Command_GetSchemeFromUrl:
+    case Command_GetHostFromUrl:
+    case Command_GetPathFromUrl:
+    case Command_GetQueryFromUrl:
+      return true;
+    default:
+      return false;
+  }
+}
+
 }  // namespace doShell

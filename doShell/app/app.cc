@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app.h>
+#include <doShell/dosh/shellCommand/shellCommandUrlParser.h>
 
 namespace doShell {
 
@@ -41,6 +42,8 @@ bool App::Process() {
 
   if (AppCommands::IsStringManipulationCommand(command)) {
     result = ProcessStringCommand(command);
+  } else if (AppCommands::IsUrlParserCommand(command)) {
+    result = ProcessUrlParserCommand(command);
   } else {
     switch (command) {
       case AppCommands::Command_AppendClipboardToFile: {
@@ -141,6 +144,36 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
   }
 
   delete StringCommands;
+
+  return result;
+}
+
+bool App::ProcessUrlParserCommand(AppCommands::Command command) {
+  bool result;
+  auto *UrlParser = new shellCommandUrlParser(argc_, argv_);
+
+  switch (command) {
+    case AppCommands::Command_GetSchemeFromUrl:  // getSchemeFromUrl
+//      result = StringCommands->ReplaceAfter();
+
+      break;
+    case AppCommands::Command_GetHostFromUrl:  // getHostFromUrl
+//      result = StringCommands->ReplaceAll();
+
+      break;
+    case AppCommands::Command_GetPathFromUrl:  // getPathFromUrl
+//      result = StringCommands->ReplaceBefore();
+
+      break;
+    case AppCommands::Command_GetQueryFromUrl:  // getQueryFromUrl
+//      result = StringCommands->ReplaceBetween();
+
+      break;
+    default:
+      return false;
+  }
+
+  delete UrlParser;
 
   return result;
 }

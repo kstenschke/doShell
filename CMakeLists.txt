@@ -44,6 +44,8 @@ add_executable(dosh
         doShell/dosh/shellCommand/shellCommandClipboard.h
         doShell/dosh/shellCommand/shellCommandString.cc
         doShell/dosh/shellCommand/shellCommandString.h
+        doShell/dosh/shellCommand/shellCommandUrlParser.cc
+        doShell/dosh/shellCommand/shellCommandUrlParser.h
         doShell/dosh/transpile/transpileBrowser.cc
         doShell/dosh/transpile/transpileBrowser.h
         doShell/dosh/transpile/transpileClipboard.cc
