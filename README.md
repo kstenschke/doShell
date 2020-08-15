@@ -355,10 +355,11 @@ The following example scripts can be found under [/examples](/examples):
 
 The following optional settings can be given as environment vars:
 
-| Config                               | Description                                                      |
-| ------------------------------------ | ---------------------------------------------------------------- |
-| ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
-| ``browser=firefox``                  | Web browser to be targeted                                       |
+| Config                               | Description                                                         | Default     |
+| ------------------------------------ | ------------------------------------------------------------------- | ----------- |
+| ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc.    | ``nano``    | 
+| ``browser=firefox``                  | Web browser to be targeted **NOTE**: at the time being only firefox | ``firefox`` |
+| ``remove_code_after_run=0``          | Remove ``.do.x.sh``after execution                                  | ``1``       |
 
 See also [settings.sh](/bin/settings.sh)
 
