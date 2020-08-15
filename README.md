@@ -16,6 +16,7 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
     + [Import](#import)
     + [Dialogs](#dialogs)
     + [String manipulation](#string-manipulation)
+    + [URL parsing](#url-parsing)
     + [Send keystrokes](#send-keyboard-events)
     + [Clipboard](#clipboard)
     + [Browser automation](#web-browser-automation)
@@ -157,6 +158,16 @@ and/or scripts from given files via:
 | ``#replaceBetween $VAR before after replacement`` | Replace text including and between "before" and "after"                       |
 | ``#replaceFirst $VAR search replace``             | Replace first occurrence of given string                                      |
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
+
+
+# URL parsing
+
+| Command                                | Description                                                      |
+| -------------------------------------- | ---------------------------------------------------------------- |
+| ``#getSchemeFromUrl $URL``             | Extract scheme from given URL, e.g. ``http`` or ``https``        |
+| ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
+| ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
+| ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
 
 
 ### Send keystrokes
