@@ -16,6 +16,7 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
     + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
     + [URL parsing](#url-parsing)
+    + [File manipulation](#file-manipulation)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
     + [Send keystrokes](#send-keyboard-events)
@@ -24,7 +25,6 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
     + [Terminal automation](#terminal-automation)
-    + [File manipulation](#file-manipulation)
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Configuration](#configuration)
@@ -159,6 +159,21 @@ like:
 | ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
 | ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
 | ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+
+
+### File manipulation
+
+All file manipulations allow as optional last argument a destination file path,
+if not given, they overwrite the given source file.
+
+
+| Command                                                         | Description                                             |
+| --------------------------------------------------------------- | ------------------------------------------------------- |
+| ``#replaceAllInFile path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInFile path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInFile path/file search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInFile path/file before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Clipboard 
@@ -306,25 +321,9 @@ to other web browsers.
 | ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
 
 
-### File manipulation
-
-All file manipulations allow as optional last argument a destination file path,
-if not given, they overwrite the given source file.
-
-
-| Command                                                         | Description                                             |
-| --------------------------------------------------------------- | ------------------------------------------------------- |
-| ``#replaceAllInFile path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirstInFile path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInFile path/file search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInFile path/file before after``                | Extract text excluding but between "before" and "after" |
-
-
 ### Functions, iterations, conditions
 
-As doShell is a superset of shell script, 
-all language constructs of regular shell script
+As doShell is a superset of shell script, all language constructs of regular shell script
 can also be used within doShell script. 
 
 
