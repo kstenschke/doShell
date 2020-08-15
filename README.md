@@ -16,9 +16,9 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
     + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
     + [URL parsing](#url-parsing)
+    + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
     + [Send keystrokes](#send-keyboard-events)
-    + [Clipboard](#clipboard)
     + [Browser automation](#web-browser-automation)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
@@ -138,7 +138,7 @@ like:
 ``#<?php echo time() ?>``  
 
 
-# String manipulation
+### String manipulation
 
 | Command                                           | Description                                                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -151,7 +151,7 @@ like:
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 
-# URL parsing
+### URL parsing
 
 | Command                                | Description                                                      |
 | -------------------------------------- | ---------------------------------------------------------------- |
@@ -159,6 +159,34 @@ like:
 | ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
 | ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
 | ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+
+
+### Clipboard 
+
+| Command                                 | Description                             |
+| --------------------------------------- | --------------------------------------- |
+| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
+| ``#setClipboard $value``                | Copy text to clipboard                  |
+| ``#copyAll``                            | Select all, than copy                   |
+| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
+| ``#copyPaste $VAR``                     | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
+| ``#cutAll``                             | Select all, than cut                    |
+| ``$value=#getClipboard``                |                                         |
+| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
+| ``#copyCurrentUrl``                     |                                         |
+| ``#copyInTerminal``                     | Varies by OS                            |
+| ``#pasteInTerminal``                    | Varies by OS                            |
+
+
+| Command                                                      | Description            |
+| ------------------------------------------------------------ | ---------------------- |
+| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Dialogs
@@ -175,8 +203,8 @@ like:
 
 **Hit single key:**  
 
-| Command            | Description                            |
-| ------------------ | -------------------------------------- |  
+| Command           | Description                            |
+| ----------------- | -------------------------------------- |  
 | ``#hitBackspace`` |                                        |
 | ``#hitEnter``     |                                        |
 | ``#hitEsc``       |                                        |
@@ -207,34 +235,6 @@ like:
 | ``#copyPaste "foo"``  | Copy text to clipboard and invoke paste. ``*`` |
 
 ``* Oftentimes a faster alternative over typing``  
-
-
-### Clipboard 
-
-| Command                                 | Description                             |
-| --------------------------------------- | --------------------------------------- |
-| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
-| ``#setClipboard $value``                | Copy text to clipboard                  |
-| ``#copyAll``                            | Select all, than copy                   |
-| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
-| ``#copyPaste $VAR``                     | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
-| ``#cutAll``                             | Select all, than cut                    |
-| ``$value=#getClipboard``                |                                         |
-| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
-| ``#copyCurrentUrl``                     |                                         |
-| ``#copyInTerminal``                     | Varies by OS                            |
-| ``#pasteInTerminal``                    | Varies by OS                            |
-
-
-| Command                                                      | Description            |
-| ------------------------------------------------------------ | ---------------------- |
-| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Web Browser automation  
