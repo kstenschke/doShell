@@ -205,8 +205,29 @@ int String::ReplaceFirst(std::string *haystack,
   return 1;
 }
 
-// Get sub string between given surrounding left- and right-hand-side delimiters
-// return std::string  The enclosed sub-string or an empty string
+// Replace text including and between LHS and RHS
+std::string String::ReplaceBetween(const std::string &str,
+                                   const std::string &lhs,
+                                   const std::string &rhs,
+                                   const std::string &replacement) {
+  auto offsetStart = str.find(lhs);
+
+  if (std::string::npos == offsetStart) return "";
+
+  size_t offsetEnd = str.find(rhs, offsetStart);
+
+  if (std::string::npos == offsetEnd) return "";
+
+  // Exclude LHS
+  offsetStart += lhs.length();
+
+
+  std::string res = str;
+  res.replace(offsetStart, offsetEnd, replacement);
+
+  return res;
+}
+
 std::string String::GetSubStrBetween(const std::string &str,
                                      const char *lhs,
                                      const char *rhs,

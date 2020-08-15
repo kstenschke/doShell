@@ -99,4 +99,22 @@ bool shellCommandString::ExtractBetween() const {
   return true;
 }
 
+// Replace text including and between "before" and "after"
+bool shellCommandString::ReplaceBetween() const {
+  if (argc_ < 4) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kBefore = argv_[3];
+  const std::string kAfter = argv_[4];
+  const std::string kReplacement = argc_ < 6 ? "" : argv_[5];
+
+  auto out = helper::String::ReplaceBetween(kHaystack, kBefore, kAfter, kReplacement);
+
+  if (out.empty()) return false;
+
+  std::cout << out;
+
+  return true;
+}
+
 }  // namespace doShell

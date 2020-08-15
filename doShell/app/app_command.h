@@ -18,6 +18,7 @@ class AppCommands {
     Command_ReplaceAll,
     Command_ReplaceAfter,
     Command_ReplaceBefore,
+    Command_ReplaceBetween,
     Command_ReplaceFirst,
     Command_ReplaceLast,
     Command_Run,

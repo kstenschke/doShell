@@ -113,16 +113,20 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
   auto *StringCommands = new shellCommandString(argc_, argv_);
 
   switch (command) {
-    case AppCommands::Command_ReplaceAll:  // replaceAll
-      result = StringCommands->ReplaceAll();
-
-      break;
     case AppCommands::Command_ReplaceAfter:  // replaceAfter
       result = StringCommands->ReplaceAfter();
 
       break;
+    case AppCommands::Command_ReplaceAll:  // replaceAll
+      result = StringCommands->ReplaceAll();
+
+      break;
     case AppCommands::Command_ReplaceBefore:  // replaceBefore
       result = StringCommands->ReplaceBefore();
+
+      break;
+    case AppCommands::Command_ReplaceBetween:  // replaceBetween
+      result = StringCommands->ReplaceBetween();
 
       break;
     case AppCommands::Command_ExtractBetween:  // extractBetween

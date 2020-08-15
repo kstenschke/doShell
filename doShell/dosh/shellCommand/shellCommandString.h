@@ -31,14 +31,17 @@ class shellCommandString {
   // Extract text excluding but between "before" and "after"
   bool ExtractBetween() const;
 
-  // Replace all occurrences of given string
-  bool ReplaceAll() const;
-
   // Replace everything after and including the first occurrences of given string
   bool ReplaceAfter() const;
 
+  // Replace all occurrences of given string
+  bool ReplaceAll() const;
+
   // Replace everything before and including the first occurrences of given string
   bool ReplaceBefore() const;
+
+  // Replace text including and between "before" and "after"
+  bool ReplaceBetween() const;
 
   // Replace first occurrence of given string
   bool ReplaceFirst() const;

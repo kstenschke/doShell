@@ -21,20 +21,17 @@ AppCommands::Command AppCommands::Resolve() {
 
 AppCommands::Command AppCommands::ResolveCommandByName(
     const std::string &command) {
-  if (command == "appendClipboardToFile")
-    return Command_AppendClipboardToFile;
-  if (command == "-c" || command == "compile")
-    return Command_Compile;
+  if (command == "appendClipboardToFile") return Command_AppendClipboardToFile;
+  if (command == "-c" || command == "compile") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
-  if (command == "replaceAll") return Command_ReplaceAll;
   if (command == "replaceAfter") return Command_ReplaceAfter;
+  if (command == "replaceAll") return Command_ReplaceAll;
   if (command == "replaceBefore") return Command_ReplaceBefore;
+  if (command == "replaceBetween") return Command_ReplaceBetween;
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
-  if (command == "-r" || command == "run")
-    return Command_Run;
-  if (command == "saveClipboardToFile")
-    return Command_SaveClipboardToFile;
+  if (command == "-r" || command == "run") return Command_Run;
+  if (command == "saveClipboardToFile") return Command_SaveClipboardToFile;
   if (command == "-h" || command == "help" || command == "?")
     return Command_Help;
   if (command == "-v" || command == "version") return Command_Version;
@@ -48,6 +45,7 @@ bool AppCommands::IsStringManipulationCommand(AppCommands::Command command) {
     case Command_ReplaceAll:
     case Command_ReplaceAfter:
     case Command_ReplaceBefore:
+    case Command_ReplaceBetween:
     case Command_ReplaceFirst:
     case Command_ReplaceLast:
       return true;
