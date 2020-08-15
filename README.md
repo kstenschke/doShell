@@ -11,9 +11,9 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros and variables](#runtime-macros-and-variables)
-  + [Inline PHP](#inline-php) 
   * [Commands](#commands)
     + [Import](#import)
+    + [Inline PHP](#inline-php) 
     + [Dialogs](#dialogs)
     + [String manipulation](#string-manipulation)
     + [URL parsing](#url-parsing)
@@ -121,12 +121,6 @@ running the given file:
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
 
-## Inline PHP
-
-doShell script can contain inlined PHP (see functional flow) 
-like:  
-``#<?php echo time() ?>``  
-
 
 ## Commands
 
@@ -135,6 +129,13 @@ like:
 doShell can import extracted/separated plaintext
 and/or scripts from given files via:  
 ``#import another_file.do.sh``  
+
+
+### Inline PHP
+
+doShell script can contain inlined PHP (processed during pre-execution parsing, see functional flow) 
+like:  
+``#<?php echo time() ?>``  
 
 
 ### Dialogs
