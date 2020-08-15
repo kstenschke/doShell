@@ -1,7 +1,7 @@
 doShell
 =======
 
-Efficient scripting language for headful browser- and terminal-automation on Linux and Mac OS
+Scripting language and runtime system for enhanced efficiency of headful browser- and terminal-automation on Linux and Mac OS
 
 ## Table of Contents
 
@@ -11,19 +11,20 @@ Efficient scripting language for headful browser- and terminal-automation on Lin
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros and variables](#runtime-macros-and-variables)
-  + [Inline PHP](#inline-php) 
   * [Commands](#commands)
     + [Import](#import)
-    + [Dialogs](#dialogs)
+    + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
-    + [Send keystrokes](#send-keyboard-events)
+    + [URL parsing](#url-parsing)
+    + [File manipulation](#file-manipulation)
     + [Clipboard](#clipboard)
+    + [Dialogs](#dialogs)
+    + [Send keystrokes](#send-keyboard-events)
     + [Browser automation](#web-browser-automation)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
     + [Terminal automation](#terminal-automation)
-    + [File manipulation](#file-manipulation)
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Configuration](#configuration)
@@ -88,8 +89,8 @@ shell-thread.
 ### Communication from browser to runtime system
 
 For communication from web browsers back to the runtime sytem, the system 
-clipboard is used. doShell has some built-in commands for manipulation and 
-import / export of text from/to the clipboard. 
+clipboard and file IO can be used. doShell has some built-in commands for 
+manipulation and import / export of text from/to the clipboard. 
 
 
 ## Runtime macros and variables
@@ -120,12 +121,6 @@ running the given file:
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
 
-## Inline PHP
-
-doShell script can contain inlined PHP (see functional flow) 
-like:  
-``#<?php echo time() ?>``  
-
 
 ## Commands
 
@@ -136,17 +131,14 @@ and/or scripts from given files via:
 ``#import another_file.do.sh``  
 
 
-### Dialogs
+### Inline PHP
 
-| Command                     | Description            |
-| --------------------------- | ---------------------- |
-| ``#notify "MESSAGE"``       |                        |
-| ``#alert "MESSAGE"``        |                        |
-| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
-| ``#prompt "MESSAGE"``       | Popup with input field |
+doShell script can contain inlined PHP (processed during pre-execution parsing, see functional flow) 
+like:  
+``#<?php echo time() ?>``  
 
 
-# String manipulation
+### String manipulation
 
 | Command                                           | Description                                                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -159,12 +151,75 @@ and/or scripts from given files via:
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 
+### URL parsing
+
+| Command                                | Description                                                      |
+| -------------------------------------- | ---------------------------------------------------------------- |
+| ``#getSchemeFromUrl $URL``             | Extract scheme from given URL, e.g. ``http`` or ``https``        |
+| ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
+| ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
+| ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+
+
+### File manipulation
+
+All file manipulations allow as optional last argument a destination file path,
+if not given, they overwrite the given source file.
+
+
+| Command                                                         | Description                                             |
+| --------------------------------------------------------------- | ------------------------------------------------------- |
+| ``#replaceAllInFile path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInFile path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInFile path/file search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInFile path/file before after``                | Extract text excluding but between "before" and "after" |
+
+
+### Clipboard 
+
+| Command                                 | Description                             |
+| --------------------------------------- | --------------------------------------- |
+| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
+| ``#setClipboard $value``                | Copy text to clipboard                  |
+| ``#copyAll``                            | Select all, than copy                   |
+| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
+| ``#copyPaste $VAR``                     | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
+| ``#cutAll``                             | Select all, than cut                    |
+| ``$value=#getClipboard``                |                                         |
+| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
+| ``#copyCurrentUrl``                     |                                         |
+| ``#copyInTerminal``                     | Varies by OS                            |
+| ``#pasteInTerminal``                    | Varies by OS                            |
+
+
+| Command                                                      | Description            |
+| ------------------------------------------------------------ | ---------------------- |
+| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
+| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
+
+
+### Dialogs
+
+| Command                     | Description            |
+| --------------------------- | ---------------------- |
+| ``#notify "MESSAGE"``       |                        |
+| ``#alert "MESSAGE"``        |                        |
+| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
+| ``#prompt "MESSAGE"``       | Popup with input field |
+
+
 ### Send keystrokes
 
 **Hit single key:**  
 
-| Command            | Description                            |
-| ------------------ | -------------------------------------- |  
+| Command           | Description                            |
+| ----------------- | -------------------------------------- |  
 | ``#hitBackspace`` |                                        |
 | ``#hitEnter``     |                                        |
 | ``#hitEsc``       |                                        |
@@ -197,34 +252,6 @@ and/or scripts from given files via:
 ``* Oftentimes a faster alternative over typing``  
 
 
-### Clipboard 
-
-| Command                                 | Description                             |
-| --------------------------------------- | --------------------------------------- |
-| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
-| ``#setClipboard $value``                | Copy text to clipboard                  |
-| ``#copyAll``                            | Select all, than copy                   |
-| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
-| ``#copyPaste $VAR``                     | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
-| ``#cutAll``                             | Select all, than cut                    |
-| ``$value=#getClipboard``                |                                         |
-| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
-| ``#copyCurrentUrl``                     |                                         |
-| ``#copyInTerminal``                     | Varies by OS                            |
-| ``#pasteInTerminal``                    | Varies by OS                            |
-
-
-| Command                                                      | Description            |
-| ------------------------------------------------------------ | ---------------------- |
-| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
-
-
 ### Web Browser automation  
 
 **Note:** At the time being doShell was tested using Firefox, but should be easily adaptable
@@ -235,14 +262,14 @@ to other web browsers.
 
 | Command                      | Description                                                                                 |
 | ---------------------------- | ------------------------------------------------------------------------------------------- |
-| ``#activateBrowser``         | Launch or bring preferred browser window to front                                           | 
+| ``#activateBrowser``         | Launch or bring browser window to front                                                     | 
 | ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                                                                        |
 | ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                                                                        |
 | ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                                                                    |
 | ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
 | ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
 | ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``#openBrowserSettings``    | Hits CTRL+Comma or CMD+Comma                                                                |
+| ``#openBrowserSettings``     | Hits CTRL+Comma or CMD+Comma                                                                |
 | ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
 | ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                                                            |
 
@@ -294,25 +321,9 @@ to other web browsers.
 | ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
 
 
-### File manipulation
-
-All file manipulations allow as optional last argument a destination file path,
-if not given, they overwrite the given source file.
-
-
-| Command                                                         | Description                                             |
-| --------------------------------------------------------------- | ------------------------------------------------------- |
-| ``#replaceAllInFile path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirstInFile path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInFile path/file search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInFile path/file before after``                | Extract text excluding but between "before" and "after" |
-
-
 ### Functions, iterations, conditions
 
-As doShell is a superset of shell script, 
-all language constructs of regular shell script
+As doShell is a superset of shell script, all language constructs of regular shell script
 can also be used within doShell script. 
 
 
@@ -344,10 +355,11 @@ The following example scripts can be found under [/examples](/examples):
 
 The following optional settings can be given as environment vars:
 
-| Config                               | Description                                                      |
-| ------------------------------------ | ---------------------------------------------------------------- |
-| ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc. |
-| ``browser=firefox``                  | Web browser to be targeted                                       |
+| Config                               | Description                                                         | Default     |
+| ------------------------------------ | ------------------------------------------------------------------- | ----------- |
+| ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc.    | ``nano``    | 
+| ``browser=firefox``                  | Web browser to be targeted **NOTE**: at the time being only firefox | ``firefox`` |
+| ``remove_code_after_run=0``          | Remove ``.do.x.sh``after execution                                  | ``1``       |
 
 See also [settings.sh](/bin/settings.sh)
 
