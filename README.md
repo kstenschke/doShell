@@ -81,8 +81,8 @@ Running ``shdo -r script.do.sh``, the given file is transpiled and run.
 When running an already transpiled ``*.do.x.sh`` script, the translation is 
 skipped.
 
-doShell transpiles to intermediary shell script files, which additionally to conventional 
-shell script code can contain runtime macros: placeholder-strings for generic 
+doShell transpiles to intermediary shell script files: additional to conventional 
+shell script code, they can contain runtime macros: placeholder-strings for generic 
 content, and runtime variables. The doShell runtime system replaces runtime macros and 
 declares runtime variables, from optional variable-value tuples that can be given as 
 associative JSON as execution arguments, before the eventual execution in a sandboxed 
