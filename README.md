@@ -326,7 +326,7 @@ to other web browsers.
 ### Functions, iterations, conditions
 
 As doShell is a superset of shell script, all language constructs of regular shell script
-can also be used within doShell script. 
+can be used within doShell script. 
 
 
 ## Script Examples
