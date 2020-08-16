@@ -248,6 +248,21 @@ std::string String::GetSubStrBetween(const std::string &str,
   return str.substr(offsetStart, offsetEnd - offsetStart);
 }
 
+std::string String::GetSubStrAfter(const std::string &str,
+                                   const char *lhs,
+                                   u_int32_t *offset) {
+  size_t offsetStart = str.find(lhs, *offset);
+
+  if (std::string::npos == offsetStart) return "";
+
+  // Exclude LHS
+  offsetStart += strlen(lhs);
+
+  *offset = offsetStart;
+
+  return str.substr(offsetStart);
+}
+
 std::string String::GetSubStrBetween(const std::string &str,
                                      const char *lhs,
                                      const char *rhs) {

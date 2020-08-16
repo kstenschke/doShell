@@ -148,7 +148,7 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
 }
 
 bool App::ProcessUrlParserCommand(AppCommands::Command command) {
-  bool result;
+  bool result = false;
   auto *UrlParser = new shellCommandUrlParser(argc_, argv_);
 
   switch (command) {
@@ -165,7 +165,7 @@ bool App::ProcessUrlParserCommand(AppCommands::Command command) {
 
       break;
     case AppCommands::Command_GetQueryFromUrl:  // getQueryFromUrl
-//      result = StringCommands->ReplaceBetween();
+      result = UrlParser->GetQueryFromUrl();
 
       break;
     default:

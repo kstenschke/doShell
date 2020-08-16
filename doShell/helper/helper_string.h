@@ -89,6 +89,10 @@ extern std::string GetSubStrBetween(const std::string &str,
                                     const char *rhs,
                                     u_int32_t *offset);
 
+extern std::string GetSubStrAfter(const std::string &str,
+                                  const char *lhs,
+                                  u_int32_t *offset = 0);
+
 extern std::string GetSubStrBetween(const std::string &str,
                                     const char *lhs,
                                     const char *rhs);

@@ -58,7 +58,13 @@ bool shellCommandUrlParser::GetPathFromUrl() const {
 
 // Extract query from given URL, e.g. hat=bowler&accessory=cane
 bool shellCommandUrlParser::GetQueryFromUrl() const {
+  if (argc_ < 3) return false;
 
+  std::string kUrl = argv_[2];
+
+  std::cout << helper::String::GetSubStrAfter(kUrl, "?");
+
+  return true;
 }
 
 }  // namespace doShell
