@@ -84,9 +84,7 @@ skipped.
 doShell transpiles to intermediary shell script files: additional to conventional 
 shell script code, they can contain runtime macros: placeholder-strings for generic 
 content, and runtime variables. The doShell runtime system replaces runtime macros and 
-declares runtime variables, from optional variable-value tuples that can be given as 
-associative JSON as execution arguments, before the eventual execution in a sandboxed 
-shell-thread. 
+declares runtime variables, before the eventual execution in a sandboxed shell-thread. 
 
 ### Communication from browser to runtime system
 
