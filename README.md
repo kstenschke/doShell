@@ -90,7 +90,7 @@ shell-thread.
 
 ### Communication from browser to runtime system
 
-For communication from web browsers back to the runtime sytem, the system 
+For communication from web browser back to the runtime sytem, the system 
 clipboard and file IO can be used. doShell provides built-in commands for 
 manipulation and import / export of text from/to the clipboard. 
 
