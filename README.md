@@ -77,8 +77,7 @@ script to a new file ``script.do.x.sh``
 
 ### Transpile and/or run
 
-Running ``shdo -r script.do.sh``, the transpiler will translate the given 
-file and the runtime system will execute it.  
+Running ``shdo -r script.do.sh``, the given file is transpiled and run.  
 When running an already transpiled ``*.do.x.sh`` script, the translation is 
 skipped.
 
