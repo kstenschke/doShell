@@ -35,7 +35,7 @@ Scripting language and runtime system for efficient headful browser- and termina
   * [License](#license)
 
 
-## Idea - What does it do?
+## What does it do?
 
 doShell is a superset of shell script, providing commands geared towards 
 headfull cross-platform browser- and terminal-automation.  
