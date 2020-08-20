@@ -126,9 +126,7 @@ running the given file:
 
 ### Import
 
-doShell can import extracted/separated plaintext
-and/or scripts from given files via:  
-``#import another_file.do.sh``  
+Import a specified file: ``#import another_file.do.sh``  
 
 
 ### Inline PHP
