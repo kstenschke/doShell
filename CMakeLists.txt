@@ -52,6 +52,8 @@ add_executable(dosh
         doShell/dosh/transpile/transpileClipboard.h
         doShell/dosh/transpile/transpileKeystrokes.cc
         doShell/dosh/transpile/transpileKeystrokes.h
+        doShell/dosh/transpile/transpileString.cc
+        doShell/dosh/transpile/transpileString.h
         doShell/dosh/transpile/transpileTerminal.cc
         doShell/dosh/transpile/transpileTerminal.h
         doShell/helper/helper_cli.cc

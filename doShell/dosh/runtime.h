@@ -11,6 +11,8 @@
 #include <doShell/dosh/transpile/transpileClipboard.h>
 #include <doShell/dosh/transpile/transpileBrowser.h>
 #include <doShell/dosh/transpile/transpileKeystrokes.h>
+#include <doShell/dosh/transpile/transpileTerminal.h>
+#include <doShell/dosh/transpile/transpileString.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
