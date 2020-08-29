@@ -39,6 +39,7 @@ void Compiler::TranspileCommands() {
       transpileString::Transpile(&source_, is_linux_);
       transpileClipboard::Transpile(&source_, is_linux_);
       transpileBrowser::Transpile(&source_, is_linux_);
+      transpileDialog::Transpile(&source_, is_linux_);
       transpileKeystrokes::Transpile(&source_, is_linux_);
       transpileTerminal::Transpile(&source_, is_linux_);
 

@@ -50,6 +50,8 @@ add_executable(dosh
         doShell/dosh/transpile/transpileBrowser.h
         doShell/dosh/transpile/transpileClipboard.cc
         doShell/dosh/transpile/transpileClipboard.h
+        doShell/dosh/transpile/transpileDialog.cc
+        doShell/dosh/transpile/transpileDialog.h
         doShell/dosh/transpile/transpileKeystrokes.cc
         doShell/dosh/transpile/transpileKeystrokes.h
         doShell/dosh/transpile/transpileString.cc

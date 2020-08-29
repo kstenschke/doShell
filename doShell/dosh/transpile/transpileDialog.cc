@@ -31,6 +31,8 @@ bool transpileDialog::TranspileAlert(std::string *code,
                                                bool is_linux) {
   if (std::string::npos == code->find("#alert ")) return false;
 
+
+
   return true;
 }
 
