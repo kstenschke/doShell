@@ -29,9 +29,9 @@ Scripting language, transpiler and runtime system for efficient headful browser-
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Configuration](#configuration)
+  * [Third Party References](#third-party-references)
   * [Build Instructions](#build-instructions)
   * [Code Convention](#code-convention)
-  * [Third Party References](#third-party-references)
   * [License](#license)
 
 
@@ -369,30 +369,13 @@ The following optional settings can be given as environment vars:
 See also [settings.sh](/bin/settings.sh)
 
 
-Build Instructions
-------------------
-
-`cmake CMakeLists.txt; make`
-
-
-Code Convention
----------------
-
-It is recommended to write doShell scripts according to 
-[Google Shell Style Guide](https://google.github.io/styleguide/shell.xml)
-where applicable.
-
-The source code of the doShell transpiler and interpreter follows the 
-[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).  
-
-
 Third Party References
 ----------------------
 
 ## Runtime tools 
 
 doShell uses a list of existing tools from third parties (and some doShell built-in tools) to peform automation, display dialogs, etc.
-The third party tools partly vary by platform, depending on functionalities used within doShell scripts, not all tools are mandatory. 
+The third party tools vary by platform, not all tools are mandatory (depending on functionalities used within doShell scripts). 
 
 ### Runtime tools on Linux 
 
@@ -429,6 +412,23 @@ doShell was built using the following third party libraries and tools:
 | [GCC](https://gcc.gnu.org)                                      | GCC, the GNU Compiler Collection                                           | [GNU General Public License version 3](https://gcc.gnu.org/onlinedocs/libstdc++/manual/appendix_gpl.html) |      
 
 Thanks a lot!
+
+
+Build Instructions
+------------------
+
+`cmake CMakeLists.txt; make`
+
+
+Code Convention
+---------------
+
+It is recommended to write doShell scripts according to 
+[Google Shell Style Guide](https://google.github.io/styleguide/shell.xml)
+where applicable.
+
+The source code of the doShell transpiler and interpreter follows the 
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).  
 
 
 License
