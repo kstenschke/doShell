@@ -102,6 +102,8 @@ manipulation and import / export of text from/to the clipboard.
 
 ## Runtime macros and variables
 
+### Runtime macros
+
 The following predefined macros are replaced at runtime by generic content.  
 
 | Macro             | Replaced by                                                      |
@@ -110,6 +112,8 @@ The following predefined macros are replaced at runtime by generic content.
 | ``__LINE__``      | Line number in current file                                      |
 | ``__FILE__``      | Absolute path of current file including the                      |
 | ``__DIR__``       | Absolute path of current file                                    |
+
+### Runtime variables
 
 Arbitrary user-defined runtime variables can be passed JSON-formatted 
 when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
