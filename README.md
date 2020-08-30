@@ -47,7 +47,8 @@ from that of a regular user with a "vanilla" web browser.
 This project is a source-to-source (S2S) transpiler and runtime system
 for executing doShell scripts.  
 To ease integration of parametric doShell scripts with generic frontends, the doShell executable 
-provides a custom DOC parser, that extracts argument specifications as JSON.
+provides a custom DOC parser, that extracts argument specifications of [runtime variables](#runtime-macros-and-variables)
+as JSON.
 
 
 ### Mission targets
