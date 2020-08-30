@@ -414,9 +414,9 @@ Third Party References
 
 ## Runtime tools
 
-| OS    | Tool                               | Description                                                      | License                                                                              |
-| ------------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Linux | [Xdialog](http://xdialog.free.fr/) | Converts any terminal program into a program with an X interface | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+| OS    | Tool                               | Description                          | License                                                                              |
+| ------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| Linux | [Xdialog](http://xdialog.free.fr/) | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
 
 
 ## Libraries and build tools
