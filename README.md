@@ -45,8 +45,7 @@ In contrast to other browser automation tools like selenium and puppetteer, doSh
 from that of a regular user with a "vanilla" web browser. 
 
 This project is a source-to-source (S2S) transpiler and runtime system
-for executing doShell scripts.
-
+for executing doShell scripts.  
 To ease integration of parametric doShell scripts with generic frontends, the doShell executable 
 provides a custom DOC parser, that extracts argument specifications as JSON.
 
