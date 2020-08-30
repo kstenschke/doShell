@@ -384,14 +384,14 @@ The third party tools vary by platform, not all tools are mandatory (depending o
 
 ### Runtime tools on Linux 
 
-| Tool                                         | Description                          | License                                                                              |
-| -------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| Tool                                          | Description                          | License                                                                              |
+| --------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
 | [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) |        |                                                                                      |
-| [Xdialog](http://xdialog.free.fr/)           | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
-| [wmctrl]http://tripie.sweb.cz/utils/wmctrl/) |                                      |                                                                                      |
-| [xclip](https://linux.die.net/man/1/xclip)   |                                      |                                                                                      |
-| [xsel](https://linux.die.net/man/1/xsel)     |                                      |                                                                                      |
-| [PHP](https://www.php.net/)                  |                                      |                                                                                      |
+| [Xdialog](http://xdialog.free.fr/)            | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/) |                                      |                                                                                      |
+| [xclip](https://linux.die.net/man/1/xclip)    |                                      |                                                                                      |
+| [xsel](https://linux.die.net/man/1/xsel)      |                                      |                                                                                      |
+| [PHP](https://www.php.net/)                   |                                      |                                                                                      |
 
 ### Runtime tools on Mac 
 
