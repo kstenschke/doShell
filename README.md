@@ -415,7 +415,7 @@ Third Party References
 ## Runtime tools
 
 | OS    | Tool                               | Description                          | License                                                                              |
-| ------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| ----- | ---------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
 | Linux | [Xdialog](http://xdialog.free.fr/) | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
 
 
