@@ -8,7 +8,6 @@ Scripting language, transpiler and runtime system for efficient headful browser-
 - [DoShell](#doshell)
   * [What does it do?](#idea---wat-does-(will)-it-do?)
   * [Functional Flow](#functional-flow)
-    + [DOC parser](#doc-parser)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros and variables](#runtime-macros-and-variables)
@@ -73,10 +72,6 @@ as JSON.
 ![Transpiler](/images/doshell_diagram.png)
 
 
-### DOC parser 
-
-...
-
 ### Transpile
 
 Running ``shdo -t script.do.sh`` transpiles the given doShell
@@ -132,6 +127,10 @@ running the given file:
     is replaced at its original place
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
+
+#### DOC parser 
+
+...
 
 
 ## Commands
