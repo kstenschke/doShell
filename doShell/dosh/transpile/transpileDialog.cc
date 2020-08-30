@@ -16,15 +16,12 @@ bool transpileDialog::TranspileNotify(std::string *code,
                                                bool is_linux) {
   if (std::string::npos == code->find("#notify ")) return false;
 
-  std::string replacement =
-      is_linux
-      ? "echo '$1' | xclip -sel clip #"
-      : "osascript -e 'set the clipboard to \"$1\"'";
-
-  std::regex exp(R"(#setClipboard \"(.*)\")");
-  *code = std::regex_replace(*code, exp, replacement);
-
-  return true;
+    return helper::String::ReplaceAll(
+        code,
+        "#notify",
+        is_linux
+          ? "display notification "
+          : "Xdialog --msgbox ") > 0;
 }
 
 bool transpileDialog::TranspileAlert(std::string *code,
