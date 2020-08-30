@@ -28,7 +28,6 @@ Scripting language and runtime system for efficient headful browser- and termina
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Configuration](#configuration)
-  * [Dependencies](#dependencies)
   * [Build Instructions](#build-instructions)
   * [Code Convention](#code-convention)
   * [Third Party References](#third-party-references)
@@ -362,36 +361,6 @@ The following optional settings can be given as environment vars:
 See also [settings.sh](/bin/settings.sh)
 
 
-## Dependencies
-
-Automation is ultimately performed using existing tools from third parties, 
-and some doShell built-in tools.
-
-### Optional dependencies
-
-* When using PHP within doShell scripts, [PHP](https://www.php.net/) must be 
-  installed
-
-
-### Linux
-
-* [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html)
-* [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
-* [xclip](https://linux.die.net/man/1/xclip)
-* [xsel](https://linux.die.net/man/1/xsel)
-* xdialog
-* Shell script
-* doShell executable
-
-
-### Mac OS
-
-* AppleScript (osascript) - **Note:** Assistive access must be enabled
-* Shell script
-* doShell executable
-
-
-
 Build Instructions
 ------------------
 
@@ -414,13 +383,26 @@ Third Party References
 
 ## Runtime tools 
 
+doShell uses a list of existing tools from third parties (and some doShell built-in tools) to peform automation, display dialogs, etc.
+The third party tools partly vary by platform, depending on functionalities used within doShell scripts, not all tools are mandatory. 
+
 ### Runtime tools on Linux 
 
-| Tool                                        | Description                          | License                                                                              |
-| ------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
-| [Xdialog](http://xdialog.free.fr/)          | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
-| [Wmctrl]http://tripie.sweb.cz/utils/wmctrl/ |                                      |                                                                                      |
+| Tool                                         | Description                          | License                                                                              |
+| -------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) |        |                                                                                      |
+| [Xdialog](http://xdialog.free.fr/)           | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+| [wmctrl]http://tripie.sweb.cz/utils/wmctrl/) |                                      |                                                                                      |
+| [xclip](https://linux.die.net/man/1/xclip)   |                                      |                                                                                      |
+| [xsel](https://linux.die.net/man/1/xsel)     |                                      |                                                                                      |
+| [PHP](https://www.php.net/)                  |                                      |                                                                                      |
 
+### Runtime tools on Mac 
+
+| Tool                                         | Description                                | License                                                              |
+| -------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------- |
+| AppleScript (osascript)                      | **Note:** Assistive access must be enabled |                                                                      |               
+| [PHP](https://www.php.net/)                  |                                      |                                                                                      |
 
 ## Build tools and libraries
 
