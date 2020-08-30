@@ -8,6 +8,7 @@ Scripting language, transpiler and runtime system for efficient headful browser-
 - [DoShell](#doshell)
   * [What does it do?](#idea---wat-does-(will)-it-do?)
   * [Functional Flow](#functional-flow)
+    + [DOC parser](#doc-parser)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime macros and variables](#runtime-macros-and-variables)
@@ -46,6 +47,9 @@ from that of a regular user with a "vanilla" web browser.
 This project is a source-to-source (S2S) transpiler and runtime system
 for executing doShell scripts.
 
+To ease integration of parametric doShell scripts with generic frontends, the doShell executable 
+provides a custom DOC parser, that extracts argument specifications as JSON.
+
 
 ### Mission targets
 
@@ -67,6 +71,10 @@ for executing doShell scripts.
 
 ![Transpiler](/images/doshell_diagram.png)
 
+
+### DOC parser 
+
+...
 
 ### Transpile
 
