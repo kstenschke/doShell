@@ -412,14 +412,17 @@ The source code of the doShell transpiler and interpreter follows the
 Third Party References
 ----------------------
 
-## Runtime tools
+## Runtime tools 
 
-| OS    | Tool                               | Description                          | License                                                                              |
-| ----- | ---------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
-| Linux | [Xdialog](http://xdialog.free.fr/) | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+### Runtime tools on Linux 
+
+| Tool                                        | Description                          | License                                                                              |
+| ------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
+| [Xdialog](http://xdialog.free.fr/)          | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+| [Wmctrl]http://tripie.sweb.cz/utils/wmctrl/ |                                      |                                                                                      |
 
 
-## Libraries and build tools
+## Build tools and libraries
 
 doShell was built using the following third party libraries and tools:
 
