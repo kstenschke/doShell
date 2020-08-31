@@ -126,13 +126,13 @@ The following predefined macros are replaced at runtime by generic content.
 
 **Example:**
 
-``
-#IF(LINUX)  
-  #BROWSER=chromium    
-#ELSEIF(MAC)  
-  #BROWSER=firefox  
-#ENDIF  
-``
+````
+#IF(LINUX)
+  #BROWSER=chromium
+#ELSEIF(MAC)
+  #BROWSER=firefox
+#ENDIF
+````
 
 ### Runtime variables
 
