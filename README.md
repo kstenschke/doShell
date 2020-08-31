@@ -10,7 +10,10 @@ Scripting language, transpiler and runtime system for efficient headful browser-
   * [Functional Flow](#functional-flow)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
-  + [Runtime macros and variables](#runtime-macros-and-variables)
+  + [Runtime options within doShell scripts](#runtime-options-within-doShell-scripts)
+    + [Runtime flags](#runtime-flags)
+    + [Runtime macros](#runtime-macros)
+    + [Conditional blocks](#conditional-blocks)
   * [Commands](#commands)
     + [Import](#import)
     + [Inline PHP](#inline-php) 
@@ -96,7 +99,16 @@ clipboard and file IO can be used. doShell provides built-in commands for
 manipulation and import / export of text from/to the clipboard. 
 
 
-## Runtime macros and variables
+## Runtime options within doShell scripts
+
+### Runtime flages
+
+Runtime flags can be used to override doShell options 
+(which all can also be passed to the doShell executable from the shell / terminal e.g. via ``--browser=chromium``)
+
+| Flag                   | Description                                                      |
+| ---------------------- | ---------------------------------------------------------------- |
+| ``#BROWSER=chromium``  | Sets the browser to be used, e.g. ``chromium`` or ``firefox``    |
 
 ### Runtime macros
 
@@ -108,6 +120,14 @@ The following predefined macros are replaced at runtime by generic content.
 | ``__LINE__``      | Line number in current file                                      |
 | ``__FILE__``      | Absolute path of current file including the                      |
 | ``__DIR__``       | Absolute path of current file                                    |
+
+### Conditional blocks
+
+``#IF(LINUX)
+  #BROWSER=chromium
+#ELSEIF(MAC)
+  #BROWSER=firefox
+#ENDIF``
 
 ### Runtime variables
 
