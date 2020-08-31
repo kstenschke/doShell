@@ -2,6 +2,12 @@
 
 # Load google.com in new browser tab
 
+#IF(LINUX)
+  #BROWSER=chromium
+#ELSEIF(MAC)
+  #BROWSER=firefox
+#ENDIF
+
 #activateBrowser
 #openNewBrowserTab
 #focusBrowserURL

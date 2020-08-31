@@ -6,3 +6,11 @@
 
 echo "this file is: __FILE__"
 echo "current UNIX timestamp: __TIMESTAMP__"
+
+#IF(LINUX)
+  #BROWSER=chromium
+  echo "OS: Linux"
+#ELSEIF(MAC)
+  #BROWSER=firefox
+  echo "OS: Mac OS"
+#ENDIF
