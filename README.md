@@ -123,11 +123,16 @@ The following predefined macros are replaced at runtime by generic content.
 
 ### Conditional blocks
 
-``#IF(LINUX)
-  #BROWSER=chromium
+
+**Example:**
+
+``
+#IF(LINUX)
+  #BROWSER=chromium  
 #ELSEIF(MAC)
   #BROWSER=firefox
-#ENDIF``
+#ENDIF
+``
 
 ### Runtime variables
 
