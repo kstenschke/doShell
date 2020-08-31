@@ -118,8 +118,8 @@ The following predefined macros are replaced at runtime by generic content.
 | ----------------- | ---------------------------------------------------------------- |
 | ``__OS__``        | ``linux`` or ``darwin``                                          |
 | ``__LINE__``      | Line number in current file                                      |
-| ``__FILE__``      | Absolute path of current file including the                      |
-| ``__DIR__``       | Absolute path of current file                                    |
+| ``__FILE__``      | Absolute path of current file including the filename             |
+| ``__DIR__``       | Absolute path of current file w/o filename                       |
 
 ### Conditional blocks
 
