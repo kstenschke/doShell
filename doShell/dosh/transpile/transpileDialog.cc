@@ -23,7 +23,7 @@ bool transpileDialog::TranspileNotify(std::string *code, bool is_linux) {
   }
 
   std::string replacement = "osascript -e 'display notification \"$1\"'";
-  std::regex exp(R"(#alert \"*(.*)\"*)");
+  std::regex exp(R"(#notify \"*(.*)\"*)");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;
