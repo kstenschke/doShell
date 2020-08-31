@@ -12,37 +12,50 @@ void transpileDialog::Transpile(std::string *code, bool is_linux) {
   TranspilePrompt(code, is_linux);
 }
 
-bool transpileDialog::TranspileNotify(std::string *code,
-                                               bool is_linux) {
+bool transpileDialog::TranspileNotify(std::string *code, bool is_linux) {
   if (std::string::npos == code->find("#notify ")) return false;
 
+  if (is_linux) {
     return helper::String::ReplaceAll(
         code,
         "#notify",
-        is_linux
-          ? "display notification "
-          : "Xdialog --msgbox ") > 0;
-}
+        "gxmessage ") > 0;
+  }
 
-bool transpileDialog::TranspileAlert(std::string *code,
-                                               bool is_linux) {
-  if (std::string::npos == code->find("#alert ")) return false;
-
-
+  std::string replacement = "osascript -e 'display notification \"$1\"'";
+  std::regex exp(R"(#alert \"*(.*)\"*)");
+  *code = std::regex_replace(*code, exp, replacement);
 
   return true;
 }
 
-bool transpileDialog::TranspileConfirm(std::string *code,
-                                               bool is_linux) {
+bool transpileDialog::TranspileAlert(std::string *code, bool is_linux) {
+  if (std::string::npos == code->find("#alert ")) return false;
+
+  if (is_linux) {
+    return helper::String::ReplaceAll(
+        code,
+        "#alert",
+        "gxmessage -bg red hello -title Alert ") > 0;
+  }
+
+  std::string replacement =
+      "osascript -e 'display dialog \"$1\" with icon caution '";
+
+  std::regex exp(R"(#alert \"*(.*)\"*)");
+  *code = std::regex_replace(*code, exp, replacement);
+
+  return true;
+}
+
+bool transpileDialog::TranspileConfirm(std::string *code, bool is_linux) {
   if (std::string::npos == code->find("#transpileConfirm ")) return false;
 
 
   return true;
 }
 
-bool transpileDialog::TranspilePrompt(std::string *code,
-                                            bool is_linux) {
+bool transpileDialog::TranspilePrompt(std::string *code, bool is_linux) {
   if (std::string::npos == code->find("#transpilePrompt ")) return false;
 
 

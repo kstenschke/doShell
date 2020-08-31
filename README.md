@@ -38,17 +38,15 @@ Scripting language, transpiler and runtime system for efficient headful browser-
 
 doShell is a superset of shell script, providing commands geared towards 
 **headfull cross-platform browser- and terminal-automation**.  
-Possible usecases are end-to-end testing, infoSec reconnaisance and creation of productivity macros.  
+Possible usecases are end-to-end testing, infoSec reconnaisance and creation of 
+productivity macros.  
 
-In contrast to other browser automation tools like selenium and puppetteer, doShell's footprint does not differ
+In contrast to other browser automation tools like selenium and puppetteer, 
+doShell's footprint does not differ
 from that of a regular user with a "vanilla" web browser. 
 
 This project is a source-to-source (S2S) transpiler and runtime system
 for executing doShell scripts.  
-
-To ease integration of parametric doShell scripts with generic frontends, the doShell executable 
-provides a custom DOC parser, that extracts argument specifications of [runtime variables](#runtime-variables)
-as JSON.
 
 
 ### Mission targets
@@ -61,7 +59,8 @@ as JSON.
    2. To avoid 50% of doShell scripts being ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
-   1. Reuse and integrate existing tools  (shell script, xdotool / applescript, php, ...)  
+   1. Reuse and integrate existing tools  (shell script, xdotool / applescript, 
+      php, ...)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
    (mask doShell commands as shell script comments)   
@@ -84,10 +83,11 @@ Running ``shdo -r script.do.sh``, the given file is transpiled and run.
 When running an already transpiled ``*.do.x.sh`` script, the translation is 
 skipped.
 
-doShell transpiles to intermediary shell script files: additional to conventional 
-shell script code, they can contain runtime macros: placeholder-strings for generic 
-content, and runtime variables. The doShell runtime system replaces runtime macros and 
-declares runtime variables, before the eventual execution in a sandboxed shell-thread. 
+doShell transpiles to intermediary shell script files: additional to 
+conventional shell script code, they can contain runtime macros: 
+placeholder-strings for generic content, and runtime variables. The doShell 
+runtime system replaces runtime macros and declares runtime variables, before 
+the eventual execution in a sandboxed shell-thread. 
 
 ### Communication from browser to runtime system
 
@@ -128,10 +128,6 @@ running the given file:
   * If a given variable is NOT declared, a declaration is added at the beginning
     of the transpiled runtime script  
 
-#### DOC parser 
-
-...
-
 
 ## Commands
 
@@ -142,7 +138,9 @@ Import a specified file: ``#import another_file.do.sh``
 
 ### Inline PHP
 
-doShell script can contain inlined PHP (processed during pre-execution parsing, see functional flow) 
+doShell script can contain inlined PHP (processed during pre-execution parsing, 
+see functional flow) 
+
 like:  
 ``#<?php echo time() ?>``  
 
@@ -263,8 +261,8 @@ if not given, they overwrite the given source file.
 
 ### Web Browser automation  
 
-**Note:** At the time being doShell was tested using Firefox, but should be easily adaptable
-to other web browsers. 
+**Note:** At the time being doShell was tested using Firefox, but should be 
+easily adaptable to other web browsers. 
 
 
 #### Toggle browser panels
@@ -332,8 +330,8 @@ to other web browsers.
 
 ### Functions, iterations, conditions
 
-As doShell is a superset of shell script, all language constructs of regular shell script
-can be used within doShell script. 
+As doShell is a superset of shell script, all language constructs of regular 
+shell script can be used within doShell script. 
 
 
 ## Script Examples
@@ -378,20 +376,22 @@ Third Party References
 
 ## Runtime tools 
 
-doShell uses a list of existing tools from third parties (and some doShell built-in tools) to peform automation, display dialogs, etc.
-The third party tools vary by platform, not all tools are mandatory (depending on functionalities used within doShell scripts). 
+doShell uses a list of existing tools from third parties (and some doShell 
+built-in tools) to peform automation, display dialogs, etc.
+The third party tools vary by platform, not all tools are mandatory (depending 
+on functionalities used within doShell scripts). 
 
 ### Runtime tools on Linux 
 
-| Tool                                          | Description                          | License                                                                              |
-| --------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
-| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) |        |                                                                                      |
-| [Xdialog](http://xdialog.free.fr/)            | X interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
-| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/) |                                      |                                                                                      |
-| [xclip](https://linux.die.net/man/1/xclip)    |                                      |                                                                                      |
-| [xsel](https://linux.die.net/man/1/xsel)      |                                      |                                                                                      |
-| [PHP](https://www.php.net/)                   |                                      |                                                                                      |
-
+| Tool                                          | Description                                                         | License                                                                              |
+| --------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) |                                        |                                                                                      |
+| [gxMessage](https://trmusson.dreamhosters.com/programs.html#gxmessage)     | GTK-based dialog windows interface for any terminal program | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)         |                                                             |                                                                                      |
+| [xclip](https://linux.die.net/man/1/xclip)            |                                                             |                                                                                      |
+| [xsel](https://linux.die.net/man/1/xsel)              |                                                             |                                                                                      |
+| [PHP](https://www.php.net/)                           |                                                             |                                                                                      |
+                                                        
 ### Runtime tools on Mac 
 
 | Tool                                         | Description                                | License                                                              |
