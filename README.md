@@ -101,7 +101,7 @@ manipulation and import / export of text from/to the clipboard.
 
 ## Runtime options within doShell scripts
 
-### Runtime flages
+### Runtime flags
 
 Runtime flags can be used to override doShell options 
 (which all can also be passed to the doShell executable from the shell / terminal e.g. via ``--browser=chromium``)
@@ -127,11 +127,11 @@ The following predefined macros are replaced at runtime by generic content.
 **Example:**
 
 ``
-#IF(LINUX)
-  #BROWSER=chromium  
-#ELSEIF(MAC)
-  #BROWSER=firefox
-#ENDIF
+#IF(LINUX)  
+  #BROWSER=chromium    
+#ELSEIF(MAC)  
+  #BROWSER=firefox  
+#ENDIF  
 ``
 
 ### Runtime variables
