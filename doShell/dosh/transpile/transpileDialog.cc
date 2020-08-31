@@ -19,7 +19,7 @@ bool transpileDialog::TranspileNotify(std::string *code, bool is_linux) {
     return helper::String::ReplaceAll(
         code,
         "#notify",
-        "gxmessage ") > 0;
+        "gxmessage -center -ontop ") > 0;
   }
 
   std::string replacement = "osascript -e 'display notification \"$1\"'";
@@ -36,7 +36,7 @@ bool transpileDialog::TranspileAlert(std::string *code, bool is_linux) {
     return helper::String::ReplaceAll(
         code,
         "#alert",
-        "gxmessage -bg red hello -title Alert ") > 0;
+        "gxmessage -center -ontop -bg red hello -title Alert ") > 0;
   }
 
   std::string replacement =
@@ -49,17 +49,33 @@ bool transpileDialog::TranspileAlert(std::string *code, bool is_linux) {
 }
 
 bool transpileDialog::TranspileConfirm(std::string *code, bool is_linux) {
-  if (std::string::npos == code->find("#transpileConfirm ")) return false;
+  if (std::string::npos == code->find("#confirm ")) return false;
 
+  if (is_linux) {
+    return helper::String::ReplaceAll(
+        code,
+        "#confirm ",
+        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ") > 0;
+  }
+
+  std::string replacement =
+      R"(osascript -e 'display alert "$1" buttons {"Cancel", "Ok"}')";
+
+  std::regex exp(R"(#confirm \"*(.*)\"*)");
+  *code = std::regex_replace(*code, exp, replacement);
 
   return true;
 }
 
 bool transpileDialog::TranspilePrompt(std::string *code, bool is_linux) {
-  if (std::string::npos == code->find("#transpilePrompt ")) return false;
+  if (std::string::npos == code->find("#prompt ")) return false;
 
+  // TODO(kay) implement
 
-  return true;
+  return helper::String::ReplaceAll(
+      code,
+      "#prompt ",
+      "# // prompt ") > 0;
 }
 
 }  // namespace doShell

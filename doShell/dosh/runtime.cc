@@ -34,6 +34,8 @@ bool Compiler::Compile() {
 void Compiler::TranspileCommands() {
   bool contains_commands;
 
+  int runs = 0;
+
   do {
     if ((contains_commands = ContainsCommands())) {
       transpileString::Transpile(&source_, is_linux_);
@@ -44,6 +46,8 @@ void Compiler::TranspileCommands() {
       transpileTerminal::Transpile(&source_, is_linux_);
 
       contains_commands = ContainsCommands();
+
+      ++runs;
     }
   } while (contains_commands);
 }
