@@ -42,7 +42,8 @@ Scripting language, transpiler and runtime system for efficient headful browser-
 doShell is a superset of shell script, providing commands geared towards 
 **headfull interactive cross-platform browser- and terminal-automation**.
 Possible usecases are creation of productivity macros and 
-infoSec reconnaisance tools. **Note:** End-to-end browser testing should
+infoSec reconnaisance tools.  
+**Note:** End-to-end browser testing should
 NOT be a doShell usecase, as Selenium-based solutions prove much more 
 effective.  
 
