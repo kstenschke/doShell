@@ -45,8 +45,8 @@ Possible usecases are infoSec reconnaisance and creation of
 productivity macros.  
 
 In contrast to other browser automation tools like 
-(selenium)[https://www.selenium.dev/] and
-(puppetteer)[https://developers.google.com/web/tools/puppeteer/], 
+[Selenium](https://www.selenium.dev/) and
+[Puppetteer](https://developers.google.com/web/tools/puppeteer/), 
 doShell's footprint does not differ from that of a regular user with a 
 "vanilla" web browser. 
 
