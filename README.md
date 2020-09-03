@@ -47,7 +47,7 @@ for executing doShell scripts.
 
 Possible usecases are creation of productivity macros and  infoSec reconnaisance tools.  
 **Note:** End-to-end browser testing should NOT be a doShell usecase, 
-as [Selenium](https://www.selenium.dev/) based solutions prove much more effective.
+as [Selenium](https://www.selenium.dev/) based solutions prove more effective.
 
 
 ### Features
