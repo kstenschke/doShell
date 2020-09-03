@@ -59,7 +59,7 @@ as [Selenium](https://www.selenium.dev/) based solutions prove more effective.
   (string-manipulation in variables, files and clipboard; randomization etc.)
 * doShell provides cross-platform commands for easily using GUI dialogs 
   from within scripts
-* The transpiler targets 3rd party tools, that vary by platform:
+* The runtime system invokes 3rd party tools, that vary by platform:
   Automation works with the same doShell script on Linux and Mac OS
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
