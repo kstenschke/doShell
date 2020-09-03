@@ -54,16 +54,19 @@ for executing doShell scripts.
 
 ### Features
 
-* Automation of simulated user control of web browser and terminal
-* Built-in commands to ease string-manipulation in variables, files, 
-  clipboard
-* Unsuspicious "vanilla" browser useragent and footprint 
-  (no traces of Selenium in JS window object)
-* doShell provides cross-platform commands for using GUI dialogs
+* Automation of simulated user control of (foremost) web browser and terminal
+* Built-in shorthand-commands to ease various operations that are overly
+  complicated or simply not easily memorable in plain shell script
+  (string-manipulation in variables, files and clipboard; randomization etc.)
+* doShell provides cross-platform commands for easily using GUI dialogs 
+  from within scripts
 * The transpiler targets 3rd party tools, that vary by platform:
   Automation works with the same doShell script on Linux and Mac OS
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
+* As all browser automation is done by simulated user controls, 
+  an unsuspicious "vanilla" browser useragent and -footprint 
+  (no traces of Selenium in JS window object) is sent
 
 
 ### Mission targets
