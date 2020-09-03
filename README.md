@@ -2,7 +2,7 @@ doShell
 =======
 
 Scripting language, transpiler and runtime system for efficient 
-headful interactive browser- and terminal-automation on Linux and Mac OS
+headful interactive automation on Linux and Mac OS (foremost targeting browser and terminal)
 
 ## Table of Contents
 
@@ -42,19 +42,21 @@ headful interactive browser- and terminal-automation on Linux and Mac OS
 ## What does it do?
 
 doShell is a superset of shell script, providing commands geared towards 
-**headfull interactive cross-platform browser- and terminal-automation**.
-Possible usecases are creation of productivity macros and 
-infoSec reconnaisance tools.  
-**Note:** End-to-end browser testing should
-NOT be a doShell usecase, as [Selenium](https://www.selenium.dev/)
-based solutions prove much more effective.
+**headfull interactive cross-platform automation** (foremost of browser and 
+terminal operations).
 
 This project is a source-to-source (S2S) transpiler and runtime system
 for executing doShell scripts.  
 
+Possible usecases are creation of productivity macros and  infoSec reconnaisance tools.  
+**Note:** End-to-end browser testing should NOT be a doShell usecase, 
+as [Selenium](https://www.selenium.dev/) based solutions prove much more effective.
+
+
 ### Features
 
-* Automation of simulated user control of (foremost) web browser and terminal
+* Automation of simulated user control (of foremost) web browser and 
+  terminal operations)
 * Built-in shorthand-commands to ease various operations that are overly
   complicated or simply not easily memorable in plain shell script
   (string-manipulation in variables, files and clipboard; randomization etc.)
