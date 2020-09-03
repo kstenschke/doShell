@@ -55,7 +55,8 @@ for executing doShell scripts.
 * Automation of simulated user control of web browser and terminal
 * Built-in commands to ease string-manipulation in variables, files, 
   clipboard
-* "Vanilla" browser footprint (no traces of Selenium in JS window object), "unsuspicuous" useragent
+* Unsuspicious "vanilla" browser useragent and footprint 
+  (no traces of Selenium in JS window object)
 * doShell provides cross-platform commands for using GUI dialogs
 * The transpiler targets 3rd party tools, that vary by platform:
   Automation works with the same doShell script on Linux and Mac OS
