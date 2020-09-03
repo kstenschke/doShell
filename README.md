@@ -71,9 +71,8 @@ as [Selenium](https://www.selenium.dev/) based solutions prove more effective.
 
 ### Mission targets
 
-1. Ease scripted automation of controlling web browser and terminal
-   in- and output and injection of sub-scripts and variables, supporting 
-   the same language on linux and mac os. 
+1. Ease scriptiing of interactive cross-platform-compatible automation
+   and reduce some of the pain-points of shell script auuthoring
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
    2. To avoid automation scripts being bloated with ``sleep`` commands,
