@@ -140,14 +140,16 @@ The following predefined macros are replaced at runtime by generic content.
 
 ### Conditional blocks
 
+Though its own commands are cross-platform compatible, doShell provides shorthand commands
+to easily implement platform specific script variations.
 
 **Example:**
 
 ````
 #IF(LINUX)
-  #BROWSER=chromium
+  echo "hello linux"
 #ELSEIF(MAC)
-  #BROWSER=firefox
+  echo "hello mac"
 #ENDIF
 ````
 
