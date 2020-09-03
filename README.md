@@ -18,6 +18,7 @@ Scripting language, transpiler and runtime system for efficient headful browser-
     + [Import](#import)
     + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
+    + [Random values](#random-values)
     + [URL parsing](#url-parsing)
     + [File manipulation](#file-manipulation)
     + [Clipboard](#clipboard)
@@ -193,6 +194,14 @@ like:
 | ``#replaceBetween $VAR before after replacement`` | Replace text including and between "before" and "after"                       |
 | ``#replaceFirst $VAR search replace``             | Replace first occurrence of given string                                      |
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
+
+
+### Random values
+
+| Command                           | Description                                          |
+| ----..--------------------------- | ---------------------------------------------------- |
+| ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100      |
+| ``myvar=#rand foo bar baz qux``   | Assign ``var`` a random value from the given options |
 
 
 ### URL parsing
