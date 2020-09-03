@@ -44,7 +44,7 @@ doShell is a superset of shell script, providing commands geared towards
 Possible usecases are creation of productivity macros and 
 infoSec reconnaisance tools.  
 **Note:** End-to-end browser testing should
-NOT be a doShell usecase, as Selenium](https://www.selenium.dev/)
+NOT be a doShell usecase, as [Selenium](https://www.selenium.dev/)
 based solutions prove much more effective.
 
 This project is a source-to-source (S2S) transpiler and runtime system
