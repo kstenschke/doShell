@@ -52,7 +52,8 @@ for executing doShell scripts.
 
 ### Features
 
-* Automation of simulated user control of web browser and terminal** Built-in commands to ease string-manipulation in variables, files, 
+* Automation of simulated user control of web browser and terminal
+* Built-in commands to ease string-manipulation in variables, files, 
   clipboard
 * "Vanilla" browser footprint (no traces of Selenium in JS window object), "unsuspicuous" useragent
 * doShell provides cross-platform commands for using GUI dialogs
