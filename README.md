@@ -53,7 +53,7 @@ as [Selenium](https://www.selenium.dev/) based solutions prove much more effecti
 ### Features
 
 * Automation of simulated user control (of foremost) web browser and 
-  terminal operations)
+  terminal operations
 * Built-in shorthand-commands to ease various operations that are overly
   complicated or simply not easily memorable in plain shell script
   (string-manipulation in variables, files and clipboard; randomization etc.)
