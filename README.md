@@ -76,7 +76,7 @@ as [Selenium](https://www.selenium.dev/) based solutions prove more effective.
    the same language on linux and mac os. 
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
-   2. To avoid 50% of doShell scripts being ``sleep`` commands,
+   2. To avoid automation scripts being bloated with ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
    1. Reuse and integrate existing tools  (shell script, xdotool / applescript, 
