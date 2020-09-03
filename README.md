@@ -145,9 +145,10 @@ to easily implement platform specific script variations.
 **Example:**
 
 ````
-#IF(LINUX)
+#IF_IS_LINUX
   echo "hello linux"
-#ELSEIF(MAC)
+#ENDIF
+#IF_IS_MAC
   echo "hello mac"
 #ENDIF
 ````
