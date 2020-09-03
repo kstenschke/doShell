@@ -1,7 +1,8 @@
 doShell
 =======
 
-Scripting language, transpiler and runtime system for efficient headful browser- and terminal-automation on Linux and Mac OS
+Scripting language, transpiler and runtime system for efficient 
+headful interactive browser- and terminal-automation on Linux and Mac OS
 
 ## Table of Contents
 
