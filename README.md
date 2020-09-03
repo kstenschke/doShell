@@ -1,9 +1,6 @@
 doShell
 =======
 
-Scripting language, transpiler and runtime system for efficient 
-headful interactive automation on Linux and Mac OS (foremost targeting browser and terminal)
-
 ## Table of Contents
 
 - [DoShell](#doshell)
@@ -41,7 +38,7 @@ headful interactive automation on Linux and Mac OS (foremost targeting browser a
 
 ## What does it do?
 
-doShell is a superset of shell script, providing commands geared towards 
+doShell is a scripting language, transpiler and runtime system for efficient 
 **headfull interactive cross-platform automation** (foremost of browser and 
 terminal operations).
 
