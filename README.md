@@ -199,7 +199,7 @@ like:
 ### Random values
 
 | Command                           | Description                                          |
-| ----..--------------------------- | ---------------------------------------------------- |
+| --------------------------------- | ---------------------------------------------------- |
 | ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100      |
 | ``myvar=#rand foo bar baz qux``   | Assign ``var`` a random value from the given options |
 
