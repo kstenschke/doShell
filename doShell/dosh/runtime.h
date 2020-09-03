@@ -12,6 +12,7 @@
 #include <doShell/dosh/transpile/transpileClipboard.h>
 #include <doShell/dosh/transpile/transpileDialog.h>
 #include <doShell/dosh/transpile/transpileKeystrokes.h>
+#include <doShell/dosh/transpile/transpileRandom.h>
 #include <doShell/dosh/transpile/transpileString.h>
 #include <doShell/dosh/transpile/transpileTerminal.h>
 #include <doShell/helper/helper_cli.h>
