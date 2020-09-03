@@ -250,12 +250,13 @@ if not given, they overwrite the given source file.
 
 ### Dialogs
 
-| Command                     | Description            |
-| --------------------------- | ---------------------- |
-| ``#notify "MESSAGE"``       |                        |
-| ``#alert "MESSAGE"``        |                        |
-| ``#confirm "MESSAGE"``      | Yes/No Dialog          |
-| ``#prompt "MESSAGE"``       | Popup with input field |
+| Command                                                  | Description                       |
+| -------------------------------------------------------- | --------------------------------- |
+| ``#notify "MESSAGE"``                                    |                                   |
+| ``#alert "MESSAGE"``                                     |                                   |
+| ``var=#confirm "MESSAGE"``                               | Yes/No Dialog                     |
+| ``var=#prompt "MESSAGE"``                                | Popup with input field            |
+| ``var=#select "MESSAGE" "option1" "option2" "option3"``  | Popup with options to select from |
 
 
 ### Send keystrokes
