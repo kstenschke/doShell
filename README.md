@@ -64,8 +64,9 @@ as [Selenium](https://www.selenium.dev/) based solutions prove much more effecti
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
 * As all browser automation is done by simulated user controls, 
-  an unsuspicious "vanilla" browser useragent and -footprint 
-  (no traces of Selenium in JS window object) is sent
+  a completely regular, unsuspicious "vanilla" browser useragent and -footprint 
+  (no traces of Selenium in JS window object) is sent while performing automated
+  browser operations
 
 
 ### Mission targets
