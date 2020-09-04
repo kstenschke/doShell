@@ -109,12 +109,6 @@ placeholder-strings for generic content, and runtime variables. The doShell
 runtime system replaces runtime macros and declares runtime variables, before 
 the eventual execution in a sandboxed shell-thread. 
 
-### Communication from browser to runtime system
-
-For communication from web browser back to the runtime sytem, the system 
-clipboard and file IO can be used. doShell provides built-in commands for 
-manipulation and import / export of text from/to the clipboard. 
-
 
 ## Runtime options within doShell scripts
 
@@ -349,8 +343,6 @@ easily adaptable to other web browsers.
 | ``#clearDevConsole``           | Clears current commands from devConsole                                                     |
 
 
-#runJsInDevConsole
-
 #### Interact with DOM elements
 
 | Command                                        | Description                            |
@@ -361,6 +353,13 @@ easily adaptable to other web browsers.
 | ``#clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
 | ``#clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
 | ``#clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
+
+
+#### Communication from browser to runtime system
+
+For communication from web browser back to the runtime system, the system 
+clipboard and file IO can be used. doShell provides built-in commands for 
+manipulation and import / export of text from/to the clipboard.
 
 
 ### Terminal automation
