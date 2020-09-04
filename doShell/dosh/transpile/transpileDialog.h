@@ -20,4 +20,4 @@ class transpileDialog {
 };
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILECLIPBOARD_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEDIALOG_H_

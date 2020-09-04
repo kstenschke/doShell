@@ -71,7 +71,7 @@ extern bool Replace(std::string *haystack,
 
 extern int ReplaceAll(std::string *haystack,
                       const std::string &needle,
-                      const std::string &replacement);
+                      const std::string &replacement = "");
 
 extern int ReplaceFirst(std::string *haystack,
                         const std::string &needle,
@@ -81,7 +81,7 @@ extern int ReplaceFirst(std::string *haystack,
 std::string ReplaceBetween(const std::string &str,
                            const std::string &lhs,
                            const std::string &rhs,
-                           const std::string &replacement);
+                           const std::string &replacement = "");
 
 // Get substring between given surrounding left- and center-hand-side delimiters
 extern std::string GetSubStrBetween(const std::string &str,

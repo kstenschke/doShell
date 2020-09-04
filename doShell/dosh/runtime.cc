@@ -21,6 +21,7 @@ bool Compiler::Compile() {
 
   InitPathSourceDirectory();
 
+  transpilePlatform::Transpile(&source_, is_linux_);
   ResolveImports();
   TranspileCommands();
 
@@ -38,6 +39,8 @@ void Compiler::TranspileCommands() {
 
   do {
     if ((contains_commands = ContainsCommands())) {
+      if (0 == runs) transpilePlatform::Transpile(&source_, is_linux_);
+
       transpileString::Transpile(&source_, is_linux_);
       transpileRandom::Transpile(&source_, is_linux_);
       transpileClipboard::Transpile(&source_, is_linux_);
@@ -50,11 +53,11 @@ void Compiler::TranspileCommands() {
 
       ++runs;
     }
-  } while (contains_commands);
+  } while (contains_commands && runs < 5);
 }
 
 bool Compiler::ContainsCommands() {
-  std::regex exp("#[a-z]");
+  std::regex exp("#[a-zA-Z]");
 
   return 0 < std::distance(  // Count the number of matches inside the iterator
       std::sregex_iterator(source_.begin(), source_.end(), exp),

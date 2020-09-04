@@ -12,6 +12,7 @@
 #include <doShell/dosh/transpile/transpileClipboard.h>
 #include <doShell/dosh/transpile/transpileDialog.h>
 #include <doShell/dosh/transpile/transpileKeystrokes.h>
+#include <doShell/dosh/transpile/transpilePlatform.h>
 #include <doShell/dosh/transpile/transpileRandom.h>
 #include <doShell/dosh/transpile/transpileString.h>
 #include <doShell/dosh/transpile/transpileTerminal.h>
@@ -20,7 +21,7 @@
 #include <cstring>
 #include <iostream>
 #include <string>
-#include <thread>
+#include <thread>  // NOLINT
 #include <vector>
 
 namespace doShell {

@@ -53,7 +53,6 @@ bool shellCommandUrlParser::GetHostFromUrl() const {
 
 // Extract path from given URL, e.g. /foo/bar
 bool shellCommandUrlParser::GetPathFromUrl() const {
-
 }
 
 // Extract query from given URL, e.g. hat=bowler&accessory=cane

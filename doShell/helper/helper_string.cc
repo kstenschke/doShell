@@ -212,18 +212,14 @@ std::string String::ReplaceBetween(const std::string &str,
                                    const std::string &replacement) {
   auto offsetStart = str.find(lhs);
 
-  if (std::string::npos == offsetStart) return "";
+  if (std::string::npos == offsetStart) return str;
 
   size_t offsetEnd = str.find(rhs, offsetStart);
 
-  if (std::string::npos == offsetEnd) return "";
-
-  // Exclude LHS
-  offsetStart += lhs.length();
-
+  if (std::string::npos == offsetEnd) return str;
 
   std::string res = str;
-  res.replace(offsetStart, offsetEnd, replacement);
+  res.replace(offsetStart, offsetEnd - offsetStart, replacement);
 
   return res;
 }

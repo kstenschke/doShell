@@ -40,12 +40,14 @@ add_executable(dosh
         doShell/app/app_log.h
         doShell/dosh/runtime.cc
         doShell/dosh/runtime.h
+
         doShell/dosh/shellCommand/shellCommandClipboard.cc
         doShell/dosh/shellCommand/shellCommandClipboard.h
         doShell/dosh/shellCommand/shellCommandString.cc
         doShell/dosh/shellCommand/shellCommandString.h
         doShell/dosh/shellCommand/shellCommandUrlParser.cc
         doShell/dosh/shellCommand/shellCommandUrlParser.h
+
         doShell/dosh/transpile/transpileBrowser.cc
         doShell/dosh/transpile/transpileBrowser.h
         doShell/dosh/transpile/transpileClipboard.cc
@@ -54,12 +56,15 @@ add_executable(dosh
         doShell/dosh/transpile/transpileDialog.h
         doShell/dosh/transpile/transpileKeystrokes.cc
         doShell/dosh/transpile/transpileKeystrokes.h
+        doShell/dosh/transpile/transpilePlatform.cc
+        doShell/dosh/transpile/transpilePlatform.h
         doShell/dosh/transpile/transpileRandom.cc
         doShell/dosh/transpile/transpileRandom.h
         doShell/dosh/transpile/transpileString.cc
         doShell/dosh/transpile/transpileString.h
         doShell/dosh/transpile/transpileTerminal.cc
         doShell/dosh/transpile/transpileTerminal.h
+
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h
         doShell/helper/helper_dateTime.cc

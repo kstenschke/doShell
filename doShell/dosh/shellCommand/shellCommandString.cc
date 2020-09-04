@@ -94,7 +94,8 @@ bool shellCommandString::ExtractBetween() const {
   const std::string kBefore = argv_[3];
   const std::string kAfter = argc_ < 5 ? "" : argv_[4];
 
-  std::cout << helper::String::GetSubStrBetween(kHaystack, kBefore.c_str(), kAfter.c_str());
+  std::cout << helper::String::GetSubStrBetween(
+      kHaystack, kBefore.c_str(), kAfter.c_str());
 
   return true;
 }
@@ -108,7 +109,8 @@ bool shellCommandString::ReplaceBetween() const {
   const std::string kAfter = argv_[4];
   const std::string kReplacement = argc_ < 6 ? "" : argv_[5];
 
-  auto out = helper::String::ReplaceBetween(kHaystack, kBefore, kAfter, kReplacement);
+  auto out = helper::String::ReplaceBetween(
+      kHaystack, kBefore, kAfter, kReplacement);
 
   if (out.empty()) return false;
 

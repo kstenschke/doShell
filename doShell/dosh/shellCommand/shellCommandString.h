@@ -16,7 +16,7 @@
 #include <cstring>
 #include <iostream>
 #include <string>
-#include <thread>
+#include <thread>  // NOLINT
 #include <vector>
 
 namespace doShell {
@@ -31,13 +31,15 @@ class shellCommandString {
   // Extract text excluding but between "before" and "after"
   bool ExtractBetween() const;
 
-  // Replace everything after and including the first occurrences of given string
+  // Replace everything after and including
+  // the first occurrences of given string
   bool ReplaceAfter() const;
 
   // Replace all occurrences of given string
   bool ReplaceAll() const;
 
-  // Replace everything before and including the first occurrences of given string
+  // Replace everything before and including
+  // the first occurrences of given string
   bool ReplaceBefore() const;
 
   // Replace text including and between "before" and "after"
