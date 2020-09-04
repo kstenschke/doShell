@@ -14,6 +14,7 @@ class transpilePlatform {
 
  private:
   static bool transpilePlatformConditions(std::string *code, bool is_linux);
+  static bool transpilePlatformConstants(std::string *code, bool is_linux);
 };
 }  // namespace doShell
 

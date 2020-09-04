@@ -7,9 +7,10 @@
 namespace doShell {
 
 bool transpilePlatform::Transpile(std::string *code, bool is_linux) {
-  transpilePlatformConditions(code, is_linux);
+  auto result = transpilePlatformConditions(code, is_linux);
+  auto result2 = transpilePlatformConstants(code, is_linux);
 
-  return true;
+  return result || result2;
 }
 
 bool transpilePlatform::transpilePlatformConditions(std::string *code,
@@ -35,6 +36,14 @@ bool transpilePlatform::transpilePlatformConditions(std::string *code,
   helper::String::ReplaceAll(code, "#ENDIF_IS_MAC");
 
   return true;
+}
+
+bool transpilePlatform::transpilePlatformConstants(std::string *code,
+                                                    bool is_linux) {
+  return helper::String::ReplaceAll(
+        code,
+        "::OS::",
+        is_linux ? "linux" : "mac") > 0;
 }
 
 }  // namespace doShell

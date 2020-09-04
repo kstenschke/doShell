@@ -11,10 +11,10 @@ int main(int argc, char **argv) {
   std::vector<std::string> arguments;
   arguments.reserve(argc);
 
-  argc = 3;
-  argv[1] = "-r";
-  argv[2] =
-      "/home/kay/CLionProjects/shellDo/examples/003_platform_conditions.do.sh";
+//  argc = 3;
+//  argv[1] = "-r";
+//  argv[2] =
+//      "/home/kay/CLionProjects/shellDo/examples/003_platform_conditions.do.sh";
 
   for (int index = 0; index < argc; ++index)
     arguments.emplace_back(argv[index]);

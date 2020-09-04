@@ -115,13 +115,10 @@ void Compiler::MakeRuntimeScriptExecutable() const {
 }
 
 bool Compiler::ReplaceRunTimeMacrosInSource() {
-  if (helper::String::Contains(source_, "TIMESTAMP"))
-    helper::String::ReplaceAll(
+  return helper::String::ReplaceAll(
       &source_,
-      "__TIMESTAMP__",
-      helper::DateTime::GetTimestamp());
-
-  return true;
+      "::TIMESTAMP::",
+      helper::DateTime::GetTimestamp()) > 0;
 }
 
 void Compiler::InitPathSourceDirectory() {

@@ -132,10 +132,10 @@ The following predefined macros are replaced at runtime by generic content.
 
 | Macro             | Replaced by                                                      |
 | ----------------- | ---------------------------------------------------------------- |
-| ``__OS__``        | ``linux`` or ``darwin``                                          |
-| ``__LINE__``      | Line number in current file                                      |
-| ``__FILE__``      | Absolute path of current file including the filename             |
-| ``__DIR__``       | Absolute path of current file w/o filename                       |
+| ``::OS::``        | ``linux`` or ``mac``                                             |
+| ``::LINE::``      | Line number in current file                                      |
+| ``::FILE::``      | Absolute path of current file including the filename             |
+| ``::DIR::``       | Absolute path of current file w/o filename                       |
 
 ### Conditional blocks
 
