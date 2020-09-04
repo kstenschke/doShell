@@ -39,7 +39,7 @@ doShell
 ## What does it do?
 
 doShell is a scripting language, transpiler and runtime system for efficient 
-**headfull interactive cross-platform automation** (foremost of browser and 
+**headfull interactive automation** on linux and mac os (foremost of browser and 
 terminal operations).
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
@@ -48,6 +48,8 @@ Possible usecases are creation of productivity macros and  infoSec reconnaisance
 **Note:** End-to-end browser testing should NOT be a doShell usecase, 
 as [Selenium](https://www.selenium.dev/) based solutions prove more effective.
 
+**What about Windows?**
+On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
 
 ### Features
 
