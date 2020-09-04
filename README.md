@@ -42,8 +42,7 @@ doShell is a scripting language, transpiler and runtime system for efficient
 **headfull interactive cross-platform automation** (foremost of browser and 
 terminal operations).
 
-This project is a source-to-source (S2S) transpiler and runtime system
-for executing doShell scripts.  
+This project is a source-to-source (S2S) transpiler and runtime system.  
 
 Possible usecases are creation of productivity macros and  infoSec reconnaisance tools.  
 **Note:** End-to-end browser testing should NOT be a doShell usecase, 
