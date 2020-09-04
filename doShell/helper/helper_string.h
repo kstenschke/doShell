@@ -49,21 +49,10 @@ extern int SubStrCount(const std::string &haystack,
                        const std::string& needle,
                        size_t offset = 0);
 
-extern int64_t FindNthOccurrence(const std::string &haystack,
-                                 const std::string& needle,
-                                 int n,
-                                 size_t offset = 0);
-
 int FindLast(const std::string &str,
              const std::string &needle,
-             unsigned long offset_start,
-             unsigned long offset_end);
-
-extern bool IsWhiteSpace(const std::string &str);
-
-extern void Remove(std::string *haystack, const std::regex &pattern);
-
-extern int RemoveAll(std::string *haystack, const std::string& needle);
+             int32_t offset_start,
+             int32_t offset_end);
 
 extern bool Replace(std::string *haystack,
                     const char *needle,

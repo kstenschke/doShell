@@ -100,30 +100,12 @@ int String::SubStrCount(const std::string &haystack,
   return occurrences;
 }
 
-int64_t String::FindNthOccurrence(const std::string &haystack,
-                                  const std::string& needle,
-                                  int n,
-                                  size_t offset) {
-  int len_haystack = haystack.length();
-  int count = 0;
-
-  while (count < n && offset < len_haystack) {
-    offset = haystack.find(needle, offset);
-
-    if (offset == std::string::npos) return -1;
-
-    ++count;
-  }
-
-  return count < n ? -1 : offset;
-}
-
 int String::FindLast(const std::string &str,
                      const std::string &needle,
-                     unsigned long offset_start,
-                     unsigned long offset_end) {
-  int offset_needle = offset_start;
-  int offset_needle_prev = offset_needle;
+                     int32_t offset_start,
+                     int32_t offset_end) {
+  auto offset_needle = offset_start;
+  auto offset_needle_prev = offset_needle;
 
   do {
     offset_needle_prev = offset_needle;
@@ -138,12 +120,6 @@ int String::FindLast(const std::string &str,
       : offset_needle;
 }
 
-bool String::IsWhiteSpace(const std::string &str) {
-  for (char c : str) if (c != ' ') return false;
-
-  return true;
-}
-
 bool String::Replace(
     std::string *haystack, const char *needle, const char *replacement) {
   size_t needle_len = strlen(needle);
@@ -156,17 +132,6 @@ bool String::Replace(
   (*haystack).replace(index, needle_len, replacement);
 
   return true;
-}
-
-void String::Remove(std::string *haystack, const std::regex &pattern) {
-//  std::smatch m;
-//  while (std::regex_search(*haystack, m, pattern))
-  *haystack = std::regex_replace(*haystack, pattern, "");
-}
-
-int String::RemoveAll(std::string *haystack,
-                      const std::string &needle) {
-  return ReplaceAll(haystack, needle, "");
 }
 
 int String::ReplaceAll(std::string *haystack,

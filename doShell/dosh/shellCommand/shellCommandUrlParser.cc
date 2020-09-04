@@ -23,7 +23,7 @@ bool shellCommandUrlParser::GetSchemeFromUrl() const {
 
   std::string kUrl = argv_[2];
 
-  unsigned long offsetColon = kUrl.find(':');
+  auto offsetColon = kUrl.find(':');
 
   if (offsetColon == std::string::npos) return false;
 
@@ -38,11 +38,11 @@ bool shellCommandUrlParser::GetHostFromUrl() const {
 
   std::string kUrl = argv_[2];
 
-  unsigned long offsetColon = kUrl.find(':');
+  auto offsetColon = kUrl.find(':');
 
   if (offsetColon == std::string::npos) return false;
 
-  unsigned long offsetSlash = kUrl.find('/', offsetColon);
+  auto offsetSlash = kUrl.find('/', offsetColon);
 
   if (offsetSlash == std::string::npos) offsetSlash = kUrl.length();
 

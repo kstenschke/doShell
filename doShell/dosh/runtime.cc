@@ -122,8 +122,8 @@ bool Compiler::ReplaceRunTimeMacrosInSource() {
 }
 
 void Compiler::InitPathSourceDirectory() {
-  unsigned long offset_last_slash =
-      static_cast<unsigned long>(helper::String::FindLast(
+  auto offset_last_slash =
+      static_cast<uint32_t>(helper::String::FindLast(
           path_source_file_abs_,
           "/",
           0,
@@ -147,13 +147,13 @@ void Compiler::InitPathFileRuntime() {
 }
 
 bool Compiler::ResolveImports() {
-  unsigned long offset_start;
+  int32_t offset_start;
 
   helper::String::ReplaceAll(&source_, "::FILE::", path_source_file_abs_);
   ReplaceLineNumberMacros(&source_);
 
   while ((offset_start = source_.find("#import ")) != std::string::npos) {
-    unsigned long offset_end = source_.find('\n', offset_start);
+    auto offset_end = source_.find('\n', offset_start);
 
     if (offset_end == std::string::npos) offset_end = source_.length();
 
