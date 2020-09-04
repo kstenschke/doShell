@@ -125,7 +125,7 @@ Runtime flags can be used to override doShell options
 | Flag                     | Description                                                                                                        |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | ``#browser=chromium``    | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
-| ``#keep_runtime_file=1`` | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
+| ``#keep_runtime_file``   | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
 
 ### Runtime macros
 
