@@ -150,6 +150,7 @@ bool Compiler::ResolveImports() {
   unsigned long offset_start;
 
   helper::String::ReplaceAll(&source_, "::FILE::", path_source_file_abs_);
+  ReplaceLineNumberMacros(&source_);
 
   while ((offset_start = source_.find("#import ")) != std::string::npos) {
     unsigned long offset_end = source_.find('\n', offset_start);
@@ -173,6 +174,7 @@ bool Compiler::ResolveImports() {
     import_content += "\n";
 
     helper::String::ReplaceAll(&import_content, "::FILE::", path_import_file);
+    ReplaceLineNumberMacros(&import_content);
 
     RemoveSheBangLine(&import_content);
 
@@ -189,6 +191,27 @@ bool Compiler::ResolveImports() {
 
     source_.replace(offset_start, offset_end - offset_start, import_content);
   }
+
+  return true;
+}
+
+int Compiler::ReplaceLineNumberMacros(std::string *code) {
+  if (!helper::String::Contains(*code, "::LINE::")) return 0;
+
+  std::string out;
+
+  auto lines = helper::String::Explode(*code, '\n');
+  int line_number = 1;
+
+  for (std::string& line : lines) {
+    helper::String::ReplaceAll(&line, "::LINE::", std::to_string(line_number));
+
+    out += line + '\n';
+
+    ++line_number;
+  }
+
+  *code = out;
 
   return true;
 }

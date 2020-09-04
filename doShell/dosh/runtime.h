@@ -66,6 +66,8 @@ class Compiler {
 
   bool ResolveImports();
 
+  static int ReplaceLineNumberMacros(std::string *code);
+
   void InitPathSourceDirectory();
   void InitPathFileCompiled();
   void InitPathPhtml();

@@ -2,4 +2,4 @@
 
 # Output hello
 
-echo "::FILE:: say hello"
+echo "line ::LINE:: of file ::FILE:: says hello"

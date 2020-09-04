@@ -4,6 +4,6 @@
 
 #import include/001_echo_hello.sh
 
-echo "this file is: ::FILE::"
+echo "this is line ::LINE:: of file: ::FILE::"
 echo "current UNIX timestamp: ::TIMESTAMP::"
 echo "your platform is: ::OS::"
