@@ -114,9 +114,6 @@ the eventual execution in a sandboxed shell-thread.
 
 ### Runtime flags
 
-Runtime flags can be used to override doShell options 
-(which all can also be passed to the doShell executable from the shell / terminal e.g. via ``--browser=chromium``)
-
 | Flag                     | Description                                                                                                        |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | ``#browser=chromium``    | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
@@ -152,7 +149,7 @@ to easily implement platform specific script variations.
 
 ### Runtime variables
 
-Arbitrary string replacements to be done at runtime  can be passed
+Arbitrary string replacements to be done at runtime, can be passed
 JSON-formatted when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
 
 **Example**
