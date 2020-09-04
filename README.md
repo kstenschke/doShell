@@ -29,7 +29,6 @@ doShell
     + [Terminal automation](#terminal-automation)
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
-  * [Configuration](#configuration)
   * [Third Party References](#third-party-references)
   * [Build Instructions](#build-instructions)
   * [Code Convention](#code-convention)
@@ -406,19 +405,6 @@ The following example scripts can be found under [/examples](/examples):
 | [015_export_urls.do.sh](/examples/015_export_urls.do.sh)                                  | Export all URLs from HTML and all scripts of a web page                              |
 | [016_swop_domain.do.sh](/examples/016_swop_domain.do.sh)                                  | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load |
 | [017_iterate_url.do.sh](/examples/017_iterate_url.do.sh)                                  | Open iterated values of an URL parameter in new browser tabs                         |
- 
-
-## Configuration
-
-The following optional settings can be given as environment vars:
-
-| Config                               | Description                                                         | Default     |
-| ------------------------------------ | ------------------------------------------------------------------- | ----------- |
-| ``bash_editor=nano``                 | Text editor to be used in terminal, e.g. ``vim``, ``nano``, etc.    | ``nano``    | 
-| ``browser=firefox``                  | Web browser to be targeted **NOTE**: at the time being only firefox | ``firefox`` |
-| ``remove_code_after_run=0``          | Remove ``.do.x.sh``after execution                                  | ``1``       |
-
-See also [settings.sh](/bin/settings.sh)
 
 
 Third Party References
