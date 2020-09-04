@@ -297,10 +297,10 @@ extern std::string String::ExtractTrailingNumber(
 std::string String::ExtractLeadingNumber(std::string str) {
   std::string number;
 
-  for (uint16_t i = 0; i < str.length(); i++) {
-    if (!isdigit(str[i])) return number;
+  for (char i : str) {
+    if (!isdigit(i)) return number;
 
-    number += str[i];
+    number += i;
   }
 
   return number;
