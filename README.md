@@ -122,9 +122,10 @@ manipulation and import / export of text from/to the clipboard.
 Runtime flags can be used to override doShell options 
 (which all can also be passed to the doShell executable from the shell / terminal e.g. via ``--browser=chromium``)
 
-| Flag                   | Description                                                      |
-| ---------------------- | ---------------------------------------------------------------- |
-| ``#browser=chromium``  | Sets the browser to be used, e.g. ``chromium`` or ``firefox``    |
+| Flag                     | Description                                                                                                        |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| ``#browser=chromium``    | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
+| ``#keep_runtime_file=1`` | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
 
 ### Runtime macros
 
