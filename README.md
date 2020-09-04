@@ -386,24 +386,25 @@ used within doShell script.
 
 The following example scripts can be found under [/examples](/examples):
 
-| File                                                                                       | Description                                                                         |
-| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| File                                                                                      | Description                                                                          |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [001_import.do.sh](/examples/001_import.do.sh)                                            | Importing external doShell- or shell scripts from other files                        |
-| [002_using_macros.do.sh](/examples/001_import.do.sh)                                      | Using runtime macros                                                                 |
-| [003_load_url_in_new_browser_tab.do.sh](/examples/003_load_url_in_new_browser_tab.do.sh)  | Opening a new browser tab and than loading a URL in it                               |
-| [004_search_with_duckduckgo.do.sh](/examples/004_search_with_duckduckgo.do.sh)            | Form fill-out and submission                                                         |
-| [005_use_dev_console.do.sh](/examples/005_use_dev_console.do.sh)                          | Opening of the dev console, inserting and running script in it                       |
-| [006_store_clipboard_to_file.do.sh](/examples/006_store_clipboard_to_file.do.sh)          | Copy text in the browser, than save the clipboard content to a file                  |
-| [007_export_all_script_tags.do.sh](/examples/007_export_all_script_tags.do.sh)            | Extract all <script> tags from a page loaded in the browser and save them to a file  |
-| [008_parse_php.do.sh](/examples/008_parse_php.do.sh)                                      | Using PHP within doShell script                                                      |
-| [009_export_html_comments.do.sh](/examples/009_export_html_comments.do.sh)                | Export all commented-out html from a web page                                        |
-| [010_export_urls.do.sh](/examples/010_export_urls.do.sh)                                  | Export all URLs from HTML and all scripts of a web page                              |
-| [011_export_form.do.sh](/examples/011_export_form.do.sh)                                  | Export all form fields w/ (and w/o) values                                           |
-| [012_export_img_urls.do.sh](/examples/012_export_img_urls.do.sh)                          | Search in Wikipedia, open article, export image URLs                                 |
-| [013_swop_domain.do.sh](/examples/013_swop_domain.do.sh)                                  | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load |
-| [014_prompt.do.sh](/examples/014_prompt.do.sh)                                            | Open dialog to enter a term, than perform duckduckgo search for it                   |
-| [015_notify.do.sh](/examples/015_notify.do.sh)                                            | Display a notification                                                               |
-| [016_string_replace.do.sh](/examples/016_string_replace.do.sh)                            | Various string replacement examples                                                  |
+| [002_macros.do.sh](/examples/002_macros.do.sh)                                            | Using runtime macros                                                                 |
+| [003_platform_conditions.do.sh](/examples/003_platform_conditions.do.sh)                  | Varying code per platform                                                            |
+| [004_random.do.sh](/examples/004_random.do.sh)                                            | Using doShell shorthand commands for random value generation                         |
+| [005_string_manipulation.do.sh](/examples/005_string_manipulation.do.sh)                  | Using doShell commands for easier string manipulation                                |
+| [006_parse_php.do.sh](/examples/006_parse_php.do.sh)                                      | Using PHP within doShell script                                                      |
+| [007_dialogs.do.sh](/examples/006_parse_php.do.sh)                                        | Demo of various dialogs / GUI popup windows                                          |
+| [008_dialogs-open_bash_in_container.do.sh](/examples/006_parse_php.do.sh)                 | Display selection popup of docker containers, open bash in selected one              |
+| [009_load_url_in_new_browser_tab.do.sh](/examples/009_load_url_in_new_browser_tab.do.sh)  | Opening a new browser tab and than loading a URL in it                               |
+| [010_search_with_duckduckgo.do.sh](/examples/010_search_with_duckduckgo.do.sh)            | Form fill-out and submission                                                         |
+| [011_store_clipboard_to_file.do.sh](/examples/011_store_clipboard_to_file.do.sh)          | Copy text in the browser, than save the clipboard content to a file                  |
+| [012_use_dev_console.do.sh](/examples/012_use_dev_console.do.sh)                          | Opening of the dev console, inserting and running script in it                       |
+| [013_export_all_script_tags.do.sh](/examples/013_export_all_script_tags.do.sh)            | Extract all <script> tags from a page loaded in the browser and save them to a file  |
+| [014_export_html_comments.do.sh](/examples/014_export_html_comments.do.sh)                | Export all commented-out html from a web page                                        |
+| [015_export_urls.do.sh](/examples/015_export_urls.do.sh)                                  | Export all URLs from HTML and all scripts of a web page                              |
+| [016_swop_domain.do.sh](/examples/016_swop_domain.do.sh)                                  | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load |
+| [017_iterate_url.do.sh](/examples/017_iterate_url.do.sh)                                  | Open iterated values of an URL parameter in new browser tabs                         |
  
 
 ## Configuration
