@@ -149,6 +149,8 @@ void Compiler::InitPathFileRuntime() {
 bool Compiler::ResolveImports() {
   unsigned long offset_start;
 
+  helper::String::ReplaceAll(&source_, "::FILE::", path_source_file_abs_);
+
   while ((offset_start = source_.find("#import ")) != std::string::npos) {
     unsigned long offset_end = source_.find('\n', offset_start);
 
@@ -169,6 +171,8 @@ bool Compiler::ResolveImports() {
     std::string import_content;
     helper::File::GetFileContents(path_import_file, &import_content);
     import_content += "\n";
+
+    helper::String::ReplaceAll(&import_content, "::FILE::", path_import_file);
 
     RemoveSheBangLine(&import_content);
 

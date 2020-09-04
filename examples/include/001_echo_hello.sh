@@ -2,4 +2,4 @@
 
 # Output hello
 
-echo "hello"
+echo "::FILE:: say hello"
