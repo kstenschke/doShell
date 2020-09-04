@@ -2,10 +2,10 @@
 
 # Example on platform conditions
 
-#IF_IS_LINUX
+#if_is_linux
   echo "hello linux"
-#ENDIF_IS_LINUX
+#endif_is_linux
 
-#IF_IS_MAC
+#if_is_mac
   echo "hello mac"
-#ENDIF_IS_MAC
+#endif_is_mac

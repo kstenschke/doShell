@@ -124,7 +124,7 @@ Runtime flags can be used to override doShell options
 
 | Flag                   | Description                                                      |
 | ---------------------- | ---------------------------------------------------------------- |
-| ``#BROWSER=chromium``  | Sets the browser to be used, e.g. ``chromium`` or ``firefox``    |
+| ``#browser=chromium``  | Sets the browser to be used, e.g. ``chromium`` or ``firefox``    |
 
 ### Runtime macros
 
@@ -145,33 +145,25 @@ to easily implement platform specific script variations.
 **Example:**
 
 ````
-#IF_IS_LINUX
+#if_is_linux
   echo "hello linux"
-#ENDIF_IS_LINUX
+#endif_is_linux
 
-#IF_IS_MAC
+#if_is_mac
   echo "hello mac"
-#ENDIF_IS_MAC
+#endif_is_mac
 ````
 
 ### Runtime variables
 
-Arbitrary user-defined runtime variables can be passed JSON-formatted 
-when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
+Arbitrary string replacements to be done at runtime  can be passed
+JSON-formatted when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
 
 **Example**
 
-Replace all occurences of ``__FOO__`` by ``bar`` before
+Replace all occurences of ``::FOO::`` by ``bar`` before
 running the given file:  
-``shdo -r script.do.x.sh "{\"__FOO__\":\"bar\"}"``  
-
-**Rules:**  
-* Variables enclosed in ``__`` are replaced
-* Variables not enclosed in ``__`` are declared: 
-  * If a given variable is declared already within a script, the declaration
-    is replaced at its original place
-  * If a given variable is NOT declared, a declaration is added at the beginning
-    of the transpiled runtime script  
+``shdo -r script.do.x.sh "{\"::FOO::\":\"bar\"}"``  
 
 
 ## Commands
@@ -339,8 +331,8 @@ easily adaptable to other web browsers.
 
 | Command                                               | Description                                          |
 | ----------------------------------------------------- | ---------------------------------------------------- |
-| ``$var=#get browserUrl``                              | Get current URL                                      |
-| ``$var=#get browserReferrer``                         | Get referrer URL                                     |
+| ``$var=#getBrowserUrl``                               | Get current URL                                      |
+| ``$var=#getBrowserReferrer``                          | Get referrer URL                                     |
 | ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
 
 

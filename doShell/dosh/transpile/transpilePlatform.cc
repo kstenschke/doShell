@@ -15,25 +15,25 @@ bool transpilePlatform::Transpile(std::string *code, bool is_linux) {
 
 bool transpilePlatform::transpilePlatformConditions(std::string *code,
                                                     bool is_linux) {
-  if (!helper::String::Contains(*code, "#IF_IS_LINUX")
-    &&!helper::String::Contains(*code, "#IF_IS_MAC")) return false;
+  if (!helper::String::Contains(*code, "#if_is_linux")
+    &&!helper::String::Contains(*code, "#if_is_mac")) return false;
 
   if (is_linux) {
-    while (helper::String::Contains(*code, "#IF_IS_MAC")) {
+    while (helper::String::Contains(*code, "#if_is_mac")) {
       *code =
-          helper::String::ReplaceBetween(*code, "#IF_IS_MAC", "#ENDIF_IS_MAC");
+          helper::String::ReplaceBetween(*code, "#if_is_mac", "#endif_is_mac");
     }
   } else {
-    while (helper::String::Contains(*code, "#IF_IS_LINUX")) {
+    while (helper::String::Contains(*code, "#if_is_linux")) {
       *code = helper::String::ReplaceBetween(
-          *code, "#IF_IS_LINUX", "#ENDIF_IS_LINUX");
+          *code, "#if_is_linux", "#endif_is_linux");
     }
   }
 
-  helper::String::ReplaceAll(code, "#IF_IS_LINUX");
-  helper::String::ReplaceAll(code, "#IF_IS_MAC");
-  helper::String::ReplaceAll(code, "#ENDIF_IS_LINUX");
-  helper::String::ReplaceAll(code, "#ENDIF_IS_MAC");
+  helper::String::ReplaceAll(code, "#if_is_linux");
+  helper::String::ReplaceAll(code, "#if_is_mac");
+  helper::String::ReplaceAll(code, "#endif_is_linux");
+  helper::String::ReplaceAll(code, "#endif_is_mac");
 
   return true;
 }
