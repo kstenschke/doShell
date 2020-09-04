@@ -8,7 +8,7 @@ doShell
   * [Functional Flow](#functional-flow)
     + [Transpile](#transpile) 
     + [Transpile and/or run](#transpile-and/or-run) 
-  + [Runtime options within doShell scripts](#runtime-options-within-doShell-scripts)
+  + [Runtime options](#runtime-options)
     + [Runtime flags](#runtime-flags)
     + [Runtime macros](#runtime-macros)
     + [Conditional blocks](#conditional-blocks)
@@ -111,7 +111,7 @@ runtime system replaces runtime macros and declares runtime variables, before
 the eventual execution in a sandboxed shell-thread. 
 
 
-## Runtime options within doShell scripts
+## Runtime options
 
 ### Runtime flags
 
