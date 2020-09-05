@@ -109,10 +109,20 @@ the eventual execution in a sandboxed shell-thread.
 
 ### Runtime flags
 
-| Flag                     | Description                                                                                                        |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| ``#browser=chromium``    | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
-| ``#keep_runtime_file``   | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
+| Flag                      | Description                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ``#!browser chromium``    | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
+| ``#!keep_runtime_file``   | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
+
+**Convention:** Runtime flags should be given only once per script, following the shebang line:
+
+````
+#!/usr/bin/env bash
+#!keep_runtime_file
+
+echo "your platform is: ::OS::"
+
+````
 
 ### Runtime macros
 
