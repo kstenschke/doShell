@@ -54,7 +54,7 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
   complicated or simply not easily memorable in plain shell script
   (string-manipulation in variables, files and clipboard; randomization etc.)
 * Commands for easily using GUI dialogs from within scripts
-* Options that aren't realized identically on linx and mac are solved by the 
+* Options that aren't available identically on linx and mac are solved by the 
   runtime system by invoking 3rd party tools, that vary by platform: 
   the same doShell script runs on Linux and Mac OS
 * doShell scripts can be parameterized via JSON passed at execution time
