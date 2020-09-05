@@ -198,7 +198,6 @@ like:
 | Command                           | Description                                      |
 | --------------------------------- | ------------------------------------------------ |
 | ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100  |
-| ``myvar=#rand 'foo' 'bar' 'baz'`` | Assign ``var`` a random string of the given ones |
 
 
 ### URL parsing
