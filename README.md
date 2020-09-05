@@ -55,7 +55,7 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
   (string-manipulation in variables, files and clipboard; randomization etc.)
 * Commands for easily using GUI dialogs from within scripts
 * Options that aren't available identically on linux and mac are solved by the 
-  runtime system by invoking 3rd party tools, that vary by platform: 
+  runtime system invoking 3rd party tools, that vary by platform: 
   the same doShell script runs on Linux and Mac OS
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
