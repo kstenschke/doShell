@@ -455,10 +455,6 @@ Build Instructions
 Code Convention
 ---------------
 
-It is recommended to write doShell scripts according to 
-[Google Shell Style Guide](https://google.github.io/styleguide/shell.xml)
-where applicable.
-
 The source code of the doShell transpiler and interpreter follows the 
 [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).  
 
