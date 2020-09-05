@@ -58,10 +58,10 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 * Built-in shorthands and commands to ease various operations that are overly
   complicated or simply not easily memorable in plain shell script
   (string-manipulation in variables, files and clipboard; randomization etc.)
-* doShell provides cross-platform commands for easily using GUI dialogs 
-  from within scripts
-* The runtime system invokes 3rd party tools, that vary by platform:
-  Automation works with the same doShell script on Linux and Mac OS
+* Commands for easily using GUI dialogs from within scripts
+* Options that aren't realized identically on linx and mac are solved by the 
+  runtime system by invoking 3rd party tools, that vary by platform: 
+  the same doShell script runs on Linux and Mac OS
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
 * As all browser automation is done by simulated user interaction, 
