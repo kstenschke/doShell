@@ -101,8 +101,8 @@ skipped.
 doShell transpiles to intermediary shell script files: additional to 
 conventional shell script code, they can contain runtime macros: 
 placeholder-strings for generic content, and runtime variables. The doShell 
-runtime system replaces runtime macros and declares runtime variables, before 
-the eventual execution in a sandboxed shell-thread. 
+runtime system replaces runtime macros, -variables and -conditional blocks 
+before the eventual execution in a sandboxed shell-thread. 
 
 
 ## Runtime options
