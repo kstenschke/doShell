@@ -120,7 +120,7 @@ before the eventual execution in a sandboxed shell-thread.
 #!/usr/bin/env bash
 #!keep_runtime_file
 
-echo "your platform is: ::OS::"
+# ... 
 
 ````
 
