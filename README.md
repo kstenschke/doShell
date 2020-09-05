@@ -67,7 +67,7 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 ### Mission targets
 
-1. Ease scriptiing of interactive cross-platform-compatible automation
+1. Ease scripting of interactive cross-platform-compatible automation
    and reduce some of the pain-points of shell script authoring
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
