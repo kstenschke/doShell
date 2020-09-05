@@ -43,11 +43,6 @@ terminal operations).
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
-Possible usecases are creation of productivity macros, foremost for tasks involving 
-browsing the internet: web development, infoSec reconnaisance, and various more.  
-**Note:** End-to-end browser testing should NOT be a doShell usecase, 
-as [Selenium](https://www.selenium.dev/) based solutions prove more effective.
-
 **What about Windows?**
 On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
 
