@@ -20,12 +20,14 @@ bool Compiler::Compile() {
   if (!LoadSource()) return false;
 
   InitPathSourceDirectory();
+  InitPathFileCompiled();
 
-  transpilePlatform::Transpile(&source_, is_linux_);
+  if (helper::File::FileExists(path_compiled_file_abs_))
+    return helper::File::GetFileContents(path_compiled_file_abs_, &source_);
+
   ResolveImports();
   TranspileCommands();
 
-  InitPathFileCompiled();
   CleanupSource();
   helper::File::WriteToNewFile(path_compiled_file_abs_, source_);
 
@@ -39,8 +41,6 @@ void Compiler::TranspileCommands() {
 
   do {
     if ((contains_commands = ContainsCommands())) {
-      if (0 == runs) transpilePlatform::Transpile(&source_, is_linux_);
-
       transpileString::Transpile(&source_, is_linux_);
       transpileRandom::Transpile(&source_, is_linux_);
       transpileClipboard::Transpile(&source_, is_linux_);
@@ -72,13 +72,18 @@ bool Compiler::Execute() {
   if (!Compile()) return false;
 
   InitPathFileRuntime();
+
+  transpilePlatform::Transpile(&source_, is_linux_);
   ReplaceRunTimeMacrosInSource();
   ParsePhp();
+
   SaveSourceToRuntimeScript();
   MakeRuntimeScriptExecutable();
 
   std::cout
       << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
+
+  RemoveTemporaryExecutionFile();
 
   return true;
 }
@@ -112,6 +117,12 @@ void Compiler::MakeRuntimeScriptExecutable() const {
   std::string command = "chmod +x " + path_runtime_file_abs_;
 
   helper::Cli::Execute(command.c_str());
+}
+
+bool Compiler::RemoveTemporaryExecutionFile() {
+  return helper::String::Contains(source_, "#!keep_runtime_file")
+    ? false
+    : helper::File::Remove(path_runtime_file_abs_.c_str());
 }
 
 bool Compiler::ReplaceRunTimeMacrosInSource() {
@@ -245,6 +256,7 @@ bool Compiler::RemoveSheBangLine(std::string *code) {
   return true;
 }
 
+// Remove multiple sucsessive newlines
 void Compiler::CleanupSource() {
   auto lines = helper::String::Explode(source_, '\n');
 

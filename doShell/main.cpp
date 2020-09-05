@@ -28,7 +28,6 @@ int main(int argc, char **argv) {
                  ? app->Process()
                  : false;
 
-  // TODO(kay): return comprehensible bash error codes instead of 125
   int return_signal = success ? 0 : 125;
 
   doShell::AppLog::NotifyInfo(

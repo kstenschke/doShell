@@ -85,6 +85,7 @@ class Compiler {
   void CleanupSource();
   void MakeRuntimeScriptExecutable() const;
   void SaveSourceToRuntimeScript();
+  bool RemoveTemporaryExecutionFile();
 };
 
 }  // namespace doShell
