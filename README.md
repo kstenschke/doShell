@@ -174,7 +174,7 @@ Import a specified file: ``#import another_file.do.sh``
 ### Inline PHP
 
 doShell script can contain inlined PHP (processed during pre-execution parsing, 
-see functional flow) 
+see [functional flow diagram](#functional-flow)) 
 
 like:  
 ``#<?php echo time() ?>``  
