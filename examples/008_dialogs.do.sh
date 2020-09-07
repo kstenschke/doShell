@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Display various dialog popups
 
 #IF(LINUX)
