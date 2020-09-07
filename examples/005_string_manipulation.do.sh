@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Export all URLs from HTML and all scripts of a web page
+# String helper commands
 
 # output: Between
 echo #extractBetween "beforeBetweenAfter" before After
