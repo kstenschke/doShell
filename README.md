@@ -38,7 +38,7 @@ doShell
 ## What does it do?
 
 doShell is a scripting language, transpiler and runtime system for efficient 
-**headfull interactive automation** on linux and mac os, foremost but not limited
+**headfull interactive UI automation** on linux and mac os, foremost but not limited
 to operations involving web browsing and shell.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
@@ -50,8 +50,8 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 * Automation of simulated user control of (foremost) web browser and 
   terminal operations
-* Built-in shorthands and commands to ease various operations that are overly
-  complicated or simply not easily memorable in plain shell script
+* Built-in shorthands and commands to ease operations that are overly
+  complicated or not easily memorable in plain shell script
   (string-manipulation in variables, files and clipboard; randomization etc.)
 * Commands for easily using GUI dialogs from within scripts
 * Options that aren't available identically on linux and mac are solved by the 
@@ -101,8 +101,8 @@ skipped.
 doShell transpiles to intermediary shell script files: additional to 
 conventional shell script code, they can contain runtime macros: 
 placeholder-strings for generic content, and runtime variables. The doShell 
-runtime system replaces runtime macros and declares runtime variables, before 
-the eventual execution in a sandboxed shell-thread. 
+runtime system replaces runtime macros, -variables and -conditional blocks 
+before the eventual execution in a sandboxed shell-thread. 
 
 
 ## Runtime options
@@ -120,7 +120,7 @@ the eventual execution in a sandboxed shell-thread.
 #!/usr/bin/env bash
 #!keep_runtime_file
 
-echo "your platform is: ::OS::"
+# ... 
 
 ````
 
@@ -174,7 +174,7 @@ Import a specified file: ``#import another_file.do.sh``
 ### Inline PHP
 
 doShell script can contain inlined PHP (processed during pre-execution parsing, 
-see functional flow) 
+see [functional flow diagram](#functional-flow)) 
 
 like:  
 ``#<?php echo time() ?>``  
@@ -198,7 +198,6 @@ like:
 | Command                           | Description                                      |
 | --------------------------------- | ------------------------------------------------ |
 | ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100  |
-| ``myvar=#rand 'foo' 'bar' 'baz'`` | Assign ``var`` a random string of the given ones |
 
 
 ### URL parsing
