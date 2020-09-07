@@ -24,6 +24,10 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "appendClipboardToFile") return Command_AppendClipboardToFile;
   if (command == "-c" || command == "compile") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
+  if (command == "getHostFromUrl") return Command_GetHostFromUrl;
+  if (command == "getPathFromUrl") return Command_GetPathFromUrl;
+  if (command == "getQueryFromUrl") return Command_GetQueryFromUrl;
+  if (command == "getSchemeFromUrl") return Command_GetSchemeFromUrl;
   if (command == "replaceAfter") return Command_ReplaceAfter;
   if (command == "replaceAll") return Command_ReplaceAll;
   if (command == "replaceBefore") return Command_ReplaceBefore;

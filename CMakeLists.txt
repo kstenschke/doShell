@@ -64,6 +64,8 @@ add_executable(dosh
         doShell/dosh/transpile/transpileString.h
         doShell/dosh/transpile/transpileTerminal.cc
         doShell/dosh/transpile/transpileTerminal.h
+        doShell/dosh/transpile/transpileUrl.cc
+        doShell/dosh/transpile/transpileUrl.h
 
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h

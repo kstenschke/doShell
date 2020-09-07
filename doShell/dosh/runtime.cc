@@ -42,6 +42,7 @@ void Compiler::TranspileCommands() {
   do {
     if ((contains_commands = ContainsCommands())) {
       transpileString::Transpile(&source_, is_linux_);
+      transpileUrl::Transpile(&source_, is_linux_);
       transpileRandom::Transpile(&source_, is_linux_);
       transpileClipboard::Transpile(&source_, is_linux_);
       transpileBrowser::Transpile(&source_, is_linux_);

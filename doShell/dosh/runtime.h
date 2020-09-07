@@ -16,6 +16,7 @@
 #include <doShell/dosh/transpile/transpileRandom.h>
 #include <doShell/dosh/transpile/transpileString.h>
 #include <doShell/dosh/transpile/transpileTerminal.h>
+#include <doShell/dosh/transpile/transpileUrl.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
