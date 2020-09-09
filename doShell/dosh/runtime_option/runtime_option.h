@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_CLIPBOARD_H_
-#define DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_CLIPBOARD_H_
+#ifndef DOSHELL_DOSH_RUNTIME_OPTION_RUNTIME_OPTION_H_
+#define DOSHELL_DOSH_RUNTIME_OPTION_RUNTIME_OPTION_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
@@ -21,21 +21,11 @@
 
 namespace doShell {
 
-class shellCommandClipboard {
+class runtimeOption {
  public:
-  // Constructor: init (resolve) command and arguments
-  shellCommandClipboard(int argc, const std::vector<std::string>& argv);
-
-  virtual ~shellCommandClipboard();
-
-  static bool appendClipboardToFile(std::string path_file);
-  static bool saveClipboardToFile(std::string path_file);
-
- private:
-  int argc_;
-  std::vector<std::string> argv_;
+  static bool ReplaceRunTimeMacros(std::string *code, bool is_linux);
 };
 
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_CLIPBOARD_H_
+#endif  // DOSHELL_DOSH_RUNTIME_OPTION_RUNTIME_OPTION_H_

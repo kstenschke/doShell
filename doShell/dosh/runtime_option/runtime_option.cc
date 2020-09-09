@@ -1,11 +1,11 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/runtimeOptions/runtime_options.h>
+#include <doShell/dosh/runtime_option/runtime_option.h>
 
 namespace doShell {
 
-bool runtimeOptions::ReplaceRunTimeMacros(std::string *code, bool is_linux) {
+bool runtimeOption::ReplaceRunTimeMacros(std::string *code, bool is_linux) {
   return helper::String::ReplaceAll(
       code,
       "::TIMESTAMP::",

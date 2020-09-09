@@ -37,7 +37,7 @@ bool App::Process() {
 
   AppCommands::Command command = command_->GetResolved();
 
-  bool result = true;
+  bool result;
 
   if (AppCommands::IsStringManipulationCommand(command)) {
     result = ProcessStringCommand(command);
@@ -52,7 +52,7 @@ bool App::Process() {
         break;
       }
       case AppCommands::Command_Compile: {  // c - compile
-        auto compiler = new Compiler(argc_, argv_);
+        auto compiler = new S2sTranspiler(argc_, argv_);
         result = compiler->Compile();
 
         delete compiler;
@@ -74,7 +74,7 @@ bool App::Process() {
       }
         break;
       case AppCommands::Command_Run: {  // r - compile and run
-        auto compiler = new Compiler(argc_, argv_);
+        auto compiler = new S2sTranspiler(argc_, argv_);
         result = compiler->Compile();
 
         if (!result) {

@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_URL_PARSE_H_
-#define DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_URL_PARSE_H_
+#ifndef DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_PARSE_H_
+#define DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_PARSE_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
@@ -47,4 +47,4 @@ class shellCommandUrlParse {
 
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_URL_PARSE_H_
+#endif  // DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_PARSE_H_

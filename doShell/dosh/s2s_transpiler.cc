@@ -1,12 +1,12 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/runtime.h>
+#include <doShell/dosh/s2s_transpiler.h>
 
 namespace doShell {
 
 // Constructor: init (resolve) command and arguments
-Compiler::Compiler(int argc, const std::vector<std::string> &argv) {
+S2sTranspiler::S2sTranspiler(int argc, const std::vector<std::string> &argv) {
   argc_ = argc;
   argv_ = argv;
 
@@ -14,7 +14,7 @@ Compiler::Compiler(int argc, const std::vector<std::string> &argv) {
 }
 
 // Transpile given *.do.sh file to *.sh
-bool Compiler::Compile() {
+bool S2sTranspiler::Compile() {
   if (argc_ <= 1) return CompileAllInPath();
 
   if (!LoadSource()) return false;
@@ -34,13 +34,13 @@ bool Compiler::Compile() {
   return true;
 }
 
-void Compiler::TranspileCommands() {
+void S2sTranspiler::TranspileCommands() {
   bool contains_commands;
 
   int runs = 0;
 
   do {
-    if ((contains_commands = ContainsCommands())) {
+    if ((contains_commands = SourceContainsCommands())) {
       transpileString::Transpile(&source_, is_linux_);
       transpileUrl::Transpile(&source_, is_linux_);
       transpileRandom::Transpile(&source_, is_linux_);
@@ -50,14 +50,14 @@ void Compiler::TranspileCommands() {
       transpileKeystrokes::Transpile(&source_, is_linux_);
       transpileTerminal::Transpile(&source_, is_linux_);
 
-      contains_commands = ContainsCommands();
+      contains_commands = SourceContainsCommands();
 
       ++runs;
     }
   } while (contains_commands && runs < 5);
 }
 
-bool Compiler::ContainsCommands() {
+bool S2sTranspiler::SourceContainsCommands() {
   std::regex exp("#[a-zA-Z]");
 
   return 0 < std::distance(  // Count the number of matches inside the iterator
@@ -65,31 +65,7 @@ bool Compiler::ContainsCommands() {
       std::sregex_iterator());
 }
 
-// 1. Transpile given *.do.sh file to *.sh,
-// 2. Create temporary dosh copy of *.sh w/ dosh macros replaced
-// 3. Execute dosh copy
-// 4. Delete dosh copy
-bool Compiler::Execute() {
-  if (!Compile()) return false;
-
-  InitPathFileRuntime();
-
-  transpilePlatform::Transpile(&source_, is_linux_);
-  runtimeOptions::ReplaceRunTimeMacros(&source_, is_linux_);
-  ParsePhp();
-
-  SaveSourceToRuntimeScript();
-  MakeRuntimeScriptExecutable();
-
-  std::cout
-      << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
-
-  RemoveTemporaryExecutionFile();
-
-  return true;
-}
-
-bool Compiler::ParsePhp() {
+bool S2sTranspiler::ParsePhp() {
   if (!helper::String::Contains(source_, "<?php")) return false;
 
   std::string phtml = source_;
@@ -106,27 +82,51 @@ bool Compiler::ParsePhp() {
   return helper::File::Remove(path_phtml_file_abs_.c_str());
 }
 
-void Compiler::InitPathPhtml() {
+// 1. Transpile given *.do.sh file to *.sh,
+// 2. Create temporary dosh copy of *.sh w/ dosh macros replaced
+// 3. Execute dosh copy
+// 4. Delete dosh copy
+bool S2sTranspiler::Execute() {
+  if (!Compile()) return false;
+
+  InitPathFileRuntime();
+
+  transpilePlatform::Transpile(&source_, is_linux_);
+  runtimeOption::ReplaceRunTimeMacros(&source_, is_linux_);
+  ParsePhp();
+
+  SaveSourceToRuntimeScript();
+  MakeRuntimeScriptExecutable();
+
+  std::cout
+      << helper::Cli::GetExecutionResponse(path_runtime_file_abs_.c_str());
+
+  RemoveTemporaryExecutionFile();
+
+  return true;
+}
+
+void S2sTranspiler::InitPathPhtml() {
   path_phtml_file_abs_= path_compiled_file_abs_ += ".phtml";
 }
 
-void Compiler::SaveSourceToRuntimeScript() {
+void S2sTranspiler::SaveSourceToRuntimeScript() {
   helper::File::WriteToNewFile(path_runtime_file_abs_, source_);
 }
 
-void Compiler::MakeRuntimeScriptExecutable() const {
+void S2sTranspiler::MakeRuntimeScriptExecutable() const {
   std::string command = "chmod +x " + path_runtime_file_abs_;
 
   helper::Cli::Execute(command.c_str());
 }
 
-bool Compiler::RemoveTemporaryExecutionFile() {
+bool S2sTranspiler::RemoveTemporaryExecutionFile() {
   return helper::String::Contains(source_, "#!keep_runtime_file")
     ? false
     : helper::File::Remove(path_runtime_file_abs_.c_str());
 }
 
-void Compiler::InitPathSourceDirectory() {
+void S2sTranspiler::InitPathSourceDirectory() {
   auto offset_last_slash =
       static_cast<uint32_t>(helper::String::FindLast(
           path_source_file_abs_,
@@ -138,7 +138,7 @@ void Compiler::InitPathSourceDirectory() {
       path_source_file_abs_.substr(0, offset_last_slash) + "/";
 }
 
-void Compiler::InitPathFileCompiled() {
+void S2sTranspiler::InitPathFileCompiled() {
   if (helper::String::EndsWith(path_source_file_abs_, ".do.sh")) {
     path_compiled_file_abs_ =
         path_source_file_abs_.substr(0, path_source_file_abs_.length() - 6);
@@ -147,11 +147,11 @@ void Compiler::InitPathFileCompiled() {
   path_compiled_file_abs_ += ".x.sh";
 }
 
-void Compiler::InitPathFileRuntime() {
+void S2sTranspiler::InitPathFileRuntime() {
   path_runtime_file_abs_ = path_compiled_file_abs_ += ".run.sh";
 }
 
-bool Compiler::ResolveImports() {
+bool S2sTranspiler::ResolveImports() {
   int32_t offset_start;
 
   helper::String::ReplaceAll(&source_, "::FILE::", path_source_file_abs_);
@@ -200,7 +200,7 @@ bool Compiler::ResolveImports() {
   return true;
 }
 
-int Compiler::ReplaceLineNumberMacros(std::string *code) {
+int S2sTranspiler::ReplaceLineNumberMacros(std::string *code) {
   if (!helper::String::Contains(*code, "::LINE::")) return 0;
 
   std::string out;
@@ -221,12 +221,12 @@ int Compiler::ReplaceLineNumberMacros(std::string *code) {
   return true;
 }
 
-bool Compiler::CompileAllInPath() {
+bool S2sTranspiler::CompileAllInPath() {
   // TODO(kay): implement
   return true;
 }
 
-bool Compiler::LoadSource() {
+bool S2sTranspiler::LoadSource() {
   auto pwd = std::getenv("PWD");
 
   path_source_file_abs_ = argv_[2];
@@ -236,7 +236,7 @@ bool Compiler::LoadSource() {
          : false;
 }
 
-bool Compiler::RemoveSheBangLine(std::string *code) {
+bool S2sTranspiler::RemoveSheBangLine(std::string *code) {
   auto offset_first_newline = code->find('\n');
 
   if (offset_first_newline == std::string::npos) return false;
@@ -250,8 +250,8 @@ bool Compiler::RemoveSheBangLine(std::string *code) {
   return true;
 }
 
-// Remove multiple sucsessive newlines
-void Compiler::CleanupSource() {
+// Remove multiple successive newlines
+void S2sTranspiler::CleanupSource() {
   auto lines = helper::String::Explode(source_, '\n');
 
   std::string clean;
@@ -273,7 +273,7 @@ void Compiler::CleanupSource() {
   source_ = clean;
 }
 
-Compiler::~Compiler() {
+S2sTranspiler::~S2sTranspiler() {
 }
 
 }  // namespace doShell

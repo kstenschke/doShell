@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/shellCommand/shell_command_clipboard.h>
+#include <doShell/dosh/shell_command/shell_command_clipboard.h>
 #include <vendor/clip/clip.h>
 
 namespace doShell {

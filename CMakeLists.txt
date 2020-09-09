@@ -38,18 +38,18 @@ add_executable(dosh
         doShell/app/app_help.h
         doShell/app/app_log.cc
         doShell/app/app_log.h
-        doShell/dosh/runtime.cc
-        doShell/dosh/runtime.h
+        doShell/dosh/s2s_transpiler.cc
+        doShell/dosh/s2s_transpiler.h
 
-        doShell/dosh/runtimeOptions/runtime_options.cc
-        doShell/dosh/runtimeOptions/runtime_options.h
+        doShell/dosh/runtime_option/runtime_option.cc
+        doShell/dosh/runtime_option/runtime_option.h
 
-        doShell/dosh/shellCommand/shell_command_clipboard.cc
-        doShell/dosh/shellCommand/shell_command_clipboard.h
-        doShell/dosh/shellCommand/shell_command_string.cc
-        doShell/dosh/shellCommand/shell_command_string.h
-        doShell/dosh/shellCommand/shell_command_url_parse.cc
-        doShell/dosh/shellCommand/shell_command_url_parse.h
+        doShell/dosh/shell_command/shell_command_clipboard.cc
+        doShell/dosh/shell_command/shell_command_clipboard.h
+        doShell/dosh/shell_command/shell_command_string.cc
+        doShell/dosh/shell_command/shell_command_string.h
+        doShell/dosh/shell_command/shell_command_url_parse.cc
+        doShell/dosh/shell_command/shell_command_url_parse.h
 
         doShell/dosh/transpile/transpile_browser.cc
         doShell/dosh/transpile/transpile_browser.h

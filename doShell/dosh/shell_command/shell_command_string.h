@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_STRING_H_
-#define DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_STRING_H_
+#ifndef DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_STRING_H_
+#define DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_STRING_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
@@ -55,4 +55,4 @@ class shellCommandString {
 
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_SHELLCOMMAND_SHELL_COMMAND_STRING_H_
+#endif  // DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_STRING_H_

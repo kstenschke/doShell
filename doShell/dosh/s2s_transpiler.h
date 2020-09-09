@@ -8,7 +8,7 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/dosh/runtimeOptions/runtime_options.h>
+#include <doShell/dosh/runtime_option/runtime_option.h>
 #include <doShell/dosh/transpile/transpile_browser.h>
 #include <doShell/dosh/transpile/transpile_clipboard.h>
 #include <doShell/dosh/transpile/transpile_dialog.h>
@@ -28,10 +28,10 @@
 
 namespace doShell {
 
-class Compiler {
+class S2sTranspiler {
  public:
   // Constructor: init (resolve) command and arguments
-  Compiler(int argc, const std::vector<std::string>& argv);
+  S2sTranspiler(int argc, const std::vector<std::string>& argv);
 
   // Transpile given *.do.sh file to *.sh
   bool Compile();
@@ -42,7 +42,7 @@ class Compiler {
   // 4. Delete dosh copy
   bool Execute();
 
-  virtual ~Compiler();
+  virtual ~S2sTranspiler();
 
  private:
   int argc_;
@@ -78,7 +78,7 @@ class Compiler {
   static bool RemoveSheBangLine(std::string *import_content);
 
   void TranspileCommands();
-  bool ContainsCommands();
+  bool SourceContainsCommands();
 
   bool ParsePhp();
 
