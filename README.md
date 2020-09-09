@@ -114,7 +114,7 @@ before the eventual execution in a sandboxed shell-thread.
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | ``#!browser chromium``                | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
 | ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
-| ``#!mouse "ETP/2 Elantech Touchpad"`` | Primare mouse device, as listed via ``xinput list`` (ATM: Linux only)                                              |
+| ``#!mouse "ETP/2 Elantech Touchpad"`` | Declares primary mouse device to doShell (named as listed via ``xinput list``) (ATM: Linux only)                   |
 
 **Convention:** Runtime flags should be given only once per script, following the shebang line:
 
