@@ -27,6 +27,7 @@ doShell
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
     + [Terminal automation](#terminal-automation)
+    + [Enable/Disable Devices](#enable-disable-devices)
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Third Party References](#third-party-references)
@@ -109,10 +110,11 @@ before the eventual execution in a sandboxed shell-thread.
 
 ### Runtime flags
 
-| Flag                      | Description                                                                                                        |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ``#!browser chromium``    | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
-| ``#!keep_runtime_file``   | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
+| Flag                                  | Description                                                                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ``#!browser chromium``                | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
+| ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
+| ``#!mouse "ETP/2 Elantech Touchpad"`` | Primare mouse device, as listed via ``xinput list`` (ATM: Linux only)                                              |
 
 **Convention:** Runtime flags should be given only once per script, following the shebang line:
 
@@ -374,6 +376,18 @@ manipulation and import / export of text from/to the clipboard.
 | ``#copyPasteInTerminal "foo"``    | Copy text to clipboard and invoke paste | 
 | ``#copyPasteInTerminal $VAR``     | Copy text to clipboard and invoke paste |
 | ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
+
+
+### Enable/Disable Devices
+
+**ATM:** Implemented on Linux only.
+
+| Command                               | Description                                                       |
+| ------------------------------------- | ----------------------------------------------------------------- |
+| ``#disableMouse``                     | Disable primary mouse device (see [Runtime flags](#runtime-flags) |
+| ``#enableMouse``                      | Enable primary mouse device                                       |
+| ``#disableDevice "Some device name"`` | Disable given device (Find out device names via ``xinput list``)  |
+| ``#enableDevice "Some device name"``  | Enable given device                                               |
 
 
 ### Functions, iterations, conditions
