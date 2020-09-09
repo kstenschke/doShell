@@ -8,6 +8,7 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
+#include <doShell/dosh/runtimeOptions/runtimeOptions.h>
 #include <doShell/dosh/transpile/transpileBrowser.h>
 #include <doShell/dosh/transpile/transpileClipboard.h>
 #include <doShell/dosh/transpile/transpileDialog.h>
@@ -73,8 +74,6 @@ class Compiler {
   void InitPathFileCompiled();
   void InitPathPhtml();
   void InitPathFileRuntime();
-
-  bool ReplaceRunTimeMacrosInSource();
 
   static bool RemoveSheBangLine(std::string *import_content);
 

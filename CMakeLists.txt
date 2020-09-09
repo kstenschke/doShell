@@ -41,6 +41,9 @@ add_executable(dosh
         doShell/dosh/runtime.cc
         doShell/dosh/runtime.h
 
+        doShell/dosh/runtimeOptions/runtimeOptions.cc
+        doShell/dosh/runtimeOptions/runtimeOptions.h
+
         doShell/dosh/shellCommand/shellCommandClipboard.cc
         doShell/dosh/shellCommand/shellCommandClipboard.h
         doShell/dosh/shellCommand/shellCommandString.cc

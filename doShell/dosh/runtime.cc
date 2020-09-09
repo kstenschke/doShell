@@ -75,7 +75,7 @@ bool Compiler::Execute() {
   InitPathFileRuntime();
 
   transpilePlatform::Transpile(&source_, is_linux_);
-  ReplaceRunTimeMacrosInSource();
+  runtimeOptions::ReplaceRunTimeMacros(&source_, is_linux_);
   ParsePhp();
 
   SaveSourceToRuntimeScript();
@@ -124,13 +124,6 @@ bool Compiler::RemoveTemporaryExecutionFile() {
   return helper::String::Contains(source_, "#!keep_runtime_file")
     ? false
     : helper::File::Remove(path_runtime_file_abs_.c_str());
-}
-
-bool Compiler::ReplaceRunTimeMacrosInSource() {
-  return helper::String::ReplaceAll(
-      &source_,
-      "::TIMESTAMP::",
-      helper::DateTime::GetTimestamp()) > 0;
 }
 
 void Compiler::InitPathSourceDirectory() {
