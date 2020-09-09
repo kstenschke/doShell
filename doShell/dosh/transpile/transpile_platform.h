@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILEPLATFORM_H_
-#define DOSHELL_DOSH_TRANSPILE_TRANSPILEPLATFORM_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILE_PLATFORM_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILE_PLATFORM_H_
 
 #include <doShell/helper/helper_string.h>
 #include <string>
@@ -18,4 +18,4 @@ class transpilePlatform {
 };
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEPLATFORM_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_PLATFORM_H_

@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILEKEYSTROKES_H_
-#define DOSHELL_DOSH_TRANSPILE_TRANSPILEKEYSTROKES_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILE_KEYSTROKES_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILE_KEYSTROKES_H_
 
 #include <doShell/helper/helper_string.h>
 
@@ -31,4 +31,4 @@ class transpileKeystrokes {
 };
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEKEYSTROKES_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_KEYSTROKES_H_

@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/transpile/transpileBrowser.h>
+#include <doShell/dosh/transpile/transpile_browser.h>
 
 namespace doShell {
   void transpileBrowser::Transpile(std::string *code, bool is_linux) {

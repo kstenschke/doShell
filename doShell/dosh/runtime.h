@@ -8,16 +8,16 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/dosh/runtimeOptions/runtimeOptions.h>
-#include <doShell/dosh/transpile/transpileBrowser.h>
-#include <doShell/dosh/transpile/transpileClipboard.h>
-#include <doShell/dosh/transpile/transpileDialog.h>
-#include <doShell/dosh/transpile/transpileKeystrokes.h>
-#include <doShell/dosh/transpile/transpilePlatform.h>
-#include <doShell/dosh/transpile/transpileRandom.h>
-#include <doShell/dosh/transpile/transpileString.h>
-#include <doShell/dosh/transpile/transpileTerminal.h>
-#include <doShell/dosh/transpile/transpileUrl.h>
+#include <doShell/dosh/runtimeOptions/runtime_options.h>
+#include <doShell/dosh/transpile/transpile_browser.h>
+#include <doShell/dosh/transpile/transpile_clipboard.h>
+#include <doShell/dosh/transpile/transpile_dialog.h>
+#include <doShell/dosh/transpile/transpile_keystrokes.h>
+#include <doShell/dosh/transpile/transpile_platform.h>
+#include <doShell/dosh/transpile/transpile_random.h>
+#include <doShell/dosh/transpile/transpile_string.h>
+#include <doShell/dosh/transpile/transpile_terminal.h>
+#include <doShell/dosh/transpile/transpile_url.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>

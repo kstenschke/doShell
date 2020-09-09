@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/transpile/transpileKeystrokes.h>
+#include <doShell/dosh/transpile/transpile_keystrokes.h>
 
 namespace doShell {
 void transpileKeystrokes::Transpile(std::string *code, bool is_linux) {

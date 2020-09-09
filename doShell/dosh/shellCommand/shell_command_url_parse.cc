@@ -1,12 +1,12 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/shellCommand/shellCommandUrlParser.h>
+#include <doShell/dosh/shellCommand/shell_command_url_parse.h>
 
 namespace doShell {
 
 // Constructor: init (resolve) command and arguments
-shellCommandUrlParser::shellCommandUrlParser(
+shellCommandUrlParse::shellCommandUrlParse(
     int argc, const std::vector<std::string> &argv) {
   argc_ = argc;
   argv_ = argv;
@@ -14,11 +14,11 @@ shellCommandUrlParser::shellCommandUrlParser(
   // ...
 }
 
-shellCommandUrlParser::~shellCommandUrlParser() {
+shellCommandUrlParse::~shellCommandUrlParse() {
 }
 
 // Extract scheme from given URL, e.g. http or https
-bool shellCommandUrlParser::GetSchemeFromUrl() const {
+bool shellCommandUrlParse::GetSchemeFromUrl() const {
   if (argc_ < 3) return false;
 
   std::string kUrl = argv_[2];
@@ -33,7 +33,7 @@ bool shellCommandUrlParser::GetSchemeFromUrl() const {
 }
 
 // Extract host from given URL, e.g. www.example.com
-bool shellCommandUrlParser::GetHostFromUrl() const {
+bool shellCommandUrlParse::GetHostFromUrl() const {
   if (argc_ < 3) return false;
 
   std::string kUrl = argv_[2];
@@ -52,11 +52,11 @@ bool shellCommandUrlParser::GetHostFromUrl() const {
 }
 
 // Extract path from given URL, e.g. /foo/bar
-bool shellCommandUrlParser::GetPathFromUrl() const {
+bool shellCommandUrlParse::GetPathFromUrl() const {
 }
 
 // Extract query from given URL, e.g. hat=bowler&accessory=cane
-bool shellCommandUrlParser::GetQueryFromUrl() const {
+bool shellCommandUrlParse::GetQueryFromUrl() const {
   if (argc_ < 3) return false;
 
   std::string kUrl = argv_[2];

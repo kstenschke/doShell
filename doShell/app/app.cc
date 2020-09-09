@@ -149,7 +149,7 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
 
 bool App::ProcessUrlParserCommand(AppCommands::Command command) {
   bool result = false;
-  auto *UrlParser = new shellCommandUrlParser(argc_, argv_);
+  auto *UrlParser = new shellCommandUrlParse(argc_, argv_);
 
   switch (command) {
     case AppCommands::Command_GetSchemeFromUrl:  // getSchemeFromUrl

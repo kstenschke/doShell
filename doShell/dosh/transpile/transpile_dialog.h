@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILEDIALOG_H_
-#define DOSHELL_DOSH_TRANSPILE_TRANSPILEDIALOG_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILE_DIALOG_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILE_DIALOG_H_
 
 #include <doShell/helper/helper_string.h>
 #include <string>
@@ -20,4 +20,4 @@ class transpileDialog {
 };
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEDIALOG_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_DIALOG_H_

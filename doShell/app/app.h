@@ -9,9 +9,9 @@
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
 #include <doShell/dosh/runtime.h>
-#include <doShell/dosh/shellCommand/shellCommandClipboard.h>
-#include <doShell/dosh/shellCommand/shellCommandString.h>
-#include <doShell/dosh/shellCommand/shellCommandUrlParser.h>
+#include <doShell/dosh/shellCommand/shell_command_clipboard.h>
+#include <doShell/dosh/shellCommand/shell_command_string.h>
+#include <doShell/dosh/shellCommand/shell_command_url_parse.h>
 #include <doShell/helper/helper_dateTime.h>
 
 #include <cstring>

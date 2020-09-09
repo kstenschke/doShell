@@ -41,34 +41,34 @@ add_executable(dosh
         doShell/dosh/runtime.cc
         doShell/dosh/runtime.h
 
-        doShell/dosh/runtimeOptions/runtimeOptions.cc
-        doShell/dosh/runtimeOptions/runtimeOptions.h
+        doShell/dosh/runtimeOptions/runtime_options.cc
+        doShell/dosh/runtimeOptions/runtime_options.h
 
-        doShell/dosh/shellCommand/shellCommandClipboard.cc
-        doShell/dosh/shellCommand/shellCommandClipboard.h
-        doShell/dosh/shellCommand/shellCommandString.cc
-        doShell/dosh/shellCommand/shellCommandString.h
-        doShell/dosh/shellCommand/shellCommandUrlParser.cc
-        doShell/dosh/shellCommand/shellCommandUrlParser.h
+        doShell/dosh/shellCommand/shell_command_clipboard.cc
+        doShell/dosh/shellCommand/shell_command_clipboard.h
+        doShell/dosh/shellCommand/shell_command_string.cc
+        doShell/dosh/shellCommand/shell_command_string.h
+        doShell/dosh/shellCommand/shell_command_url_parse.cc
+        doShell/dosh/shellCommand/shell_command_url_parse.h
 
-        doShell/dosh/transpile/transpileBrowser.cc
-        doShell/dosh/transpile/transpileBrowser.h
-        doShell/dosh/transpile/transpileClipboard.cc
-        doShell/dosh/transpile/transpileClipboard.h
-        doShell/dosh/transpile/transpileDialog.cc
-        doShell/dosh/transpile/transpileDialog.h
-        doShell/dosh/transpile/transpileKeystrokes.cc
-        doShell/dosh/transpile/transpileKeystrokes.h
-        doShell/dosh/transpile/transpilePlatform.cc
-        doShell/dosh/transpile/transpilePlatform.h
-        doShell/dosh/transpile/transpileRandom.cc
-        doShell/dosh/transpile/transpileRandom.h
-        doShell/dosh/transpile/transpileString.cc
-        doShell/dosh/transpile/transpileString.h
-        doShell/dosh/transpile/transpileTerminal.cc
-        doShell/dosh/transpile/transpileTerminal.h
-        doShell/dosh/transpile/transpileUrl.cc
-        doShell/dosh/transpile/transpileUrl.h
+        doShell/dosh/transpile/transpile_browser.cc
+        doShell/dosh/transpile/transpile_browser.h
+        doShell/dosh/transpile/transpile_clipboard.cc
+        doShell/dosh/transpile/transpile_clipboard.h
+        doShell/dosh/transpile/transpile_dialog.cc
+        doShell/dosh/transpile/transpile_dialog.h
+        doShell/dosh/transpile/transpile_keystrokes.cc
+        doShell/dosh/transpile/transpile_keystrokes.h
+        doShell/dosh/transpile/transpile_platform.cc
+        doShell/dosh/transpile/transpile_platform.h
+        doShell/dosh/transpile/transpile_random.cc
+        doShell/dosh/transpile/transpile_random.h
+        doShell/dosh/transpile/transpile_string.cc
+        doShell/dosh/transpile/transpile_string.h
+        doShell/dosh/transpile/transpile_terminal.cc
+        doShell/dosh/transpile/transpile_terminal.h
+        doShell/dosh/transpile/transpile_url.cc
+        doShell/dosh/transpile/transpile_url.h
 
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h
