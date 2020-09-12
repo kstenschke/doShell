@@ -16,8 +16,8 @@ doShell
     + [Import](#import)
     + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
-    + [Random values](#random-values)
     + [URL parsing](#url-parsing)
+    + [Random values](#random-values)
     + [File manipulation](#file-manipulation)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
@@ -195,21 +195,23 @@ like:
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 
+### URL parsing
+
+| Command                    | Description                                                      |
+| -------------------------- | ---------------------------------------------------------------- |
+| ``#getSchemeFromUrl $URL`` | Extract scheme from given URL, e.g. ``http`` or ``https``        |
+| ``#getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
+| ``#getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
+| ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+| ``#urlEncode $URL``        | Encode given URL                                                 |
+| ``#urlDecode $URL``        | Decode given URL                                                 |
+
+
 ### Random values
 
 | Command                           | Description                                      |
 | --------------------------------- | ------------------------------------------------ |
 | ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100  |
-
-
-### URL parsing
-
-| Command                                | Description                                                      |
-| -------------------------------------- | ---------------------------------------------------------------- |
-| ``#getSchemeFromUrl $URL``             | Extract scheme from given URL, e.g. ``http`` or ``https``        |
-| ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
-| ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
-| ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
 
 
 ### File manipulation
