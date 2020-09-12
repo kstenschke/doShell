@@ -197,12 +197,14 @@ like:
 
 ### URL parsing
 
-| Command                                | Description                                                      |
-| -------------------------------------- | ---------------------------------------------------------------- |
-| ``#getSchemeFromUrl $URL``             | Extract scheme from given URL, e.g. ``http`` or ``https``        |
-| ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
-| ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
-| ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+| Command                    | Description                                                      |
+| -------------------------- | ---------------------------------------------------------------- |
+| ``#getSchemeFromUrl $URL`` | Extract scheme from given URL, e.g. ``http`` or ``https``        |
+| ``#getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
+| ``#getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
+| ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+| ``#urlEncode $URL``        | Encode given URL                                                 |
+| ``#urlDecode $URL``        | Decode given URL                                                 |
 
 
 ### Random values
