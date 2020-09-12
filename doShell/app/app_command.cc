@@ -66,6 +66,8 @@ bool AppCommands::IsUrlParserCommand(AppCommands::Command command) {
     case Command_GetHostFromUrl:
     case Command_GetPathFromUrl:
     case Command_GetQueryFromUrl:
+    case Command_UrlEncode:
+    case Command_UrlDecode:
       return true;
     default:
       return false;

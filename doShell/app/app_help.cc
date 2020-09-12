@@ -58,9 +58,6 @@ bool AppHelp::PrintOverview(bool with_title) {
       "\n  Meta commands:"
       "\n    -h             - Help: Describe usage of this program"
       "\n    -v             - Version: Output version number"
-      "\n\n"
-      "Type 'dosh help <command>' "
-      "for more help on a specific command."
       "\n\n";
 
   std::string column_2 =
@@ -73,6 +70,8 @@ bool AppHelp::PrintOverview(bool with_title) {
       "\n    extractBetweenInFile - Save text between (excluding) given strings"
       " of given to new file"
       "\n";
+
+  // TODO(kay) list all shell commands
 
   std::cout << helper::String::RenderTwoColumns(column_1, column_2);
 
