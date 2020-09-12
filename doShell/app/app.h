@@ -32,9 +32,6 @@ class App {
 
   virtual ~App();
 
-  void SetPathIn(const std::string &path_docx_in);
-  void SetPathOut(const std::string &path_docx_out);
-
   // Process command + arguments
   bool Process();
 

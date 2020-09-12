@@ -24,14 +24,6 @@ App::~App() {
   delete command_;
 }
 
-void App::SetPathIn(const std::string &path_docx_in) {
-  path_in_ = path_docx_in;
-}
-
-void App::SetPathOut(const std::string &path_docx_out) {
-  path_out_ = path_docx_out;
-}
-
 bool App::Process() {
   auto arguments = new AppArgument(argc_, argv_);
 
@@ -168,8 +160,16 @@ bool App::ProcessUrlParserCommand(AppCommands::Command command) {
       result = UrlParser->GetQueryFromUrl();
 
       break;
+    case AppCommands::Command_UrlEncode:  // urlEncode
+      result = UrlParser->Encode();
+
+      break;
+    case AppCommands::Command_UrlDecode:  // urlDecode
+      result = UrlParser->Encode();
+
+      break;
     default:
-      return false;
+      result = false;
   }
 
   delete UrlParser;
