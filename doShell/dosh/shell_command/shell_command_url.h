@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_PARSE_H_
-#define DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_PARSE_H_
+#ifndef DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_H_
+#define DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
@@ -21,12 +21,12 @@
 
 namespace doShell {
 
-class shellCommandUrlParse {
+class shellCommandUrl {
  public:
   // Constructor: init (resolve) command and arguments
-  shellCommandUrlParse(int argc, const std::vector<std::string>& argv);
+  shellCommandUrl(int argc, const std::vector<std::string>& argv);
 
-  virtual ~shellCommandUrlParse();
+  virtual ~shellCommandUrl();
 
   // Extract scheme from given URL, e.g. http or https
   bool GetSchemeFromUrl() const;
@@ -40,6 +40,8 @@ class shellCommandUrlParse {
   // Extract query from given URL, e.g. hat=bowler&accessory=cane
   bool GetQueryFromUrl() const;
 
+  bool Decode();
+  bool Encode();
  private:
   int argc_;
   std::vector<std::string> argv_;
@@ -47,4 +49,4 @@ class shellCommandUrlParse {
 
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_PARSE_H_
+#endif  // DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_URL_H_

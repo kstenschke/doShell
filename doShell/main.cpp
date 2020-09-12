@@ -3,13 +3,6 @@
 
 #include <doShell/app/app.h>
 
-#include <vendor/webview/webview.h>
-
-#ifdef WIN32
-int WINAPI WinMain(HINSTANCE hInt, HINSTANCE hPrevInst, LPSTR lpCmdLine,
-                   int nCmdShow) {
-#endif
-
 /**
  * @param argc Amount of arguments
  * @param argv Array of arguments, argv[0] is name and path of executable
@@ -22,13 +15,6 @@ int main(int argc, char **argv) {
 //  argv[1] = "-r";
 //  argv[2] =
 //      "/home/kay/CLionProjects/shellDo/examples/003_platform_conditions.do.sh";
-
-  webview::webview w(true, nullptr);
-  w.set_title("Minimal example");
-  w.set_size(480, 320, WEBVIEW_HINT_NONE);
-  w.navigate("https://en.m.wikipedia.org/wiki/Main_Page");
-  w.run();
-  w.terminate();
 
   for (int index = 0; index < argc; ++index)
     arguments.emplace_back(argv[index]);

@@ -1,12 +1,12 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/shell_command/shell_command_url_parse.h>
+#include <doShell/dosh/shell_command/shell_command_url.h>
 
 namespace doShell {
 
 // Constructor: init (resolve) command and arguments
-shellCommandUrlParse::shellCommandUrlParse(
+shellCommandUrl::shellCommandUrl(
     int argc, const std::vector<std::string> &argv) {
   argc_ = argc;
   argv_ = argv;
@@ -14,11 +14,11 @@ shellCommandUrlParse::shellCommandUrlParse(
   // ...
 }
 
-shellCommandUrlParse::~shellCommandUrlParse() {
+shellCommandUrl::~shellCommandUrl() {
 }
 
 // Extract scheme from given URL, e.g. http or https
-bool shellCommandUrlParse::GetSchemeFromUrl() const {
+bool shellCommandUrl::GetSchemeFromUrl() const {
   if (argc_ < 3) return false;
 
   std::string kUrl = argv_[2];
@@ -33,7 +33,7 @@ bool shellCommandUrlParse::GetSchemeFromUrl() const {
 }
 
 // Extract host from given URL, e.g. www.example.com
-bool shellCommandUrlParse::GetHostFromUrl() const {
+bool shellCommandUrl::GetHostFromUrl() const {
   if (argc_ < 3) return false;
 
   std::string kUrl = argv_[2];
@@ -52,16 +52,64 @@ bool shellCommandUrlParse::GetHostFromUrl() const {
 }
 
 // Extract path from given URL, e.g. /foo/bar
-bool shellCommandUrlParse::GetPathFromUrl() const {
+bool shellCommandUrl::GetPathFromUrl() const {
+  // TODO(kay) implement
+  return true;
 }
 
 // Extract query from given URL, e.g. hat=bowler&accessory=cane
-bool shellCommandUrlParse::GetQueryFromUrl() const {
+bool shellCommandUrl::GetQueryFromUrl() const {
   if (argc_ < 3) return false;
 
   std::string kUrl = argv_[2];
 
   std::cout << helper::String::GetSubStrAfter(kUrl, "?");
+
+  return true;
+}
+
+bool shellCommandUrl::Encode() {
+  if (argc_ < 3) return false;
+
+  const std::string s = argv_[2];
+
+  std::string encoded;
+
+  for (char c : s) {
+    if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
+      encoded += c;
+    } else {
+      char hex[4];
+      snprintf(hex, sizeof(hex), "%%%02x", c);
+      encoded += hex;
+    }
+  }
+
+  std::cout << encoded;
+
+  return true;
+}
+
+bool shellCommandUrl::Decode() {
+  if (argc_ < 3) return false;
+
+  const std::string s = argv_[2];
+
+  std::string decoded;
+
+  for (auto i = 0; i < s.length(); i++) {
+    if (s[i] == '%') {
+      auto n = std::stoul(s.substr(i + 1, 2), nullptr, 16);
+      decoded += static_cast<char>(n);
+      i += 2;
+    } else if (s[i] == '+') {
+      decoded += ' ';
+    } else {
+      decoded += s[i];
+    }
+  }
+
+  std::cout << decoded;
 
   return true;
 }

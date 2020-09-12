@@ -11,7 +11,7 @@
 #include <doShell/dosh/s2s_transpiler.h>
 #include <doShell/dosh/shell_command/shell_command_clipboard.h>
 #include <doShell/dosh/shell_command/shell_command_string.h>
-#include <doShell/dosh/shell_command/shell_command_url_parse.h>
+#include <doShell/dosh/shell_command/shell_command_url.h>
 #include <doShell/helper/helper_dateTime.h>
 
 #include <cstring>

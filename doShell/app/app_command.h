@@ -12,6 +12,7 @@ namespace doShell {
 class AppCommands {
  public:
   enum Command {
+    Command_AppendClipboardToFile,
     Command_Compile,
     Command_ExtractBetween,
     Command_GetSchemeFromUrl,
@@ -19,6 +20,7 @@ class AppCommands {
     Command_GetPathFromUrl,
     Command_GetQueryFromUrl,
     Command_Help,
+    Command_Invalid,
     Command_ReplaceAll,
     Command_ReplaceAfter,
     Command_ReplaceBefore,
@@ -26,10 +28,10 @@ class AppCommands {
     Command_ReplaceFirst,
     Command_ReplaceLast,
     Command_Run,
-    Command_AppendClipboardToFile,
     Command_SaveClipboardToFile,
-    Command_Version,
-    Command_Invalid
+    Command_UrlEncode,
+    Command_UrlDecode,
+    Command_Version
   };
 
   explicit AppCommands(std::string argc);
