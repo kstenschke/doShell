@@ -86,6 +86,7 @@ class S2sTranspiler {
   void MakeRuntimeScriptExecutable() const;
   void SaveSourceToRuntimeScript();
   bool RemoveTemporaryExecutionFile();
+  std::string GetBasePathBySourceFile() const;
 };
 
 }  // namespace doShell

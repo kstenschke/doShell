@@ -155,6 +155,8 @@ bool S2sTranspiler::ResolveImports() {
   int32_t offset_start;
 
   helper::String::ReplaceAll(&source_, "::FILE::", path_source_file_abs_);
+  helper::String::ReplaceAll(&source_, "::DIR::", GetBasePathBySourceFile());
+
   ReplaceLineNumberMacros(&source_);
 
   while ((offset_start = source_.find("#import ")) != std::string::npos) {
@@ -198,6 +200,20 @@ bool S2sTranspiler::ResolveImports() {
   }
 
   return true;
+}
+
+std::string S2sTranspiler::GetBasePathBySourceFile() const {
+  std::vector<std::string> parts = helper::String::Explode(path_source_file_abs_, '/');
+  std::string path_file;
+  int index = 0;
+  unsigned long amount_parts = parts.size();
+  for (auto &part : parts) {
+    if (index == amount_parts) break;
+
+    path_file += part + "/";
+    ++index;
+  }
+  return path_file;
 }
 
 int S2sTranspiler::ReplaceLineNumberMacros(std::string *code) {
