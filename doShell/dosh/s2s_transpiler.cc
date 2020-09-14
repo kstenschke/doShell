@@ -204,15 +204,20 @@ bool S2sTranspiler::ResolveImports() {
 
 std::string S2sTranspiler::GetBasePathBySourceFile() const {
   std::vector<std::string> parts = helper::String::Explode(path_source_file_abs_, '/');
-  std::string path_file;
+
   int index = 0;
   unsigned long amount_parts = parts.size();
+
+  std::string path_file;
+
   for (auto &part : parts) {
     if (index == amount_parts) break;
 
     path_file += part + "/";
+
     ++index;
   }
+
   return path_file;
 }
 
