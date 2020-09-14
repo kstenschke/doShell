@@ -1,10 +1,10 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_
-#define DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_
 
-#include "transpileClipboard.h"
+#include "transpile_clipboard.h"
 #include <doShell/helper/helper_string.h>
 #include <string>
 
@@ -30,4 +30,4 @@ class transpileBrowser {
   static bool TranspilePostFormData(std::string *code, bool is_linux);
 };
 }  // namespace doShell
-#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILEBROWSER_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_

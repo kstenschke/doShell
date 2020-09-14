@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILERANDOM_H_
-#define DOSHELL_DOSH_TRANSPILE_TRANSPILERANDOM_H_
+#ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILE_RANDOM_H_
+#define DOSHELL_DOSH_TRANSPILE_TRANSPILE_RANDOM_H_
 
 #include <doShell/helper/helper_string.h>
 #include <string>
@@ -14,4 +14,4 @@ class transpileRandom {
 };
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILERANDOM_H_
+#endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_RANDOM_H_

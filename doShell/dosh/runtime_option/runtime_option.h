@@ -1,16 +1,16 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_RUNTIMEOPTIONS_RUNTIMEOPTIONS_H_
-#define DOSHELL_DOSH_RUNTIMEOPTIONS_RUNTIMEOPTIONS_H_
+#ifndef DOSHELL_DOSH_RUNTIME_OPTION_RUNTIME_OPTION_H_
+#define DOSHELL_DOSH_RUNTIME_OPTION_RUNTIME_OPTION_H_
 
 #include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/dosh/transpile/transpileClipboard.h>
-#include <doShell/dosh/transpile/transpileBrowser.h>
-#include <doShell/dosh/transpile/transpileKeystrokes.h>
+#include <doShell/dosh/transpile/transpile_clipboard.h>
+#include <doShell/dosh/transpile/transpile_browser.h>
+#include <doShell/dosh/transpile/transpile_keystrokes.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
@@ -21,11 +21,11 @@
 
 namespace doShell {
 
-class runtimeOptions {
+class runtimeOption {
  public:
   static bool ReplaceRunTimeMacros(std::string *code, bool is_linux);
 };
 
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_RUNTIMEOPTIONS_RUNTIMEOPTIONS_H_
+#endif  // DOSHELL_DOSH_RUNTIME_OPTION_RUNTIME_OPTION_H_

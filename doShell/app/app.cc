@@ -24,20 +24,12 @@ App::~App() {
   delete command_;
 }
 
-void App::SetPathIn(const std::string &path_docx_in) {
-  path_in_ = path_docx_in;
-}
-
-void App::SetPathOut(const std::string &path_docx_out) {
-  path_out_ = path_docx_out;
-}
-
 bool App::Process() {
   auto arguments = new AppArgument(argc_, argv_);
 
   AppCommands::Command command = command_->GetResolved();
 
-  bool result = true;
+  bool result;
 
   if (AppCommands::IsStringManipulationCommand(command)) {
     result = ProcessStringCommand(command);
@@ -52,7 +44,7 @@ bool App::Process() {
         break;
       }
       case AppCommands::Command_Compile: {  // c - compile
-        auto compiler = new Compiler(argc_, argv_);
+        auto compiler = new S2sTranspiler(argc_, argv_);
         result = compiler->Compile();
 
         delete compiler;
@@ -74,7 +66,7 @@ bool App::Process() {
       }
         break;
       case AppCommands::Command_Run: {  // r - compile and run
-        auto compiler = new Compiler(argc_, argv_);
+        auto compiler = new S2sTranspiler(argc_, argv_);
         result = compiler->Compile();
 
         if (!result) {
@@ -149,7 +141,7 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
 
 bool App::ProcessUrlParserCommand(AppCommands::Command command) {
   bool result = false;
-  auto *UrlParser = new shellCommandUrlParser(argc_, argv_);
+  auto *UrlParser = new shellCommandUrl(argc_, argv_);
 
   switch (command) {
     case AppCommands::Command_GetSchemeFromUrl:  // getSchemeFromUrl
@@ -168,8 +160,16 @@ bool App::ProcessUrlParserCommand(AppCommands::Command command) {
       result = UrlParser->GetQueryFromUrl();
 
       break;
+    case AppCommands::Command_UrlEncode:  // urlEncode
+      result = UrlParser->Encode();
+
+      break;
+    case AppCommands::Command_UrlDecode:  // urlDecode
+      result = UrlParser->Encode();
+
+      break;
     default:
-      return false;
+      result = false;
   }
 
   delete UrlParser;

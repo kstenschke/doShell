@@ -34,9 +34,11 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "replaceBetween") return Command_ReplaceBetween;
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
-  if (command == "-r" || command == "run") return Command_Run;
+  if (command == "run" || command == "-r") return Command_Run;
   if (command == "saveClipboardToFile") return Command_SaveClipboardToFile;
-  if (command == "-h" || command == "help" || command == "?")
+  if (command == "urlEncode") return Command_UrlEncode;
+  if (command == "urlDecode") return Command_UrlDecode;
+  if (command == "help" || command == "-h" || command == "?")
     return Command_Help;
   if (command == "-v" || command == "version") return Command_Version;
 
@@ -64,6 +66,8 @@ bool AppCommands::IsUrlParserCommand(AppCommands::Command command) {
     case Command_GetHostFromUrl:
     case Command_GetPathFromUrl:
     case Command_GetQueryFromUrl:
+    case Command_UrlEncode:
+    case Command_UrlDecode:
       return true;
     default:
       return false;

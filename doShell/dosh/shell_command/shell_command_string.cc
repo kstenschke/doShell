@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#include <doShell/dosh/shellCommand/shellCommandString.h>
+#include <doShell/dosh/shell_command/shell_command_string.h>
 
 namespace doShell {
 

@@ -16,8 +16,8 @@ doShell
     + [Import](#import)
     + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
-    + [Random values](#random-values)
     + [URL parsing](#url-parsing)
+    + [Random values](#random-values)
     + [File manipulation](#file-manipulation)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
@@ -114,7 +114,7 @@ before the eventual execution in a sandboxed shell-thread.
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | ``#!browser chromium``                | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
 | ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
-| ``#!mouse "ETP/2 Elantech Touchpad"`` | Primare mouse device, as listed via ``xinput list`` (ATM: Linux only)                                              |
+| ``#!mouse "ETP/2 Elantech Touchpad"`` | Declares primary mouse device to doShell (named as listed via ``xinput list``) (ATM: Linux only)                   |
 
 **Convention:** Runtime flags should be given only once per script, following the shebang line:
 
@@ -195,21 +195,23 @@ like:
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 
+### URL parsing
+
+| Command                    | Description                                                      |
+| -------------------------- | ---------------------------------------------------------------- |
+| ``#getSchemeFromUrl $URL`` | Extract scheme from given URL, e.g. ``http`` or ``https``        |
+| ``#getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
+| ``#getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
+| ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+| ``#urlEncode $URL``        | Encode given URL                                                 |
+| ``#urlDecode $URL``        | Decode given URL                                                 |
+
+
 ### Random values
 
 | Command                           | Description                                      |
 | --------------------------------- | ------------------------------------------------ |
 | ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100  |
-
-
-### URL parsing
-
-| Command                                | Description                                                      |
-| -------------------------------------- | ---------------------------------------------------------------- |
-| ``#getSchemeFromUrl $URL``             | Extract scheme from given URL, e.g. ``http`` or ``https``        |
-| ``#getHostFromUrl $URL``               | Extract host from given URL, e.g. ``www.example.com``            |
-| ``#getPathFromUrl $URL``               | Extract path from given URL, e.g. ``/foo/bar``                   |
-| ``#getQueryFromUrl $URL``              | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
 
 
 ### File manipulation

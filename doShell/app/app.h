@@ -8,10 +8,10 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/dosh/runtime.h>
-#include <doShell/dosh/shellCommand/shellCommandClipboard.h>
-#include <doShell/dosh/shellCommand/shellCommandString.h>
-#include <doShell/dosh/shellCommand/shellCommandUrlParser.h>
+#include <doShell/dosh/s2s_transpiler.h>
+#include <doShell/dosh/shell_command/shell_command_clipboard.h>
+#include <doShell/dosh/shell_command/shell_command_string.h>
+#include <doShell/dosh/shell_command/shell_command_url.h>
 #include <doShell/helper/helper_dateTime.h>
 
 #include <cstring>
@@ -31,9 +31,6 @@ class App {
   App(int argc, const std::vector<std::string>& argv);
 
   virtual ~App();
-
-  void SetPathIn(const std::string &path_docx_in);
-  void SetPathOut(const std::string &path_docx_out);
 
   // Process command + arguments
   bool Process();

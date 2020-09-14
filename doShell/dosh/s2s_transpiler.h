@@ -8,16 +8,16 @@
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
-#include <doShell/dosh/runtimeOptions/runtimeOptions.h>
-#include <doShell/dosh/transpile/transpileBrowser.h>
-#include <doShell/dosh/transpile/transpileClipboard.h>
-#include <doShell/dosh/transpile/transpileDialog.h>
-#include <doShell/dosh/transpile/transpileKeystrokes.h>
-#include <doShell/dosh/transpile/transpilePlatform.h>
-#include <doShell/dosh/transpile/transpileRandom.h>
-#include <doShell/dosh/transpile/transpileString.h>
-#include <doShell/dosh/transpile/transpileTerminal.h>
-#include <doShell/dosh/transpile/transpileUrl.h>
+#include <doShell/dosh/runtime_option/runtime_option.h>
+#include <doShell/dosh/transpile/transpile_browser.h>
+#include <doShell/dosh/transpile/transpile_clipboard.h>
+#include <doShell/dosh/transpile/transpile_dialog.h>
+#include <doShell/dosh/transpile/transpile_keystrokes.h>
+#include <doShell/dosh/transpile/transpile_platform.h>
+#include <doShell/dosh/transpile/transpile_random.h>
+#include <doShell/dosh/transpile/transpile_string.h>
+#include <doShell/dosh/transpile/transpile_terminal.h>
+#include <doShell/dosh/transpile/transpile_url.h>
 #include <doShell/helper/helper_cli.h>
 
 #include <cstring>
@@ -28,10 +28,10 @@
 
 namespace doShell {
 
-class Compiler {
+class S2sTranspiler {
  public:
   // Constructor: init (resolve) command and arguments
-  Compiler(int argc, const std::vector<std::string>& argv);
+  S2sTranspiler(int argc, const std::vector<std::string>& argv);
 
   // Transpile given *.do.sh file to *.sh
   bool Compile();
@@ -42,7 +42,7 @@ class Compiler {
   // 4. Delete dosh copy
   bool Execute();
 
-  virtual ~Compiler();
+  virtual ~S2sTranspiler();
 
  private:
   int argc_;
@@ -78,7 +78,7 @@ class Compiler {
   static bool RemoveSheBangLine(std::string *import_content);
 
   void TranspileCommands();
-  bool ContainsCommands();
+  bool SourceContainsCommands();
 
   bool ParsePhp();
 
