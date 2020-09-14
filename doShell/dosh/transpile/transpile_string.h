@@ -10,10 +10,15 @@
 namespace doShell {
 class transpileString {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  transpileString(std::string path_binary);
+
+  static void Transpile(
+      std::string *code, bool is_linux, std::string path_binary);
 
  private:
-  static bool TranspileExtractBetween(std::string *code);
+  std::string path_binary_;
+
+  bool TranspileExtractBetween(std::string *code);
   static bool TranspileReplaceAfter(std::string *code);
   static bool TranspileReplaceAll(std::string *code);
   static bool TranspileReplaceBefore(std::string *code);

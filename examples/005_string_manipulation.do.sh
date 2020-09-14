@@ -2,7 +2,7 @@
 # String helper commands
 
 # output: Between
-echo #extractBetween "beforeBetweenAfter" before After
+echo $("#extractBetween 'beforeBetweenAfter' before After")
 
 # output: replaced successfully
 echo #replaceAfter "replaceAfter" After "d successfully"

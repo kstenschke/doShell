@@ -41,7 +41,12 @@ void S2sTranspiler::TranspileCommands() {
 
   do {
     if ((contains_commands = SourceContainsCommands())) {
-      transpileString::Transpile(&source_, is_linux_);
+      const char *path_binary_relative = argv_[0].c_str();
+      auto path_binary = helper::File::GetAbsoluteFromRelativePath(
+          path_binary_relative);
+
+      transpileString::Transpile(&source_, is_linux_, path_binary);
+
       transpileUrl::Transpile(&source_, is_linux_);
       transpileRandom::Transpile(&source_, is_linux_);
       transpileClipboard::Transpile(&source_, is_linux_);

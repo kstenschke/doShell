@@ -3,10 +3,21 @@
 
 #include <doShell/dosh/transpile/transpile_string.h>
 
+#include <utility>
+
 namespace doShell {
 
-void transpileString::Transpile(std::string *code, bool is_linux) {
-  TranspileExtractBetween(code);
+transpileString::transpileString(std::string path_binary) {
+  path_binary_ = std::move(path_binary);
+}
+
+void transpileString::Transpile(
+    std::string *code, bool is_linux, std::string path_binary) {
+  auto *instance = new transpileString(std::move(path_binary));
+
+  instance->TranspileExtractBetween(code);
+
+  delete instance;
 
   if (!helper::String::Contains(*code, "#replace")) return;
 
@@ -20,7 +31,7 @@ void transpileString::Transpile(std::string *code, bool is_linux) {
 
 bool transpileString::TranspileExtractBetween(std::string *code) {
   return 0 < helper::String::ReplaceAll(
-      code, "#extractBetween", "dosh extractBetween");
+      code, "#extractBetween", path_binary_ + " extractBetween");
 }
 
 bool transpileString::TranspileReplaceAfter(std::string *code) {

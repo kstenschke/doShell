@@ -308,4 +308,13 @@ bool File::IsWordCompatibleImage(const std::string &filename) {
       || helper::String::EndsWith(str, ".wmf"));
 }
 
+std::string File::GetAbsoluteFromRelativePath(const char *path_relative) {
+  char absolute_path[255];
+  char *ptr;
+
+  ptr = realpath(path_relative, absolute_path);
+
+  return std::string(ptr);
+}
+
 }  // namespace helper

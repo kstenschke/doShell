@@ -71,6 +71,8 @@ extern std::string GetTmpName();
 
 extern bool IsWordCompatibleImage(const std::string &filename);
 
+extern std::string GetAbsoluteFromRelativePath(const char *path_relative);
+
 }  // namespace File
 }  // namespace helper
 
