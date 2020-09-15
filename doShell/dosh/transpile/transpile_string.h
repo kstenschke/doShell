@@ -10,6 +10,7 @@
 namespace doShell {
 class transpileString {
  public:
+
   transpileString(std::string path_binary);
 
   static void Transpile(
@@ -19,12 +20,12 @@ class transpileString {
   std::string path_binary_;
 
   bool TranspileExtractBetween(std::string *code);
-  static bool TranspileReplaceAfter(std::string *code);
-  static bool TranspileReplaceAll(std::string *code);
-  static bool TranspileReplaceBefore(std::string *code);
-  static bool TranspileReplaceBetween(std::string *code);
-  static bool TranspileReplaceFirst(std::string *code);
-  static bool TranspileReplaceLast(std::string *code);
+  bool TranspileReplaceAfter(std::string *code);
+  bool TranspileReplaceAll(std::string *code);
+  bool TranspileReplaceBefore(std::string *code);
+  bool TranspileReplaceBetween(std::string *code);
+  bool TranspileReplaceFirst(std::string *code);
+  bool TranspileReplaceLast(std::string *code);
 };
 }  // namespace doShell
 

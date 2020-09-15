@@ -16,8 +16,8 @@ bool transpileRandom::Transpile(std::string *code, bool is_linux) {
 //  *code = std::regex_replace(*code, exp, replacement);
 
   // Random number in range of given min - max
-  std::string replacement = "$(( $RANDOM % ($2 - $1 + 1) + $1 ));";
   std::regex exp2("#random (\\d+) (\\d+)");
+  std::string replacement = "$(( $RANDOM % ($2 - $1 + 1) + $1 ));";
 
   *code = std::regex_replace(*code, exp2, replacement);
 

@@ -10,7 +10,20 @@
 namespace doShell {
 class transpileUrl {
  public:
-  static bool Transpile(std::string *code, bool is_linux);
+  transpileUrl(std::string path_binary);
+
+  static void Transpile(
+      std::string *code, bool is_linux, std::string path_binary);
+
+ private:
+  std::string path_binary_;
+
+  bool TranspileGetScheme(std::string *code);
+  bool TranspileGetQuery(std::string *code);
+  bool TranspileGetPath(std::string *code);
+  bool TranspileGetHost(std::string *code);
+  bool TranspileEncode(std::string *code);
+  bool TranspileDecode(std::string *code);
 };
 }  // namespace doShell
 

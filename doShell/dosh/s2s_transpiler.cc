@@ -46,8 +46,8 @@ void S2sTranspiler::TranspileCommands() {
           path_binary_relative);
 
       transpileString::Transpile(&source_, is_linux_, path_binary);
+      transpileUrl::Transpile(&source_, is_linux_, path_binary);
 
-      transpileUrl::Transpile(&source_, is_linux_);
       transpileRandom::Transpile(&source_, is_linux_);
       transpileClipboard::Transpile(&source_, is_linux_);
       transpileBrowser::Transpile(&source_, is_linux_);
