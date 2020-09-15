@@ -17,9 +17,11 @@ void transpileString::Transpile(
 
   instance->TranspileExtractBetween(code);
 
-  delete instance;
+  if (!helper::String::Contains(*code, "#replace")) {
+    delete instance;
 
-  if (!helper::String::Contains(*code, "#replace")) return;
+    return;
+  }
 
   TranspileReplaceAfter(code);
   TranspileReplaceAll(code);
@@ -27,11 +29,19 @@ void transpileString::Transpile(
   TranspileReplaceBetween(code);
   TranspileReplaceFirst(code);
   TranspileReplaceLast(code);
+
+  delete instance;
 }
 
 bool transpileString::TranspileExtractBetween(std::string *code) {
-  return 0 < helper::String::ReplaceAll(
-      code, "#extractBetween", path_binary_ + " extractBetween");
+  if (!helper::String::Contains(*code, "#extractBetween")) return false;
+
+  std::regex exp2("#extractBetween (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " extractBetween $1 $2 $3);";
+
+  *code = std::regex_replace(*code, exp2, replacement);
+
+  return true;
 }
 
 bool transpileString::TranspileReplaceAfter(std::string *code) {
