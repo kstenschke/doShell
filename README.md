@@ -195,8 +195,8 @@ like:
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 **\*Remark on transpilation of built-in commands:**  
-Built-in commands are ultimately transposed into invoking again the doShell binary, 
-for example the line ``echo #extractBetween abcde a e`` is ultimately transpiled into: 
+Built-in commands are ultimately transposed into invoking again the doShell binary.  
+For example the line ``echo #extractBetween abcde a e`` is ultimately transpiled into:  
 ``echo $(your/local/path/to/dosh extractBetween abcde a e)`` and will output: ``bcd``.
 
 
