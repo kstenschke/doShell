@@ -10,14 +10,14 @@ echo #replaceAfter "replaceAfter" After "d successfully"
 # output: the deer went there
 echo #replaceAll "tho door wont thoro" o e
 
-# output: has been replaced successfully
-echo #replaceBefore "replaceBefore successfully" Before "has been replaced"
+# output: foo bar baz qux
+echo #replaceBefore "thingummibob bar baz qux" bat foo
 
-# output: hello there, test
-echo #replaceBetween "hello world this is a test" world a "there,"
+# output: foo bar baz qux
+echo #replaceBetween "foo thingummibob qux" foo qux " bar baz "
 
-# output: foo qux baz bar
-echo #replaceFirst "foo bar baz bar" bar qux
+# output: foo bar baz qux
+echo #replaceFirst "bar bar baz qux" bar foo
 
 # output: foo bar baz qux
 echo #replaceLast "foo bar baz bar" bar qux
