@@ -159,11 +159,14 @@ running the given file:
 
 | Macro               | Replaced by                                                      | Replaced during  |
 | ------------------- | ---------------------------------------------------------------- | ---------------- |
+| ``::DATE::``        | Current date, e.g: ``09/16/20``                                  | Runtime          |
 | ``::DIR::``         | Absolute path of current file w/o filename                       | Transpilation    |
 | ``::FILE::``        | Absolute path of current file including the filename             | Transpilation    |
 | ``::LINE::``        | Line number in current file                                      | Transpilation    |
 | ``::OS::``          | ``linux`` or ``mac``                                             | Runtime          |
-| ``::TIME::``        | Current time of day, e.g: ``22:32:30``                           | Execution        |
+| ``::TIME::``        | Current time of day, e.g: ``22:32:30``                           | Runtime          |
+| ``::YEAR::``        | Current year: ``2020``                                           | Runtime          |
+
 
 
 ## Commands
