@@ -133,9 +133,6 @@ The following predefined macros are replaced during transpilation or at runtime 
 | ``::DIR::``         | Absolute path of current file w/o filename                       | Transpiler     |
 | ``::FILE::``        | Absolute path of current file including the filename             | Transpiler     |
 | ``::LINE::``        | Line number in current file                                      | Transpiler     |
-| ``::TIME_HHMM::``   | Current time of day, e.g. ``12:30``                              | Runtime System |
-| ``::TIME_HHMMSS::`` | Current time of day, e.g. ``12:30:50``                           | Runtime System |
-| ``::TIMESTAMP::``   | Current UNIX timestamp (Seconds since 1.1.1970)                  | Runtime System |
 | ``::OS::``          | ``linux`` or ``mac``                                             | Runtime System |
 
 
