@@ -44,22 +44,22 @@ to operations involving web browsing and shell.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
-To quickly get an impression of doShell's syntax and capabilities, 
-have a look at the included /examples/. 
+To directly get an idea of doShell's syntax and some of it's abilities, 
+have a glance at the included /examples/. 
 
 **What about Windows?**
 On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
 
 ### Features
 
-* Automation of simulated user control of (foremost) web browser and 
+* Automation of mimicked user control of (foremost) web browser and 
   terminal operations
 * Built-in shorthand commands to ease operations that differ per
   platform or are not easily memorable in plain shell script
 * Commands for easily using GUI dialogs from within scripts
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
-* As all browser automation is done by simulated user interaction, 
+* As all browser automation is achieved by fake user interaction, 
   a completely regular, unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
