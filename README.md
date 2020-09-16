@@ -10,8 +10,8 @@ doShell
     + [Transpile and/or run](#transpile-and/or-run) 
   + [Runtime options](#runtime-options)
     + [Runtime flags](#runtime-flags)
-    + [Runtime macros](#runtime-macros)
     + [Conditional blocks](#conditional-blocks)
+  * [Macros](#macros)  
   * [Commands](#commands)
     + [Import](#import)
     + [Inline PHP](#inline-php) 
@@ -124,17 +124,6 @@ blocks before the eventual execution in a sandboxed shell-thread.
 
 ````
 
-### Runtime macros
-
-The following predefined macros are replaced during transpilation or at runtime by generic content:  
-
-| Macro               | Replaced by                                                      | Replaced via   |
-| ------------------- | ---------------------------------------------------------------- | -------------- |
-| ``::DIR::``         | Absolute path of current file w/o filename                       | Transpiler     |
-| ``::FILE::``        | Absolute path of current file including the filename             | Transpiler     |
-| ``::LINE::``        | Line number in current file                                      | Transpiler     |
-| ``::OS::``          | ``linux`` or ``mac``                                             | Runtime System |
-
 
 ### Conditional blocks
 
@@ -163,6 +152,21 @@ JSON-formatted when invoking the doShell interpreter to run a ``*.do.x.sh`` file
 Replace all occurences of ``::FOO::`` by ``bar`` before
 running the given file:  
 ``shdo -r script.do.x.sh "{\"::FOO::\":\"bar\"}"``  
+
+
+
+### Macros
+
+The following predefined macros are replaced during transpilation, pre-exection or at runtime
+(see [functional flow diagram](#functional-flow)) by generic content:  
+
+| Macro               | Replaced by                                                      | Replaced during  |
+| ------------------- | ---------------------------------------------------------------- | ---------------- |
+| ``::DIR::``         | Absolute path of current file w/o filename                       | Transpilation    |
+| ``::FILE::``        | Absolute path of current file including the filename             | Transpilation    |
+| ``::LINE::``        | Line number in current file                                      | Transpilation    |
+| ``::OS::``          | ``linux`` or ``mac``                                             | Runtime          |
+| ``::TIME::``        | Current time of day, e.g: ``22:32:30``                           | Runtime          |
 
 
 ## Commands
