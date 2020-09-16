@@ -221,8 +221,9 @@ For example the line ``echo #extractBetween abcde a e`` is ultimately transpiled
 
 ### File manipulation
 
-All file manipulations allow as optional last argument a destination file path,
-if not given, they overwrite the given source file.
+All file manipulations commands output the manipulated
+file contents, to over/write results back to files, 
+you can use the shell operator ``>``. 
 
 
 | Command                                                         | Description                                             |
