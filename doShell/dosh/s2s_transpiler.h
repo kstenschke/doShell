@@ -8,11 +8,11 @@
 #include <doShell/app/app_help.h>
 #include <doShell/app/app_log.h>
 #include <doShell/config.h>
-#include <doShell/dosh/runtime_option/runtime_option.h>
 #include <doShell/dosh/transpile/transpile_browser.h>
 #include <doShell/dosh/transpile/transpile_clipboard.h>
 #include <doShell/dosh/transpile/transpile_dialog.h>
 #include <doShell/dosh/transpile/transpile_keystrokes.h>
+#include <doShell/dosh/transpile/transpile_macro.h>
 #include <doShell/dosh/transpile/transpile_platform.h>
 #include <doShell/dosh/transpile/transpile_random.h>
 #include <doShell/dosh/transpile/transpile_string.h>

@@ -97,7 +97,7 @@ bool S2sTranspiler::Execute() {
   InitPathFileRuntime();
 
   transpilePlatform::Transpile(&source_, is_linux_);
-  runtimeOption::ReplaceRunTimeMacros(&source_, is_linux_);
+  transpileMacros::Transpile(&source_, is_linux_);
   ParsePhp();
 
   SaveSourceToRuntimeScript();

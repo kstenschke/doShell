@@ -20,9 +20,9 @@
 
 namespace doShell {
 
-class runtimeOption {
+class transpileMacros {
  public:
-  static bool ReplaceRunTimeMacros(std::string *code, bool is_linux);
+  static void Transpile(std::string *code, bool is_linux);
 };
 
 }  // namespace doShell

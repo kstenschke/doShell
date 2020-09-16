@@ -39,9 +39,6 @@ add_executable(dosh
         doShell/dosh/s2s_transpiler.cc
         doShell/dosh/s2s_transpiler.h
 
-        doShell/dosh/runtime_option/runtime_option.cc
-        doShell/dosh/runtime_option/runtime_option.h
-
         doShell/dosh/shell_command/shell_command_clipboard.cc
         doShell/dosh/shell_command/shell_command_clipboard.h
         doShell/dosh/shell_command/shell_command_string.cc
@@ -57,6 +54,8 @@ add_executable(dosh
         doShell/dosh/transpile/transpile_dialog.h
         doShell/dosh/transpile/transpile_keystrokes.cc
         doShell/dosh/transpile/transpile_keystrokes.h
+        doShell/dosh/transpile/transpile_macro.cc
+        doShell/dosh/transpile/transpile_macro.h
         doShell/dosh/transpile/transpile_platform.cc
         doShell/dosh/transpile/transpile_platform.h
         doShell/dosh/transpile/transpile_random.cc
