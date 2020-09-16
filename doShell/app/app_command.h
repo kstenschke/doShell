@@ -41,6 +41,7 @@ class AppCommands {
   static bool IsStringManipulationCommand(AppCommands::Command command);
   static bool IsUrlParserCommand(AppCommands::Command command);
   static bool IsTranspilerCommand(AppCommands::Command command);
+  static bool IsClipboardCommand(AppCommands::Command command);
 
   Command GetResolved();
 

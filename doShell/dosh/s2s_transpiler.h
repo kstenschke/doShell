@@ -4,9 +4,9 @@
 #ifndef DOSHELL_DOSH_RUNTIME_H_
 #define DOSHELL_DOSH_RUNTIME_H_
 
-#include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
+#include <doShell/app/app_log.h>
 #include <doShell/config.h>
 #include <doShell/dosh/runtime_option/runtime_option.h>
 #include <doShell/dosh/transpile/transpile_browser.h>
@@ -19,6 +19,7 @@
 #include <doShell/dosh/transpile/transpile_terminal.h>
 #include <doShell/dosh/transpile/transpile_url.h>
 #include <doShell/helper/helper_cli.h>
+#include <doShell/helper/helper_file.h>
 
 #include <cstring>
 #include <iostream>

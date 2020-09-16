@@ -84,4 +84,14 @@ bool AppCommands::IsTranspilerCommand(AppCommands::Command command) {
   }
 }
 
+bool AppCommands::IsClipboardCommand(AppCommands::Command command) {
+  switch (command) {
+    case Command_AppendClipboardToFile:
+    case Command_SaveClipboardToFile:
+      return true;
+    default:
+      return false;
+  }
+}
+
 }  // namespace doShell

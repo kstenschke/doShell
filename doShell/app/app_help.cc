@@ -78,15 +78,6 @@ bool AppHelp::PrintOverview(bool with_title) {
   return true;
 }
 
-bool AppHelp::PrintHelpOnVersion() {
-  std::cout <<
-      "Command: v - Output doShell version number:\n"
-      "-------------------------------------------\n"
-      "  doShell v\n\n";
-
-  return true;
-}
-
 void AppHelp::PrintUnknownArgumentMessage(const std::string& arg) {
   AppLog::NotifyError("Unknown argument: \"" + arg + "\". ");
 

@@ -30,8 +30,6 @@ add_executable(dosh
         doShell/main.cpp
         doShell/app/app.cc
         doShell/app/app.h
-        doShell/app/app_argument.cc
-        doShell/app/app_argument.h
         doShell/app/app_command.cc
         doShell/app/app_command.h
         doShell/app/app_help.cc

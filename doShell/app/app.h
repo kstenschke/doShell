@@ -4,8 +4,6 @@
 #ifndef DOSHELL_APP_APP_H_
 #define DOSHELL_APP_APP_H_
 
-#include <doShell/app/app_argument.h>
-#include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>
 #include <doShell/dosh/s2s_transpiler.h>
@@ -44,6 +42,7 @@ class App {
   std::string path_in_;
   std::string path_out_;  // Output path with/or filename
 
+  bool ProcessClipboardCommand(AppCommands::Command command);
   bool ProcessStringCommand(AppCommands::Command command);
   bool ProcessUrlParserCommand(AppCommands::Command command);
   bool ProcessTranspilerCommand(AppCommands::Command command);

@@ -4,7 +4,6 @@
 #ifndef DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_STRING_H_
 #define DOSHELL_DOSH_SHELL_COMMAND_SHELL_COMMAND_STRING_H_
 
-#include <doShell/app/app_argument.h>
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
 #include <doShell/config.h>

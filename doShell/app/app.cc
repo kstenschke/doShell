@@ -25,8 +25,6 @@ App::~App() {
 }
 
 bool App::Process() {
-  auto arguments = new AppArgument(argc_, argv_);
-
   AppCommands::Command command = command_->GetResolved();
 
   bool result;
@@ -37,14 +35,10 @@ bool App::Process() {
     result = ProcessUrlParserCommand(command);
   } else if (AppCommands::IsTranspilerCommand(command)) {
     result = ProcessTranspilerCommand(command);
+  } else if (AppCommands::IsClipboardCommand(command)) {
+    result = ProcessClipboardCommand(command);
   } else {
     switch (command) {
-      case AppCommands::Command_AppendClipboardToFile: {
-        // appendClipboardToFile
-        std::string path_file = argv_[2];
-        result = shellCommandClipboard::appendClipboardToFile(path_file);
-        break;
-      }
       case AppCommands::Command_Help: {  // h - output help
         AppCommands::Command kCommand;
         std::string command_identifier;
@@ -59,11 +53,6 @@ bool App::Process() {
         result = AppHelp::PrintHelp(true, kCommand, command_identifier);
       }
         break;
-      case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
-        std::string path_file = argv_[2];
-        result = shellCommandClipboard::saveClipboardToFile(path_file);
-        break;
-      }
       case AppCommands::Command_Version:  // v - output version
         result = AppHelp::PrintVersion();
         break;
@@ -72,8 +61,6 @@ bool App::Process() {
         result = false;
     }
   }
-
-  delete arguments;
 
   return result;
 }
@@ -113,6 +100,24 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
   delete StringCommands;
 
   return result;
+}
+
+bool App::ProcessClipboardCommand(AppCommands::Command command) {
+  switch (command) {
+    case AppCommands::Command_AppendClipboardToFile: {
+      // appendClipboardToFile
+      std::string path_file = argv_[2];
+
+      return shellCommandClipboard::appendClipboardToFile(path_file);
+    }
+    case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
+      std::string path_file = argv_[2];
+
+      return shellCommandClipboard::saveClipboardToFile(path_file);
+    }
+    default:
+      return false;
+  }
 }
 
 bool App::ProcessTranspilerCommand(AppCommands::Command command) {

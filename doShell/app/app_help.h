@@ -6,6 +6,7 @@
 
 #include <doShell/config.h>
 #include <doShell/app/app.h>
+#include <doShell/app/app_command.h>
 
 #include <string>
 #include <iostream>
@@ -16,13 +17,9 @@ class AppHelp {
  public:
   static bool PrintVersion();
 
-  static bool PrintHelpOnRun();
-
   static bool PrintHelp(bool with_title,
                         AppCommands::Command command,
                         const std::string &command_identifier = "");
-
-  static bool PrintHelpOnVersion();
 
   static bool PrintOverview(bool with_title);
 
