@@ -51,9 +51,9 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 * Automation of simulated user control of (foremost) web browser and 
   terminal operations
-* Built-in shorthands and commands to ease operations that are overly
-  complicated or not easily memorable in plain shell script
-  (string-manipulation in variables, files and clipboard; randomization etc.)
+* Built-in shorthands and commands to ease operations that are not easily
+  memorable in plain shell script (string-manipulation in variables,
+  files and clipboard; randomization and more)
 * Commands for easily using GUI dialogs from within scripts
 * Options that aren't available identically on linux and mac are solved by the 
   runtime system invoking 3rd party tools, that vary by platform: 
