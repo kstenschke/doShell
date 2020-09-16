@@ -67,13 +67,13 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 ### Mission targets
 
-1. Ease (shell) scripting of interactive cross-platform-compatible automation
+1. Ease (shell) scripting of interactive cross-platform compatible automation
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
    2. To avoid automation scripts being bloated with ``sleep`` commands,
    automation commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
-   1. Reuse and integrate existing tools  (shell script, xdotool / applescript, 
+   1. Use and combine existing tools  (shell script, xdotool / applescript, 
       php, ...)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
@@ -99,9 +99,9 @@ skipped.
 
 doShell transpiles to intermediary shell script files: additional to 
 conventional shell script code, they can contain runtime macros: 
-placeholder-strings for generic content, and runtime variables. The doShell 
-runtime system replaces runtime macros, -variables and -conditional blocks 
-before the eventual execution in a sandboxed shell-thread. 
+placeholder-strings for generic content, and runtime variables.
+The doShell runtime system replaces runtime macros, -variables and -conditional
+blocks before the eventual execution in a sandboxed shell-thread. 
 
 
 ## Runtime options
