@@ -223,7 +223,7 @@ For example the line ``echo #extractBetween abcde a e`` is ultimately transpiled
 
 All file manipulations commands output the manipulated
 file contents, to over/write results back to files, 
-you can use the shell operator ``>``. 
+you can use the shell redirection operator ``>``. 
 
 
 | Command                                                         | Description                                             |
