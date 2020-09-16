@@ -39,7 +39,7 @@ doShell
 ## What does it do?
 
 doShell is a scripting language, transpiler and runtime system for efficient 
-**headfull interactive UI automation** on linux and mac os, foremost but not limited
+**headfull interactive UI automation** on Linux and Mac OS, foremost but not limited
 to operations involving web browsing and shell.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
