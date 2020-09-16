@@ -338,8 +338,8 @@ easily adaptable to other web browsers.
 
 | Command                                               | Description                                          |
 | ----------------------------------------------------- | ---------------------------------------------------- |
-| ``$var=#getBrowserUrl``                               | Get current URL                                      |
-| ``$var=#getBrowserReferrer``                          | Get referrer URL                                     |
+| ``myVar=#getBrowserUrl``                               | Get current URL                                      |
+| ``myVar=#getBrowserReferrer``                          | Get referrer URL                                     |
 | ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
 
 
