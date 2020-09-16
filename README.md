@@ -128,12 +128,16 @@ blocks before the eventual execution in a sandboxed shell-thread.
 
 The following predefined macros are replaced at runtime by generic content.  
 
-| Macro             | Replaced by                                                      |
-| ----------------- | ---------------------------------------------------------------- |
-| ``::OS::``        | ``linux`` or ``mac``                                             |
-| ``::LINE::``      | Line number in current file                                      |
-| ``::FILE::``      | Absolute path of current file including the filename             |
-| ``::DIR::``       | Absolute path of current file w/o filename                       |
+| Macro               | Replaced by                                                      |
+| ------------------- | ---------------------------------------------------------------- |
+| ``::DIR::``         | Absolute path of current file w/o filename                       |
+| ``::FILE::``        | Absolute path of current file including the filename             |
+| ``::LINE::``        | Line number in current file                                      |
+| ``::TIME_HHMM::``   | Current time of day, e.g. ``12:30``                              |
+| ``::TIME_HHMMSS::`` | Current time of day, e.g. ``12:30:50``                           |
+| ``::TIMESTAMP::``   | Current UNIX timestamp (Seconds since 1.1.1970 0:0)              |
+| ``::OS::``          | ``linux`` or ``mac``                                             |
+
 
 ### Conditional blocks
 
