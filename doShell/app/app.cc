@@ -35,6 +35,8 @@ bool App::Process() {
     result = ProcessStringCommand(command);
   } else if (AppCommands::IsUrlParserCommand(command)) {
     result = ProcessUrlParserCommand(command);
+  } else if (AppCommands::IsTranspilerCommand(command)) {
+    result = ProcessTranspilerCommand(command);
   } else {
     switch (command) {
       case AppCommands::Command_AppendClipboardToFile: {
@@ -42,14 +44,6 @@ bool App::Process() {
         std::string path_file = argv_[2];
         result = shellCommandClipboard::appendClipboardToFile(path_file);
         break;
-      }
-      case AppCommands::Command_Compile: {  // c - compile
-        auto compiler = new S2sTranspiler(argc_, argv_);
-        result = compiler->Compile();
-
-        delete compiler;
-
-        return result;
       }
       case AppCommands::Command_Help: {  // h - output help
         AppCommands::Command kCommand;
@@ -65,24 +59,6 @@ bool App::Process() {
         result = AppHelp::PrintHelp(true, kCommand, command_identifier);
       }
         break;
-      case AppCommands::Command_Run: {  // r - compile and run
-        auto compiler = new S2sTranspiler(argc_, argv_);
-        result = compiler->Compile();
-
-        if (!result) {
-          delete arguments;
-          delete compiler;
-
-          return false;
-        }
-
-        result = compiler->Execute();
-
-        delete arguments;
-        delete compiler;
-
-        return result;
-      }
       case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
         std::string path_file = argv_[2];
         result = shellCommandClipboard::saveClipboardToFile(path_file);
@@ -137,6 +113,39 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
   delete StringCommands;
 
   return result;
+}
+
+bool App::ProcessTranspilerCommand(AppCommands::Command command) {
+  bool result;
+
+  switch (command) {
+    case AppCommands::Command_Compile: {  // c - compile
+      auto compiler = new S2sTranspiler(argc_, argv_);
+      result = compiler->Compile();
+
+      delete compiler;
+
+      return result;
+    }
+    case AppCommands::Command_Run: {  // r - compile and run
+      auto compiler = new S2sTranspiler(argc_, argv_);
+      result = compiler->Compile();
+
+      if (!result) {
+        delete compiler;
+
+        return false;
+      }
+
+      result = compiler->Execute();
+
+      delete compiler;
+
+      return result;
+    }
+    default:
+      return false;
+  }
 }
 
 bool App::ProcessUrlParserCommand(AppCommands::Command command) {

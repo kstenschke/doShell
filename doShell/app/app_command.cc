@@ -74,4 +74,14 @@ bool AppCommands::IsUrlParserCommand(AppCommands::Command command) {
   }
 }
 
+bool AppCommands::IsTranspilerCommand(AppCommands::Command command) {
+  switch (command) {
+    case Command_Compile:
+    case Command_Run:
+      return true;
+    default:
+      return false;
+  }
+}
+
 }  // namespace doShell
