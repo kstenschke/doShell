@@ -126,7 +126,7 @@ blocks before the eventual execution in a sandboxed shell-thread.
 
 ### Runtime macros
 
-The following predefined macros are replaced at runtime by generic content.  
+The following predefined macros are replaced during transpilation or at runtime by generic content:  
 
 | Macro               | Replaced by                                                      | Replaced via   |
 | ------------------- | ---------------------------------------------------------------- | -------------- |
