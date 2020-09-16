@@ -135,7 +135,7 @@ The following predefined macros are replaced at runtime by generic content.
 | ``::LINE::``        | Line number in current file                                      |
 | ``::TIME_HHMM::``   | Current time of day, e.g. ``12:30``                              |
 | ``::TIME_HHMMSS::`` | Current time of day, e.g. ``12:30:50``                           |
-| ``::TIMESTAMP::``   | Current UNIX timestamp (Seconds since 1.1.1970 0:0)              |
+| ``::TIMESTAMP::``   | Current UNIX timestamp (Seconds since 1.1.1970)                  |
 | ``::OS::``          | ``linux`` or ``mac``                                             |
 
 
