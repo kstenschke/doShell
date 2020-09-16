@@ -157,16 +157,13 @@ running the given file:
 
 ### Macros
 
-The following predefined macros are replaced during transpilation, pre-exection or at runtime
-(see [functional flow diagram](#functional-flow)) by generic content:  
-
 | Macro               | Replaced by                                                      | Replaced during  |
 | ------------------- | ---------------------------------------------------------------- | ---------------- |
 | ``::DIR::``         | Absolute path of current file w/o filename                       | Transpilation    |
 | ``::FILE::``        | Absolute path of current file including the filename             | Transpilation    |
 | ``::LINE::``        | Line number in current file                                      | Transpilation    |
 | ``::OS::``          | ``linux`` or ``mac``                                             | Runtime          |
-| ``::TIME::``        | Current time of day, e.g: ``22:32:30``                           | Runtime          |
+| ``::TIME::``        | Current time of day, e.g: ``22:32:30``                           | Execution        |
 
 
 ## Commands
