@@ -118,19 +118,16 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
 bool App::ProcessTranspilerCommand(AppCommands::Command command) {
   bool result;
 
+  auto compiler = new S2sTranspiler(argc_, argv_);
+  result = compiler->Compile();
+
   switch (command) {
     case AppCommands::Command_Compile: {  // c - compile
-      auto compiler = new S2sTranspiler(argc_, argv_);
-      result = compiler->Compile();
-
       delete compiler;
 
       return result;
     }
     case AppCommands::Command_Run: {  // r - compile and run
-      auto compiler = new S2sTranspiler(argc_, argv_);
-      result = compiler->Compile();
-
       if (!result) {
         delete compiler;
 
