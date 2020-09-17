@@ -124,7 +124,7 @@ blocks before the eventual execution in a sandboxed shell-thread.
 
 ````
 
-To vary by Pl.  platform:
+To vary by platform:
 
 ````
 #!/usr/bin/env bash
