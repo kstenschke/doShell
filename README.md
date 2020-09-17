@@ -104,6 +104,12 @@ The doShell runtime system replaces runtime macros, -variables and -conditional
 blocks before the eventual execution in a sandboxed shell-thread. 
 
 
+## Conventions
+
+* Instructions that are transpiled and/or parsed at runtime,
+are prefixed with ``#!``.
+* Instructions that transpiled are prefixed with ``#``.
+
 ## Runtime options
 
 ### Runtime flags
