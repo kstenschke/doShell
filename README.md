@@ -124,6 +124,22 @@ blocks before the eventual execution in a sandboxed shell-thread.
 
 ````
 
+To vary by Pl.  platform:
+
+````
+#!/usr/bin/env bash
+
+#if_is_linux
+  #!browser chromium
+#endif_is_linux
+
+#if_is_mac
+  #!browser firefox
+#endif_is_mac
+# ... 
+
+````
+
 
 ### Conditional blocks
 
