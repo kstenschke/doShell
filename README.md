@@ -44,7 +44,7 @@ to operations involving web browsing and shell.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
-To directly get an idea of doShell's syntax and some of it's abilities, 
+To rapidly get an idea of doShell's syntax and some of it's abilities, 
 have a glance at the included /examples/. 
 
 **What about Windows?**
