@@ -38,13 +38,13 @@ doShell
 
 ## What does it do?
 
-doShell is a scripting language, transpiler and runtime system for efficient 
+doShell is a superset of shell script, a transpiler and runtime system for efficient 
 **headfull interactive UI automation** on Linux and Mac OS, foremost but not limited
 to operations involving web browsing and shell.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
-To directly get an idea of doShell's syntax and some of it's abilities, 
+To rapidly get an idea of doShell's syntax and some of it's abilities, 
 have a glance at the included /examples/. 
 
 **What about Windows?**
@@ -104,6 +104,12 @@ The doShell runtime system replaces runtime macros, -variables and -conditional
 blocks before the eventual execution in a sandboxed shell-thread. 
 
 
+## Conventions
+
+* Instructions that are transpiled and/or parsed at runtime,
+are prefixed with ``#!``.
+* Instructions that transpiled are prefixed with ``#``.
+
 ## Runtime options
 
 ### Runtime flags
@@ -120,6 +126,22 @@ blocks before the eventual execution in a sandboxed shell-thread.
 #!/usr/bin/env bash
 #!keep_runtime_file
 
+# ... 
+
+````
+
+To vary by platform:
+
+````
+#!/usr/bin/env bash
+
+#if_is_linux
+  #!browser chromium
+#endif_is_linux
+
+#if_is_mac
+  #!browser firefox
+#endif_is_mac
 # ... 
 
 ````
