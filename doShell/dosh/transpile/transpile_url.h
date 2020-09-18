@@ -10,7 +10,7 @@
 namespace doShell {
 class transpileUrl {
  public:
-  transpileUrl(std::string path_binary);
+  explicit transpileUrl(std::string path_binary);
 
   static void Transpile(
       std::string *code, bool is_linux, std::string path_binary);
