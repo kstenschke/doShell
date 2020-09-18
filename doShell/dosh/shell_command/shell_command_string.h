@@ -28,27 +28,27 @@ class shellCommandString {
   virtual ~shellCommandString();
 
   // Extract text excluding but between "before" and "after"
-  bool ExtractBetween() const;
+  bool ExtractBetween(std::string str = "") const;
 
   // Replace everything after and including
   // the first occurrences of given string
-  bool ReplaceAfter() const;
+  bool ReplaceAfter(std::string str = "") const;
 
   // Replace all occurrences of given string
-  bool ReplaceAll() const;
+  bool ReplaceAll(std::string str = "") const;
 
   // Replace everything before and including
   // the first occurrences of given string
-  bool ReplaceBefore() const;
+  bool ReplaceBefore(std::string str = "") const;
 
   // Replace text including and between "before" and "after"
-  bool ReplaceBetween() const;
+  bool ReplaceBetween(std::string str = "") const;
 
   // Replace first occurrence of given string
-  bool ReplaceFirst() const;
+  bool ReplaceFirst(std::string str = "") const;
 
   // Replace last occurrence of given string
-  bool ReplaceLast() const;
+  bool ReplaceLast(std::string str = "") const;
 
  private:
   int argc_;

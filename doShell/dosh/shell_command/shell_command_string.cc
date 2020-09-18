@@ -18,12 +18,31 @@ shellCommandString::~shellCommandString() {
 }
 
 // Replace all occurrences of given string
-bool shellCommandString::ReplaceAll() const {
-  if (argc_ < 3) return false;
+bool shellCommandString::ReplaceAll(std::string str) const {
+  int amount_args_required = str.empty() ? 3 : 2;
 
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_needle, arg_offset_replacement;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_needle = 3;
+    arg_offset_replacement = 4;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_needle = 2;
+    arg_offset_replacement = 3;
+  }
+
+  const std::string kNeedle = argv_[arg_offset_needle];
+
+  const std::string kReplacement = argc_ <= arg_offset_replacement
+                                   ? ""
+                                   : argv_[arg_offset_replacement];
 
   helper::String::ReplaceAll(&kHaystack, kNeedle, kReplacement);
 
@@ -33,12 +52,31 @@ bool shellCommandString::ReplaceAll() const {
 }
 
 // Replace everything after and including the first occurrences of given string
-bool shellCommandString::ReplaceAfter() const {
-  if (argc_ < 3) return false;
+bool shellCommandString::ReplaceAfter(std::string str) const {
+  int amount_args_required = str.empty() ? 3 : 2;
 
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_needle, arg_offset_replacement;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_needle = 3;
+    arg_offset_replacement = 4;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_needle = 2;
+    arg_offset_replacement = 3;
+  }
+
+  const std::string kNeedle = argv_[arg_offset_needle];
+
+  const std::string kReplacement = argc_ <= arg_offset_replacement
+                                   ? ""
+                                   : argv_[arg_offset_replacement];
 
   auto offset_needle = kHaystack.find(kNeedle);
   if (offset_needle == std::string::npos) offset_needle = kHaystack.length();
@@ -49,12 +87,31 @@ bool shellCommandString::ReplaceAfter() const {
 }
 
 // Replace first occurrence of given string
-bool shellCommandString::ReplaceFirst() const {
-  if (argc_ < 3) return false;
+bool shellCommandString::ReplaceFirst(std::string str) const {
+  int amount_args_required = str.empty() ? 3 : 2;
 
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_needle, arg_offset_replacement;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_needle = 3;
+    arg_offset_replacement = 4;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_needle = 2;
+    arg_offset_replacement = 3;
+  }
+
+  const std::string kNeedle = argv_[arg_offset_needle];
+
+  const std::string kReplacement = argc_ <= arg_offset_replacement
+                                   ? ""
+                                   : argv_[arg_offset_replacement];
 
   helper::String::ReplaceFirst(&kHaystack, kNeedle, kReplacement);
 
@@ -64,12 +121,31 @@ bool shellCommandString::ReplaceFirst() const {
 }
 
 // Replace last occurrence of given string
-bool shellCommandString::ReplaceLast() const {
-  if (argc_ < 3) return false;
+bool shellCommandString::ReplaceLast(std::string str) const {
+  int amount_args_required = str.empty() ? 3 : 2;
 
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_needle, arg_offset_replacement;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_needle = 3;
+    arg_offset_replacement = 4;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_needle = 2;
+    arg_offset_replacement = 3;
+  }
+
+  const std::string kNeedle = argv_[arg_offset_needle];
+
+  const std::string kReplacement = argc_ <= arg_offset_replacement
+                                   ? ""
+                                   : argv_[arg_offset_replacement];
 
   helper::String::ReplaceLast(&kHaystack, kNeedle, kReplacement);
 
@@ -79,12 +155,31 @@ bool shellCommandString::ReplaceLast() const {
 }
 
 // Replace everything before and including the first occurrences of given string
-bool shellCommandString::ReplaceBefore() const {
-  if (argc_ < 3) return false;
+bool shellCommandString::ReplaceBefore(std::string str) const {
+  int amount_args_required = str.empty() ? 3 : 2;
 
-  std::string kHaystack = argv_[2];
-  const std::string kNeedle = argv_[3];
-  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_needle, arg_offset_replacement;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_needle = 3;
+    arg_offset_replacement = 4;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_needle = 2;
+    arg_offset_replacement = 3;
+  }
+
+  const std::string kNeedle = argv_[arg_offset_needle];
+
+  const std::string kReplacement = argc_ <= arg_offset_replacement
+                                   ? ""
+                                   : argv_[arg_offset_replacement];
 
   auto offset_needle = kHaystack.find(kNeedle);
 
@@ -102,12 +197,31 @@ bool shellCommandString::ReplaceBefore() const {
 }
 
 // Extract text excluding but between "before" and "after"
-bool shellCommandString::ExtractBetween() const {
-  if (argc_ < 3) return false;
+bool shellCommandString::ExtractBetween(std::string str) const {
+  int amount_args_required = str.empty() ? 3 : 2;
 
-  std::string kHaystack = argv_[2];
-  const std::string kBefore = argv_[3];
-  const std::string kAfter = argc_ < 5 ? "" : argv_[4];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_before, arg_offset_after;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_before = 3;
+    arg_offset_after = 4;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_before = 2;
+    arg_offset_after = 3;
+  }
+
+  const std::string kBefore = argv_[arg_offset_before];
+
+  const std::string kAfter = argc_ <= arg_offset_after
+                             ? ""
+                             : argv_[arg_offset_after];
 
   std::cout << helper::String::GetSubStrBetween(
       kHaystack, kBefore.c_str(), kAfter.c_str());
@@ -116,13 +230,34 @@ bool shellCommandString::ExtractBetween() const {
 }
 
 // Replace text including and between "before" and "after"
-bool shellCommandString::ReplaceBetween() const {
-  if (argc_ < 4) return false;
+bool shellCommandString::ReplaceBetween(std::string str) const {
+  int amount_args_required = str.empty() ? 4 : 3;
 
-  std::string kHaystack = argv_[2];
-  const std::string kBefore = argv_[3];
-  const std::string kAfter = argv_[4];
-  const std::string kReplacement = argc_ < 6 ? "" : argv_[5];
+  if (argc_ < amount_args_required) return false;
+
+  std::string kHaystack;
+  int arg_offset_before, arg_offset_after, arg_offset_replacement;
+
+  if (str.empty()) {
+    // Haystack is given as CLI argument
+    kHaystack = argv_[2];
+    arg_offset_before = 3;
+    arg_offset_after = 4;
+    arg_offset_replacement = 5;
+  } else {
+    // Haystack is given as function parameter
+    kHaystack = str;
+    arg_offset_before = 2;
+    arg_offset_after = 3;
+    arg_offset_replacement = 4;
+  }
+
+  const std::string kBefore = argv_[arg_offset_before];
+  const std::string kAfter = argv_[arg_offset_after];
+
+  const std::string kReplacement = argc_ <= arg_offset_replacement
+                                   ? ""
+                                   : argv_[arg_offset_replacement];
 
   auto out = helper::String::ReplaceBetween(
       kHaystack, kBefore, kAfter, kReplacement);

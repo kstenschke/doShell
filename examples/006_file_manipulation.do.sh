@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 # All file helper command examples output: foo bar baz qux
 
-printf "extractBetween: "
-echo #extractBetween "start foo bar baz qux end" start end
+printf "extractBetweenFromFile: "
+echo #extractBetweenFromFile ::DIR::assets/replaceBetween.txt start end
 
-printf "\nreplaceAfter: "
-echo #replaceAfter "foo bar xxx xxx" bar "bar baz qux"
+printf "\nreplaceAfterFromFile: "
+echo #replaceAfterFromFile ::DIR::assets/replaceAfter.txt bar "bar baz qux"
 
-printf "\nreplaceAll: "
-echo #replaceAll "foo ber bez qux" e a
+printf "\nreplaceAllFromFile: "
+echo #replaceAllFromFile ::DIR::assets/replaceAll.txt e a
 
-printf "\nreplaceBefore: "
-echo #replaceBefore "thingummibob bar baz qux" bar "foo bar"
+printf "\nreplaceBeforeFromFile: "
+echo #replaceBeforeFromFile ::DIR::assets/replaceBefore.txt bar "foo bar"
 
-printf "\nreplaceBetween: "
-echo #replaceBetween "foo bar thingummibob qux" bar qux " bar baz "
+printf "\nreplaceBetweenFromFile: "
+echo #replaceBetweenFromFile ::DIR::assets/replaceBetween.txt bar qux " bar baz "
 
-printf "\nreplaceFirst: "
-echo #replaceFirst "bar bar baz qux" bar foo
+printf "\nreplaceFirstFromFile: "
+echo #replaceFirstFromFile ::DIR::assets/replaceFirst.txt bar foo
 
-printf "\nreplaceLast: "
-echo #replaceLast "foo bar baz bar" bar qux
+printf "\nreplaceLastFromFile: "
+echo #replaceLast ::DIR::assets/replaceLast.txt bar baz bar" bar qux

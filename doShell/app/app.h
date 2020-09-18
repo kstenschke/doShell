@@ -46,6 +46,7 @@ class App {
   bool ProcessFileCommand(AppCommands::Command command);
   bool ProcessStringCommand(AppCommands::Command command);
   bool ProcessUrlParserCommand(AppCommands::Command command);
+
   bool ProcessTranspilerCommand(AppCommands::Command command);
 };
 

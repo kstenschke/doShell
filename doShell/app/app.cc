@@ -113,33 +113,42 @@ bool App::ProcessFileCommand(AppCommands::Command command) {
   bool result;
   auto *StringCommands = new shellCommandString(argc_, argv_);
 
+  std::string file_content;
+  auto is_loaded = helper::File::GetFileContents(argv_[2], &file_content);
+
+  if (!is_loaded || file_content.empty()) {
+    delete StringCommands;
+
+    return false;
+  }
+
   switch (command) {
-    case AppCommands::Command_ReplaceAfter:  // replaceAfter
-      result = StringCommands->ReplaceAfter();
+    case AppCommands::Command_ReplaceAfterFromFile:  // replaceAfterFromFile
+      result = StringCommands->ReplaceAfter(file_content);
 
       break;
-    case AppCommands::Command_ReplaceAll:  // replaceAll
-      result = StringCommands->ReplaceAll();
+    case AppCommands::Command_ReplaceAllFromFile:  // replaceAllFromFile
+      result = StringCommands->ReplaceAll(file_content);
 
       break;
-    case AppCommands::Command_ReplaceBefore:  // replaceBefore
-      result = StringCommands->ReplaceBefore();
+    case AppCommands::Command_ReplaceBeforeFromFile:  // replaceBeforeFromFile
+      result = StringCommands->ReplaceBefore(file_content);
 
       break;
-    case AppCommands::Command_ReplaceBetween:  // replaceBetween
-      result = StringCommands->ReplaceBetween();
+    case AppCommands::Command_ReplaceBetweenFromFile:  // replaceBetweenFromFile
+      result = StringCommands->ReplaceBetween(file_content);
 
       break;
-    case AppCommands::Command_ExtractBetween:  // extractBetween
-      result = StringCommands->ExtractBetween();
+    case AppCommands::Command_ExtractBetweenFromFile:  // extractBetweenFromFile
+      result = StringCommands->ExtractBetween(file_content);
 
       break;
-    case AppCommands::Command_ReplaceFirst:  // replaceFirst
-      result = StringCommands->ReplaceFirst();
+    case AppCommands::Command_ReplaceFirstFromFile:  // replaceFirstFromFile
+      result = StringCommands->ReplaceFirst(file_content);
 
       break;
-    case AppCommands::Command_ReplaceLast:  // replaceLast
-      result = StringCommands->ReplaceLast();
+    case AppCommands::Command_ReplaceLastFromFile:  // replaceLastFromFile
+      result = StringCommands->ReplaceLast(file_content);
 
       break;
     default:
