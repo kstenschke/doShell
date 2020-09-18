@@ -179,16 +179,13 @@ running the given file:
 
 ### Macros
 
-| Macro               | Replaced by                                                      | Replaced during  |
-| ------------------- | ---------------------------------------------------------------- | ---------------- |
-| ``::DATE::``        | Current date, e.g: ``09/16/20``                                  | Runtime          |
-| ``::DATE_TIME::``   | E.g: ``Wed 16 Sep 2020 23:21:34 CEST``                           | Runtime          |
-| ``::DIR::``         | Absolute path of current file w/o filename                       | Transpilation    |
-| ``::FILE::``        | Absolute path of current file including the filename             | Transpilation    |
-| ``::LINE::``        | Line number in current file                                      | Transpilation    |
-| ``::OS::``          | ``linux`` or ``mac``                                             | Runtime          |
-| ``::TIME::``        | Current time of day, e.g: ``22:32:30``                           | Runtime          |
-
+| Macro               | Replaced by                                            | Replaced during  |
+| ------------------- | ------------------------------------------------------ | ---------------- |
+| ``::DIR::``         | Absolute path of current file w/o filename             | Transpilation    |
+| ``::FILE::``        | Absolute path of current file including the filename   | Transpilation    |
+| ``::LINE::``        | Line number in current file                            | Transpilation    |
+| ``::OS::``          | ``linux`` or ``mac``                                   | Runtime          |
+| ``::TIMESTAMP::``   | Current UNIX timestamp                                 | Runtime          |
 
 
 ## Commands
