@@ -19,13 +19,13 @@ class transpileString {
  private:
   std::string path_binary_;
 
-  bool TranspileExtractBetween(std::string *code);
-  bool TranspileReplaceAfter(std::string *code);
-  bool TranspileReplaceAll(std::string *code);
-  bool TranspileReplaceBefore(std::string *code);
-  bool TranspileReplaceBetween(std::string *code);
-  bool TranspileReplaceFirst(std::string *code);
-  bool TranspileReplaceLast(std::string *code);
+  transpileString* TranspileExtractBetween(std::string *code);
+  transpileString* TranspileReplaceAfter(std::string *code);
+  transpileString* TranspileReplaceAll(std::string *code);
+  transpileString* TranspileReplaceBefore(std::string *code);
+  transpileString* TranspileReplaceBetween(std::string *code);
+  transpileString* TranspileReplaceFirst(std::string *code);
+  transpileString* TranspileReplaceLast(std::string *code);
 };
 }  // namespace doShell
 

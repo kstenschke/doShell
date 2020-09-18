@@ -23,91 +23,92 @@ void transpileString::Transpile(
     return;
   }
 
-  instance->TranspileReplaceAfter(code);
-  instance->TranspileReplaceAll(code);
-  instance->TranspileReplaceBefore(code);
-  instance->TranspileReplaceBetween(code);
-  instance->TranspileReplaceFirst(code);
-  instance->TranspileReplaceLast(code);
+  instance
+      ->TranspileReplaceAfter(code)
+      ->TranspileReplaceAll(code)
+      ->TranspileReplaceBefore(code)
+      ->TranspileReplaceBetween(code)
+      ->TranspileReplaceFirst(code)
+      ->TranspileReplaceLast(code);
 
   delete instance;
 }
 
-bool transpileString::TranspileExtractBetween(std::string *code) {
-  if (!helper::String::Contains(*code, "#extractBetween")) return false;
+transpileString* transpileString::TranspileExtractBetween(std::string *code) {
+  if (!helper::String::Contains(*code, "#extractBetween")) return this;
 
   std::regex exp2("#extractBetween (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " extractBetween $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
-bool transpileString::TranspileReplaceAfter(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceAfter")) return false;
+transpileString* transpileString::TranspileReplaceAfter(std::string *code) {
+  if (!helper::String::Contains(*code, "#replaceAfter")) return this;
 
   std::regex exp2("#replaceAfter (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " replaceAfter $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
-bool transpileString::TranspileReplaceAll(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceAll")) return false;
+transpileString* transpileString::TranspileReplaceAll(std::string *code) {
+  if (!helper::String::Contains(*code, "#replaceAll")) return this;
 
   std::regex exp2("#replaceAll (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " replaceAll $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
-bool transpileString::TranspileReplaceBefore(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceBefore")) return false;
+transpileString* transpileString::TranspileReplaceBefore(std::string *code) {
+  if (!helper::String::Contains(*code, "#replaceBefore")) return this;
 
   std::regex exp2("#replaceBefore (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " replaceBefore $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
-bool transpileString::TranspileReplaceBetween(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceBetween")) return false;
+transpileString* transpileString::TranspileReplaceBetween(std::string *code) {
+  if (!helper::String::Contains(*code, "#replaceBetween")) return this;
 
   std::regex exp2("#replaceBetween (.*) (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " replaceBetween $1 $2 $3 $4);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
-bool transpileString::TranspileReplaceFirst(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceFirst")) return false;
+transpileString* transpileString::TranspileReplaceFirst(std::string *code) {
+  if (!helper::String::Contains(*code, "#replaceFirst")) return this;
 
   std::regex exp2("#replaceFirst (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " replaceFirst $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
-bool transpileString::TranspileReplaceLast(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceLast")) return false;
+transpileString* transpileString::TranspileReplaceLast(std::string *code) {
+  if (!helper::String::Contains(*code, "#replaceLast")) return this;
 
   std::regex exp2("#replaceLast (.*) (.*) (.*)");
   std::string replacement = "$(" + path_binary_ + " replaceLast $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
-  return true;
+  return this;
 }
 
 }  // namespace doShell
