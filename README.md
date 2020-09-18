@@ -59,8 +59,8 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 * Commands for easily using GUI dialogs from within scripts
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
-* As all browser automation is achieved by fake user interaction, 
-  a completely regular, unsuspicious "vanilla" browser useragent and -footprint 
+* Browser automation is done by fake user interaction, 
+  therefor a completely unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
 
