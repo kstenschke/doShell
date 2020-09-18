@@ -15,7 +15,7 @@ void transpileUrl::Transpile(
     std::string *code, bool is_linux, std::string path_binary) {
   auto *instance = new transpileUrl(std::move(path_binary));
 
-  if (helper::String::Contains(*code, "fromUrl ")) {
+  if (helper::String::Contains(*code, "FromUrl ")) {
     instance
         ->TranspileGetScheme(code)
         ->TranspileGetQuery(code)
@@ -96,7 +96,7 @@ transpileUrl* transpileUrl::TranspileGetScheme(std::string *code) {
   if (!helper::String::Contains(*code, "#getSchemeFromUrl")) return this;
 
   std::regex exp2("#getSchemeFromUrl (.*)");
-  std::string replacement = "$(" + path_binary_ + " getSchemeFromUrl $1);";
+  std::string replacement = "$" + path_binary_ + " getSchemeFromUrl $1);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
