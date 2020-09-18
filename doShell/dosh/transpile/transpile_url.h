@@ -18,12 +18,12 @@ class transpileUrl {
  private:
   std::string path_binary_;
 
-  bool TranspileGetScheme(std::string *code);
-  bool TranspileGetQuery(std::string *code);
-  bool TranspileGetPath(std::string *code);
-  bool TranspileGetHost(std::string *code);
-  bool TranspileEncode(std::string *code);
-  bool TranspileDecode(std::string *code);
+  transpileUrl* TranspileGetScheme(std::string *code);
+  transpileUrl* TranspileGetQuery(std::string *code);
+  transpileUrl* TranspileGetPath(std::string *code);
+  transpileUrl* TranspileGetHost(std::string *code);
+  transpileUrl* TranspileEncode(std::string *code);
+  transpileUrl* TranspileDecode(std::string *code);
 };
 }  // namespace doShell
 
