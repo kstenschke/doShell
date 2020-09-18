@@ -62,13 +62,12 @@ bool AppHelp::PrintOverview(bool with_title) {
 
   std::string column_2 =
       "\n  Built-in shell tools:"
-      "\n    replaceAllInFile     - Replace all occurrences of string in file"
-      "\n    replaceFirstInFile   - Replace first occurrence of string in file"
-      "\n    replaceLastInFile    - Replace last occurrence of string in file"
-      "\n    removeBetweenInFile  - Remove text between and including given "
+      "\n    replaceAllFromFile     - Replace all occurrences of string in file"
+      "\n    replaceFirstFromFile   - Replace first occurrence of string in file"
+      "\n    replaceLastFromFile    - Replace last occurrence of string in file"
+      "\n    removeBetweenFromFile  - Remove text between and including given "
       "strings in file"
-      "\n    extractBetweenInFile - Save text between (excluding) given strings"
-      " of given to new file"
+      "\n    extractBetweenFromFile - Get text between (excluding) given strings"
       "\n";
 
   // TODO(kay) list all shell commands

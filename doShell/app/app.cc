@@ -31,6 +31,8 @@ bool App::Process() {
 
   if (AppCommands::IsStringManipulationCommand(command)) {
     result = ProcessStringCommand(command);
+  } else if (AppCommands::IsFileManipulationCommand(command)) {
+    result = ProcessFileCommand(command);
   } else if (AppCommands::IsUrlParserCommand(command)) {
     result = ProcessUrlParserCommand(command);
   } else if (AppCommands::IsTranspilerCommand(command)) {
@@ -66,6 +68,48 @@ bool App::Process() {
 }
 
 bool App::ProcessStringCommand(AppCommands::Command command) {
+  bool result;
+  auto *StringCommands = new shellCommandString(argc_, argv_);
+
+  switch (command) {
+    case AppCommands::Command_ReplaceAfter:  // replaceAfter
+      result = StringCommands->ReplaceAfter();
+
+      break;
+    case AppCommands::Command_ReplaceAll:  // replaceAll
+      result = StringCommands->ReplaceAll();
+
+      break;
+    case AppCommands::Command_ReplaceBefore:  // replaceBefore
+      result = StringCommands->ReplaceBefore();
+
+      break;
+    case AppCommands::Command_ReplaceBetween:  // replaceBetween
+      result = StringCommands->ReplaceBetween();
+
+      break;
+    case AppCommands::Command_ExtractBetween:  // extractBetween
+      result = StringCommands->ExtractBetween();
+
+      break;
+    case AppCommands::Command_ReplaceFirst:  // replaceFirst
+      result = StringCommands->ReplaceFirst();
+
+      break;
+    case AppCommands::Command_ReplaceLast:  // replaceLast
+      result = StringCommands->ReplaceLast();
+
+      break;
+    default:
+      return false;
+  }
+
+  delete StringCommands;
+
+  return result;
+}
+
+bool App::ProcessFileCommand(AppCommands::Command command) {
   bool result;
   auto *StringCommands = new shellCommandString(argc_, argv_);
 

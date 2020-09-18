@@ -43,6 +43,7 @@ class App {
   std::string path_out_;  // Output path with/or filename
 
   bool ProcessClipboardCommand(AppCommands::Command command);
+  bool ProcessFileCommand(AppCommands::Command command);
   bool ProcessStringCommand(AppCommands::Command command);
   bool ProcessUrlParserCommand(AppCommands::Command command);
   bool ProcessTranspilerCommand(AppCommands::Command command);

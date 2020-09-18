@@ -24,6 +24,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "appendClipboardToFile") return Command_AppendClipboardToFile;
   if (command == "-c" || command == "compile") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
+  if (command == "extractBetweenFromFile") return Command_ExtractBetweenFromFile;
   if (command == "getHostFromUrl") return Command_GetHostFromUrl;
   if (command == "getPathFromUrl") return Command_GetPathFromUrl;
   if (command == "getQueryFromUrl") return Command_GetQueryFromUrl;
@@ -34,6 +35,10 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "replaceBetween") return Command_ReplaceBetween;
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
+  if (command == "replaceAllFromFile") return Command_ReplaceAllFromFile;
+  if (command == "replaceFirstFromFile") return Command_ReplaceAllFromFile;
+  if (command == "replaceLastFromFile") return Command_ReplaceAllFromFile;
+  if (command == "replaceBetweenFromFile") return Command_ReplaceAllFromFile;
   if (command == "run" || command == "-r") return Command_Run;
   if (command == "runClean" || command == "-rc") return Command_RunClean;
   if (command == "saveClipboardToFile") return Command_SaveClipboardToFile;
@@ -55,6 +60,21 @@ bool AppCommands::IsStringManipulationCommand(AppCommands::Command command) {
     case Command_ReplaceBetween:
     case Command_ReplaceFirst:
     case Command_ReplaceLast:
+      return true;
+    default:
+      return false;
+  }
+}
+
+bool AppCommands::IsFileManipulationCommand(AppCommands::Command command) {
+  switch (command) {
+    case Command_ExtractBetweenFromFile:
+    case Command_ReplaceAllFromFile:
+    case Command_ReplaceAfterFromFile:
+    case Command_ReplaceBeforeFromFile:
+    case Command_ReplaceBetweenFromFile:
+    case Command_ReplaceFirstFromFile:
+    case Command_ReplaceLastFromFile:
       return true;
     default:
       return false;

@@ -241,17 +241,19 @@ For example the line ``echo #extractBetween abcde a e`` is ultimately transpiled
 ### File manipulation
 
 All file manipulations commands output the manipulated
-file contents, to over/write results back to files, 
+file contents. To over/write results back to files, 
 you can use the shell redirection operator ``>``. 
 
 
-| Command                                                         | Description                                             |
-| --------------------------------------------------------------- | ------------------------------------------------------- |
-| ``#replaceAllInFile path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceFirstInFile path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInFile path/file search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInFile path/file before after``                | Extract text excluding but between "before" and "after" |
+| Command                                                           | Description                                             |
+| ----------------------------------------------------------------- | ------------------------------------------------------- |
+| ``#extractBetweenFromFile path/file before after``                | Extract text excluding but between "before" and "after" |
+| ``#replaceAfterFromFile path/file search replace``                |                                                         |
+| ``#replaceAllFromFile path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceBeforeFromFile path/file search replace``               |                                                         |
+| ``#replaceBetweenFromFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#replaceFirstFromFile path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
 
 
 ### Clipboard 

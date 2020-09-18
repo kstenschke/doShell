@@ -15,18 +15,25 @@ class AppCommands {
     Command_AppendClipboardToFile,
     Command_Compile,
     Command_ExtractBetween,
+    Command_ExtractBetweenFromFile,
     Command_GetHostFromUrl,
     Command_GetPathFromUrl,
     Command_GetQueryFromUrl,
     Command_GetSchemeFromUrl,
     Command_Help,
     Command_Invalid,
-    Command_ReplaceAll,
     Command_ReplaceAfter,
+    Command_ReplaceAll,
+    Command_ReplaceAllFromFile,
+    Command_ReplaceAfterFromFile,
+    Command_ReplaceBeforeFromFile,
     Command_ReplaceBefore,
     Command_ReplaceBetween,
+    Command_ReplaceBetweenFromFile,
     Command_ReplaceFirst,
+    Command_ReplaceFirstFromFile,
     Command_ReplaceLast,
+    Command_ReplaceLastFromFile,
     Command_Run,
     Command_RunClean,
     Command_SaveClipboardToFile,
@@ -39,10 +46,11 @@ class AppCommands {
 
   static Command ResolveCommandByName(const std::string &command);
 
-  static bool IsStringManipulationCommand(AppCommands::Command command);
-  static bool IsUrlParserCommand(AppCommands::Command command);
-  static bool IsTranspilerCommand(AppCommands::Command command);
   static bool IsClipboardCommand(AppCommands::Command command);
+  static bool IsFileManipulationCommand(AppCommands::Command command);
+  static bool IsStringManipulationCommand(AppCommands::Command command);
+  static bool IsTranspilerCommand(AppCommands::Command command);
+  static bool IsUrlParserCommand(AppCommands::Command command);
 
   Command GetResolved();
 
