@@ -214,7 +214,7 @@ like:
 
 ### File manipulation
 
-All file manipulations commands output the manipulated
+All file manipulation commands output the manipulated
 file contents. To over/write results back to files, 
 you can use the shell redirection operator ``>``. 
 
