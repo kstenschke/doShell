@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#!keep_runtime_file
 
 # Example on how to use runtime macros
 
