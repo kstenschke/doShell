@@ -217,7 +217,7 @@ std::string S2sTranspiler::GetBasePathBySourceFile() const {
   std::string path_file;
 
   for (auto &part : parts) {
-    if (index == amount_parts) break;
+    if (index == amount_parts - 1) break;
 
     path_file += part + "/";
 
