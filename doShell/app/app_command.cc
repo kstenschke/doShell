@@ -35,6 +35,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
   if (command == "run" || command == "-r") return Command_Run;
+  if (command == "runClean" || command == "-rc") return Command_RunClean;
   if (command == "saveClipboardToFile") return Command_SaveClipboardToFile;
   if (command == "urlEncode") return Command_UrlEncode;
   if (command == "urlDecode") return Command_UrlDecode;
@@ -78,6 +79,7 @@ bool AppCommands::IsTranspilerCommand(AppCommands::Command command) {
   switch (command) {
     case Command_Compile:
     case Command_Run:
+    case Command_RunClean:
       return true;
     default:
       return false;

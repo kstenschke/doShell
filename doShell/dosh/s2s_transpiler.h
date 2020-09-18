@@ -35,7 +35,7 @@ class S2sTranspiler {
   S2sTranspiler(int argc, const std::vector<std::string>& argv);
 
   // Transpile given *.do.sh file to *.sh
-  bool Compile();
+  bool Compile(bool overwrite_intermediary_file = false);
 
   // 1. Transpile given *.do.sh file to *.sh,
   // 2. Create temporary dosh copy of *.sh w/ dosh macros replaced

@@ -124,7 +124,7 @@ bool App::ProcessTranspilerCommand(AppCommands::Command command) {
   bool result;
 
   auto compiler = new S2sTranspiler(argc_, argv_);
-  result = compiler->Compile();
+  result = compiler->Compile(command == AppCommands::Command_RunClean);
 
   switch (command) {
     case AppCommands::Command_Compile: {  // c - compile
@@ -132,7 +132,9 @@ bool App::ProcessTranspilerCommand(AppCommands::Command command) {
 
       return result;
     }
-    case AppCommands::Command_Run: {  // r - compile and run
+    case AppCommands::Command_Run:case AppCommands::Command_RunClean: {
+      // r - transpile (if intermediary transpiled file exists: skip) and run
+      // rc - transpile (if intermediary transpiled file exists: overwrite) and run
       if (!result) {
         delete compiler;
 

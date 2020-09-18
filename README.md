@@ -93,22 +93,19 @@ script to a new file ``script.do.x.sh``
 
 ### Transpile and/or run
 
-Running ``shdo -r script.do.sh``, the given file is transpiled and run.  
-When running an already transpiled ``*.do.x.sh`` script, the translation is 
-skipped.
+**Run:** ``shdo -r script.do.sh`` transpiles and runs the given script.  
+When running an already transpiled ``*.do.x.sh`` script, the transpilation is 
+skipped.  
+
+**Run-Clean:** ``shdo -rc script.do.sh`` transpiles and runs the given script,
+if existing, an already transpiled intermediary file is overwritten.  
 
 doShell transpiles to intermediary shell script files: additional to 
 conventional shell script code, they can contain runtime macros: 
 placeholder-strings for generic content, and runtime variables.
 The doShell runtime system replaces runtime macros, -variables and -conditional
-blocks before the eventual execution in a sandboxed shell-thread. 
+blocks before the eventual execution in a sandboxed shell-thread.  
 
-
-## Conventions
-
-* Instructions that are transpiled and/or parsed at runtime,
-are prefixed with ``#!``.
-* Instructions that transpiled are prefixed with ``#``.
 
 ## Runtime options
 
@@ -201,7 +198,7 @@ doShell script can contain inlined PHP (processed during pre-execution parsing,
 see [functional flow diagram](#functional-flow)) 
 
 like:  
-``#<?php echo time() ?>``  
+``#!php echo time() ?>``  
 
 
 ### String manipulation

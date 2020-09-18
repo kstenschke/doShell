@@ -14,7 +14,7 @@ S2sTranspiler::S2sTranspiler(int argc, const std::vector<std::string> &argv) {
 }
 
 // Transpile given *.do.sh file to *.sh
-bool S2sTranspiler::Compile() {
+bool S2sTranspiler::Compile(bool overwrite_intermediary_file) {
   if (argc_ <= 1) return CompileAllInPath();
 
   if (!LoadSource()) return false;
@@ -22,7 +22,8 @@ bool S2sTranspiler::Compile() {
   InitPathSourceDirectory();
   InitPathFileCompiled();
 
-  if (helper::File::FileExists(path_compiled_file_abs_))
+  if (!overwrite_intermediary_file
+      && helper::File::FileExists(path_compiled_file_abs_))
     return helper::File::GetFileContents(path_compiled_file_abs_, &source_);
 
   ResolveImports();

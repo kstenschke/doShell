@@ -28,6 +28,7 @@ class AppCommands {
     Command_ReplaceFirst,
     Command_ReplaceLast,
     Command_Run,
+    Command_RunClean,
     Command_SaveClipboardToFile,
     Command_UrlEncode,
     Command_UrlDecode,
