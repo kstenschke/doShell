@@ -63,6 +63,21 @@ bool shellCommandString::ReplaceFirst() const {
   return true;
 }
 
+// Replace last occurrence of given string
+bool shellCommandString::ReplaceLast() const {
+  if (argc_ < 3) return false;
+
+  std::string kHaystack = argv_[2];
+  const std::string kNeedle = argv_[3];
+  const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
+
+  helper::String::ReplaceFirst(&kHaystack, kNeedle, kReplacement);
+
+  std::cout << kHaystack;
+
+  return true;
+}
+
 // Replace everything before and including the first occurrences of given string
 bool shellCommandString::ReplaceBefore() const {
   if (argc_ < 3) return false;

@@ -47,6 +47,9 @@ class shellCommandString {
   // Replace first occurrence of given string
   bool ReplaceFirst() const;
 
+  // Replace last occurrence of given string
+  bool ReplaceLast() const;
+
  private:
   int argc_;
   std::vector<std::string> argv_;

@@ -89,8 +89,13 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
     case AppCommands::Command_ExtractBetween:  // extractBetween
       result = StringCommands->ExtractBetween();
 
-      break;    case AppCommands::Command_ReplaceFirst:  // replaceFirst
+      break;
+    case AppCommands::Command_ReplaceFirst:  // replaceFirst
       result = StringCommands->ReplaceFirst();
+
+      break;
+    case AppCommands::Command_ReplaceLast:  // replaceLast
+      result = StringCommands->ReplaceLast();
 
       break;
     default:
