@@ -232,7 +232,6 @@ you can use the shell redirection operator ``>``.
 
 | Command                                 | Description                             |
 | --------------------------------------- | --------------------------------------- |
-| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
 | ``#setClipboard $value``                | Copy text to clipboard                  |
 | ``#copyAll``                            | Select all, than copy                   |
 | ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
@@ -240,8 +239,7 @@ you can use the shell redirection operator ``>``.
 | ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
 | ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
 | ``#cutAll``                             | Select all, than cut                    |
-| ``$value=#getClipboard``                |                                         |
-| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
+| ``#getClipboard``                       |                                         |
 | ``#copyCurrentUrl``                     |                                         |
 | ``#copyInTerminal``                     | Varies by OS                            |
 | ``#pasteInTerminal``                    | Varies by OS                            |
