@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
-#!keep_runtime_file
 # URL parsing helper methods
 
 echo "url: https://www.github.com/kstenschke/doShell?this=are&some=parameters"
-
-printf "\nscheme: "
+printf "scheme: "
 echo #getSchemeFromUrl https://www.github.com/kstenschke/doShell?this=are&some=parameters
-
-printf "\nhost: "
+printf "host: "
 echo #getHostFromUrl https://www.github.com/kstenschke/doShell?this=are&some=parameters
-
-printf "\npath: "
+printf "path: "
 echo #getPathFromUrl https://www.github.com/kstenschke/doShell?this=are&some=parameters
-
-printf "\nquery: "
-echo #getQueryFromUrl https://www.github.com/kstenschke/doShell?this=are&some=parameters
+printf "query: "
+echo #getQueryFromUrl https://www.github.com/kstenschke/doShell?this=are\&some=parameters

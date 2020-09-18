@@ -44,6 +44,8 @@ class shellCommandUrl {
  private:
   int argc_;
   std::vector<std::string> argv_;
+
+  std::string &GetPathFromUrl(std::string &kUrl) const;
 };
 
 }  // namespace doShell

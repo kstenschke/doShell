@@ -59,6 +59,11 @@ bool shellCommandUrl::GetPathFromUrl() const {
 
   std::string kUrl = argv_[2];
 
+  std::cout << GetPathFromUrl(kUrl);
+
+  return true;
+}
+std::string &shellCommandUrl::GetPathFromUrl(std::string &kUrl) const {
   auto offset_host = kUrl.find("://");
 
   if (offset_host != std::string::npos) {
@@ -77,9 +82,7 @@ bool shellCommandUrl::GetPathFromUrl() const {
     kUrl = kUrl.substr(0, offset_end);
   }
 
-  std::cout << kUrl;
-
-  return true;
+  return kUrl;
 }
 
 // Extract query from given URL, e.g. hat=bowler&accessory=cane
@@ -88,7 +91,11 @@ bool shellCommandUrl::GetQueryFromUrl() const {
 
   std::string kUrl = argv_[2];
 
-  std::cout << helper::String::GetSubStrAfter(kUrl, "?");
+  auto offset_start = kUrl.find('?');
+
+  if (offset_start == std::string::npos) return false;
+
+  std::cout << kUrl.substr(offset_start + 1);
 
   return true;
 }
