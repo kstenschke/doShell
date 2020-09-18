@@ -171,7 +171,7 @@ bool App::ProcessUrlParserCommand(AppCommands::Command command) {
 
       break;
     case AppCommands::Command_GetPathFromUrl:  // getPathFromUrl
-//      result = StringCommands->ReplaceBefore();
+      result = UrlParser->GetPathFromUrl();
 
       break;
     case AppCommands::Command_GetQueryFromUrl:  // getQueryFromUrl

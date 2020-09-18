@@ -27,8 +27,6 @@ bool shellCommandUrl::GetSchemeFromUrl() const {
 
   if (offset_start == std::string::npos) return false;
 
-  ++offset_start;
-
   std::cout << kUrl.substr(0, offset_start);
 
   return true;
@@ -50,14 +48,37 @@ bool shellCommandUrl::GetHostFromUrl() const {
 
   if (offsetSlash == std::string::npos) offsetSlash = kUrl.length();
 
-  std::cout << kUrl.substr(offset_start + 1, offsetSlash - offset_start);
+  std::cout << kUrl.substr(offset_start, offsetSlash - offset_start);
 
   return true;
 }
 
 // Extract path from given URL, e.g. /foo/bar
 bool shellCommandUrl::GetPathFromUrl() const {
-  // TODO(kay) implement
+  if (argc_ < 3) return false;
+
+  std::string kUrl = argv_[2];
+
+  auto offset_host = kUrl.find("://");
+
+  if (offset_host != std::string::npos) {
+    kUrl = kUrl.replace(offset_host, 3, "");
+  }
+
+  auto offset_start = kUrl.find('/');
+
+  if (offset_start != std::string::npos) {
+    kUrl = kUrl.substr(offset_start + 1);
+  }
+
+  auto offset_end = kUrl.find('?');
+
+  if (offset_end != std::string::npos) {
+    kUrl = kUrl.substr(0, offset_end);
+  }
+
+  std::cout << kUrl;
+
   return true;
 }
 
