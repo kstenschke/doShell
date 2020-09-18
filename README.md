@@ -59,8 +59,8 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 * Commands for easily using GUI dialogs from within scripts
 * doShell scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
-* As all browser automation is achieved by fake user interaction, 
-  a completely regular, unsuspicious "vanilla" browser useragent and -footprint 
+* Browser automation is done by fake user interaction, 
+  therefor a completely unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
 
@@ -117,17 +117,13 @@ blocks before the eventual execution in a sandboxed shell-thread.
 | ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
 | ``#!mouse "ETP/2 Elantech Touchpad"`` | Declares primary mouse device to doShell (named as listed via ``xinput list``) (ATM: Linux only)                   |
 
-**Convention:** Runtime flags should be given only once per script, following the shebang line:
 
-````
-#!/usr/bin/env bash
-#!keep_runtime_file
+### Conditional blocks
 
-# ... 
+Though its own commands are cross-platform compatible, doShell provides shorthand commands
+to easily implement platform specific script variations.
 
-````
-
-To vary by platform:
+**Example:**
 
 ````
 #!/usr/bin/env bash
@@ -143,23 +139,6 @@ To vary by platform:
 
 ````
 
-
-### Conditional blocks
-
-Though its own commands are cross-platform compatible, doShell provides shorthand commands
-to easily implement platform specific script variations.
-
-**Example:**
-
-````
-#if_is_linux
-  echo "hello linux"
-#endif_is_linux
-
-#if_is_mac
-  echo "hello mac"
-#endif_is_mac
-````
 
 ### Runtime variables
 
@@ -213,11 +192,6 @@ like:
 | ``#replaceFirst $VAR search replace``             | Replace first occurrence of given string                                      |
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
-**\*Remark on transpilation of built-in commands:**  
-Built-in commands are ultimately transposed into invoking again the doShell binary.  
-For example the line ``echo #extractBetween abcde a e`` is ultimately transpiled into:  
-``echo $(your/local/path/to/dosh extractBetween abcde a e)`` and will output: ``bcd``.
-
 
 ### URL parsing
 
@@ -260,7 +234,6 @@ you can use the shell redirection operator ``>``.
 
 | Command                                 | Description                             |
 | --------------------------------------- | --------------------------------------- |
-| ``#appendClipboardToFile "clip.txt"``   | Append clipboard-text to given file     |
 | ``#setClipboard $value``                | Copy text to clipboard                  |
 | ``#copyAll``                            | Select all, than copy                   |
 | ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
@@ -268,8 +241,7 @@ you can use the shell redirection operator ``>``.
 | ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
 | ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
 | ``#cutAll``                             | Select all, than cut                    |
-| ``$value=#getClipboard``                |                                         |
-| ``#saveClipboardToFile "clip.txt"``     | Save clipboard-text to given file       |
+| ``#getClipboard``                       |                                         |
 | ``#copyCurrentUrl``                     |                                         |
 | ``#copyInTerminal``                     | Varies by OS                            |
 | ``#pasteInTerminal``                    | Varies by OS                            |
