@@ -118,7 +118,12 @@ blocks before the eventual execution in a sandboxed shell-thread.
 | ``#!mouse "ETP/2 Elantech Touchpad"`` | Declares primary mouse device to doShell (named as listed via ``xinput list``) (ATM: Linux only)                   |
 
 
-**Vary options by platform:**
+### Conditional blocks
+
+Though its own commands are cross-platform compatible, doShell provides shorthand commands
+to easily implement platform specific script variations.
+
+**Example:**
 
 ````
 #!/usr/bin/env bash
@@ -134,23 +139,6 @@ blocks before the eventual execution in a sandboxed shell-thread.
 
 ````
 
-
-### Conditional blocks
-
-Though its own commands are cross-platform compatible, doShell provides shorthand commands
-to easily implement platform specific script variations.
-
-**Example:**
-
-````
-#if_is_linux
-  echo "hello linux"
-#endif_is_linux
-
-#if_is_mac
-  echo "hello mac"
-#endif_is_mac
-````
 
 ### Runtime variables
 
