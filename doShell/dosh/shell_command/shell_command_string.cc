@@ -71,7 +71,7 @@ bool shellCommandString::ReplaceLast() const {
   const std::string kNeedle = argv_[3];
   const std::string kReplacement = argc_ < 5 ? "" : argv_[4];
 
-  helper::String::ReplaceFirst(&kHaystack, kNeedle, kReplacement);
+  helper::String::ReplaceLast(&kHaystack, kNeedle, kReplacement);
 
   std::cout << kHaystack;
 

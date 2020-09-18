@@ -170,6 +170,28 @@ int String::ReplaceFirst(std::string *haystack,
   return 1;
 }
 
+int String::ReplaceLast(std::string *haystack,
+                         const std::string &needle,
+                         const std::string &replacement) {
+  // Get last occurrence
+  size_t pos = std::string::npos;
+  size_t pos_prev;
+
+  do {
+    pos_prev = pos;
+    pos = (*haystack).find(needle, pos + 1);
+  } while (pos != std::string::npos);
+
+  if (pos_prev != std::string::npos) pos = pos_prev;
+
+  if (pos == std::string::npos) return 0;
+
+  // Replace occurrence of sub String
+  (*haystack).replace(pos, needle.size(), replacement);
+
+  return 1;
+}
+
 // Replace text including and between LHS and RHS
 std::string String::ReplaceBetween(const std::string &str,
                                    const std::string &lhs,

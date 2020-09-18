@@ -66,6 +66,10 @@ extern int ReplaceFirst(std::string *haystack,
                         const std::string &needle,
                         const std::string &replacement);
 
+extern int ReplaceLast(std::string *haystack,
+                        const std::string &needle,
+                        const std::string &replacement);
+
 // Replace text including and between LHS and RHS
 std::string ReplaceBetween(const std::string &str,
                            const std::string &lhs,
