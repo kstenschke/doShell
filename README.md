@@ -338,13 +338,13 @@ easily adaptable to other web browsers.
 
 #### Use devTools and devConsole
 
-| Command                        | Description                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------- |
-| ``#openBrowserDevConsole``     | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
-| ``#openBrowserDevTools``       | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``#runJs "alert('hello')"``    | Open and focus devConsole, paste and execute given script                                   |
-| ``#execDevConsole``            | Hits CTRL+ENTER or CMD+ENTER                                                                |
-| ``#clearDevConsole``           | Clears current commands from devConsole                                                     |
+| Command                              | Description                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------- |
+| ``#openBrowserDevConsole``           | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
+| ``#openBrowserDevTools``             | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
+| ``#runJs alert('hello') #end_runJs`` | Open and focus devConsole, paste and execute given script                                   |
+| ``#execDevConsole``                  | Hits CTRL+ENTER or CMD+ENTER                                                                |
+| ``#clearDevConsole``                 | Clears current commands from devConsole                                                     |
 
 
 #### Interact with DOM elements
