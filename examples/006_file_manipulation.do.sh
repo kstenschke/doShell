@@ -15,7 +15,7 @@ echo #replaceBeforeFromFile ::DIR::assets/replaceBefore.txt bar 'foo bar'
 
 printf "\nreplaceBetweenFromFile: "
 echo #replaceBetweenFromFile ::DIR::assets/replaceBetween.txt bar qux ' bar baz '
-
+
 printf "\nreplaceFirstFromFile: "
 echo #replaceFirstFromFile ::DIR::assets/replaceFirst.txt bar foo
 
