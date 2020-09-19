@@ -20,4 +20,4 @@ printf "\nreplaceFirstFromFile: "
 echo #replaceFirstFromFile ::DIR::assets/replaceFirst.txt bar foo
 
 printf "\nreplaceLastFromFile: "
-echo #replaceLast ::DIR::assets/replaceLast.txt bar qux
+echo #replaceLastFromFile ::DIR::assets/replaceLast.txt bar qux
