@@ -38,7 +38,7 @@ doShell
 
 ## What does it do?
 
-doShell is a superset of shell script, a transpiler and runtime system for efficient 
+doShell script is a superset of shell script, geared towards efficient 
 **headfull interactive UI automation** on Linux and Mac OS, foremost but not limited
 to operations involving web browsing and shell.
 
