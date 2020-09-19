@@ -225,7 +225,7 @@ you can use the shell redirection operator ``>``.
 | ``#replaceAfterFromFile path/file search replace``                |                                                         |
 | ``#replaceAllFromFile path/file search replace``                  | Replace all occurrences of given string                 |
 | ``#replaceBeforeFromFile path/file search replace``               |                                                         |
-| ``#replaceBetweenFromFile path/file before after replacement ``   | Remove text including and between "before" and "after"  |
+| ``#replaceBetweenFromFile path/file before after replacement ``   | Replace text including and between "before" and "after" |
 | ``#replaceFirstFromFile path/file search replace``                | Replace first occurrence of given string                |
 | ``#replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
 

@@ -46,8 +46,9 @@ void S2sTranspiler::TranspileCommands() {
       auto path_binary = helper::File::GetAbsoluteFromRelativePath(
           path_binary_relative);
 
-      transpileString::Transpile(&source_, is_linux_, path_binary);
+      transpileString::Transpile(&source_, is_linux_, path_binary, "");
       transpileString::Transpile(&source_, is_linux_, path_binary, "FromFile");
+
       transpileUrl::Transpile(&source_, is_linux_, path_binary);
 
       transpileRandom::Transpile(&source_, is_linux_);
