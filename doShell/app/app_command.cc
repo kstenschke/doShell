@@ -35,7 +35,9 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "replaceBetween") return Command_ReplaceBetween;
   if (command == "replaceFirst") return Command_ReplaceFirst;
   if (command == "replaceLast") return Command_ReplaceLast;
+  if (command == "replaceAfterFromFile") return Command_ReplaceAfterFromFile;
   if (command == "replaceAllFromFile") return Command_ReplaceAllFromFile;
+  if (command == "replaceBeforeFromFile") return Command_ReplaceBeforeFromFile;
   if (command == "replaceFirstFromFile") return Command_ReplaceAllFromFile;
   if (command == "replaceLastFromFile") return Command_ReplaceAllFromFile;
   if (command == "replaceBetweenFromFile") return Command_ReplaceAllFromFile;

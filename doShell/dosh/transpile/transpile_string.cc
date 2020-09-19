@@ -7,13 +7,16 @@
 
 namespace doShell {
 
-transpileString::transpileString(std::string path_binary) {
+transpileString::transpileString(std::string path_binary, std::string from) {
   path_binary_ = std::move(path_binary);
+  from_ = std::move(from);
 }
 
-void transpileString::Transpile(
-    std::string *code, bool is_linux, std::string path_binary) {
-  auto *instance = new transpileString(std::move(path_binary));
+void transpileString::Transpile(std::string *code,
+                                bool is_linux,
+                                const std::string &path_binary,
+                                const std::string &from) {
+  auto *instance = new transpileString(path_binary, from);
 
   instance->TranspileExtractBetween(code);
 
@@ -35,10 +38,10 @@ void transpileString::Transpile(
 }
 
 transpileString* transpileString::TranspileExtractBetween(std::string *code) {
-  if (!helper::String::Contains(*code, "#extractBetween")) return this;
+  if (!helper::String::Contains(*code, "#extractBetween" + from_)) return this;
 
-  std::regex exp2("#extractBetween (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " extractBetween $1 $2 $3);";
+  std::regex exp2("#extractBetween" + from_ + " (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " extractBetween" + from_ + " $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
@@ -46,10 +49,10 @@ transpileString* transpileString::TranspileExtractBetween(std::string *code) {
 }
 
 transpileString* transpileString::TranspileReplaceAfter(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceAfter")) return this;
+  if (!helper::String::Contains(*code, "#replaceAfter" + from_)) return this;
 
-  std::regex exp2("#replaceAfter (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " replaceAfter $1 $2 $3);";
+  std::regex exp2("#replaceAfter" + from_ + " (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " replaceAfter" + from_ + " $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
@@ -57,10 +60,10 @@ transpileString* transpileString::TranspileReplaceAfter(std::string *code) {
 }
 
 transpileString* transpileString::TranspileReplaceAll(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceAll")) return this;
+  if (!helper::String::Contains(*code, "#replaceAll" + from_)) return this;
 
-  std::regex exp2("#replaceAll (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " replaceAll $1 $2 $3);";
+  std::regex exp2("#replaceAll" + from_ + " (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " replaceAll" + from_ + " $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
@@ -68,10 +71,10 @@ transpileString* transpileString::TranspileReplaceAll(std::string *code) {
 }
 
 transpileString* transpileString::TranspileReplaceBefore(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceBefore")) return this;
+  if (!helper::String::Contains(*code, "#replaceBefore" + from_)) return this;
 
-  std::regex exp2("#replaceBefore (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " replaceBefore $1 $2 $3);";
+  std::regex exp2("#replaceBefore" + from_ + " (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " replaceBefore" + from_ + " $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
@@ -79,10 +82,10 @@ transpileString* transpileString::TranspileReplaceBefore(std::string *code) {
 }
 
 transpileString* transpileString::TranspileReplaceBetween(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceBetween")) return this;
+  if (!helper::String::Contains(*code, "#replaceBetween" + from_)) return this;
 
-  std::regex exp2("#replaceBetween (.*) (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " replaceBetween $1 $2 $3 $4);";
+  std::regex exp2("#replaceBetween" + from_ + " (.*) (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " replaceBetween" + from_ + " $1 $2 $3 $4);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
@@ -90,10 +93,10 @@ transpileString* transpileString::TranspileReplaceBetween(std::string *code) {
 }
 
 transpileString* transpileString::TranspileReplaceFirst(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceFirst")) return this;
+  if (!helper::String::Contains(*code, "#replaceFirst" + from_)) return this;
 
-  std::regex exp2("#replaceFirst (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " replaceFirst $1 $2 $3);";
+  std::regex exp2("#replaceFirst" + from_ + " (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " replaceFirst" + from_ + " $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
@@ -101,10 +104,10 @@ transpileString* transpileString::TranspileReplaceFirst(std::string *code) {
 }
 
 transpileString* transpileString::TranspileReplaceLast(std::string *code) {
-  if (!helper::String::Contains(*code, "#replaceLast")) return this;
+  if (!helper::String::Contains(*code, "#replaceLast" + from_)) return this;
 
-  std::regex exp2("#replaceLast (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " replaceLast $1 $2 $3);";
+  std::regex exp2("#replaceLast" + from_ + " (.*) (.*) (.*)");
+  std::string replacement = "$(" + path_binary_ + " replaceLast" + from_ + " $1 $2 $3);";
 
   *code = std::regex_replace(*code, exp2, replacement);
 
