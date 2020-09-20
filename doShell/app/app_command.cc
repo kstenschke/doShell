@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app_command.h>
+#include "app_log.h"
 
 namespace doShell {
 
@@ -22,7 +23,7 @@ AppCommands::Command AppCommands::Resolve() {
 AppCommands::Command AppCommands::ResolveCommandByName(
     const std::string &command) {
   if (command == "appendClipboardToFile") return Command_AppendClipboardToFile;
-  if (command == "-c" || command == "compile") return Command_Compile;
+  if (command == "compile" || command == "-c") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
   if (command == "extractBetweenFromFile") return Command_ExtractBetweenFromFile;
   if (command == "getHostFromUrl") return Command_GetHostFromUrl;
@@ -38,9 +39,9 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "replaceAfterFromFile") return Command_ReplaceAfterFromFile;
   if (command == "replaceAllFromFile") return Command_ReplaceAllFromFile;
   if (command == "replaceBeforeFromFile") return Command_ReplaceBeforeFromFile;
-  if (command == "replaceFirstFromFile") return Command_ReplaceAllFromFile;
-  if (command == "replaceLastFromFile") return Command_ReplaceAllFromFile;
-  if (command == "replaceBetweenFromFile") return Command_ReplaceAllFromFile;
+  if (command == "replaceFirstFromFile") return Command_ReplaceFirstFromFile;
+  if (command == "replaceLastFromFile") return Command_ReplaceLastFromFile;
+  if (command == "replaceBetweenFromFile") return Command_ReplaceBetweenFromFile;
   if (command == "run" || command == "-r") return Command_Run;
   if (command == "runClean" || command == "-rc") return Command_RunClean;
   if (command == "saveClipboardToFile") return Command_SaveClipboardToFile;

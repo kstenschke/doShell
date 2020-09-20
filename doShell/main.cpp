@@ -12,9 +12,9 @@ int main(int argc, char **argv) {
   arguments.reserve(argc);
 
 //  argc = 3;
-//  argv[1] = "-r";
+//  argv[1] = "-rc";
 //  argv[2] =
-//      "/home/kay/CLionProjects/shellDo/examples/003_platform_conditions.do.sh";
+//      "/Users/kay/CLionProjects/robo/examples/006_file_manipulation.do.sh";
 
   for (int index = 0; index < argc; ++index)
     arguments.emplace_back(argv[index]);
