@@ -201,8 +201,8 @@ like:
 | ``#getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
 | ``#getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
 | ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
-| ``#urlEncode $URL``        | Encode given URL                                                 |
-| ``#urlDecode $URL``        | Decode given URL                                                 |
+| ``#urlEncode $URL``        | URL-Encode given string                                          |
+| ``#urlDecode $URL``        | URL-Decode given string                                          |
 
 
 ### Random values
