@@ -45,7 +45,7 @@ to operations involving web browsing and shell.
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
 To rapidly get an idea of doShell's syntax and some of it's abilities, 
-also have a glance at the included /examples/. 
+also have a glance at the included [/examples](/examples). 
 
 **What about Windows?**
 On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
