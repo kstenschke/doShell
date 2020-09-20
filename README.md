@@ -214,8 +214,7 @@ like:
 
 ### File manipulation
 
-All file manipulation commands output the manipulated
-file contents. To over/write results back to files, 
+All file manipulation commands output the manipulated file contents. To over/write results back to files, 
 you can use the shell redirection operator ``>``. 
 
 
@@ -246,6 +245,11 @@ you can use the shell redirection operator ``>``.
 | ``#copyInTerminal``                     | Varies by OS                            |
 | ``#pasteInTerminal``                    | Varies by OS                            |
 
+
+**Manipulate strings from clipboard**  
+
+All manipulation commands on strings from the clipboard output the resulting string.  
+To over/write the result back to files, you can use the shell redirection operator ``>``. 
 
 | Command                                                      | Description            |
 | ------------------------------------------------------------ | ---------------------- |
