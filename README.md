@@ -418,7 +418,7 @@ The following example scripts can be found under [/examples](/examples):
 | [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                        | Parsing and encoding/decoding URL parts                                              |
 | [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                        | Using PHP within doShell script                                                      |
 | [010_dialogs.do.sh](/examples/010_dialogs.do.sh)                                            | Various dialogs / GUI popup windows                                                  |
-| [011_dialogs-open_bash_in_container.do.sh](/examples/011_dialogs-open_bash_in_container.sh) | Display selection popup of docker containers, open bash in selected one              |
+| [011_select-dialog.do.sh](/examples/011_dialogs-open_bash_in_container.sh)                  | Display selection popup of files, open selected one in bash editor              |
 | [012_load_url_in_new_browser_tab.do.sh](/examples/012_load_url_in_new_browser_tab.do.sh)    | Opening a new browser tab and than loading a URL in it                               |
 | [013_search_with_duckduckgo.do.sh](/examples/013_search_with_duckduckgo.do.sh)              | Html form fill-out and submission                                                    |
 | [014_store_clipboard_to_file.do.sh](/examples/014_store_clipboard_to_file.do.sh)            | Copy text from browser, than save the clipboard content to a file                    |
