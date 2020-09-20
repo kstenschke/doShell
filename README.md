@@ -201,8 +201,8 @@ like:
 | ``#getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
 | ``#getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
 | ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
-| ``#urlEncode $URL``        | Encode given URL                                                 |
-| ``#urlDecode $URL``        | Decode given URL                                                 |
+| ``#urlEncode $URL``        | URL-Encode given string                                          |
+| ``#urlDecode $URL``        | URL-Decode given string                                          |
 
 
 ### Random values
@@ -231,19 +231,16 @@ you can use the shell redirection operator ``>``.
 
 ### Clipboard 
 
-| Command                                 | Description                             |
-| --------------------------------------- | --------------------------------------- |
-| ``#setClipboard $value``                | Copy text to clipboard                  |
-| ``#copyAll``                            | Select all, than copy                   |
-| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
-| ``#copyPaste $VAR``                     | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal $VAR``           | Copy text to clipboard and invoke paste |
-| ``#cutAll``                             | Select all, than cut                    |
-| ``#getClipboard``                       |                                         |
-| ``#copyCurrentUrl``                     |                                         |
-| ``#copyInTerminal``                     | Varies by OS                            |
-| ``#pasteInTerminal``                    | Varies by OS                            |
+| Command                                 | Description                                 |
+| --------------------------------------- | ------------------------------------------- |
+| ``#setClipboard $value``                | Copy text to clipboard                      |
+| ``#copyAll``                            | Select all, than copy                       |
+| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste     |
+| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste     |
+| ``#cutAll``                             | Select all, than cut (via resp. key-combos) |
+| ``#getClipboard``                       | Output clipboard contents                   |
+| ``#copyInTerminal``                     | Varies by OS                                |
+| ``#pasteInTerminal``                    | Varies by OS                                |
 
 
 **Manipulate strings from clipboard**  
