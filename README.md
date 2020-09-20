@@ -44,9 +44,6 @@ to operations involving web browsing and shell.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
-To rapidly get an idea of doShell's syntax and some of it's abilities, 
-also have a glance at the included [/examples](/examples). 
-
 **What about Windows?**
 On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
 
@@ -63,6 +60,9 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
   therefor a completely unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
+
+To rapidly get an idea of doShell's syntax and some of it's abilities, 
+also have a glance at the included [script examples](#script-examples). 
 
 
 ### Mission targets
