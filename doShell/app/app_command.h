@@ -37,6 +37,8 @@ class AppCommands {
     Command_Run,
     Command_RunClean,
     Command_SaveClipboardToFile,
+    Command_SetClipboard,
+    Command_SetClipboardFromFile,
     Command_UrlEncode,
     Command_UrlDecode,
     Command_Version

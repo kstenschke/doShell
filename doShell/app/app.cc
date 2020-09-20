@@ -173,6 +173,15 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       return shellCommandClipboard::saveClipboardToFile(path_file);
     }
+    case AppCommands::Command_SetClipboard: {  // setClipboard
+      return shellCommandClipboard::setClipboard(argv_[2]);
+    }
+    case AppCommands::Command_SetClipboardFromFile: {  // setClipboardFromFile
+      std::string str;
+      helper::File::GetFileContents(argv_[2], &str);
+
+      return shellCommandClipboard::setClipboard(str);
+    }
     default:
       return false;
   }

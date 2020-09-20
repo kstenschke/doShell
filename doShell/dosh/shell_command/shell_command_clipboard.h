@@ -29,6 +29,7 @@ class shellCommandClipboard {
 
   static bool appendClipboardToFile(std::string path_file);
   static bool saveClipboardToFile(std::string path_file);
+  static bool setClipboard(std::string str);
 
  private:
   int argc_;
