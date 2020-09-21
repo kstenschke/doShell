@@ -4,8 +4,6 @@
 #ifndef DOSHELL_HELPER_HELPER_STRING_H_
 #define DOSHELL_HELPER_HELPER_STRING_H_
 
-#include <doShell/helper/helper_numeric.h>
-
 #include <vendor/json/single_include/nlohmann/json.hpp>
 #include <fcntl.h>
 

@@ -4,8 +4,6 @@
 #ifndef DOSHELL_HELPER_HELPER_CLI_H_
 #define DOSHELL_HELPER_HELPER_CLI_H_
 
-#include <doShell/helper/helper_numeric.h>
-
 #ifdef __linux__
   #include <sys/sendfile.h>
 #elif _WIN32
