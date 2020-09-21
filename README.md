@@ -151,6 +151,11 @@ Replace all occurences of ``::FOO::`` by ``bar`` before
 running the given file:  
 ``shdo -r script.do.x.sh "{\"::FOO::\":\"bar\"}"``  
 
+**Note:** For an optimal ratio of performance and a small
+file size of the doShell executable, doShell provides only
+a very simple custom JSON parser: All keys and values 
+therefor must be surrounded by single or double quotes.
+
 
 
 ### Macros
