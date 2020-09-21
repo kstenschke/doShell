@@ -474,7 +474,7 @@ doShell was built using the following third party libraries and tools:
 | Library                                           | Description                                                        | License                                                          |
 | ------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------- |
 | [Clip Library](https://github.com/dacap/clip)     | Library to copy/retrieve content to/from the clipboard/pasteboard. | [MIT License](https://opensource.org/licenses/MIT)               |
-| [nlohmann/json](https://github.com/nlohmann/json) | JSON for Modern C++                                                | [MIT License](https://opensource.org/licenses/MIT)               |
+
 
 | Tool                                                            | Description                                                                | License                                                                                                   |
 | --------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
