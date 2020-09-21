@@ -419,7 +419,7 @@ The following example scripts can be found under [/examples](/examples):
 | [007_clipboard_strings.do.sh](/examples/007_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                      |
 | [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                     | Parsing and encoding/decoding URL parts                                              |
 | [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                     | Using PHP within doShell script                                                      |
-| [010_dialogs.do.sh](/examples/010_replace_runtime_variables.do.sh)                       | Use of dynamic runtime variables                                                     |
+| [010_runtime_variables.do.sh](/examples/010_runtime_variables.do.sh)                     | Use of dynamic runtime variables                                                     |
 | [011_dialogs.do.sh](/examples/011_dialogs.do.sh)                                         | Various dialogs / GUI popup windows                                                  |
 | [012_select-dialog.do.sh](/examples/012_select-dialog.sh)                                | Display selection popup of files, open selected one in bash editor                   |
 | [013_load_url_in_new_browser_tab.do.sh](/examples/013_load_url_in_new_browser_tab.do.sh) | Opening a new browser tab and than loading a URL in it                               |
