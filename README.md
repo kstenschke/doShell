@@ -87,6 +87,14 @@ also have a glance at the included [script examples](#script-examples).
 Running ``shdo -t script.do.sh`` transpiles the given doShell
 script to a new file ``script.do.x.sh``
 
+doShell transpiles to intermediary shell script files,
+which are stored for better performance  when repeatedly runnimg
+the same script.  
+Additional to conventional shell script code, they can contain runtime macros: 
+placeholder-strings for generic content, and runtime variables.
+The doShell runtime system replaces runtime macros, -variables and -conditional
+blocks before the eventual execution in a sandboxed shell-thread.  
+
 
 ### Transpile and/or run
 
@@ -96,12 +104,6 @@ skipped.
 
 **Run-Clean:** ``shdo -rc script.do.sh`` transpiles and runs the given script,
 if existing, an already transpiled intermediary file is overwritten.  
-
-doShell transpiles to intermediary shell script files: additional to 
-conventional shell script code, they can contain runtime macros: 
-placeholder-strings for generic content, and runtime variables.
-The doShell runtime system replaces runtime macros, -variables and -conditional
-blocks before the eventual execution in a sandboxed shell-thread.  
 
 
 ## Runtime options
