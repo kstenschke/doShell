@@ -2,7 +2,6 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/helper/helper_file.h>
-#include <doShell/app/app_log.h>
 
 namespace helper {
 
@@ -20,8 +19,11 @@ bool File::FileExists(const std::string &path_file) {
 
 bool File::GetFileContents(const std::string &path_file,
                            std::string *contents) {
-  if (!FileExists(path_file))
-    return doShell::AppLog::NotifyError("File not found: "  + path_file);
+  if (!FileExists(path_file)) {
+    std::cerr << "File not found: "  + path_file;
+
+    return false;
+  }
 
   std::ifstream file(path_file);
 
@@ -55,11 +57,15 @@ bool File::ResolvePath(const std::string &pwd,
             ? pwd + (*path)
             : pwd + "/" + (*path);
 
-  return must_exist
-             && (helper::File::IsDir(*path)
-                 || !helper::File::FileExists(*path))
-         ? doShell::AppLog::NotifyError(std::string("File not found: ") + *path)
-         : true;
+  if (must_exist
+      && (helper::File::IsDir(*path)
+          || !helper::File::FileExists(*path))) {
+    std::cerr << "File not found: " + *path;
+
+    return false;
+  }
+
+  return true;
 }
 
 // Get trailing name component of given path, e.g. the filename w/ extension
@@ -101,9 +107,11 @@ int File::AppendToFile(const std::string &filename,
 
 bool File::CopyFile(const std::string &path_source,
                     const std::string &path_destination) {
-  if (!FileExists(path_source))
-    return doShell::AppLog::NotifyError(
-        "Copy file failed - file not found: " + path_source);
+  if (!FileExists(path_source)) {
+    std::cerr << "Copy file failed - file not found: " + path_source;
+
+    return false;
+  }
 
   std::ifstream source(path_source, std::ios::binary);
   std::ofstream destination(path_destination, std::ios::binary);

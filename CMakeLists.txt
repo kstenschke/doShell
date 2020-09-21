@@ -34,8 +34,6 @@ add_executable(dosh
         doShell/app/app_command.h
         doShell/app/app_help.cc
         doShell/app/app_help.h
-        doShell/app/app_log.cc
-        doShell/app/app_log.h
         doShell/dosh/s2s_transpiler.cc
         doShell/dosh/s2s_transpiler.h
 

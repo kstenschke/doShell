@@ -2,7 +2,6 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app_command.h>
-#include "app_log.h"
 
 namespace doShell {
 

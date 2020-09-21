@@ -6,7 +6,6 @@
 
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
-#include <doShell/app/app_log.h>
 #include <doShell/config.h>
 #include <doShell/dosh/transpile/transpile_browser.h>
 #include <doShell/dosh/transpile/transpile_clipboard.h>

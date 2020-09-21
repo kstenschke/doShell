@@ -19,8 +19,6 @@ int main(int argc, char **argv) {
   for (int index = 0; index < argc; ++index)
     arguments.emplace_back(argv[index]);
 
-  doShell::AppLog::LogStartUp(arguments);
-
   // Process command arguments, display help if no valid command given
   auto *app = new doShell::App(arguments.size(), arguments);
 
@@ -29,12 +27,6 @@ int main(int argc, char **argv) {
                  : false;
 
   int return_signal = success ? 0 : 125;
-
-  doShell::AppLog::NotifyInfo(
-      "doShell finished w/ return code: " + std::to_string(return_signal),
-      true);
-
-  doShell::AppLog::Output();
 
   delete app;
 

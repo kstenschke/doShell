@@ -27,7 +27,7 @@ bool AppHelp::PrintHelp(bool with_title,
     case AppCommands::Command_Invalid:
     default:
       if (!command_identifier.empty()) {
-        doShell::AppLog::NotifyError("Unknown command: " + command_identifier);
+        std::cerr << "Unknown command: " + command_identifier << "\n";
 
         with_title = true;
       }
@@ -78,9 +78,7 @@ bool AppHelp::PrintOverview(bool with_title) {
 }
 
 void AppHelp::PrintUnknownArgumentMessage(const std::string& arg) {
-  AppLog::NotifyError("Unknown argument: \"" + arg + "\". ");
-
-  if (AppLog::IsSilent()) return;
+  std::cerr << "Unknown argument: \"" + arg + "\". \n";
 
   std::cout << "Possible arguments are:\n";
 

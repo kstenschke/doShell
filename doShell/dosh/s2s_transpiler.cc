@@ -180,8 +180,9 @@ bool S2sTranspiler::ResolveImports() {
     if (!helper::File::ResolvePath(path_source_directory_abs_,
                                    &path_import_file,
                                    true)) {
-      return doShell::AppLog::NotifyError(
-          "Imported from " + path_source_file_abs_);
+      std::cerr << "Failed importing from " + path_source_file_abs_;
+
+      return false;
     }
 
     std::string import_content;
