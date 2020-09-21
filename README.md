@@ -85,7 +85,7 @@ also have a glance at the included [script examples](#script-examples).
 ### Transpile
 
 Running ``shdo -t script.do.sh`` transpiles the given doShell
-script to a new file ``script.do.x.sh``
+script to a new intermediary file ``script.do.x.sh``
 
 doShell transpiles to intermediary shell script files,
 which are stored for better performance  when repeatedly runnimg
