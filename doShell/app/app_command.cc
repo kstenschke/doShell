@@ -22,6 +22,7 @@ AppCommands::Command AppCommands::Resolve() {
 AppCommands::Command AppCommands::ResolveCommandByName(
     const std::string &command) {
   if (command == "appendClipboardToFile") return Command_AppendClipboardToFile;
+  if (command == "appendToClipboard") return Command_AppendToClipboard;
   if (command == "compile" || command == "-c") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
   if (command == "extractBetweenFromFile") return Command_ExtractBetweenFromFile;
@@ -29,6 +30,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "getPathFromUrl") return Command_GetPathFromUrl;
   if (command == "getQueryFromUrl") return Command_GetQueryFromUrl;
   if (command == "getSchemeFromUrl") return Command_GetSchemeFromUrl;
+  if (command == "prependToClipboard") return Command_PrependToClipboard;
   if (command == "replaceAfter") return Command_ReplaceAfter;
   if (command == "replaceAll") return Command_ReplaceAll;
   if (command == "replaceBefore") return Command_ReplaceBefore;
@@ -112,6 +114,8 @@ bool AppCommands::IsTranspilerCommand(AppCommands::Command command) {
 bool AppCommands::IsClipboardCommand(AppCommands::Command command) {
   switch (command) {
     case Command_AppendClipboardToFile:
+    case Command_AppendToClipboard:
+    case Command_PrependToClipboard:
     case Command_SaveClipboardToFile:
     case Command_SetClipboard:
     case Command_SetClipboardFromFile:

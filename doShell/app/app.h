@@ -11,6 +11,7 @@
 #include <doShell/dosh/shell_command/shell_command_string.h>
 #include <doShell/dosh/shell_command/shell_command_url.h>
 #include <doShell/helper/helper_dateTime.h>
+#include <vendor/clip/clip.h>
 
 #include <cstring>
 #include <iostream>

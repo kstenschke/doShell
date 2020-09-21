@@ -13,6 +13,7 @@ class AppCommands {
  public:
   enum Command {
     Command_AppendClipboardToFile,
+    Command_AppendToClipboard,
     Command_Compile,
     Command_ExtractBetween,
     Command_ExtractBetweenFromFile,
@@ -22,6 +23,7 @@ class AppCommands {
     Command_GetSchemeFromUrl,
     Command_Help,
     Command_Invalid,
+    Command_PrependToClipboard,
     Command_ReplaceAfter,
     Command_ReplaceAll,
     Command_ReplaceAllFromFile,
