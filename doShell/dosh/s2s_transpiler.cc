@@ -76,7 +76,65 @@ bool S2sTranspiler::SourceContainsCommands() {
 void S2sTranspiler::TranspileRuntimeVariables() {
   if (argc_ < 4 || !helper::String::IsJson(argv_[3])) return;
 
-  // TODO(kay) implement parse and replace from JSON tuples
+  // 1. find offsets of single and double quote delimiters
+  //    around JSON keys and values
+  std::string offsets_comma_separated;
+
+  bool prev_was_backslash = false;
+  bool is_in_string = false;
+  char prev_quote = '"';
+  int index = -1;
+
+  for (char c : argv_[3]) {
+    ++index;
+
+    if (prev_was_backslash) {
+      prev_was_backslash = c == '\\';
+      continue;
+    }
+
+    if (c == '\\') {
+      prev_was_backslash = true;
+      continue;
+    }
+
+    if (!is_in_string
+        && (c == '"' || c == '\'')) {
+      is_in_string = true;
+      prev_quote = c;
+      offsets_comma_separated += std::to_string(index) + ",";
+    } else if (c == prev_quote) {
+      is_in_string = false;
+      offsets_comma_separated += std::to_string(index) + ",";
+    }
+  }
+
+  // Split offsets into vector
+  offsets_comma_separated = 
+      offsets_comma_separated.substr(0, offsets_comma_separated.length() - 1);
+  
+  auto offsets = helper::String::Explode(offsets_comma_separated, ',');
+  unsigned long amount_offsets = offsets.size();
+
+  uint32_t i = 0;
+
+  while (i < amount_offsets) {
+    // Extract key/value tuples
+    int offset_start = std::atoi(offsets[i].c_str()) + 1;
+    int offset_end = std::atoi(offsets[i + 1].c_str());
+
+    std::string key = argv_[3].substr(offset_start, offset_end - offset_start);
+
+    offset_start = std::atoi(offsets[i + 2].c_str()) + 1;
+    offset_end = std::atoi(offsets[i + 3].c_str());
+
+    std::string value = argv_[3].substr(offset_start, offset_end - offset_start);
+
+    // Replace within code
+    helper::String::ReplaceAll(&source_, key, value);
+
+    i+= 4;
+  }
 }
 
 bool S2sTranspiler::ParsePhp() {
@@ -111,7 +169,6 @@ bool S2sTranspiler::Execute() {
   TranspileRuntimeVariables();
   ParsePhp();
 
-
   SaveSourceToRuntimeScript();
   MakeRuntimeScriptExecutable();
 
@@ -141,6 +198,13 @@ bool S2sTranspiler::RemoveTemporaryExecutionFile() {
   return helper::String::Contains(source_, "#!keep_runtime_file")
     ? false
     : helper::File::Remove(path_runtime_file_abs_.c_str());
+}
+
+bool S2sTranspiler::RemoveIntermediaryCode() {
+  // TODO(kay): bugfix - ex 10 does NOT remove correctly
+  return helper::String::Contains(source_, "#!remove_transpilation")
+    ? helper::File::Remove(path_compiled_file_abs_.c_str())
+    : false;
 }
 
 void S2sTranspiler::InitPathSourceDirectory() {

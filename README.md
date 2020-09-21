@@ -115,6 +115,7 @@ if existing, an already transpiled intermediary file is overwritten.
 | ``#!browser chromium``                | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
 | ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
 | ``#!mouse "ETP/2 Elantech Touchpad"`` | Declares primary mouse device to doShell (named as listed via ``xinput list``) (ATM: Linux only)                   |
+| ``#!remove_transpilation``            | By default, doShell keeps the intermediary code, this flag instructs the runtime system to delete that file        |
 
 
 ### Conditional blocks

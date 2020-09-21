@@ -4,25 +4,19 @@
 #include <doShell/helper/helper_string.h>
 
 #include <iostream>
-#include <iterator>
 #include <regex>  // NOLINT [build/c++11]
 #include <utility>
 
 namespace helper {
 
 bool String::IsJson(const std::string &str) {
-  if (str.empty()) return false;
-
-  try {
-    auto json_outer = nlohmann::json::parse(str);
-  } catch (nlohmann::detail::parse_error &e) {
-    return false;
-  }
+  if (str.empty() || str[0] != '{') return false;
 
   const char *kStr = str.c_str();
 
-  return (helper::String::Contains(kStr, "\"")
-          && helper::String::Contains(kStr, ":"));
+  return helper::String::Contains(kStr, "\"")
+         && helper::String::Contains(kStr, ":")
+         && helper::String::EndsWith(kStr, "}");
 }
 
 // Check whether given string starts w/ given prefix

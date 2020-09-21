@@ -4,7 +4,6 @@
 #ifndef DOSHELL_HELPER_HELPER_STRING_H_
 #define DOSHELL_HELPER_HELPER_STRING_H_
 
-#include <vendor/json/single_include/nlohmann/json.hpp>
 #include <fcntl.h>
 
 #include <algorithm>

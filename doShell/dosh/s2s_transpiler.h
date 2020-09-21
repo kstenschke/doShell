@@ -42,6 +42,8 @@ class S2sTranspiler {
   // 4. Delete dosh copy
   bool Execute();
 
+  bool RemoveIntermediaryCode();
+
   virtual ~S2sTranspiler();
 
  private:

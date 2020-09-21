@@ -222,6 +222,8 @@ bool App::ProcessTranspilerCommand(AppCommands::Command command) {
 
       result = compiler->Execute();
 
+      compiler->RemoveIntermediaryCode();
+
       delete compiler;
 
       return result;
