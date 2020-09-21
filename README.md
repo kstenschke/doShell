@@ -5,10 +5,8 @@ doShell
 
 - [DoShell](#doshell)
   * [What does it do?](#idea---wat-does-(will)-it-do?)
-  * [Functional Flow](#functional-flow)
-    + [Transpile](#transpile) 
-    + [Transpile and/or run](#transpile-and/or-run) 
-  + [Runtime options](#runtime-options)
+  * [Functional Flow](#functional-flow) 
+  * [Runtime options](#runtime-options)
     + [Runtime flags](#runtime-flags)
     + [Conditional blocks](#conditional-blocks)
   * [Macros](#macros)  
