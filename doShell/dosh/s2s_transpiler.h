@@ -80,6 +80,7 @@ class S2sTranspiler {
   void TranspileCommands();
   bool SourceContainsCommands();
 
+  void TranspileRuntimeVariables();
   bool ParsePhp();
 
   void CleanupSource();

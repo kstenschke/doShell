@@ -67,8 +67,6 @@ add_executable(dosh
 
         doShell/helper/helper_cli.cc
         doShell/helper/helper_cli.h
-        doShell/helper/helper_dateTime.cc
-        doShell/helper/helper_dateTime.h
         doShell/helper/helper_file.cc
         doShell/helper/helper_file.h
         doShell/helper/helper_numeric.cc

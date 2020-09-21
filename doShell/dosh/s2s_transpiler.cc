@@ -73,6 +73,12 @@ bool S2sTranspiler::SourceContainsCommands() {
       std::sregex_iterator());
 }
 
+void S2sTranspiler::TranspileRuntimeVariables() {
+  if (argc_ < 4 || !helper::String::IsJson(argv_[3])) return;
+
+  // TODO(kay) implement parse and replace from JSON tuples
+}
+
 bool S2sTranspiler::ParsePhp() {
   if (!helper::String::Contains(source_, "<?php")) return false;
 
@@ -101,7 +107,10 @@ bool S2sTranspiler::Execute() {
 
   transpilePlatform::Transpile(&source_, is_linux_);
   transpileMacros::Transpile(&source_, is_linux_);
+
+  TranspileRuntimeVariables();
   ParsePhp();
+
 
   SaveSourceToRuntimeScript();
   MakeRuntimeScriptExecutable();

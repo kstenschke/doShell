@@ -32,15 +32,6 @@
 namespace helper {
 namespace Cli {
 
-extern const char ANSI_BOLD[];
-extern const char ANSI_DIM[];
-extern const char ANSI_UNDERLINE[];
-extern const char ANSI_REVERSE[];
-extern const char ANSI_RESET[];
-
-extern const char ANSI_LIGHT_GREEN[];
-extern const char ANSI_LIGHT_RED[];
-
 extern void Execute(const char *command);
 extern std::string GetExecutionResponse(const char *command);
 
