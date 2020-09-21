@@ -419,17 +419,18 @@ The following example scripts can be found under [/examples](/examples):
 | [007_clipboard_strings.do.sh](/examples/007_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                      |
 | [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                     | Parsing and encoding/decoding URL parts                                              |
 | [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                     | Using PHP within doShell script                                                      |
-| [010_dialogs.do.sh](/examples/010_dialogs.do.sh)                                         | Various dialogs / GUI popup windows                                                  |
-| [011_select-dialog.do.sh](/examples/011_select-dialog.sh)                                | Display selection popup of files, open selected one in bash editor                   |
-| [012_load_url_in_new_browser_tab.do.sh](/examples/012_load_url_in_new_browser_tab.do.sh) | Opening a new browser tab and than loading a URL in it                               |
-| [013_search_with_duckduckgo.do.sh](/examples/013_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                    |
-| [014_store_clipboard_to_file.do.sh](/examples/014_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                    |
-| [015_use_dev_console.do.sh](/examples/015_use_dev_console.do.sh)                         | Opening the dev console, inserting and running script in it                          |
-| [016_export_all_script_tags.do.sh](/examples/016_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file      |
-| [017_export_html_comments.do.sh](/examples/017_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                        |
-| [018_export_urls.do.sh](/examples/018_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                              |
-| [019_swop_domain.do.sh](/examples/019_swop_domain.do.sh)                                 | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load |
-| [020_iterate_url.do.sh](/examples/020_iterate_url.do.sh)                                 | Open iterated values of an URL parameter in new browser tabs                         |
+| [010_dialogs.do.sh](/examples/010_replace_runtime_variables.do.sh)                       | Use of dynamic runtime variables                                                     |
+| [011_dialogs.do.sh](/examples/011_dialogs.do.sh)                                         | Various dialogs / GUI popup windows                                                  |
+| [012_select-dialog.do.sh](/examples/012_select-dialog.sh)                                | Display selection popup of files, open selected one in bash editor                   |
+| [013_load_url_in_new_browser_tab.do.sh](/examples/013_load_url_in_new_browser_tab.do.sh) | Opening a new browser tab and than loading a URL in it                               |
+| [014_search_with_duckduckgo.do.sh](/examples/014_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                    |
+| [015_store_clipboard_to_file.do.sh](/examples/015_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                    |
+| [016_use_dev_console.do.sh](/examples/016_use_dev_console.do.sh)                         | Opening the dev console, inserting and running script in it                          |
+| [017_export_all_script_tags.do.sh](/examples/017_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file      |
+| [018_export_html_comments.do.sh](/examples/018_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                        |
+| [019_export_urls.do.sh](/examples/019_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                              |
+| [020_swop_domain.do.sh](/examples/020_swop_domain.do.sh)                                 | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load |
+| [021_iterate_url.do.sh](/examples/021_iterate_url.do.sh)                                 | Open iterated values of an URL parameter in new browser tabs                         |
 
 
 Third Party References
