@@ -228,8 +228,10 @@ like:
 
 | Command                                    | Description                                 |
 | ------------------------------------------ | ------------------------------------------- |
+| ``#appendToClipboard $value``              | Add string to end of clipboard              |
 | ``#getClipboard``                          | Output clipboard contents                   |
-| ``#setClipboard $value``                   | Copy text to clipboard                      |
+| ``#prependToClipboard $value``             | Add string before start of clipboard        |
+| ``#setClipboard $value``                   | Copy string to clipboard                    |
 | ``#setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
 
 
@@ -242,6 +244,7 @@ like:
 | ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
 | ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
 | ``#cutAll``                             | Select all, than cut                    |
+| ``#paste``                              |                                         |
 | ``#pasteInTerminal``                    | Varies by OS                            |
 
 
