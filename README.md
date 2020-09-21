@@ -18,7 +18,6 @@ doShell
     + [String manipulation](#string-manipulation)
     + [URL parsing](#url-parsing)
     + [Random values](#random-values)
-    + [File manipulation](#file-manipulation)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
     + [Send keystrokes](#send-keyboard-events)
@@ -193,6 +192,19 @@ like:
 | ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 
+**Strings from files** 
+
+| Command                                                           | Description                                             |
+| ----------------------------------------------------------------- | ------------------------------------------------------- |
+| ``#extractBetweenFromFile path/file before after``                | Extract text excluding but between "before" and "after" |
+| ``#replaceAfterFromFile path/file search replace``                |                                                         |
+| ``#replaceAllFromFile path/file search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceBeforeFromFile path/file search replace``               |                                                         |
+| ``#replaceBetweenFromFile path/file before after replacement ``   | Replace text including and between "before" and "after" |
+| ``#replaceFirstFromFile path/file search replace``                | Replace first occurrence of given string                |
+| ``#replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
+
+
 ### URL parsing
 
 | Command                    | Description                                                      |
@@ -212,35 +224,25 @@ like:
 | ``myvar=#rand 0 100``             | Assign ``var`` a random value between 0 and 100  |
 
 
-### File manipulation
-
-All file manipulation commands output the manipulated file contents. To over/write results back to files, 
-you can use the shell redirection operator ``>``. 
-
-
-| Command                                                           | Description                                             |
-| ----------------------------------------------------------------- | ------------------------------------------------------- |
-| ``#extractBetweenFromFile path/file before after``                | Extract text excluding but between "before" and "after" |
-| ``#replaceAfterFromFile path/file search replace``                |                                                         |
-| ``#replaceAllFromFile path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceBeforeFromFile path/file search replace``               |                                                         |
-| ``#replaceBetweenFromFile path/file before after replacement ``   | Replace text including and between "before" and "after" |
-| ``#replaceFirstFromFile path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
-
-
 ### Clipboard 
 
-| Command                                 | Description                                 |
-| --------------------------------------- | ------------------------------------------- |
-| ``#setClipboard $value``                | Copy text to clipboard                      |
-| ``#copyAll``                            | Select all, than copy                       |
-| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste     |
-| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste     |
-| ``#cutAll``                             | Select all, than cut (via resp. key-combos) |
-| ``#getClipboard``                       | Output clipboard contents                   |
-| ``#copyInTerminal``                     | Varies by OS                                |
-| ``#pasteInTerminal``                    | Varies by OS                                |
+| Command                                    | Description                                 |
+| ------------------------------------------ | ------------------------------------------- |
+| ``#getClipboard``                          | Output clipboard contents                   |
+| ``#setClipboard $value``                   | Copy text to clipboard                      |
+| ``#setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
+
+
+**Invoke copy/paste related key combos**
+
+| Command                                 | Description                             |
+| --------------------------------------- | --------------------------------------- |
+| ``#copyAll``                            | Select all, than copy                   |
+| ``#copyInTerminal``                     | Varies by OS                            |
+| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
+| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
+| ``#cutAll``                             | Select all, than cut                    |
+| ``#pasteInTerminal``                    | Varies by OS                            |
 
 
 **Manipulate strings from clipboard**  
@@ -248,13 +250,13 @@ you can use the shell redirection operator ``>``.
 All manipulation commands on strings from the clipboard output the resulting string.  
 To over/write the result back to files, you can use the shell redirection operator ``>``. 
 
-| Command                                                      | Description            |
-| ------------------------------------------------------------ | ---------------------- |
+| Command                                                    | Description                                             |
+| ---------------------------------------------------------- | ------------------------------------------------------- |
+| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
 | ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
+| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
 | ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
 | ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
-| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
 
 
 ### Dialogs
