@@ -47,6 +47,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "runClean" || command == "-rc") return Command_RunClean;
   if (command == "saveClipboardToFile") return Command_SaveClipboardToFile;
   if (command == "setClipboard") return Command_SetClipboard;
+  if (command == "setClipboardFromFile") return Command_SetClipboardFromFile;
   if (command == "urlEncode") return Command_UrlEncode;
   if (command == "urlDecode") return Command_UrlDecode;
   if (command == "help" || command == "-h" || command == "?")
