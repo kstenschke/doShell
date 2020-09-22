@@ -164,6 +164,7 @@ therefor must be surrounded by single or double quotes.
 | ------------------- | ----------------------------------------------------------------- | ---------------- |
 | ``::DIR::``         | Absolute path of current file w/o filename                        | Transpilation    |
 | ``::DIR_DOSH::``    | Absolute path of current running doShell executable w/o filename  | Runtime          |
+| ``::DIR_EXEC::``    | Directory path from where doShell was invoked                     | Runtime          |
 | ``::FILE::``        | Absolute path of current file including the filename              | Transpilation    |
 | ``::LINE::``        | Line number in current file                                       | Transpilation    |
 | ``::OS::``          | ``linux`` or ``mac``                                              | Runtime          |
