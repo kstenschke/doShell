@@ -6,14 +6,16 @@
 namespace doShell {
 
 void transpileDialog::Transpile(std::string *code, bool is_linux) {
-  TranspileNotify(code, is_linux);
+  TranspileInfo(code, is_linux);
   TranspileAlert(code, is_linux);
   TranspileConfirm(code, is_linux);
   TranspilePrompt(code, is_linux);
 }
 
-bool transpileDialog::TranspileNotify(std::string *code, bool is_linux) {
-  if (std::string::npos == code->find("#notify ")) return false;
+bool transpileDialog::TranspileInfo(std::string *code, bool is_linux) {
+  if (std::string::npos == code->find("#popupInfo ")) return false;
+
+  // TODO(kay): implement
 
   if (is_linux) {
     return helper::String::ReplaceAll(

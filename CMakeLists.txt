@@ -76,3 +76,7 @@ add_executable(dosh
 add_subdirectory(vendor/clip/)
 include_directories(../vendor/clip/)
 target_link_libraries(dosh clip)
+
+add_subdirectory(vendor/Boxer/)
+include_directories(../vendor/Boxer/)
+target_link_libraries(dosh Boxer)

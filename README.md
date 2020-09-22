@@ -274,8 +274,8 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command                                                  | Description                       |
 | -------------------------------------------------------- | --------------------------------- |
-| ``#notify "MESSAGE"``                                    |                                   |
-| ``#alert "MESSAGE"``                                     |                                   |
+| ``#popupInfo "MESSAGE"``                                 | Open informational popup          |
+| ``#popupAlert "MESSAGE"``                                |                                   |
 | ``var=#confirm "MESSAGE"``                               | Yes/No Dialog                     |
 | ``var=#prompt "MESSAGE"``                                | Popup with input field            |
 | ``var=#select "MESSAGE" "option1" "option2" "option3"``  | Popup with options to select from |
