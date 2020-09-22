@@ -160,13 +160,14 @@ therefor must be surrounded by single or double quotes.
 
 ### Macros
 
-| Macro               | Replaced by                                            | Replaced during  |
-| ------------------- | ------------------------------------------------------ | ---------------- |
-| ``::DIR::``         | Absolute path of current file w/o filename             | Transpilation    |
-| ``::FILE::``        | Absolute path of current file including the filename   | Transpilation    |
-| ``::LINE::``        | Line number in current file                            | Transpilation    |
-| ``::OS::``          | ``linux`` or ``mac``                                   | Runtime          |
-| ``::TIMESTAMP::``   | Current UNIX timestamp                                 | Runtime          |
+| Macro               | Replaced by                                                       | Replaced during  |
+| ------------------- | ----------------------------------------------------------------- | ---------------- |
+| ``::DIR::``         | Absolute path of current file w/o filename                        | Transpilation    |
+| ``::DIR_DOSH::``    | Absolute path of current running doShell executable w/o filename  | Runtime          |
+| ``::FILE::``        | Absolute path of current file including the filename              | Transpilation    |
+| ``::LINE::``        | Line number in current file                                       | Transpilation    |
+| ``::OS::``          | ``linux`` or ``mac``                                              | Runtime          |
+| ``::TIMESTAMP::``   | Current UNIX timestamp                                            | Runtime          |
 
 
 ## Commands
