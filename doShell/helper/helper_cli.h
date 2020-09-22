@@ -30,6 +30,7 @@
 namespace helper {
 namespace Cli {
 
+extern std::string GetSelfPath();
 extern void Execute(const char *command);
 extern std::string GetExecutionResponse(const char *command);
 

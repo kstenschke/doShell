@@ -2,10 +2,14 @@
 
 # Example on how to use runtime macros
 
-echo $"current UNIX timestamp: ::TIMESTAMP::"
+echo $"Your platform is: ::OS::"
 
-echo $"this is line ::LINE:: of file: ::FILE::"
-echo $"path of this file: ::DIR::"
-echo $"your platform is: ::OS::"
+echo $"Current UNIX timestamp: ::TIMESTAMP::"
+
+echo $"This is line ::LINE:: of file: ::FILE::"
+
+echo $"Path of this file: ::DIR::"
+echo "Working dir is: ::DIR_EXEC::"
+echo "Path to doShell exectable is: ::DIR_DOSH::"
 
 #import include/001_echo_hello.sh

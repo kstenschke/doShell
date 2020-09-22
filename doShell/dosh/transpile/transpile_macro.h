@@ -22,7 +22,7 @@ namespace doShell {
 
 class transpileMacros {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  static void Transpile(std::string *code);
 };
 
 }  // namespace doShell

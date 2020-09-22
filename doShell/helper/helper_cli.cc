@@ -2,8 +2,23 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/helper/helper_cli.h>
+#include <zconf.h>
 
 namespace helper {
+
+std::string Cli::GetSelfPath() {
+  char buff[1024];
+
+  ssize_t len = ::readlink("/proc/self/exe", buff, sizeof(buff) - 1);
+
+  if (len != -1) {
+    buff[len] = '\0';
+    return std::string(buff);
+  }
+
+  // TODO(kay): handle error condition
+  return "";
+}
 
 void Cli::Execute(const char *command) {
 #pragma clang diagnostic push
