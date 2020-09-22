@@ -263,6 +263,14 @@ bool S2sTranspiler::ResolveImports() {
     import_content += "\n";
 
     helper::String::ReplaceAll(&import_content, "::FILE::", path_import_file);
+
+    auto offset_end_path_dir = path_import_file.find_last_of('/');
+
+    std::string path_import_dir =
+        path_import_file.substr(0, offset_end_path_dir - 1);
+
+    helper::String::ReplaceAll(&import_content, "::DIR::", path_import_dir);
+
     ReplaceLineNumberMacros(&import_content);
 
     RemoveSheBangLine(&import_content);
