@@ -419,7 +419,7 @@ The following example scripts can be found under [/examples](/examples):
 | File                                                                                     | Description                                                                          |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [001_import.do.sh](/examples/001_import.do.sh)                                           | Importing external doShell- or shell scripts from other files                        |
-| [002_macros.do.sh](/examples/002_macros.do.sh)                                           | Using runtime macros                                                                 |
+| [002_macros.do.sh](/examples/002_macros.do.sh)                                           | Using transpiler- and runtime macros                                                                 |
 | [003_platform_conditions.do.sh](/examples/003_platform_conditions.do.sh)                 | Varying code per platform                                                            |
 | [004_random.do.sh](/examples/004_random.do.sh)                                           | Shorthand commands for random value generation                                       |
 | [005_strings.do.sh](/examples/005_strings.do.sh)                                         | String manipulation commands                                                         |
