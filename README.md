@@ -37,7 +37,7 @@ doShell
 
 doShell script is a superset of shell script, geared towards efficient 
 **headfull interactive UI automation** on Linux and Mac OS, foremost but not limited
-to operations involving web browsing and shell.
+to operations involving browsing the web.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
