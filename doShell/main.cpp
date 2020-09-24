@@ -2,7 +2,6 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/app/app.h>
-#include <vendor/Boxer/include/boxer/boxer.h>
 
 /**
  * @param argc Amount of arguments
@@ -11,9 +10,6 @@
 int main(int argc, char **argv) {
   std::vector<std::string> arguments;
   arguments.reserve(argc);
-
-  boxer::show("Simple message boxes are very easy to create.",
-              "Simple Example");
 
 //  argc = 3;
 //  argv[1] = "-rc";

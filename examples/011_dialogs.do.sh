@@ -2,11 +2,14 @@
 
 # Display various dialog popups
 
-#IF(LINUX)
-  #info "Hello Linux"
-#ELSEIF(MAC)
-  #info "Hello Mac"
-#ENDIF
+#notify "Hello Mac"
+#alert "Hello Mac!"
+
+# #IF(LINUX)
+#  #notify "Hello Linux"
+# #ELSEIF(MAC)
+#  #notify "Hello Mac"
+# #ENDIF
 
 # #alert "this is an alert"
 #

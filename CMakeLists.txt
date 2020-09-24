@@ -13,6 +13,7 @@ configure_file ("doShell/config.h.in" "doShell/config.h")
 
 set(CMAKE_CXX_STANDARD 17)
 
+
 if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
     # Use libc++ explicitly so we can compile for
     # CMAKE_OSX_DEPLOYMENT_TARGET=10.7 or 10.8
@@ -77,6 +78,3 @@ add_subdirectory(vendor/clip/)
 include_directories(../vendor/clip/)
 target_link_libraries(dosh clip)
 
-add_subdirectory(vendor/Boxer/)
-include_directories(../vendor/Boxer/)
-target_link_libraries(dosh Boxer)

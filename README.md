@@ -274,9 +274,9 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command                                                  | Description                       |
 | -------------------------------------------------------- | --------------------------------- |
-| ``#popupInfo "MESSAGE"``                                 | Open informational popup          |
-| ``#popupAlert "MESSAGE"``                                |                                   |
-| ``var=#confirm "MESSAGE"``                               | Yes/No Dialog                     |
+| ``#notify "MESSAGE"``                                    | Display notification              |
+| ``#alert "MESSAGE"``                                     | Show alert popup                  |
+| ``var=#confirm "MESSAGE"``                               | Open Ok/Cancel Dialog             |
 | ``var=#prompt "MESSAGE"``                                | Popup with input field            |
 | ``var=#select "MESSAGE" "option1" "option2" "option3"``  | Popup with options to select from |
 
@@ -418,22 +418,22 @@ The following example scripts can be found under [/examples](/examples):
 
 | File                                                                                     | Description                                                                          |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [001_import.do.sh](/examples/001_import.do.sh)                                           | Import scripts from other file                       |
-| [002_macros.do.sh](/examples/002_macros.do.sh)                                           | Use transpiler- and runtime macros                                                                 |
-| [003_platform_conditions.do.sh](/examples/003_platform_conditions.do.sh)                 | Vary code per platform                                                            |
-| [004_random.do.sh](/examples/004_random.do.sh)                                           | Random value generation                                       |
-| [005_strings.do.sh](/examples/005_strings.do.sh)                                         | String manipulation                                                        |
+| [001_import.do.sh](/examples/001_import.do.sh)                                           | Import scripts from other file                                                       |
+| [002_macros.do.sh](/examples/002_macros.do.sh)                                           | Use transpiler- and runtime macros                                                   |
+| [003_platform_conditions.do.sh](/examples/003_platform_conditions.do.sh)                 | Vary code per platform                                                               |
+| [004_random.do.sh](/examples/004_random.do.sh)                                           | Random value generation                                                              |
+| [005_strings.do.sh](/examples/005_strings.do.sh)                                         | String manipulation                                                                  |
 | [006_strings_from_files.do.sh](/examples/006_strings_from_files.do.sh)                   | Manipulation of strings from files                                                   |
 | [007_clipboard_strings.do.sh](/examples/007_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                      |
-| [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                     | Parse and encode/decode URL parts                                              |
-| [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                     | Use PHP within doShell script                                                      |
+| [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                     | Parse and encode/decode URL parts                                                    |
+| [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                     | Use PHP within doShell script                                                        |
 | [010_runtime_variables.do.sh](/examples/010_runtime_variables.do.sh)                     | Use of dynamic runtime variables                                                     |
 | [011_dialogs.do.sh](/examples/011_dialogs.do.sh)                                         | Various dialogs / GUI popup windows                                                  |
 | [012_select-dialog.do.sh](/examples/012_select-dialog.sh)                                | Display selection popup of files, open selected one in bash editor                   |
-| [013_load_url_in_new_browser_tab.do.sh](/examples/013_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                               |
+| [013_load_url_in_new_browser_tab.do.sh](/examples/013_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                                          |
 | [014_search_with_duckduckgo.do.sh](/examples/014_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                    |
 | [015_store_clipboard_to_file.do.sh](/examples/015_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                    |
-| [016_use_dev_console.do.sh](/examples/016_use_dev_console.do.sh)                         | Open the dev console, insert and run script in it                          |
+| [016_use_dev_console.do.sh](/examples/016_use_dev_console.do.sh)                         | Open the dev console, insert and run script in it                                    |
 | [017_export_all_script_tags.do.sh](/examples/017_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file      |
 | [018_export_html_comments.do.sh](/examples/018_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                        |
 | [019_export_urls.do.sh](/examples/019_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                              |

@@ -13,9 +13,7 @@ void transpileDialog::Transpile(std::string *code, bool is_linux) {
 }
 
 bool transpileDialog::TranspileInfo(std::string *code, bool is_linux) {
-  if (std::string::npos == code->find("#popupInfo ")) return false;
-
-  // TODO(kay): implement
+  if (std::string::npos == code->find("#notify ")) return false;
 
   if (is_linux) {
     return helper::String::ReplaceAll(
@@ -25,7 +23,7 @@ bool transpileDialog::TranspileInfo(std::string *code, bool is_linux) {
   }
 
   std::string replacement = "osascript -e 'display notification \"$1\"'";
-  std::regex exp(R"(#notify \"*(.*)\"*)");
+  std::regex exp(R"(#notify \"*(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;
@@ -41,10 +39,8 @@ bool transpileDialog::TranspileAlert(std::string *code, bool is_linux) {
         "gxmessage -center -ontop -bg red hello -title Alert ") > 0;
   }
 
-  std::string replacement =
-      "osascript -e 'display dialog \"$1\" with icon caution '";
-
-  std::regex exp(R"(#alert \"*(.*)\"*)");
+  std::string replacement = "osascript -e 'display alert \"$1\"'";
+  std::regex exp(R"(#alert \"*(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
 
   return true;
