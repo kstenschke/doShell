@@ -46,7 +46,7 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 ### Features
 
-* Automation of mimicked user control of (foremost) web browser and 
+* Automate mimicked user control of (foremost) web browser and 
   terminal operations
 * Built-in shorthand commands to ease operations that differ per
   platform or are not easily memorable in plain shell script
