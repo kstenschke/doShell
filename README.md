@@ -46,9 +46,8 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 ### Features
 
-* Automate mimicked user control of (foremost) web browser and 
-  terminal operations
-* Built-in shorthand commands to ease operations that differ per
+* Mimick user- / UI control of (foremost) web browsing operations
+* Shorthand commands to ease operations that differ per
   platform or are not easily memorable in plain shell script
 * Commands for easily using GUI dialogs from within scripts
 * doShell scripts can be parameterized via JSON passed at execution time
