@@ -87,7 +87,7 @@ Running ``shdo -t script.do.sh`` transpiles the given doShell
 script to a new intermediary file ``script.do.x.sh``
 
 doShell transpiles to intermediary shell script files,
-which are stored for better performance  when repeatedly runnimg
+which are stored for better performance  when repeatedly running
 the same script.  
 Additional to conventional shell script code, they can contain runtime macros: 
 placeholder-strings for generic content, and runtime variables.
