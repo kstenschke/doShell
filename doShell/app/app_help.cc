@@ -79,14 +79,25 @@ bool AppHelp::PrintOverview(bool with_title) {
       "\n\n";
 
   std::string column_2 =
+      "\n  Commands for clipboard/contents manipulation:"
+      "\n    appendToClipboard    - Extract host from given URL, e.g. www.example.com"
+      "\n    getClipboard         - Extract host from given URL, e.g. www.example.com"
+      "\n    prependToClipboard   - Extract host from given URL, e.g. www.example.com"
+      "\n    setClipboard         - Extract host from given URL, e.g. www.example.com"
+      "\n    setClipboardFromFile - Extract host from given URL, e.g. www.example.com"
+      "\n"
       "\n  Commands for URL parsing:"
-          "\n    getSchemeFromUrl - Extract scheme from given URL, e.g. http or https"
-          "\n    getHostFromUrl   - Extract host from given URL, e.g. www.example.com"
-          "\n    getPathFromUrl   - Extract path from given URL, e.g. /foo/bar"
-          "\n    getQueryFromUrl  - Extract query from given URL, e.g. hat=bowler"
-          "\n    urlEncode        - URL-Encode given string"
-          "\n    urlDecode        - URL-Decode given string"
-          "\n\n\n\n\n\n\n\n\n\n\n\n";
+      "\n    getSchemeFromUrl - Extract scheme from given URL, e.g. http or https"
+      "\n    getHostFromUrl   - Extract host from given URL, e.g. www.example.com"
+      "\n    getPathFromUrl   - Extract path from given URL, e.g. /foo/bar"
+      "\n    getQueryFromUrl  - Extract query from given URL, e.g. hat=bowler"
+      "\n    urlEncode        - URL-Encode given string"
+      "\n    urlDecode        - URL-Decode given string"
+      "\n"
+      "\n  rand <from> <until> - Generate random number between <from> and <until>"
+      "\n"
+      "\n"
+      "\n\n\n\n\n\n\n\n\n\n\n";
 
   // TODO(kay) list all shell commands
 
