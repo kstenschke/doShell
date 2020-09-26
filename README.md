@@ -46,9 +46,8 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 ### Features
 
-* Automate mimicked user control of (foremost) web browser and 
-  terminal operations
-* Built-in shorthand commands to ease operations that differ per
+* Mimick user- / UI control of (foremost) web browsing operations
+* Shorthand commands to ease operations that differ per
   platform or are not easily memorable in plain shell script
 * Commands for easily using GUI dialogs from within scripts
 * doShell scripts can be parameterized via JSON passed at execution time
@@ -64,7 +63,7 @@ also have a glance at the included [script examples](#script-examples).
 
 ### Mission targets
 
-1. Ease (shell) scripting of interactive cross-platform compatible automation
+1. Ease scripting interactive cross-platform compatible automation
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
    2. To avoid automation scripts being bloated with ``sleep`` commands,
@@ -88,9 +87,8 @@ Running ``shdo -t script.do.sh`` transpiles the given doShell
 script to a new intermediary file ``script.do.x.sh``
 
 doShell transpiles to intermediary shell script files,
-which are stored for better performance  when repeatedly runnimg
-the same script.  
-Additional to conventional shell script code, they can contain runtime macros: 
+which are stored for better performance  when repeatedly running
+the same script. Additional to conventional shell script code, they can contain runtime macros: 
 placeholder-strings for generic content, and runtime variables.
 The doShell runtime system replaces runtime macros, -variables and -conditional
 blocks before the eventual execution in a sandboxed shell-thread.  
