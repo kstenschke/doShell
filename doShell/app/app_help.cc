@@ -50,8 +50,6 @@ bool AppHelp::PrintOverview(bool with_title) {
 
   std::string column_1 =
       "\n  Compile and execute script:"
-      "\n    <no arguments> - Find and compile script files recursively"
-      "\n                     at current path and its sub directories"
       "\n    -c             - Transpile given script file"
       "\n    -r             - Transpile if not yet and run given script file"
       "\n    -rc            - Force transpile and run given script file"
@@ -80,11 +78,11 @@ bool AppHelp::PrintOverview(bool with_title) {
 
   std::string column_2 =
       "\n  Commands for clipboard/contents manipulation:"
-      "\n    appendToClipboard    - Extract host from given URL, e.g. www.example.com"
-      "\n    getClipboard         - Extract host from given URL, e.g. www.example.com"
-      "\n    prependToClipboard   - Extract host from given URL, e.g. www.example.com"
-      "\n    setClipboard         - Extract host from given URL, e.g. www.example.com"
-      "\n    setClipboardFromFile - Extract host from given URL, e.g. www.example.com"
+      "\n    appendToClipboard    - Add string to end of clipboard"
+      "\n    getClipboard         - Output clipboard contents"
+      "\n    prependToClipboard   - Add string before start of clipboard"
+      "\n    setClipboard         - Copy string to clipboard"
+      "\n    setClipboardFromFile - Copy content of file to clipboard"
       "\n"
       "\n  Commands for URL parsing:"
       "\n    getSchemeFromUrl - Extract scheme from given URL, e.g. http or https"
@@ -94,10 +92,12 @@ bool AppHelp::PrintOverview(bool with_title) {
       "\n    urlEncode        - URL-Encode given string"
       "\n    urlDecode        - URL-Decode given string"
       "\n"
-      "\n  rand <from> <until> - Generate random number between <from> and <until>"
+      "\n  Commands for random value generation:"
+      "\n    rand <from> <until> - Generate random number between <from> and <until>"
       "\n"
-      "\n"
-      "\n\n\n\n\n\n\n\n\n\n\n";
+      "\n  For more details on the built-in commands and doShell scripting,"
+      "\n  read the documentation at https://github.com/kstenschke/doShell"
+      "\n";
 
   // TODO(kay) list all shell commands
 
