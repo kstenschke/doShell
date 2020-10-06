@@ -10,13 +10,13 @@
 namespace doShell {
 class transpileDialog {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  static void Transpile(std::string *code);
 
  private:
-  static bool TranspileNotify(std::string *code, bool is_linux);
-  static bool TranspileAlert(std::string *code, bool is_linux);
-  static bool TranspileConfirm(std::string *code, bool is_linux);
-  static bool TranspilePrompt(std::string *code, bool is_linux);
+  static bool TranspileNotify(std::string *code);
+  static bool TranspileAlert(std::string *code);
+  static bool TranspileConfirm(std::string *code);
+  static bool TranspilePrompt(std::string *code);
 };
 }  // namespace doShell
 

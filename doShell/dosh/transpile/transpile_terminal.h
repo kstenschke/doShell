@@ -10,13 +10,13 @@
 namespace doShell {
 class transpileTerminal {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  static void Transpile(std::string *code);
 
  private:
-  static bool TranspileCopyPasteInTerminal(std::string *code, bool is_linux);
-  static bool TranspileHitCopyInTerminal(std::string *code, bool is_linux);
-  static bool TranspileHitFindInTerminal(std::string *code, bool is_linux);
-  static bool TranspilePasteInTerminal(std::string *code, bool is_linux);
+  static bool TranspileCopyPasteInTerminal(std::string *code);
+  static bool TranspileHitCopyInTerminal(std::string *code);
+  static bool TranspileHitFindInTerminal(std::string *code);
+  static bool TranspilePasteInTerminal(std::string *code);
 };
 }  // namespace doShell
 

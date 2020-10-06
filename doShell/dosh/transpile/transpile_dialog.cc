@@ -5,22 +5,22 @@
 
 namespace doShell {
 
-void transpileDialog::Transpile(std::string *code, bool is_linux) {
-  TranspileNotify(code, is_linux);
-  TranspileAlert(code, is_linux);
-  TranspileConfirm(code, is_linux);
-  TranspilePrompt(code, is_linux);
+void transpileDialog::Transpile(std::string *code) {
+  TranspileNotify(code);
+  TranspileAlert(code);
+  TranspileConfirm(code);
+  TranspilePrompt(code);
 }
 
-bool transpileDialog::TranspileNotify(std::string *code, bool is_linux) {
+bool transpileDialog::TranspileNotify(std::string *code) {
   if (std::string::npos == code->find("#notify ")) return false;
 
-  if (is_linux) {
+  #if __linux__
     return helper::String::ReplaceAll(
         code,
         "#notify",
         "gxmessage -center -ontop ") > 0;
-  }
+  #endif
 
   // transpile: #notify $message
   std::string replacement = "osascript -e \"display notification \\\"$1\\\"\"";
@@ -36,15 +36,15 @@ bool transpileDialog::TranspileNotify(std::string *code, bool is_linux) {
   return true;
 }
 
-bool transpileDialog::TranspileAlert(std::string *code, bool is_linux) {
+bool transpileDialog::TranspileAlert(std::string *code) {
   if (std::string::npos == code->find("#alert ")) return false;
 
-  if (is_linux) {
+  #if __linux__
     return helper::String::ReplaceAll(
         code,
         "#alert",
         "gxmessage -center -ontop -bg red hello -title Alert ") > 0;
-  }
+  #endif
 
   std::string replacement = "osascript -e 'display alert \"$1\"'";
   std::regex exp(R"(#alert \"*(.*)\")");
@@ -53,15 +53,15 @@ bool transpileDialog::TranspileAlert(std::string *code, bool is_linux) {
   return true;
 }
 
-bool transpileDialog::TranspileConfirm(std::string *code, bool is_linux) {
+bool transpileDialog::TranspileConfirm(std::string *code) {
   if (std::string::npos == code->find("#confirm ")) return false;
 
-  if (is_linux) {
+  #if __linux__
     return helper::String::ReplaceAll(
         code,
         "#confirm ",
         "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ") > 0;
-  }
+  #endif
 
   std::regex exp(R"(#confirm \"*(.*)\")");
 
@@ -73,10 +73,15 @@ bool transpileDialog::TranspileConfirm(std::string *code, bool is_linux) {
   return true;
 }
 
-bool transpileDialog::TranspilePrompt(std::string *code, bool is_linux) {
+bool transpileDialog::TranspilePrompt(std::string *code) {
   if (std::string::npos == code->find("#prompt ")) return false;
 
-  // TODO(kay) implement
+  #if __linux__
+    return helper::String::ReplaceAll(
+        code,
+        "#confirm ",
+        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ") > 0;
+  #endif
 
   return helper::String::ReplaceAll(
       code,

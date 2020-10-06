@@ -11,23 +11,23 @@
 namespace doShell {
 class transpileKeystrokes {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  static void Transpile(std::string *code);
 
  private:
-  static bool TranspileHitCopy(std::string *code, bool is_linux);
-  static bool TranspileHitFind(std::string *code, bool is_linux);
-  static bool TranspileCut(std::string *code, bool is_linux);
-  static bool TranspilePaste(std::string *code, bool is_linux);
-  static bool TranspileSelectAll(std::string *code, bool is_linux);
+  static bool TranspileHitCopy(std::string *code);
+  static bool TranspileHitFind(std::string *code);
+  static bool TranspileCut(std::string *code);
+  static bool TranspilePaste(std::string *code);
+  static bool TranspileSelectAll(std::string *code);
 
-  static bool TranspileHitBackspace(std::string *code, bool is_linux);
-  static bool TranspileHitDelete(std::string *code, bool is_linux);
-  static bool TranspileHitEnter(std::string *code, bool is_linux);
-  static bool TranspileHitEsc(std::string *code, bool is_linux);
-  static bool TranspileHitFunctionKeys(std::string *code, bool is_linux);
-  static bool TranspileHitTab(std::string *code, bool is_linux);
+  static bool TranspileHitBackspace(std::string *code);
+  static bool TranspileHitDelete(std::string *code);
+  static bool TranspileHitEnter(std::string *code);
+  static bool TranspileHitEsc(std::string *code);
+  static bool TranspileHitFunctionKeys(std::string *code);
+  static bool TranspileHitTab(std::string *code);
 
-  static bool TranspileType(std::string *code, bool is_linux);
+  static bool TranspileType(std::string *code);
 };
 }  // namespace doShell
 

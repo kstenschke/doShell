@@ -51,12 +51,12 @@ void S2sTranspiler::TranspileCommands() {
 
       transpileUrl::Transpile(&source_, is_linux_, path_binary);
 
-      transpileRandom::Transpile(&source_, is_linux_);
-      transpileClipboard::Transpile(&source_, is_linux_);
-      transpileBrowser::Transpile(&source_, is_linux_);
-      transpileDialog::Transpile(&source_, is_linux_);
-      transpileKeystrokes::Transpile(&source_, is_linux_);
-      transpileTerminal::Transpile(&source_, is_linux_);
+      transpileRandom::Transpile(&source_);
+      transpileClipboard::Transpile(&source_);
+      transpileBrowser::Transpile(&source_);
+      transpileDialog::Transpile(&source_);
+      transpileKeystrokes::Transpile(&source_);
+      transpileTerminal::Transpile(&source_);
 
       contains_commands = SourceContainsCommands();
 

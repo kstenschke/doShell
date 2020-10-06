@@ -5,25 +5,27 @@
 
 namespace doShell {
 
-void transpileTerminal::Transpile(std::string *code, bool is_linux) {
+void transpileTerminal::Transpile(std::string *code) {
   if (!helper::String::Contains(*code, "Terminal")) return;
 
-  TranspileHitCopyInTerminal(code, is_linux);
-  TranspileHitFindInTerminal(code, is_linux);
-  TranspilePasteInTerminal(code, is_linux);
+  TranspileHitCopyInTerminal(code);
+  TranspileHitFindInTerminal(code);
+  TranspilePasteInTerminal(code);
 }
 
-bool transpileTerminal::TranspileCopyPasteInTerminal(std::string *code,
-                                                     bool is_linux) {
+bool transpileTerminal::TranspileCopyPasteInTerminal(std::string *code) {
   if (std::string::npos == code->find("#copyPaste ")) return false;
 
-  std::string replacement =
-      is_linux
-      ? "echo '$1' | xclip -sel clip #\n"
-        "xdotool key ctrl+shift+v"
-      : "osascript -e 'set the clipboard to \"$1\"'\n"
-        "osascript -e 'tell app \"System Events\" "
-        "to keystroke \"v\" using {command down, option down}'";
+  #if __linux__
+    std::string replacement =
+      "echo '$1' | xclip -sel clip #\n"
+      "xdotool key ctrl+shift+v";
+  #else
+    std::string replacement =
+      "osascript -e 'set the clipboard to \"$1\"'\n"
+      "osascript -e 'tell app \"System Events\" "
+      "to keystroke \"v\" using {command down, option down}'";
+  #endif
 
   std::regex exp(R"(#copyPaste \"(.*)\")");
 
@@ -32,43 +34,51 @@ bool transpileTerminal::TranspileCopyPasteInTerminal(std::string *code,
   return true;
 }
 
-bool transpileTerminal::TranspileHitFindInTerminal(std::string *code,
-                                                     bool is_linux) {
+bool transpileTerminal::TranspileHitFindInTerminal(std::string *code) {
   if (std::string::npos == code->find("#hitFindInTerminal")) return false;
 
-  return helper::String::ReplaceAll(
+  #if __linux__
+    return helper::String::ReplaceAll(
+      code, "#hitFindInTerminal", "xdotool key ctrl+shift+f") > 0;
+  #else
+    return helper::String::ReplaceAll(
       code,
       "#hitFindInTerminal",
-      is_linux
-      ? "xdotool key ctrl+shift+f"
-      : "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
-        "using {command down, option down}'") > 0;
+      "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
+      "using {command down, option down}'") > 0;
+  #endif
 }
 
-bool transpileTerminal::TranspileHitCopyInTerminal(std::string *code,
-                                                     bool is_linux) {
+bool transpileTerminal::TranspileHitCopyInTerminal(std::string *code) {
   if (std::string::npos == code->find("#copyInTerminal ")) return false;
 
-  return helper::String::ReplaceAll(
+  #if __linux__
+    return helper::String::ReplaceAll(
       code,
       "#copyInTerminal",
-      is_linux
-      ? "xdotool key ctrl+shift+c"
-      : "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
-        "using {command down, option down}'") > 0;
+      "xdotool key ctrl+shift+c") > 0;
+  #else
+    return helper::String::ReplaceAll(
+      code,
+      "#copyInTerminal",
+      "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
+      "using {command down, option down}'") > 0;
+  #endif
 }
 
-bool transpileTerminal::TranspilePasteInTerminal(std::string *code,
-                                                   bool is_linux) {
+bool transpileTerminal::TranspilePasteInTerminal(std::string *code) {
   if (std::string::npos == code->find("#pasteInTerminal ")) return false;
 
-  return helper::String::ReplaceAll(
+  #if __linux__
+    return helper::String::ReplaceAll(
+      code, "#pasteInTerminal", "xdotool key ctrl+shift+v") > 0;
+  #else
+    return helper::String::ReplaceAll(
       code,
       "#pasteInTerminal",
-      is_linux
-      ? "xdotool key ctrl+shift+v"
-      : "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
-        "using {command down, option down}'") > 0;
+      "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
+      "using {command down, option down}'") > 0;
+  #endif
 }
 
 }  // namespace doShell

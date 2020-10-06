@@ -10,7 +10,7 @@
 namespace doShell {
 class transpileRandom {
  public:
-  static bool Transpile(std::string *code, bool is_linux);
+  static bool Transpile(std::string *code);
 };
 }  // namespace doShell
 

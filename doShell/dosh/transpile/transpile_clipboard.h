@@ -10,17 +10,17 @@
 namespace doShell {
 class transpileClipboard {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  static void Transpile(std::string *code);
 
  private:
-  static bool TranspileSetClipboard(std::string *code, bool is_linux);
+  static bool TranspileSetClipboard(std::string *code);
 
-  static bool TranspileCopyPaste(std::string *code, bool is_linux);
-  static bool TranspileCopyAll(std::string *code, bool is_linux);
-  static bool TranspileCutAll(std::string *code, bool is_linux);
+  static bool TranspileCopyPaste(std::string *code);
+  static bool TranspileCopyAll(std::string *code);
+  static bool TranspileCutAll(std::string *code);
 
-  static bool TranspileAppendClipboardToFile(std::string *code, bool is_linux);
-  static bool TranspileSaveClipboardToFile(std::string *code, bool is_linux);
+  static bool TranspileAppendClipboardToFile(std::string *code);
+  static bool TranspileSaveClipboardToFile(std::string *code);
 };
 }  // namespace doShell
 

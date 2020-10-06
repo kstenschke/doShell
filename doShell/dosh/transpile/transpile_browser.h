@@ -11,23 +11,23 @@
 namespace doShell {
 class transpileBrowser {
  public:
-  static void Transpile(std::string *code, bool is_linux);
+  static void Transpile(std::string *code);
 
  private:
-  static bool TranspileActivate(std::string *code, bool is_linux);
+  static bool TranspileActivate(std::string *code);
 
-  static bool TranspileOpenNewTab(std::string *code, bool is_linux);
-  static bool TranspileOpenUrlInNewBrowserTab(std::string *code, bool is_linux);
+  static bool TranspileOpenNewTab(std::string *code);
+  static bool TranspileOpenUrlInNewBrowserTab(std::string *code);
 
-  static bool TranspileFocusUrl(std::string *code, bool is_linux);
+  static bool TranspileFocusUrl(std::string *code);
 
-  static bool TranspileRunJs(std::string *code, bool is_linux);
-  static bool TranspileExecDevConsole(std::string *code, bool is_linux);
-  static bool TranspileClearDevConsole(std::string *code, bool is_linux);
-  static bool TranspileOpenBrowserDevTools(std::string *code, bool is_linux);
-  static bool TranspileActivateDevConsole(std::string *code, bool is_linux);
+  static bool TranspileRunJs(std::string *code);
+  static bool TranspileExecDevConsole(std::string *code);
+  static bool TranspileClearDevConsole(std::string *code);
+  static bool TranspileOpenBrowserDevTools(std::string *code);
+  static bool TranspileActivateDevConsole(std::string *code);
 
-  static bool TranspilePostFormData(std::string *code, bool is_linux);
+  static bool TranspilePostFormData(std::string *code);
 };
 }  // namespace doShell
 #endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_

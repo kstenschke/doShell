@@ -5,25 +5,25 @@
 
 namespace doShell {
 
-void transpileClipboard::Transpile(std::string *code, bool is_linux) {
-  TranspileSetClipboard(code, is_linux);
+void transpileClipboard::Transpile(std::string *code) {
+  TranspileSetClipboard(code);
 
-  TranspileCopyPaste(code, is_linux);
-  TranspileCopyAll(code, is_linux);
-  TranspileCutAll(code, is_linux);
+  TranspileCopyPaste(code);
+  TranspileCopyAll(code);
+  TranspileCutAll(code);
 
-  TranspileAppendClipboardToFile(code, is_linux);
-  TranspileSaveClipboardToFile(code, is_linux);
+  TranspileAppendClipboardToFile(code);
+  TranspileSaveClipboardToFile(code);
 }
 
-bool transpileClipboard::TranspileSetClipboard(std::string *code,
-                                               bool is_linux) {
+bool transpileClipboard::TranspileSetClipboard(std::string *code) {
   if (std::string::npos == code->find("#setClipboard ")) return false;
 
-  std::string replacement =
-      is_linux
-      ? "echo '$1' | xclip -sel clip #"
-      : "osascript -e 'set the clipboard to \"$1\"'";
+  #if __linux__
+    std::string replacement = "echo '$1' | xclip -sel clip #";
+  #else
+    std::string replacement = "osascript -e 'set the clipboard to \"$1\"'";
+  #endif
 
   std::regex exp(R"(#setClipboard \"(.*)\")");
   *code = std::regex_replace(*code, exp, replacement);
@@ -31,8 +31,7 @@ bool transpileClipboard::TranspileSetClipboard(std::string *code,
   return true;
 }
 
-bool transpileClipboard::TranspileAppendClipboardToFile(std::string *code,
-                                               bool is_linux) {
+bool transpileClipboard::TranspileAppendClipboardToFile(std::string *code) {
   if (std::string::npos == code->find("#appendClipboardToFile ")) return false;
 
   std::string replacement =
@@ -44,8 +43,7 @@ bool transpileClipboard::TranspileAppendClipboardToFile(std::string *code,
   return true;
 }
 
-bool transpileClipboard::TranspileSaveClipboardToFile(std::string *code,
-                                               bool is_linux) {
+bool transpileClipboard::TranspileSaveClipboardToFile(std::string *code) {
   if (std::string::npos == code->find("#saveClipboardToFile ")) return false;
 
   std::string replacement =
@@ -57,17 +55,18 @@ bool transpileClipboard::TranspileSaveClipboardToFile(std::string *code,
   return true;
 }
 
-bool transpileClipboard::TranspileCopyPaste(std::string *code,
-                                            bool is_linux) {
+bool transpileClipboard::TranspileCopyPaste(std::string *code) {
   if (std::string::npos == code->find("#copyPaste ")) return false;
 
-  std::string replacement =
-      is_linux
-      ? "echo '$1' | xclip -sel clip #\n"
-        "xdotool key ctrl+v"
-      : "osascript -e 'set the clipboard to \"$1\"'\n"
-        "osascript -e 'tell app \"System Events\" "
-          "to keystroke \"v\" using command down'";
+  #if __linux__
+    std::string replacement =
+      "echo '$1' | xclip -sel clip #\n"
+      "xdotool key ctrl+v";
+  #else
+      std::string replacement =
+          "osascript -e 'set the clipboard to \"$1\"'\n"
+          "osascript -e 'tell app \"System Events\" to keystroke \"v\" using command down'";
+  #endif
 
   std::regex exp(R"(#copyPaste \"(.*)\")");
 
@@ -76,15 +75,14 @@ bool transpileClipboard::TranspileCopyPaste(std::string *code,
   return true;
 }
 
-bool transpileClipboard::TranspileCopyAll(std::string *code,
-                                            bool is_linux) {
+bool transpileClipboard::TranspileCopyAll(std::string *code) {
   if (std::string::npos == code->find("#copyAll")) return false;
 
   return helper::String::ReplaceAll(
       code, "#selectAll\n#hitCopy", "xdotool type ") > 0;
 }
 
-bool transpileClipboard::TranspileCutAll(std::string *code, bool is_linux) {
+bool transpileClipboard::TranspileCutAll(std::string *code) {
   return helper::String::ReplaceAll(code, "#cutAll", "#selectAll\n#hitCut") > 0;
 }
 }  // namespace doShell

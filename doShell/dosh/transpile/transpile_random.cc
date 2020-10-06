@@ -5,7 +5,7 @@
 
 namespace doShell {
 
-bool transpileRandom::Transpile(std::string *code, bool is_linux) {
+bool transpileRandom::Transpile(std::string *code) {
   if (!helper::String::Contains(*code, "#random ")) return false;
 
   // Random one of given strings

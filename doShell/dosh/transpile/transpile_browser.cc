@@ -4,31 +4,34 @@
 #include <doShell/dosh/transpile/transpile_browser.h>
 
 namespace doShell {
-  void transpileBrowser::Transpile(std::string *code, bool is_linux) {
-    TranspileActivate(code, is_linux);
-    TranspileOpenUrlInNewBrowserTab(code, is_linux);
-    TranspileOpenNewTab(code, is_linux);
-    TranspileFocusUrl(code, is_linux);
-    TranspileOpenBrowserDevTools(code, is_linux);
-    TranspileActivateDevConsole(code, is_linux);
-    TranspileRunJs(code, is_linux);
-    TranspileExecDevConsole(code, is_linux);
-    TranspileClearDevConsole(code, is_linux);
+  void transpileBrowser::Transpile(std::string *code) {
+    TranspileActivate(code);
+    TranspileOpenUrlInNewBrowserTab(code);
+    TranspileOpenNewTab(code);
+    TranspileFocusUrl(code);
+    TranspileOpenBrowserDevTools(code);
+    TranspileActivateDevConsole(code);
+    TranspileRunJs(code);
+    TranspileExecDevConsole(code);
+    TranspileClearDevConsole(code);
   }
 
-  bool transpileBrowser::TranspileActivate(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileActivate(std::string *code) {
     if (std::string::npos == code->find("#activateBrowser")) return false;
 
+    #if __linux__
     std::string replacement =
-        is_linux
-        ? "if pidof -s firefox > /dev/null; then\n"
+          "if pidof -s firefox > /dev/null; then\n"
           "    wmctrl -a Firefox\n"
           "else\n"
 //          "    me=$SUDO_USER\n"
 //          "    sudo -u $me nohup firefox > /dev/null &\n"
           "    nohup firefox > /dev/null &\n"
           "fi"
-        : "osascript -e 'tell application \"Firefox\" to activate'";
+    #else
+      std::string replacement =
+          "osascript -e 'tell application \"Firefox\" to activate'";
+    #endif
 
     replacement += "\nsleep 0.3";
 
@@ -37,8 +40,7 @@ namespace doShell {
   }
 
 
-  bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code,
-                                                         bool is_linux) {
+  bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code) {
     if (std::string::npos == code->find("#openUrlInNewBrowserTab "))
       return false;
 
@@ -57,14 +59,16 @@ namespace doShell {
     return true;
   }
 
-  bool transpileBrowser::TranspileOpenNewTab(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileOpenNewTab(std::string *code) {
     if (std::string::npos == code->find("#openNewBrowserTab")) return false;
 
-    std::string replacement =
-        is_linux
-        ? "xdotool key ctrl+t"
-        : "osascript -e 'tell application \"System Events\" "
+    #if __linux__
+      std::string replacement = "xdotool key ctrl+t";
+    #else
+      std::string replacement =
+          "osascript -e 'tell application \"System Events\" "
           "to keystroke \"t\" using command down'";
+    #endif
 
     replacement += "\nsleep 0.1";
 
@@ -72,15 +76,16 @@ namespace doShell {
         code, "#openNewBrowserTab", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileOpenBrowserDevTools(
-      std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileOpenBrowserDevTools(std::string *code) {
     if (std::string::npos == code->find("#openBrowserDevTools")) return false;
 
+    #if __linux__
+      std::string replacement = "xdotool key F12";
+    #else
     std::string replacement =
-        is_linux
-        ? "xdotool key F12"
-        : "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"F12\"'";
+        "osascript -e 'tell application \"System Events\" "
+        "to keystroke \"F12\"'";
+    #endif
 
     replacement += "\nsleep 0.5";
 
@@ -88,15 +93,16 @@ namespace doShell {
         code, "#openBrowserDevTools", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileActivateDevConsole(
-      std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileActivateDevConsole(std::string *code) {
     if (std::string::npos == code->find("#openBrowserDevConsole")) return false;
 
-    std::string replacement =
-        is_linux
-        ? "xdotool key ctrl+shift+k"
-        : "osascript -e 'tell application \"System Events\" "
+    #if __linux__
+      std::string replacement = "xdotool key ctrl+shift+k";
+    #else
+      std::string replacement =
+          "osascript -e 'tell application \"System Events\" "
           "to keystroke \"k\" using {command down, option down}'\n";
+    #endif
 
     replacement += "\nsleep 0.5";
 
@@ -104,7 +110,7 @@ namespace doShell {
         code, "#openBrowserDevConsole", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileRunJs(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileRunJs(std::string *code) {
     if (std::string::npos == code->find("#runJs")) return false;
 
     std::string replacement =
@@ -119,22 +125,22 @@ namespace doShell {
     return true;
   }
 
-  bool transpileBrowser::TranspileExecDevConsole(
-      std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileExecDevConsole(std::string *code) {
     if (std::string::npos == code->find("#execDevConsole")) return false;
 
-    std::string replacement =
-        is_linux
-        ? "xdotool key ctrl+KP_Enter"
-        : "osascript -e 'tell application \"System Events\" "
-            "to key code 36 using command down'";
+    #if __linux__
+      std::string replacement = "xdotool key ctrl+KP_Enter";
+    #else
+      std::string replacement =
+          "osascript -e 'tell application \"System Events\" "
+          "to key code 36 using command down'";
+    #endif
 
     return helper::String::ReplaceAll(
         code, "#execDevConsole", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileClearDevConsole(
-      std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileClearDevConsole(std::string *code) {
     if (std::string::npos == code->find("#clearDevConsole")) return false;
 
     std::string replacement =
@@ -146,14 +152,16 @@ namespace doShell {
         code, "#clearDevConsole", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspileFocusUrl(std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspileFocusUrl(std::string *code) {
     if (std::string::npos == code->find("#focusBrowserURL")) return false;
 
+    #if __linux__
+      std::string replacement = "xdotool key ctrl+l";
+    #else
     std::string replacement =
-        is_linux
-        ? "xdotool key ctrl+l"
-        : "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"l\" using command down'";
+        "osascript -e 'tell application \"System Events\" "
+        "to keystroke \"l\" using command down'";
+    #endif
 
     replacement += "\nsleep 0.1";
 
@@ -161,8 +169,7 @@ namespace doShell {
         code, "#focusBrowserURL", replacement) > 0;
   }
 
-  bool transpileBrowser::TranspilePostFormData(
-      std::string *code, bool is_linux) {
+  bool transpileBrowser::TranspilePostFormData(std::string *code) {
     return helper::String::ReplaceAll(
         code,
         "#getBrowserHtml",
