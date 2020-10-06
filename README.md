@@ -475,11 +475,11 @@ within doShell scripts).
 
 ### Runtime tools on Linux 
 
-| Tool                                                                       | Description                                                               | License                                                                              |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) | Simulate keyboard input and mouse activity, move and resize windows, etc. | [New BSD license](https://opensource.org/licenses/BSD-3-Clause)                      |
-| [gxMessage](https://trmusson.dreamhosters.com/programs.html#gxmessage)     | GTK-based dialog windows interface for any terminal program               | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
-| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)                              |                                                                           |                                                                                      |
+| Tool                                                                       | Description                                                                             | License                                                                              |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) | Simulate keyboard input and mouse activity, move and resize windows, etc.               | [New BSD license](https://opensource.org/licenses/BSD-3-Clause)                      |
+| [gxMessage](https://trmusson.dreamhosters.com/programs.html#gxmessage)     | GTK-based dialog windows interface for any terminal program                             | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
+| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)                              | UNIX/Linux command line tool to interact with an EWMH/NetWM compatible X Window Manager | [GNU General Public License](https://opensource.org/licenses/gpl-license)            |
 | [xclip](https://linux.die.net/man/1/xclip)                                 |                                                                           |                                                                                      |
 | [xsel](https://linux.die.net/man/1/xsel)                                   |                                                                           |                                                                                      |
 | [PHP](https://www.php.net/)                                                | Open source general-purpose scripting language                            | [PHP License](https://www.php.net/license/)                                          |
@@ -487,10 +487,10 @@ within doShell scripts).
                                                         
 ### Runtime tools on Mac 
 
-| Tool                                         | Description                                | License                                                                              |
-| -------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------ |
-| AppleScript (osascript)                      | **Note:** Assistive access must be enabled | Proprietary (parts available under [APSL](https://opensource.org/licenses/APSL-2.0)) |               
-| [PHP](https://www.php.net/)                  |                                            | [PHP License](https://www.php.net/license/)                                          |
+| Tool                                         | Description                                    | License                                                                              |
+| -------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------ |
+| AppleScript (osascript)                      | **Note:** Assistive access must be enabled     | Proprietary (parts available under [APSL](https://opensource.org/licenses/APSL-2.0)) |               
+| [PHP](https://www.php.net/)                  | Open source general-purpose scripting language | [PHP License](https://www.php.net/license/)                                          |
 
 
 ## Build tools and libraries
