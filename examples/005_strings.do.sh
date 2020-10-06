@@ -26,6 +26,7 @@ echo #replaceFirst "bar bar baz qux" bar foo
 printf "\nreplaceLast: "
 echo #replaceLast "foo bar baz bar" bar qux
 
+
 echo
 echo
 echo "2. Manipulate strings from variables"
@@ -33,30 +34,30 @@ echo "------------------------------------"
 
 printf "extractBetween: "
 STR="start foo bar baz qux end"
-echo #extractBetween $STR start end
+echo #extractBetween "$STR" start end
 
 printf "\nreplaceAfter: "
 STR="foo bar xxx xxx"
-echo #replaceAfter $STR bar "bar baz qux"
+echo #replaceAfter "$STR" bar "bar baz qux"
 
 printf "\nreplaceAll: "
 STR="foo ber bez qux"
-echo #replaceAll $STR e a
+echo #replaceAll "$STR" e a
 
 printf "\nreplaceBefore: "
 STR="thingummibob bar baz qux"
-echo #replaceBefore $STR bar "foo bar"
+echo #replaceBefore "$STR" bar "foo bar"
 
 printf "\nreplaceBetween: "
 STR="foo bar thingummibob qux"
-echo #replaceBetween $STR bar qux " bar baz "
+echo #replaceBetween "$STR" bar qux " bar baz "
 
 printf "\nreplaceFirst: "
 STR="bar bar baz qux"
-echo #replaceFirst $STR bar foo
+echo #replaceFirst "$STR" bar foo
 
 printf "\nreplaceLast: "
 STR="foo bar baz bar"
-echo #replaceLast $STR bar qux
+echo #replaceLast "$STR" bar qux
 
 echo
