@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
+#!keep_runtime_file
 
 # Display various dialog popups
 
-#notify "Hello Mac"
-#alert "Hello Mac!"
+#alert "Welcome to dialog examples"
+
+#notify "this is a notification"
+
+RESULT=#confirm "Ok or Cancel?"
+# $RESULT is e.g.: "button returned:Ok"
+RESULT=#replaceBefore $RESULT ':' ''
+#notify $RESULT
+
 
 # #IF(LINUX)
-#  #notify "Hello Linux"
+#  #notify "Hello Linux
 # #ELSEIF(MAC)
 #  #notify "Hello Mac"
 # #ENDIF

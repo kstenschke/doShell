@@ -13,7 +13,7 @@ class transpileDialog {
   static void Transpile(std::string *code, bool is_linux);
 
  private:
-  static bool TranspileInfo(std::string *code, bool is_linux);
+  static bool TranspileNotify(std::string *code, bool is_linux);
   static bool TranspileAlert(std::string *code, bool is_linux);
   static bool TranspileConfirm(std::string *code, bool is_linux);
   static bool TranspilePrompt(std::string *code, bool is_linux);
