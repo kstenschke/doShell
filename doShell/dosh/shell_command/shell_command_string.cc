@@ -17,6 +17,9 @@ shellCommandString::shellCommandString(
 shellCommandString::~shellCommandString() {
 }
 
+// TODO(kay) find offset of replace.. command
+//           and make arg offsets relative to it
+
 // Replace all occurrences of given string
 bool shellCommandString::ReplaceAll(std::string str) const {
   if (argc_ < 3) return false;
