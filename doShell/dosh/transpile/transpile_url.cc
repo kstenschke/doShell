@@ -11,8 +11,7 @@ transpileUrl::transpileUrl(std::string path_binary) {
   path_binary_ = std::move(path_binary);
 }
 
-void transpileUrl::Transpile(
-    std::string *code, bool is_linux, std::string path_binary) {
+void transpileUrl::Transpile(std::string *code, std::string path_binary) {
   auto *instance = new transpileUrl(std::move(path_binary));
 
   if (helper::String::Contains(*code, "FromUrl ")) {

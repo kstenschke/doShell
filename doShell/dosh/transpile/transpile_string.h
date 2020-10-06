@@ -14,7 +14,6 @@ class transpileString {
   transpileString(std::string path_binary, std::string from = "");
 
   static void Transpile(std::string *code,
-                        bool is_linux,
                         const std::string &path_binary,
                         const std::string &from = "");
 

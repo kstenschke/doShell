@@ -13,7 +13,6 @@ transpileString::transpileString(std::string path_binary, std::string from) {
 }
 
 void transpileString::Transpile(std::string *code,
-                                bool is_linux,
                                 const std::string &path_binary,
                                 const std::string &from) {
   auto *instance = new transpileString(path_binary, from);
