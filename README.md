@@ -435,32 +435,32 @@ used within doShell script.
 
 The following example scripts can be found under [/examples](/examples):
 
-| File                                                                                     | Description                                                                          |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [001_import.do.sh](/examples/001_import.do.sh)                                           | Import scripts from other file                                                       |
-| [002_macros.do.sh](/examples/002_macros.do.sh)                                           | Use transpiler- and runtime macros                                                   |
-| [003_platform_conditions.do.sh](/examples/003_platform_conditions.do.sh)                 | Vary code per platform                                                               |
-| [004_random.do.sh](/examples/004_random.do.sh)                                           | Random value generation                                                              |
-| [005_strings.do.sh](/examples/005_strings.do.sh)                                         | String manipulation                                                                  |
-| [006_strings_from_files.do.sh](/examples/006_strings_from_files.do.sh)                   | Manipulation of strings from files                                                   |
-| [007_clipboard_strings.do.sh](/examples/007_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                      |
-| [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                     | Parse and encode/decode URL parts                                                    |
-| [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                     | Use PHP within doShell script                                                        |
-| [010_runtime_variables.do.sh](/examples/010_runtime_variables.do.sh)                     | Use of dynamic runtime variables                                                     |
-| [011_dialogs_alert.do.sh](/examples/011_dialogs_alert.do.sh)                             | Various dialogs / GUI popup windows                                                  |
-| [012_dialogs_notify.do.sh](/examples/012_dialogs_notify.do.sh)                           | Display selection popup of files, open selected one in bash editor                   |
-| [013_dialogs_confirm.do.sh](/examples/013_dialogs_confirm.do.sh)                         | Display selection popup of files, open selected one in bash editor                   |
-| [014_dialogs_prompt.do.sh](/examples/014_dialogs_prompt.do.sh)                           | Display selection popup of files, open selected one in bash editor                   |
-| [015_dialogs_select.do.sh](/examples/015_dialogs_select.do.sh)                           | Display selection popup of files, open selected one in bash editor                   |
-| [016_load_url_in_new_browser_tab.do.sh](/examples/016_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                                          |
-| [017_search_with_duckduckgo.do.sh](/examples/017_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                    |
-| [018_store_clipboard_to_file.do.sh](/examples/018_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                    |
-| [019_use_dev_console.do.sh](/examples/019_use_dev_console.do.sh)                         | Open the dev console, insert and run script in it                                    |
-| [020_export_all_script_tags.do.sh](/examples/020_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file      |
-| [021_export_html_comments.do.sh](/examples/021_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                        |
-| [022_export_urls.do.sh](/examples/022_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                              |
-| [023_swop_domain.do.sh](/examples/023_swop_domain.do.sh)                                 | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load |
-| [024_iterate_url.do.sh](/examples/024_iterate_url.do.sh)                                 | Open iterated values of an URL parameter in new browser tabs                         |
+| File                                                                                     | Description                                                                            |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [001_import.do.sh](/examples/001_import.do.sh)                                           | Import scripts from other file                                                         |
+| [002_macros.do.sh](/examples/002_macros.do.sh)                                           | Use transpiler- and runtime macros                                                     |
+| [003_platform_conditions.do.sh](/examples/003_platform_conditions.do.sh)                 | Vary code per platform                                                                 |
+| [004_random.do.sh](/examples/004_random.do.sh)                                           | Random value generation                                                                |
+| [005_strings.do.sh](/examples/005_strings.do.sh)                                         | String manipulation                                                                    |
+| [006_strings_from_files.do.sh](/examples/006_strings_from_files.do.sh)                   | Manipulation of strings from files                                                     |
+| [007_clipboard_strings.do.sh](/examples/007_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                        |
+| [008_parse_url.do.sh](/examples/008_parse_url.do.sh)                                     | Parse and encode/decode URL parts                                                      |
+| [009_parse_php.do.sh](/examples/009_parse_php.do.sh)                                     | Use PHP within doShell script                                                          |
+| [010_runtime_variables.do.sh](/examples/010_runtime_variables.do.sh)                     | Use of dynamic runtime variables                                                       |
+| [011_dialogs_alert.do.sh](/examples/011_dialogs_alert.do.sh)                             | Display an alert popup on the desktop                                                  |
+| [012_dialogs_notify.do.sh](/examples/012_dialogs_notify.do.sh)                           | Display a notification on the desktop                                                  |
+| [013_dialogs_confirm.do.sh](/examples/013_dialogs_confirm.do.sh)                         | Display and evaluate the choice of an ok- or cancel- confirmation popup on the desktop |
+| [014_dialogs_prompt.do.sh](/examples/014_dialogs_prompt.do.sh)                           | Display and evaluate the input of a prompt popup on the desktop                        |
+| [015_dialogs_select.do.sh](/examples/015_dialogs_select.do.sh)                           | Display and evaluate the choice of a selection popup on the desktop                    |
+| [016_load_url_in_new_browser_tab.do.sh](/examples/016_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                                            |
+| [017_search_with_duckduckgo.do.sh](/examples/017_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                      |
+| [018_store_clipboard_to_file.do.sh](/examples/018_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                      |
+| [019_use_dev_console.do.sh](/examples/019_use_dev_console.do.sh)                         | Open the dev console, insert and run script in it                                      |
+| [020_export_all_script_tags.do.sh](/examples/020_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file        |
+| [021_export_html_comments.do.sh](/examples/021_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                          |
+| [022_export_urls.do.sh](/examples/022_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                                |
+| [023_swop_domain.do.sh](/examples/023_swop_domain.do.sh)                                 | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load   |
+| [024_iterate_url.do.sh](/examples/024_iterate_url.do.sh)                                 | Open iterated values of an URL parameter in new browser tabs                           |
 
 
 Third Party References
