@@ -50,12 +50,6 @@ class S2sTranspiler {
   int argc_;
   std::vector<std::string> argv_;
 
-#ifdef __linux__
-  bool is_linux_ = true;
-#else
-  bool is_linux_ = false;
-#endif
-
   std::string path_source_file_abs_;
   std::string path_compiled_file_abs_;
   std::string path_phtml_file_abs_;
