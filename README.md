@@ -1,6 +1,25 @@
 doShell
 =======
 
+## Stage of Completion
+
+doShell v0.0.1 has not been completed.  This is a rough overview of what does and does not work yet:
+
+| Feature                | Completion   | Comments                                                      |
+| ---------------------- | ------------ | ------------------------------------------------------------- |
+| README / documentation | 90%          | Serves also as roadmap, not everything works as described yet |
+| Import                 | 95%          |                                                               |
+| Runtime flags          | 70%          | Not all flags implemented yet                                 |
+| Inline PHP             | 100%         |                                                               |
+| Macros                 | 80%          | More code/inlining-variations to be tested                    |
+| Automate keystrokes    | 80%          | Needs more stroke identifiers                                 |
+| Conditions             | 80%          | More code/inlining-variations to be tested                    |
+| String commands        | 90%          |                                                               |
+| URL Parsing            | 95%          |                                                               |
+| Clipboard commands     | 90%          |                                                               |
+| UI Dialogs             | 30%          |                                                               |
+
+
 ## Table of Contents
 
 - [DoShell](#doshell)
@@ -246,6 +265,8 @@ like:
 | Command                                 | Description                             |
 | --------------------------------------- | --------------------------------------- |
 | ``#copyAll``                            | Select all, than copy                   |
+| ``#copyLine``                           | Select caret line, than copy            |
+| ``#copyLineInTerminal``                 | Select caret line, than copy            |
 | ``#copyInTerminal``                     | Varies by OS                            |
 | ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
 | ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
