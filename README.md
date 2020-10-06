@@ -455,7 +455,7 @@ The following example scripts can be found under [/examples](/examples):
 | [016_load_url_in_new_browser_tab.do.sh](/examples/016_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                                            |
 | [017_search_with_duckduckgo.do.sh](/examples/017_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                      |
 | [018_store_clipboard_to_file.do.sh](/examples/018_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                      |
-| [019_use_dev_console.do.sh](/examples/019_use_dev_console.do.sh)                         | Open the dev console, insert and run script in it                                      |
+| [019_use_dev_console.do.sh](/examples/019_use_dev_console.do.sh)                         | Open the browser's dev console, insert and run script in it                            |
 | [020_export_all_script_tags.do.sh](/examples/020_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file        |
 | [021_export_html_comments.do.sh](/examples/021_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                          |
 | [022_export_urls.do.sh](/examples/022_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                                |
