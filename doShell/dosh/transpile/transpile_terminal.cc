@@ -5,16 +5,25 @@
 
 namespace doShell {
 
+transpileTerminal::transpileTerminal(std::string *code) {
+  code_ = code;
+}
+
 void transpileTerminal::Transpile(std::string *code) {
   if (!helper::String::Contains(*code, "Terminal")) return;
 
-  TranspileHitCopyInTerminal(code);
-  TranspileHitFindInTerminal(code);
-  TranspilePasteInTerminal(code);
+  auto *instance = new transpileTerminal(code);
+
+  instance
+    ->TranspileHitCopyInTerminal()
+    ->TranspileHitFindInTerminal()
+    ->TranspilePasteInTerminal();
+
+  delete instance;
 }
 
-void transpileTerminal::TranspileCopyPasteInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#copyPaste ")) return;
+transpileTerminal* transpileTerminal::TranspileCopyPasteInTerminal() {
+  if (std::string::npos == code_->find("#copyPaste ")) return this;
 
   #if __linux__
     std::string replacement =
@@ -29,49 +38,57 @@ void transpileTerminal::TranspileCopyPasteInTerminal(std::string *code) {
 
   std::regex exp(R"(#copyPaste \"(.*)\")");
 
-  *code = std::regex_replace(*code, exp, replacement);
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
 }
 
-void transpileTerminal::TranspileHitFindInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#hitFindInTerminal")) return;
+transpileTerminal* transpileTerminal::TranspileHitFindInTerminal() {
+  if (std::string::npos == code_->find("#hitFindInTerminal")) return this;
 
   #if __linux__
     helper::String::ReplaceAll(code, "#hitFindInTerminal", "xdotool key ctrl+shift+f");
   #else
     helper::String::ReplaceAll(
-      code,
+      code_,
       "#hitFindInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
       "using {command down, option down}'");
   #endif
+
+  return this;
 }
 
-void transpileTerminal::TranspileHitCopyInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#copyInTerminal ")) return;
+transpileTerminal* transpileTerminal::TranspileHitCopyInTerminal() {
+  if (std::string::npos == code_->find("#copyInTerminal ")) return this;
 
   #if __linux__
     helper::String::ReplaceAll(code, "#copyInTerminal", "xdotool key ctrl+shift+c");
   #else
     helper::String::ReplaceAll(
-      code,
+      code_,
       "#copyInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
       "using {command down, option down}'");
   #endif
+
+  return this;
 }
 
-void transpileTerminal::TranspilePasteInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#pasteInTerminal ")) return;
+transpileTerminal* transpileTerminal::TranspilePasteInTerminal() {
+  if (std::string::npos == code_->find("#pasteInTerminal ")) return this;
 
   #if __linux__
     helper::String::ReplaceAll(code, "#pasteInTerminal", "xdotool key ctrl+shift+v");
   #else
     helper::String::ReplaceAll(
-      code,
+      code_,
       "#pasteInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
       "using {command down, option down}'");
   #endif
+
+  return this;
 }
 
 }  // namespace doShell
