@@ -13,14 +13,14 @@ class transpileClipboard {
   static void Transpile(std::string *code);
 
  private:
-  static bool TranspileSetClipboard(std::string *code);
+  static void TranspileSetClipboard(std::string *code);
 
-  static bool TranspileCopyPaste(std::string *code);
-  static bool TranspileCopyAll(std::string *code);
-  static bool TranspileCutAll(std::string *code);
+  static void TranspileCopyPaste(std::string *code);
+  static void TranspileCopyAll(std::string *code);
+  static void TranspileCutAll(std::string *code);
 
-  static bool TranspileAppendClipboardToFile(std::string *code);
-  static bool TranspileSaveClipboardToFile(std::string *code);
+  static void TranspileAppendClipboardToFile(std::string *code);
+  static void TranspileSaveClipboardToFile(std::string *code);
 };
 }  // namespace doShell
 
