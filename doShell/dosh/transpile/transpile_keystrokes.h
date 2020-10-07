@@ -11,23 +11,26 @@
 namespace doShell {
 class transpileKeystrokes {
  public:
+  explicit transpileKeystrokes(std::string *code);
   static void Transpile(std::string *code);
 
  private:
-  static void TranspileHitCopy(std::string *code);
-  static void TranspileHitFind(std::string *code);
-  static void TranspileCut(std::string *code);
-  static void TranspilePaste(std::string *code);
-  static void TranspileSelectAll(std::string *code);
+  std::string *code_;
 
-  static void TranspileHitBackspace(std::string *code);
-  static void TranspileHitDelete(std::string *code);
-  static void TranspileHitEnter(std::string *code);
-  static void TranspileHitEsc(std::string *code);
-  static void TranspileHitFunctionKeys(std::string *code);
-  static void TranspileHitTab(std::string *code);
+  transpileKeystrokes* TranspileHitCopy();
+  transpileKeystrokes* TranspileHitFind();
+  transpileKeystrokes* TranspileCut();
+  transpileKeystrokes* TranspilePaste();
+  transpileKeystrokes* TranspileSelectAll();
 
-  static void TranspileType(std::string *code);
+  transpileKeystrokes* TranspileHitBackspace();
+  transpileKeystrokes* TranspileHitDelete();
+  transpileKeystrokes* TranspileHitEnter();
+  transpileKeystrokes* TranspileHitEsc();
+  transpileKeystrokes* TranspileHitFunctionKeys();
+  transpileKeystrokes* TranspileHitTab();
+
+  transpileKeystrokes* TranspileType();
 };
 }  // namespace doShell
 

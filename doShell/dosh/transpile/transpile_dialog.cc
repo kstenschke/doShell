@@ -5,15 +5,24 @@
 
 namespace doShell {
 
-void transpileDialog::Transpile(std::string *code) {
-  TranspileNotify(code);
-  TranspileAlert(code);
-  TranspileConfirm(code);
-  TranspilePrompt(code);
+transpileDialog::transpileDialog(std::string *code) {
+  code_ = code;
 }
 
-void transpileDialog::TranspileNotify(std::string *code) {
-  if (std::string::npos == code->find("#notify ")) return;
+void transpileDialog::Transpile(std::string *code) {
+  auto *instance = new transpileDialog(code);
+
+  instance
+    ->TranspileNotify()
+    ->TranspileAlert()
+    ->TranspileConfirm()
+    ->TranspilePrompt();
+
+  delete instance;
+}
+
+transpileDialog* transpileDialog::TranspileNotify() {
+  if (std::string::npos == code_->find("#notify ")) return this;
 
   #if __linux__
     return helper::String::ReplaceAll(
@@ -25,17 +34,19 @@ void transpileDialog::TranspileNotify(std::string *code) {
     std::string replacement = "osascript -e \"display notification \\\"$1\\\"\"";
     std::regex exp(R"(#notify (\$[a-zA-z]+))");
 
-    *code = std::regex_replace(*code, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
 
     // transpile: #notify "message"
     replacement = "osascript -e 'display notification \"$1\"'";
     exp = (R"(#notify \"(.*)\")");
-    *code = std::regex_replace(*code, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
   #endif
+
+  return this;
 }
 
-void transpileDialog::TranspileAlert(std::string *code) {
-  if (std::string::npos == code->find("#alert ")) return;
+transpileDialog* transpileDialog::TranspileAlert() {
+  if (std::string::npos == code_->find("#alert ")) return this;
 
   #if __linux__
     helper::String::ReplaceAll(
@@ -45,16 +56,18 @@ void transpileDialog::TranspileAlert(std::string *code) {
   #else
     std::regex exp(R"(#alert (\$.*))");
     std::string replacement = "osascript -e \"display alert \\\"$1\\\"\"";
-    *code = std::regex_replace(*code, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
 
     exp = (R"(#alert \"(.*)\")");
     replacement = "osascript -e 'display alert \"$1\"'";
-    *code = std::regex_replace(*code, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
   #endif
+
+  return this;
 }
 
-void transpileDialog::TranspileConfirm(std::string *code) {
-  if (std::string::npos == code->find("#confirm ")) return;
+transpileDialog* transpileDialog::TranspileConfirm() {
+  if (std::string::npos == code_->find("#confirm ")) return this;
 
   #if __linux__
     helper::String::ReplaceAll(
@@ -67,12 +80,14 @@ void transpileDialog::TranspileConfirm(std::string *code) {
     std::string replacement =
         R"($(osascript -e 'display alert "$1" buttons {"Cancel", "Ok"}'))";
 
-    *code = std::regex_replace(*code, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
   #endif
+
+  return this;
 }
 
-void transpileDialog::TranspilePrompt(std::string *code) {
-  if (std::string::npos == code->find("#prompt ")) return;
+transpileDialog* transpileDialog::TranspilePrompt() {
+  if (std::string::npos == code_->find("#prompt ")) return this;
 
   #if __linux__
     helper::String::ReplaceAll(
@@ -92,8 +107,10 @@ void transpileDialog::TranspilePrompt(std::string *code) {
         ")'"
       ")";
 
-   *code = std::regex_replace(*code, exp, replacement);
+   *code_ = std::regex_replace(*code_, exp, replacement);
   #endif
+
+  return this;
 }
 
 }  // namespace doShell

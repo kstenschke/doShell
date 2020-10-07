@@ -10,13 +10,16 @@
 namespace doShell {
 class transpileDialog {
  public:
+  transpileDialog(std::string *code);
   static void Transpile(std::string *code);
 
  private:
-  static void TranspileNotify(std::string *code);
-  static void TranspileAlert(std::string *code);
-  static void TranspileConfirm(std::string *code);
-  static void TranspilePrompt(std::string *code);
+  std::string *code_;
+
+  transpileDialog* TranspileNotify();
+  transpileDialog* TranspileAlert();
+  transpileDialog* TranspileConfirm();
+  transpileDialog* TranspilePrompt();
 };
 }  // namespace doShell
 
