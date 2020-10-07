@@ -13,10 +13,10 @@ class transpileTerminal {
   static void Transpile(std::string *code);
 
  private:
-  static bool TranspileCopyPasteInTerminal(std::string *code);
-  static bool TranspileHitCopyInTerminal(std::string *code);
-  static bool TranspileHitFindInTerminal(std::string *code);
-  static bool TranspilePasteInTerminal(std::string *code);
+  static void TranspileCopyPasteInTerminal(std::string *code);
+  static void TranspileHitCopyInTerminal(std::string *code);
+  static void TranspileHitFindInTerminal(std::string *code);
+  static void TranspilePasteInTerminal(std::string *code);
 };
 }  // namespace doShell
 

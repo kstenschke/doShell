@@ -21,155 +21,144 @@ void transpileKeystrokes::Transpile(std::string *code) {
   TranspileSelectAll(code);
 }
 
-bool transpileKeystrokes::TranspileHitCopy(std::string *code) {
-  if (std::string::npos == code->find("#hitCopy")) return false;
+void transpileKeystrokes::TranspileHitCopy(std::string *code) {
+  if (std::string::npos == code->find("#hitCopy")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(code, "#hitCopy", "xdotool key ctrl+c") > 0
+    helper::String::ReplaceAll(code, "#hitCopy", "xdotool key ctrl+c");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
         code,
         "#hitCopy",
         "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
-        "using command down'") > 0;
+        "using command down'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitFind(std::string *code) {
-  if (std::string::npos == code->find("#hitFind")) return false;
+void transpileKeystrokes::TranspileHitFind(std::string *code) {
+  if (std::string::npos == code->find("#hitFind")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code,
-      "#hitFind",
-      "xdotool key ctrl+f") > 0;
+    helper::String::ReplaceAll(code, "#hitFind", "xdotool key ctrl+f");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#hitFind",
       "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
-      "using command down'") > 0;
+      "using command down'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileCut(std::string *code) {
+void transpileKeystrokes::TranspileCut(std::string *code) {
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#cut", "xdotool key ctrl+x") > 0;
+    helper::String::ReplaceAll(code, "#cut", "xdotool key ctrl+x");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#cut",
       "osascript -e 'tell application \"System Events\" to keystroke \"x\" "
-      "using command down'") > 0;
+      "using command down'");
   #endif
 }
 
-bool transpileKeystrokes::TranspilePaste(std::string *code) {
+void transpileKeystrokes::TranspilePaste(std::string *code) {
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#paste", "xdotool key ctrl+v") > 0;
+    helper::String::ReplaceAll(code, "#paste", "xdotool key ctrl+v");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#paste",
       "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
-      "using command down'") > 0;
+      "using command down'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileSelectAll(std::string *code) {
-  if (std::string::npos == code->find("#selectAll")) return false;
+void transpileKeystrokes::TranspileSelectAll(std::string *code) {
+  if (std::string::npos == code->find("#selectAll")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#selectAll", "xdotool key ctrl+a") > 0;
+    helper::String::RXxeplaceAll(code, "#selectAll", "xdotool key ctrl+a");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#selectAll",
       "osascript -e 'tell application \"System Events\" to keystroke \"a\" "
-      "using command down'") > 0;
+      "using command down'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitEnter(std::string *code) {
-  if (std::string::npos == code->find("#hitEnter")) return false;
+void transpileKeystrokes::TranspileHitEnter(std::string *code) {
+  if (std::string::npos == code->find("#hitEnter")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#hitEnter", "xdotool key KP_Enter") > 0;
+    helper::String::ReplaceAll(code, "#hitEnter", "xdotool key KP_Enter");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
         code,
         "#hitEnter",
-        "osascript -e 'tell application \"System Events\" to key code 36'") > 0;
+        "osascript -e 'tell application \"System Events\" to key code 36'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitBackspace(std::string *code) {
-  if (std::string::npos == code->find("#hitBackspace")) return false;
+void transpileKeystrokes::TranspileHitBackspace(std::string *code) {
+  if (std::string::npos == code->find("#hitBackspace")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#hitBackspace", "xdotool key BackSpace") > 0;
+    helper::String::ReplaceAll(code, "#hitBackspace", "xdotool key BackSpace");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#hitBackspace",
-      "osascript -e 'tell application \"System Events\" to key code 51'") > 0;
+      "osascript -e 'tell application \"System Events\" to key code 51'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitDelete(std::string *code) {
-  if (std::string::npos == code->find("#hitDelete")) return false;
+void transpileKeystrokes::TranspileHitDelete(std::string *code) {
+  if (std::string::npos == code->find("#hitDelete")) return;
 
   #if __linux__
     return helper::String::ReplaceAll(
       code, "#hitDelete", "xdotool key Delete") > 0;
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#hitDelete",
-      "osascript -e 'tell application \"System Events\" to key code 51'") > 0;
+      "osascript -e 'tell application \"System Events\" to key code 51'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitTab(std::string *code) {
-  if (std::string::npos == code->find("#hitTab")) return false;
+void transpileKeystrokes::TranspileHitTab(std::string *code) {
+  if (std::string::npos == code->find("#hitTab")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code,
-      "#hitTab",
-      "xdotool key Tab") > 0;
+    helper::String::ReplaceAll(code, "#hitTab", "xdotool key Tab");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#hitTab",
       "osascript -e 'tell application \"System Events\" "
-      "to keystroke (ASCII character 9)'") > 0;
+      "to keystroke (ASCII character 9)'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitEsc(std::string *code) {
-  if (std::string::npos == code->find("#hitEsc")) return false;
+void transpileKeystrokes::TranspileHitEsc(std::string *code) {
+  if (std::string::npos == code->find("#hitEsc")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
         code,
         "#hitEsc",
-        "xdotool key Escape") > 0;
+        "xdotool key Escape");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#hitEsc",
-      "osascript -e 'tell application \"System Events\" to key code 53'") > 0;
+      "osascript -e 'tell application \"System Events\" to key code 53'");
   #endif
 }
 
-bool transpileKeystrokes::TranspileHitFunctionKeys(std::string *code) {
-  if (std::string::npos == code->find("#hitF")) return false;
+void transpileKeystrokes::TranspileHitFunctionKeys(std::string *code) {
+  if (std::string::npos == code->find("#hitF")) return;
 
   #if __linux__
     std::string replacement = "xdotool key F$1";
@@ -179,14 +168,11 @@ bool transpileKeystrokes::TranspileHitFunctionKeys(std::string *code) {
   #else
   // TODO(kay): add applescript
   #endif
-
-  return true;
 }
 
-bool transpileKeystrokes::TranspileType(std::string *code) {
+void transpileKeystrokes::TranspileType(std::string *code) {
   #if __linux__
-    return helper::String::ReplaceAll(
-        code, "#type", "xdotool type ") > 0;
+    helper::String::ReplaceAll(code, "#type", "xdotool type ");
   #else
   /*
    tell application "System Events"
@@ -201,7 +187,5 @@ bool transpileKeystrokes::TranspileType(std::string *code) {
    end tell
    */
   #endif
-
-  return false;
 }
 }  // namespace doShell

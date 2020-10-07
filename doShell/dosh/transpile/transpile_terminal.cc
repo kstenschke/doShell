@@ -13,8 +13,8 @@ void transpileTerminal::Transpile(std::string *code) {
   TranspilePasteInTerminal(code);
 }
 
-bool transpileTerminal::TranspileCopyPasteInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#copyPaste ")) return false;
+void transpileTerminal::TranspileCopyPasteInTerminal(std::string *code) {
+  if (std::string::npos == code->find("#copyPaste ")) return;
 
   #if __linux__
     std::string replacement =
@@ -30,54 +30,47 @@ bool transpileTerminal::TranspileCopyPasteInTerminal(std::string *code) {
   std::regex exp(R"(#copyPaste \"(.*)\")");
 
   *code = std::regex_replace(*code, exp, replacement);
-
-  return true;
 }
 
-bool transpileTerminal::TranspileHitFindInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#hitFindInTerminal")) return false;
+void transpileTerminal::TranspileHitFindInTerminal(std::string *code) {
+  if (std::string::npos == code->find("#hitFindInTerminal")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#hitFindInTerminal", "xdotool key ctrl+shift+f") > 0;
+    helper::String::ReplaceAll(code, "#hitFindInTerminal", "xdotool key ctrl+shift+f");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#hitFindInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
-      "using {command down, option down}'") > 0;
+      "using {command down, option down}'");
   #endif
 }
 
-bool transpileTerminal::TranspileHitCopyInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#copyInTerminal ")) return false;
+void transpileTerminal::TranspileHitCopyInTerminal(std::string *code) {
+  if (std::string::npos == code->find("#copyInTerminal ")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code,
-      "#copyInTerminal",
-      "xdotool key ctrl+shift+c") > 0;
+    helper::String::ReplaceAll(code, "#copyInTerminal", "xdotool key ctrl+shift+c");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#copyInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
-      "using {command down, option down}'") > 0;
+      "using {command down, option down}'");
   #endif
 }
 
-bool transpileTerminal::TranspilePasteInTerminal(std::string *code) {
-  if (std::string::npos == code->find("#pasteInTerminal ")) return false;
+void transpileTerminal::TranspilePasteInTerminal(std::string *code) {
+  if (std::string::npos == code->find("#pasteInTerminal ")) return;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-      code, "#pasteInTerminal", "xdotool key ctrl+shift+v") > 0;
+    helper::String::ReplaceAll(code, "#pasteInTerminal", "xdotool key ctrl+shift+v");
   #else
-    return helper::String::ReplaceAll(
+    helper::String::ReplaceAll(
       code,
       "#pasteInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
-      "using {command down, option down}'") > 0;
+      "using {command down, option down}'");
   #endif
 }
 

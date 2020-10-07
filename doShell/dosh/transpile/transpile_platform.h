@@ -10,11 +10,11 @@
 namespace doShell {
 class transpilePlatform {
  public:
-  static bool Transpile(std::string *code);
+  static void Transpile(std::string *code);
 
  private:
-  static bool transpilePlatformConditions(std::string *code);
-  static bool transpilePlatformConstants(std::string *code);
+  static void transpilePlatformConditions(std::string *code);
+  static void transpilePlatformConstants(std::string *code);
 };
 }  // namespace doShell
 

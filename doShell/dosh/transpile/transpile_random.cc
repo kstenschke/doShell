@@ -5,8 +5,8 @@
 
 namespace doShell {
 
-bool transpileRandom::Transpile(std::string *code) {
-  if (!helper::String::Contains(*code, "#random ")) return false;
+void transpileRandom::Transpile(std::string *code) {
+  if (!helper::String::Contains(*code, "#random ")) return;
 
   // Random one of given strings
   // TODO(kay) implement
@@ -20,8 +20,6 @@ bool transpileRandom::Transpile(std::string *code) {
   std::string replacement = "$(( $RANDOM % ($2 - $1 + 1) + $1 ));";
 
   *code = std::regex_replace(*code, exp2, replacement);
-
-  return true;
 }
 
 }  // namespace doShell

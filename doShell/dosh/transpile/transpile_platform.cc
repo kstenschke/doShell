@@ -6,16 +6,14 @@
 
 namespace doShell {
 
-bool transpilePlatform::Transpile(std::string *code) {
-  auto result = transpilePlatformConditions(code);
-  auto result2 = transpilePlatformConstants(code);
-
-  return result || result2;
+void transpilePlatform::Transpile(std::string *code) {
+  transpilePlatformConditions(code);
+  transpilePlatformConstants(code);
 }
 
-bool transpilePlatform::transpilePlatformConditions(std::string *code) {
+void transpilePlatform::transpilePlatformConditions(std::string *code) {
   if (!helper::String::Contains(*code, "#if_is_linux")
-    &&!helper::String::Contains(*code, "#if_is_mac")) return false;
+    &&!helper::String::Contains(*code, "#if_is_mac")) return;
 
   #if __linux__
     while (helper::String::Contains(*code, "#if_is_mac")) {
@@ -33,15 +31,13 @@ bool transpilePlatform::transpilePlatformConditions(std::string *code) {
   helper::String::ReplaceAll(code, "#if_is_mac");
   helper::String::ReplaceAll(code, "#endif_is_linux");
   helper::String::ReplaceAll(code, "#endif_is_mac");
-
-  return true;
 }
 
-bool transpilePlatform::transpilePlatformConstants(std::string *code) {
+void transpilePlatform::transpilePlatformConstants(std::string *code) {
   #if __linux__
-    return helper::String::ReplaceAll(code, "::OS::", "linux") > 0;
+    helper::String::ReplaceAll(code, "::OS::", "linux");
   #else
-    return helper::String::ReplaceAll(code, "::OS::", "mac") > 0;
+    helper::String::ReplaceAll(code, "::OS::", "mac");
   #endif
 }
 
