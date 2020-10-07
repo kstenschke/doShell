@@ -10,7 +10,14 @@
 namespace doShell {
 class transpileRandom {
  public:
+  transpileRandom(std::string *code);
+
   static void Transpile(std::string *code);
+
+  transpileRandom* TranspileRandomNumber();
+
+ private:
+  std::string *code_;
 };
 }  // namespace doShell
 

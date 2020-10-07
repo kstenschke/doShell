@@ -11,23 +11,24 @@ namespace doShell {
 class transpileString {
  public:
 
-  transpileString(std::string path_binary, std::string from = "");
+  transpileString(std::string *code, std::string path_binary, std::string from = "");
 
   static void Transpile(std::string *code,
                         const std::string &path_binary,
                         const std::string &from = "");
 
  private:
+  std::string *code_;
   std::string path_binary_;
   std::string from_ = "";
 
-  transpileString* TranspileExtractBetween(std::string *code);
-  transpileString* TranspileReplaceAfter(std::string *code);
-  transpileString* TranspileReplaceAll(std::string *code);
-  transpileString* TranspileReplaceBefore(std::string *code);
-  transpileString* TranspileReplaceBetween(std::string *code);
-  transpileString* TranspileReplaceFirst(std::string *code);
-  transpileString* TranspileReplaceLast(std::string *code);
+  transpileString* TranspileExtractBetween();
+  transpileString* TranspileReplaceAfter();
+  transpileString* TranspileReplaceAll();
+  transpileString* TranspileReplaceBefore();
+  transpileString* TranspileReplaceBetween();
+  transpileString* TranspileReplaceFirst();
+  transpileString* TranspileReplaceLast();
 };
 }  // namespace doShell
 
