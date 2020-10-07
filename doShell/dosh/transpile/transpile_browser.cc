@@ -16,8 +16,8 @@ namespace doShell {
     TranspileClearDevConsole(code);
   }
 
-  bool transpileBrowser::TranspileActivate(std::string *code) {
-    if (std::string::npos == code->find("#activateBrowser")) return false;
+  void transpileBrowser::TranspileActivate(std::string *code) {
+    if (std::string::npos == code->find("#activateBrowser")) return;
 
     #if __linux__
     std::string replacement =
@@ -35,14 +35,12 @@ namespace doShell {
 
     replacement += "\nsleep 0.3";
 
-    return helper::String::ReplaceAll(
-        code, "#activateBrowser", replacement) > 0;
+    helper::String::ReplaceAll(code, "#activateBrowser", replacement);
   }
 
 
-  bool transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code) {
-    if (std::string::npos == code->find("#openUrlInNewBrowserTab "))
-      return false;
+  void transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code) {
+    if (std::string::npos == code->find("#openUrlInNewBrowserTab ")) return;
 
     std::string replacement =
         "#openNewBrowserTab\n"
@@ -55,12 +53,10 @@ namespace doShell {
     *code = std::regex_replace(*code, exp, replacement);
 
 //    transpileClipboard::Transpile(code, is_linux);
-
-    return true;
   }
 
-  bool transpileBrowser::TranspileOpenNewTab(std::string *code) {
-    if (std::string::npos == code->find("#openNewBrowserTab")) return false;
+  void transpileBrowser::TranspileOpenNewTab(std::string *code) {
+    if (std::string::npos == code->find("#openNewBrowserTab")) return;
 
     #if __linux__
       std::string replacement = "xdotool key ctrl+t";
@@ -72,12 +68,11 @@ namespace doShell {
 
     replacement += "\nsleep 0.1";
 
-    return helper::String::ReplaceAll(
-        code, "#openNewBrowserTab", replacement) > 0;
+    helper::String::ReplaceAll(code, "#openNewBrowserTab", replacement);
   }
 
-  bool transpileBrowser::TranspileOpenBrowserDevTools(std::string *code) {
-    if (std::string::npos == code->find("#openBrowserDevTools")) return false;
+  void transpileBrowser::TranspileOpenBrowserDevTools(std::string *code) {
+    if (std::string::npos == code->find("#openBrowserDevTools")) return;
 
     #if __linux__
       std::string replacement = "xdotool key F12";
@@ -89,12 +84,11 @@ namespace doShell {
 
     replacement += "\nsleep 0.5";
 
-    return helper::String::ReplaceAll(
-        code, "#openBrowserDevTools", replacement) > 0;
+    helper::String::ReplaceAll(code, "#openBrowserDevTools", replacement);
   }
 
-  bool transpileBrowser::TranspileActivateDevConsole(std::string *code) {
-    if (std::string::npos == code->find("#openBrowserDevConsole")) return false;
+  void transpileBrowser::TranspileActivateDevConsole(std::string *code) {
+    if (std::string::npos == code->find("#openBrowserDevConsole")) return;
 
     #if __linux__
       std::string replacement = "xdotool key ctrl+shift+k";
@@ -106,12 +100,11 @@ namespace doShell {
 
     replacement += "\nsleep 0.5";
 
-    return helper::String::ReplaceAll(
-        code, "#openBrowserDevConsole", replacement) > 0;
+    helper::String::ReplaceAll(code, "#openBrowserDevConsole", replacement);
   }
 
-  bool transpileBrowser::TranspileRunJs(std::string *code) {
-    if (std::string::npos == code->find("#runJs")) return false;
+  void transpileBrowser::TranspileRunJs(std::string *code) {
+    if (std::string::npos == code->find("#runJs")) return;
 
     std::string replacement =
         "#openBrowserDevConsole\n"
@@ -121,12 +114,10 @@ namespace doShell {
 
     std::regex exp(R"(#runJs \"(.*)\")");
     *code = std::regex_replace(*code, exp, replacement);
-
-    return true;
   }
 
-  bool transpileBrowser::TranspileExecDevConsole(std::string *code) {
-    if (std::string::npos == code->find("#execDevConsole")) return false;
+  void transpileBrowser::TranspileExecDevConsole(std::string *code) {
+    if (std::string::npos == code->find("#execDevConsole")) return;
 
     #if __linux__
       std::string replacement = "xdotool key ctrl+KP_Enter";
@@ -136,24 +127,22 @@ namespace doShell {
           "to key code 36 using command down'";
     #endif
 
-    return helper::String::ReplaceAll(
-        code, "#execDevConsole", replacement) > 0;
+    helper::String::ReplaceAll(code, "#execDevConsole", replacement);
   }
 
-  bool transpileBrowser::TranspileClearDevConsole(std::string *code) {
-    if (std::string::npos == code->find("#clearDevConsole")) return false;
+  void transpileBrowser::TranspileClearDevConsole(std::string *code) {
+    if (std::string::npos == code->find("#clearDevConsole")) return;
 
     std::string replacement =
         "#openBrowserDevConsole\n"
         "#selectAll\n"
         "#hitBackspace\n";
 
-    return helper::String::ReplaceAll(
-        code, "#clearDevConsole", replacement) > 0;
+    helper::String::ReplaceAll(code, "#clearDevConsole", replacement);
   }
 
-  bool transpileBrowser::TranspileFocusUrl(std::string *code) {
-    if (std::string::npos == code->find("#focusBrowserURL")) return false;
+  void transpileBrowser::TranspileFocusUrl(std::string *code) {
+    if (std::string::npos == code->find("#focusBrowserURL")) return;
 
     #if __linux__
       std::string replacement = "xdotool key ctrl+l";
@@ -165,12 +154,11 @@ namespace doShell {
 
     replacement += "\nsleep 0.1";
 
-    return helper::String::ReplaceAll(
-        code, "#focusBrowserURL", replacement) > 0;
+    helper::String::ReplaceAll(code, "#focusBrowserURL", replacement);
   }
 
-  bool transpileBrowser::TranspilePostFormData(std::string *code) {
-    return helper::String::ReplaceAll(
+  void transpileBrowser::TranspilePostFormData(std::string *code) {
+    helper::String::ReplaceAll(
         code,
         "#getBrowserHtml",
           "(()=>{"
@@ -179,7 +167,7 @@ namespace doShell {
             "req=new XMLHttpRequest();"
             "req.open(\"POST\", 'http://localhost:8765', true);"
             "req.send(data);"
-          "})()") > 0;
+          "})()");
   }
 }  // namespace doShell
 

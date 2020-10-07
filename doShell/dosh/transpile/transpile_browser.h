@@ -14,20 +14,20 @@ class transpileBrowser {
   static void Transpile(std::string *code);
 
  private:
-  static bool TranspileActivate(std::string *code);
+  static void TranspileActivate(std::string *code);
 
-  static bool TranspileOpenNewTab(std::string *code);
-  static bool TranspileOpenUrlInNewBrowserTab(std::string *code);
+  static void TranspileOpenNewTab(std::string *code);
+  static void TranspileOpenUrlInNewBrowserTab(std::string *code);
 
-  static bool TranspileFocusUrl(std::string *code);
+  static void TranspileFocusUrl(std::string *code);
 
-  static bool TranspileRunJs(std::string *code);
-  static bool TranspileExecDevConsole(std::string *code);
-  static bool TranspileClearDevConsole(std::string *code);
-  static bool TranspileOpenBrowserDevTools(std::string *code);
-  static bool TranspileActivateDevConsole(std::string *code);
+  static void TranspileRunJs(std::string *code);
+  static void TranspileExecDevConsole(std::string *code);
+  static void TranspileClearDevConsole(std::string *code);
+  static void TranspileOpenBrowserDevTools(std::string *code);
+  static void TranspileActivateDevConsole(std::string *code);
 
-  static bool TranspilePostFormData(std::string *code);
+  static void TranspilePostFormData(std::string *code);
 };
 }  // namespace doShell
 #endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_

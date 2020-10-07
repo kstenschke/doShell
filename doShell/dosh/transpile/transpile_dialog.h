@@ -13,10 +13,10 @@ class transpileDialog {
   static void Transpile(std::string *code);
 
  private:
-  static bool TranspileNotify(std::string *code);
-  static bool TranspileAlert(std::string *code);
-  static bool TranspileConfirm(std::string *code);
-  static bool TranspilePrompt(std::string *code);
+  static void TranspileNotify(std::string *code);
+  static void TranspileAlert(std::string *code);
+  static void TranspileConfirm(std::string *code);
+  static void TranspilePrompt(std::string *code);
 };
 }  // namespace doShell
 
