@@ -43,8 +43,12 @@ void transpileDialog::TranspileAlert(std::string *code) {
         "#alert",
         "gxmessage -center -ontop -bg red hello -title Alert ");
   #else
-    std::string replacement = "osascript -e 'display alert \"$1\"'";
-    std::regex exp(R"(#alert \"*(.*)\")");
+    std::regex exp(R"(#alert (\$.*))");
+    std::string replacement = "osascript -e \"display alert \\\"$1\\\"\"";
+    *code = std::regex_replace(*code, exp, replacement);
+
+    exp = (R"(#alert \"(.*)\")");
+    replacement = "osascript -e 'display alert \"$1\"'";
     *code = std::regex_replace(*code, exp, replacement);
   #endif
 }
@@ -79,14 +83,14 @@ void transpileDialog::TranspilePrompt(std::string *code) {
    std::regex exp(R"(#prompt \"*(.*)\")");
 
    std::string replacement =
-      "osascript -e 'set T to text returned of ("
-        "display dialog \"$1\" "
-        "buttons {"
-            "\"Cancel\", "
-            "\"OK\""
-        "} "
-        "default button \"OK\" "
-        "default answer \"\")'";
+      "$("
+        "osascript -e 'set T to text returned of ("
+          "display dialog \"$1\" "
+          "buttons {\"Cancel\", \"OK\"} "
+          "default button \"OK\" "
+          "default answer \"\""
+        ")'"
+      ")";
 
    *code = std::regex_replace(*code, exp, replacement);
   #endif

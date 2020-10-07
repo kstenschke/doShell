@@ -2,3 +2,4 @@
 #!keep_runtime_file
 
 RES=#prompt "What do you think?"
+#alert $RES
