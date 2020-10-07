@@ -10,7 +10,7 @@
 namespace doShell {
 class transpileTerminal {
  public:
-  transpileTerminal(std::string *code);
+  explicit transpileTerminal(std::string *code);
   static void Transpile(std::string *code);
 
  private:

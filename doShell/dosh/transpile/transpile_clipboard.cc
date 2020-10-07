@@ -4,20 +4,28 @@
 #include <doShell/dosh/transpile/transpile_clipboard.h>
 
 namespace doShell {
-
-void transpileClipboard::Transpile(std::string *code) {
-  TranspileSetClipboard(code);
-
-  TranspileCopyPaste(code);
-  TranspileCopyAll(code);
-  TranspileCutAll(code);
-
-  TranspileAppendClipboardToFile(code);
-  TranspileSaveClipboardToFile(code);
+transpileClipboard::transpileClipboard(std::string *code) {
+  code_ = code;
 }
 
-void transpileClipboard::TranspileSetClipboard(std::string *code) {
-  if (std::string::npos == code->find("#setClipboard ")) return;
+void transpileClipboard::Transpile(std::string *code) {
+  auto *instance = new transpileClipboard(code);
+
+  instance
+    ->TranspileSetClipboard()
+
+    ->TranspileCopyPaste()
+    ->TranspileCopyAll()
+    ->TranspileCutAll()
+
+    ->TranspileAppendClipboardToFile()
+    ->TranspileSaveClipboardToFile();
+
+  delete instance;
+}
+
+transpileClipboard* transpileClipboard::TranspileSetClipboard() {
+  if (std::string::npos == code_->find("#setClipboard ")) return this;
 
   #if __linux__
     std::string replacement = "echo '$1' | xclip -sel clip #";
@@ -26,31 +34,37 @@ void transpileClipboard::TranspileSetClipboard(std::string *code) {
   #endif
 
   std::regex exp(R"(#setClipboard \"(.*)\")");
-  *code = std::regex_replace(*code, exp, replacement);
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
 }
 
-void transpileClipboard::TranspileAppendClipboardToFile(std::string *code) {
-  if (std::string::npos == code->find("#appendClipboardToFile ")) return;
+transpileClipboard* transpileClipboard::TranspileAppendClipboardToFile() {
+  if (std::string::npos == code_->find("#appendClipboardToFile ")) return this;
 
   std::string replacement =
       "/home/kay/CLionProjects/shellDo/bin/linux/dosh appendClipboardToFile $1";
 
   std::regex exp(R"(#appendClipboardToFile \"(.*)\")");
-  *code = std::regex_replace(*code, exp, replacement);
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
 }
 
-void transpileClipboard::TranspileSaveClipboardToFile(std::string *code) {
-  if (std::string::npos == code->find("#saveClipboardToFile ")) return;
+transpileClipboard* transpileClipboard::TranspileSaveClipboardToFile() {
+  if (std::string::npos == code_->find("#saveClipboardToFile ")) return this;
 
   std::string replacement =
       "/home/kay/CLionProjects/shellDo/bin/linux/dosh saveClipboardToFile $1";
 
   std::regex exp(R"(#saveClipboardToFile \"(.*)\")");
-  *code = std::regex_replace(*code, exp, replacement);
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
 }
 
-void transpileClipboard::TranspileCopyPaste(std::string *code) {
-  if (std::string::npos == code->find("#copyPaste ")) return;
+transpileClipboard* transpileClipboard::TranspileCopyPaste() {
+  if (std::string::npos == code_->find("#copyPaste ")) return this;
 
   #if __linux__
     std::string replacement =
@@ -64,16 +78,22 @@ void transpileClipboard::TranspileCopyPaste(std::string *code) {
 
   std::regex exp(R"(#copyPaste \"(.*)\")");
 
-  *code = std::regex_replace(*code, exp, replacement);
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
 }
 
-void transpileClipboard::TranspileCopyAll(std::string *code) {
-  if (std::string::npos == code->find("#copyAll")) return;
+transpileClipboard* transpileClipboard::TranspileCopyAll() {
+  if (std::string::npos == code_->find("#copyAll")) return this;
 
-  helper::String::ReplaceAll(code, "#selectAll\n#hitCopy", "xdotool type ");
+  helper::String::ReplaceAll(code_, "#selectAll\n#hitCopy", "xdotool type ");
+
+  return this;
 }
 
-void transpileClipboard::TranspileCutAll(std::string *code) {
-  helper::String::ReplaceAll(code, "#cutAll", "#selectAll\n#hitCut");
+transpileClipboard* transpileClipboard::TranspileCutAll() {
+  helper::String::ReplaceAll(code_, "#cutAll", "#selectAll\n#hitCut");
+
+  return this;
 }
 }  // namespace doShell

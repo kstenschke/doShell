@@ -10,17 +10,20 @@
 namespace doShell {
 class transpileClipboard {
  public:
+  explicit transpileClipboard(std::string *code);
   static void Transpile(std::string *code);
 
  private:
-  static void TranspileSetClipboard(std::string *code);
+  std::string *code_;
 
-  static void TranspileCopyPaste(std::string *code);
-  static void TranspileCopyAll(std::string *code);
-  static void TranspileCutAll(std::string *code);
+  transpileClipboard* TranspileSetClipboard();
 
-  static void TranspileAppendClipboardToFile(std::string *code);
-  static void TranspileSaveClipboardToFile(std::string *code);
+  transpileClipboard* TranspileCopyPaste();
+  transpileClipboard* TranspileCopyAll();
+  transpileClipboard* TranspileCutAll();
+
+  transpileClipboard* TranspileAppendClipboardToFile();
+  transpileClipboard* TranspileSaveClipboardToFile();
 };
 }  // namespace doShell
 

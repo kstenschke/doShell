@@ -10,7 +10,7 @@
 namespace doShell {
 class transpilePlatform {
  public:
-  transpilePlatform(std::string *code);
+  explicit transpilePlatform(std::string *code);
   static void Transpile(std::string *code);
 
  private:

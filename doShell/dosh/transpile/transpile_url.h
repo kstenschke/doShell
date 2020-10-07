@@ -11,7 +11,6 @@ namespace doShell {
 class transpileUrl {
  public:
   explicit transpileUrl(std::string *code, std::string path_binary);
-
   static void Transpile(std::string *code, std::string path_binary);
 
  private:

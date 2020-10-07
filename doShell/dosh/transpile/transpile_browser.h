@@ -11,23 +11,26 @@
 namespace doShell {
 class transpileBrowser {
  public:
+  explicit transpileBrowser(std::string *code);
   static void Transpile(std::string *code);
 
  private:
-  static void TranspileActivate(std::string *code);
+  std::string *code_;
 
-  static void TranspileOpenNewTab(std::string *code);
-  static void TranspileOpenUrlInNewBrowserTab(std::string *code);
+  transpileBrowser* TranspileActivate();
 
-  static void TranspileFocusUrl(std::string *code);
+  transpileBrowser* TranspileOpenNewTab();
+  transpileBrowser* TranspileOpenUrlInNewBrowserTab();
 
-  static void TranspileRunJs(std::string *code);
-  static void TranspileExecDevConsole(std::string *code);
-  static void TranspileClearDevConsole(std::string *code);
-  static void TranspileOpenBrowserDevTools(std::string *code);
-  static void TranspileActivateDevConsole(std::string *code);
+  transpileBrowser* TranspileFocusUrl();
 
-  static void TranspilePostFormData(std::string *code);
+  transpileBrowser* TranspileRunJs();
+  transpileBrowser* TranspileExecDevConsole();
+  transpileBrowser* TranspileClearDevConsole();
+  transpileBrowser* TranspileOpenBrowserDevTools();
+  transpileBrowser* TranspileActivateDevConsole();
+
+  transpileBrowser* TranspilePostFormData();
 };
 }  // namespace doShell
 #endif  // DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_

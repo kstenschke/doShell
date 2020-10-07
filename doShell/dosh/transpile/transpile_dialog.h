@@ -10,7 +10,7 @@
 namespace doShell {
 class transpileDialog {
  public:
-  transpileDialog(std::string *code);
+  explicit transpileDialog(std::string *code);
   static void Transpile(std::string *code);
 
  private:

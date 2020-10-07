@@ -4,171 +4,200 @@
 #include <doShell/dosh/transpile/transpile_browser.h>
 
 namespace doShell {
-  void transpileBrowser::Transpile(std::string *code) {
-    TranspileActivate(code);
-    TranspileOpenUrlInNewBrowserTab(code);
-    TranspileOpenNewTab(code);
-    TranspileFocusUrl(code);
-    TranspileOpenBrowserDevTools(code);
-    TranspileActivateDevConsole(code);
-    TranspileRunJs(code);
-    TranspileExecDevConsole(code);
-    TranspileClearDevConsole(code);
-  }
+transpileBrowser::transpileBrowser(std::string *code) {
+  code_ = code;  
+}
 
-  void transpileBrowser::TranspileActivate(std::string *code) {
-    if (std::string::npos == code->find("#activateBrowser")) return;
+void transpileBrowser::Transpile(std::string *code) {
+  auto *instance = new transpileBrowser(code);
 
-    #if __linux__
-    std::string replacement =
-          "if pidof -s firefox > /dev/null; then\n"
-          "    wmctrl -a Firefox\n"
-          "else\n"
+  instance
+    ->TranspileActivate()
+    ->TranspileOpenUrlInNewBrowserTab()
+    ->TranspileOpenNewTab()
+    ->TranspileFocusUrl()
+    ->TranspileOpenBrowserDevTools()
+    ->TranspileActivateDevConsole()
+    ->TranspileRunJs()
+    ->TranspileExecDevConsole()
+    ->TranspileClearDevConsole();
+
+  delete instance;
+}
+
+transpileBrowser* transpileBrowser::TranspileActivate() {
+  if (std::string::npos == code_->find("#activateBrowser")) return this;
+
+  #if __linux__
+  std::string replacement =
+        "if pidof -s firefox > /dev/null; then\n"
+        "    wmctrl -a Firefox\n"
+        "else\n"
 //          "    me=$SUDO_USER\n"
 //          "    sudo -u $me nohup firefox > /dev/null &\n"
-          "    nohup firefox > /dev/null &\n"
-          "fi"
-    #else
-      std::string replacement =
-          "osascript -e 'tell application \"Firefox\" to activate'";
-    #endif
-
-    replacement += "\nsleep 0.3";
-
-    helper::String::ReplaceAll(code, "#activateBrowser", replacement);
-  }
-
-
-  void transpileBrowser::TranspileOpenUrlInNewBrowserTab(std::string *code) {
-    if (std::string::npos == code->find("#openUrlInNewBrowserTab ")) return;
-
+        "    nohup firefox > /dev/null &\n"
+        "fi"
+  #else
     std::string replacement =
-        "#openNewBrowserTab\n"
-        "#focusBrowserURL\n"
-        "#copyPaste \"$1/\"\n"
-        "sleep 0.2\n"
-        "#hitEnter";
+        "osascript -e 'tell application \"Firefox\" to activate'";
+  #endif
 
-    std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
-    *code = std::regex_replace(*code, exp, replacement);
+  replacement += "\nsleep 0.3";
 
-//    transpileClipboard::Transpile(code, is_linux);
-  }
+  helper::String::ReplaceAll(code_, "#activateBrowser", replacement);
 
-  void transpileBrowser::TranspileOpenNewTab(std::string *code) {
-    if (std::string::npos == code->find("#openNewBrowserTab")) return;
+  return this;
+}
 
-    #if __linux__
-      std::string replacement = "xdotool key ctrl+t";
-    #else
-      std::string replacement =
-          "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"t\" using command down'";
-    #endif
 
-    replacement += "\nsleep 0.1";
+transpileBrowser* transpileBrowser::TranspileOpenUrlInNewBrowserTab() {
+  if (std::string::npos == code_->find("#openUrlInNewBrowserTab ")) return this;
 
-    helper::String::ReplaceAll(code, "#openNewBrowserTab", replacement);
-  }
+  std::string replacement =
+      "#openNewBrowserTab\n"
+      "#focusBrowserURL\n"
+      "#copyPaste \"$1/\"\n"
+      "sleep 0.2\n"
+      "#hitEnter";
 
-  void transpileBrowser::TranspileOpenBrowserDevTools(std::string *code) {
-    if (std::string::npos == code->find("#openBrowserDevTools")) return;
+  std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
+  *code_ = std::regex_replace(*code_, exp, replacement);
 
-    #if __linux__
-      std::string replacement = "xdotool key F12";
-    #else
+//    transpileClipboard::Transpile(code_, is_linux);
+
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspileOpenNewTab() {
+  if (std::string::npos == code_->find("#openNewBrowserTab")) return this;
+
+  #if __linux__
+    std::string replacement = "xdotool key ctrl+t";
+  #else
     std::string replacement =
         "osascript -e 'tell application \"System Events\" "
-        "to keystroke \"F12\"'";
-    #endif
+        "to keystroke \"t\" using command down'";
+  #endif
 
-    replacement += "\nsleep 0.5";
+  replacement += "\nsleep 0.1";
 
-    helper::String::ReplaceAll(code, "#openBrowserDevTools", replacement);
-  }
+  helper::String::ReplaceAll(code_, "#openNewBrowserTab", replacement);
 
-  void transpileBrowser::TranspileActivateDevConsole(std::string *code) {
-    if (std::string::npos == code->find("#openBrowserDevConsole")) return;
+  return this;
+}
 
-    #if __linux__
-      std::string replacement = "xdotool key ctrl+shift+k";
-    #else
-      std::string replacement =
-          "osascript -e 'tell application \"System Events\" "
-          "to keystroke \"k\" using {command down, option down}'\n";
-    #endif
+transpileBrowser* transpileBrowser::TranspileOpenBrowserDevTools() {
+  if (std::string::npos == code_->find("#openBrowserDevTools")) return this;
 
-    replacement += "\nsleep 0.5";
+  #if __linux__
+    std::string replacement = "xdotool key F12";
+  #else
+  std::string replacement =
+      "osascript -e 'tell application \"System Events\" "
+      "to keystroke \"F12\"'";
+  #endif
 
-    helper::String::ReplaceAll(code, "#openBrowserDevConsole", replacement);
-  }
+  replacement += "\nsleep 0.5";
 
-  void transpileBrowser::TranspileRunJs(std::string *code) {
-    if (std::string::npos == code->find("#runJs")) return;
+  helper::String::ReplaceAll(code_, "#openBrowserDevTools", replacement);
 
-    std::string replacement =
-        "#openBrowserDevConsole\n"
-        "#copyPaste \"$1\"\n"
-        "sleep 0.1\n"
-        "#execDevConsole";
+  return this;
+}
 
-    std::regex exp(R"(#runJs \"(.*)\")");
-    *code = std::regex_replace(*code, exp, replacement);
-  }
+transpileBrowser* transpileBrowser::TranspileActivateDevConsole() {
+  if (std::string::npos == code_->find("#openBrowserDevConsole")) return this;
 
-  void transpileBrowser::TranspileExecDevConsole(std::string *code) {
-    if (std::string::npos == code->find("#execDevConsole")) return;
-
-    #if __linux__
-      std::string replacement = "xdotool key ctrl+KP_Enter";
-    #else
-      std::string replacement =
-          "osascript -e 'tell application \"System Events\" "
-          "to key code 36 using command down'";
-    #endif
-
-    helper::String::ReplaceAll(code, "#execDevConsole", replacement);
-  }
-
-  void transpileBrowser::TranspileClearDevConsole(std::string *code) {
-    if (std::string::npos == code->find("#clearDevConsole")) return;
-
-    std::string replacement =
-        "#openBrowserDevConsole\n"
-        "#selectAll\n"
-        "#hitBackspace\n";
-
-    helper::String::ReplaceAll(code, "#clearDevConsole", replacement);
-  }
-
-  void transpileBrowser::TranspileFocusUrl(std::string *code) {
-    if (std::string::npos == code->find("#focusBrowserURL")) return;
-
-    #if __linux__
-      std::string replacement = "xdotool key ctrl+l";
-    #else
+  #if __linux__
+    std::string replacement = "xdotool key ctrl+shift+k";
+  #else
     std::string replacement =
         "osascript -e 'tell application \"System Events\" "
-        "to keystroke \"l\" using command down'";
-    #endif
+        "to keystroke \"k\" using {command down, option down}'\n";
+  #endif
 
-    replacement += "\nsleep 0.1";
+  replacement += "\nsleep 0.5";
 
-    helper::String::ReplaceAll(code, "#focusBrowserURL", replacement);
-  }
+  helper::String::ReplaceAll(code_, "#openBrowserDevConsole", replacement);
 
-  void transpileBrowser::TranspilePostFormData(std::string *code) {
-    helper::String::ReplaceAll(
-        code,
-        "#getBrowserHtml",
-          "(()=>{"
-            "data=new FormData();"
-            "data.set('html',document.documentElement.innerHTML);"
-            "req=new XMLHttpRequest();"
-            "req.open(\"POST\", 'http://localhost:8765', true);"
-            "req.send(data);"
-          "})()");
-  }
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspileRunJs() {
+  if (std::string::npos == code_->find("#runJs")) return this;
+
+  std::string replacement =
+      "#openBrowserDevConsole\n"
+      "#copyPaste \"$1\"\n"
+      "sleep 0.1\n"
+      "#execDevConsole";
+
+  std::regex exp(R"(#runJs \"(.*)\")");
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspileExecDevConsole() {
+  if (std::string::npos == code_->find("#execDevConsole")) return this;
+
+  #if __linux__
+    std::string replacement = "xdotool key ctrl+KP_Enter";
+  #else
+    std::string replacement =
+        "osascript -e 'tell application \"System Events\" "
+        "to key code 36 using command down'";
+  #endif
+
+  helper::String::ReplaceAll(code_, "#execDevConsole", replacement);
+
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspileClearDevConsole() {
+  if (std::string::npos == code_->find("#clearDevConsole")) return this;
+
+  std::string replacement =
+      "#openBrowserDevConsole\n"
+      "#selectAll\n"
+      "#hitBackspace\n";
+
+  helper::String::ReplaceAll(code_, "#clearDevConsole", replacement);
+
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspileFocusUrl() {
+  if (std::string::npos == code_->find("#focusBrowserURL")) return this;
+
+  #if __linux__
+    std::string replacement = "xdotool key ctrl+l";
+  #else
+  std::string replacement =
+      "osascript -e 'tell application \"System Events\" "
+      "to keystroke \"l\" using command down'";
+  #endif
+
+  replacement += "\nsleep 0.1";
+
+  helper::String::ReplaceAll(code_, "#focusBrowserURL", replacement);
+
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspilePostFormData() {
+  helper::String::ReplaceAll(
+      code_,
+      "#getBrowserHtml",
+        "(()=>{"
+          "data=new FormData();"
+          "data.set('html',document.documentElement.innerHTML);"
+          "req=new XMLHttpRequest();"
+          "req.open(\"POST\", 'http://localhost:8765', true);"
+          "req.send(data);"
+        "})()");
+
+  return this;
+}
 }  // namespace doShell
 
 /*
