@@ -66,8 +66,8 @@ also have a glance at the included [script examples](#script-examples).
 1. Ease scripting interactive cross-platform compatible automation
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
-   2. To avoid automation scripts being bloated with ``sleep`` commands,
-   automation commands imply a plausible successive minimum delay 
+   2. To avoid bloating automation scripts with ``sleep`` commands,
+   related commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
    1. Use and combine existing tools  (shell script, xdotool / applescript, 
       php, ...)  
