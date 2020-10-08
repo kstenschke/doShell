@@ -16,7 +16,8 @@ void transpileDialog::Transpile(std::string *code) {
     ->TranspileNotify()
     ->TranspileAlert()
     ->TranspileConfirm()
-    ->TranspilePrompt();
+    ->TranspilePrompt()
+    ->TranspileSelect();
 
   delete instance;
 }
@@ -106,6 +107,32 @@ transpileDialog* transpileDialog::TranspilePrompt() {
           "default answer \"\""
         ")'"
       ")";
+
+   *code_ = std::regex_replace(*code_, exp, replacement);
+  #endif
+
+  return this;
+}
+
+transpileDialog* transpileDialog::TranspileSelect() {
+  if (std::string::npos == code_->find("#select ")) return this;
+
+  #if __linux__
+    helper::String::ReplaceAll(
+        code,
+        "#confirm ",
+        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
+  #else
+   std::regex exp(R"(#select \"(.*)\" (\{\".*\"(, )*\})+)");
+
+   std::string replacement =
+      "$(osascript <<EOF\n"
+        "set doshOptions to $2\n"
+        "set doshChoice to "
+          "choose from list doshOptions "
+          "with prompt \"$1\" "
+          "default items {\"Apple\"}\n"
+      "EOF)\n";
 
    *code_ = std::regex_replace(*code_, exp, replacement);
   #endif

@@ -291,13 +291,13 @@ To over/write the result back to files, you can use the shell redirection operat
 
 ### Dialogs
 
-| Command                                                  | Description                       |
-| -------------------------------------------------------- | --------------------------------- |
-| ``#notify "MESSAGE"``                                    | Display notification              |
-| ``#alert "MESSAGE"``                                     | Show alert popup                  |
-| ``var=#confirm "MESSAGE"``                               | Open Ok/Cancel Dialog             |
-| ``var=#prompt "MESSAGE"``                                | Popup with input field            |
-| ``var=#select "MESSAGE" "option1" "option2" "option3"``  | Popup with options to select from |
+| Command                                                         | Description                       |
+| --------------------------------------------------------------- | --------------------------------- |
+| ``#notify "MESSAGE"``                                           | Display notification              |
+| ``#alert "MESSAGE"``                                            | Show alert popup                  |
+| ``var=#confirm "MESSAGE"``                                      | Open Ok/Cancel Dialog             |
+| ``var=#prompt "MESSAGE"``                                       | Popup with input field            |
+| ``var=#select "Take your pick:" {"Apple", "Banana", "Orange"}`` | Popup with options to select from |
 
 
 ### Send keystrokes

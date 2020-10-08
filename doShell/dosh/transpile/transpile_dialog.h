@@ -20,6 +20,7 @@ class transpileDialog {
   transpileDialog* TranspileAlert();
   transpileDialog* TranspileConfirm();
   transpileDialog* TranspilePrompt();
+  transpileDialog* TranspileSelect();
 };
 }  // namespace doShell
 
