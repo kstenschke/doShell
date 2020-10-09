@@ -18,6 +18,8 @@ void transpileClipboard::Transpile(std::string *code) {
     ->TranspileCopyAll()
     ->TranspileCutAll()
 
+    ->TranspileHtmlFromClipboardToText()
+
     ->TranspileAppendClipboardToFile()
     ->TranspileSaveClipboardToFile();
 
@@ -95,6 +97,18 @@ transpileClipboard* transpileClipboard::TranspileCopyAll() {
 
 transpileClipboard* transpileClipboard::TranspileCutAll() {
   helper::String::ReplaceAll(code_, "#cutAll", "#selectAll\n#hitCut");
+
+  return this;
+}
+
+transpileClipboard* transpileClipboard::TranspileHtmlFromClipboardToText() {
+  if (std::string::npos == code_->find("#htmlFromClipboardToText")) return this;
+
+  std::string replacement =
+      "/home/kay/CLionProjects/shellDo/bin/linux/dosh htmlFromClipboardToText $1";
+
+  std::regex exp(R"(#htmlFromClipboardToText")");
+  *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
 }

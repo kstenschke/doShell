@@ -22,6 +22,7 @@ class AppCommands {
     Command_GetQueryFromUrl,
     Command_GetSchemeFromUrl,
     Command_Help,
+    Command_HtmlFromClipboardToText,
     Command_Invalid,
     Command_PrependToClipboard,
     Command_ReplaceAfter,

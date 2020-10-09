@@ -36,4 +36,8 @@ bool shellCommandClipboard::appendClipboardToFile(std::string path_file) {
   return helper::File::AppendToFile(path_file, value);
 }
 
+void shellCommandClipboard::htmlFromClipboardToText(std::string path_file) {
+
+}
+
 }  // namespace doShell

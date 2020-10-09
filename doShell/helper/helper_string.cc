@@ -332,4 +332,8 @@ std::string String::Repeat(const std::string& str, u_int16_t amount) {
   return out;
 }
 
+std::string String::HtmlToText(std::string html) {
+  return html;
+}
+
 }  // namespace helper

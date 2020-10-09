@@ -22,6 +22,8 @@ class transpileBrowser {
   transpileBrowser* TranspileOpenNewTab();
   transpileBrowser* TranspileOpenUrlInNewBrowserTab();
 
+  transpileBrowser* TranspileOpenBrowserSource();
+
   transpileBrowser* TranspileFocusUrl();
 
   transpileBrowser* TranspileRunJs();

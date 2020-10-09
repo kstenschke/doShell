@@ -14,7 +14,9 @@ doShell
     + [Import](#import)
     + [Inline PHP](#inline-php) 
     + [String manipulation](#string-manipulation)
-    + [URL parsing](#url-parsing)
+      + [General](#general)
+      + [URL parsing](#url-parsing)
+      + [HTML parsing](#html-parsing)
     + [Random values](#random-values)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
@@ -186,6 +188,8 @@ like:
 
 ### String manipulation
 
+#### General 
+
 | Command                                           | Description                                                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------------------- |
 | ``#extractBetween $VAR before after``             | Extract text excluding but between "before" and "after".**\***                |
@@ -210,7 +214,7 @@ like:
 | ``#replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
 
 
-### URL parsing
+#### URL parsing
 
 | Command                    | Description                                                      |
 | -------------------------- | ---------------------------------------------------------------- |
@@ -220,6 +224,14 @@ like:
 | ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
 | ``#urlEncode $URL``        | URL-Encode given string                                          |
 | ``#urlDecode $URL``        | URL-Decode given string                                          |
+
+
+#### HTML parsing
+
+| Command                           | Description                                    |
+| --------------------------------- | ---------------------------------------------- |
+| ``#htmlFromClipboardToText``      | Convert HTML from clipboard to plain text      |
+| ``#htmlFromClipboardToMarkdown``  | Convert HTML from clipboard to markdown        |
 
 
 ### Random values
@@ -338,6 +350,7 @@ easily adaptable to other web browsers.
 | ``#openBrowserSettings``     | Hits CTRL+Comma or CMD+Comma                                                                |
 | ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
 | ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                                                            |
+| ``#openBrowserSource``       | Hits CTRL+U or CMD+U                                                                        |
 
 
 #### Load and manipulate URLs

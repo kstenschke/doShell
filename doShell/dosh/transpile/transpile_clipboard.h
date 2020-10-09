@@ -24,6 +24,8 @@ class transpileClipboard {
 
   transpileClipboard* TranspileAppendClipboardToFile();
   transpileClipboard* TranspileSaveClipboardToFile();
+
+  transpileClipboard* TranspileHtmlFromClipboardToText();
 };
 }  // namespace doShell
 
