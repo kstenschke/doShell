@@ -73,7 +73,9 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
   #else
       std::string replacement =
           "osascript -e 'set the clipboard to \"$1\"'\n"
-          "osascript -e 'tell app \"System Events\" to keystroke \"v\" using command down'";
+          "sleep 0.1\n"
+          "osascript -e 'tell app \"System Events\" to keystroke \"v\" using command down'\n"
+          "sleep 0.1\n";
   #endif
 
   std::regex exp(R"(#copyPaste \"(.*)\")");

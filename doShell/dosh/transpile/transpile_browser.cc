@@ -49,6 +49,23 @@ transpileBrowser* transpileBrowser::TranspileActivate() {
   return this;
 }
 
+transpileBrowser* transpileBrowser::TranspileOpenNewTab() {
+  if (std::string::npos == code_->find("#openNewBrowserTab")) return this;
+
+#if __linux__
+  std::string replacement = "xdotool key ctrl+t";
+#else
+  std::string replacement =
+      "osascript -e 'tell application \"System Events\" "
+          "to keystroke \"t\" using command down'";
+#endif
+
+  replacement += "\nsleep 0.3";
+
+  helper::String::ReplaceAll(code_, "#openNewBrowserTab", replacement);
+
+  return this;
+}
 
 transpileBrowser* transpileBrowser::TranspileOpenUrlInNewBrowserTab() {
   if (std::string::npos == code_->find("#openUrlInNewBrowserTab ")) return this;
@@ -58,30 +75,13 @@ transpileBrowser* transpileBrowser::TranspileOpenUrlInNewBrowserTab() {
       "#focusBrowserURL\n"
       "#copyPaste \"$1/\"\n"
       "sleep 0.2\n"
-      "#hitEnter";
+      "#hitEnter\n"
+      "sleep 0.5\n";
 
   std::regex exp(R"(#openUrlInNewBrowserTab \"(.*)\")");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
 //    transpileClipboard::Transpile(code_, is_linux);
-
-  return this;
-}
-
-transpileBrowser* transpileBrowser::TranspileOpenNewTab() {
-  if (std::string::npos == code_->find("#openNewBrowserTab")) return this;
-
-  #if __linux__
-    std::string replacement = "xdotool key ctrl+t";
-  #else
-    std::string replacement =
-        "osascript -e 'tell application \"System Events\" "
-        "to keystroke \"t\" using command down'";
-  #endif
-
-  replacement += "\nsleep 0.1";
-
-  helper::String::ReplaceAll(code_, "#openNewBrowserTab", replacement);
 
   return this;
 }

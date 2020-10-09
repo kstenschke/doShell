@@ -2,14 +2,15 @@
 
 # Load google.com in new browser tab
 
-#IF(LINUX)
-  #BROWSER=chromium
-#ELSEIF(MAC)
-  #BROWSER=firefox
-#ENDIF
+#if_is_linux
+  #!browser chromium
+#endif_is_linux
+
+#if_is_mac
+  #!browser firefox
+#endif_is_mac
 
 #activateBrowser
-#openNewBrowserTab
-#focusBrowserURL
-#copyPaste "https://www.google.com/"
+#openUrlInNewBrowserTab "https://www.google.com/"
+#copyPaste "foo"
 #hitEnter
