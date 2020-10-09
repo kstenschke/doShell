@@ -15,11 +15,36 @@ void transpileTerminal::Transpile(std::string *code) {
   auto *instance = new transpileTerminal(code);
 
   instance
-    ->TranspileHitCopyInTerminal()
-    ->TranspileHitFindInTerminal()
-    ->TranspilePasteInTerminal();
+      ->TranspileActivate()
+      ->TranspileActivate()
+      ->TranspileActivate()
+      ->TranspileActivate();
 
   delete instance;
+}
+
+transpileTerminal* transpileTerminal::TranspileActivate() {
+  if (std::string::npos == code_->find("#activateTerminal")) return this;
+
+#if __linux__
+  std::string replacement =
+        "if pidof -s terminal > /dev/null; then\n"
+        "    wmctrl -a terminal\n"
+        "else\n"
+//          "    me=$SUDO_USER\n"
+//          "    sudo -u $me nohup terminal > /dev/null &\n"
+        "    nohup terminal > /dev/null &\n"
+        "fi"
+#else
+  std::string replacement =
+      "osascript -e 'tell application \"Terminal\" to activate'";
+#endif
+
+  replacement += "\nsleep 0.2";
+
+  helper::String::ReplaceAll(code_, "#activateTerminal", replacement);
+
+  return this;
 }
 
 transpileTerminal* transpileTerminal::TranspileCopyPasteInTerminal() {

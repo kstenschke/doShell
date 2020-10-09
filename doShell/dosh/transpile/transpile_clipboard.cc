@@ -4,12 +4,13 @@
 #include <doShell/dosh/transpile/transpile_clipboard.h>
 
 namespace doShell {
-transpileClipboard::transpileClipboard(std::string *code) {
+transpileClipboard::transpileClipboard(std::string *code, std::string *path_binary) {
   code_ = code;
+  path_binary_ = path_binary;
 }
 
-void transpileClipboard::Transpile(std::string *code) {
-  auto *instance = new transpileClipboard(code);
+void transpileClipboard::Transpile(std::string *code, std::string *path_binary) {
+  auto *instance = new transpileClipboard(code, path_binary);
 
   instance
     ->TranspileSetClipboard()
@@ -44,8 +45,7 @@ transpileClipboard* transpileClipboard::TranspileSetClipboard() {
 transpileClipboard* transpileClipboard::TranspileAppendClipboardToFile() {
   if (std::string::npos == code_->find("#appendClipboardToFile ")) return this;
 
-  std::string replacement =
-      "/home/kay/CLionProjects/shellDo/bin/linux/dosh appendClipboardToFile $1";
+  std::string replacement = *path_binary_ + " appendClipboardToFile $1";
 
   std::regex exp(R"(#appendClipboardToFile \"(.*)\")");
   *code_ = std::regex_replace(*code_, exp, replacement);
@@ -56,8 +56,7 @@ transpileClipboard* transpileClipboard::TranspileAppendClipboardToFile() {
 transpileClipboard* transpileClipboard::TranspileSaveClipboardToFile() {
   if (std::string::npos == code_->find("#saveClipboardToFile ")) return this;
 
-  std::string replacement =
-      "/home/kay/CLionProjects/shellDo/bin/linux/dosh saveClipboardToFile $1";
+  std::string replacement = *path_binary_ + " saveClipboardToFile $1";
 
   std::regex exp(R"(#saveClipboardToFile \"(.*)\")");
   *code_ = std::regex_replace(*code_, exp, replacement);
@@ -104,11 +103,10 @@ transpileClipboard* transpileClipboard::TranspileCutAll() {
 transpileClipboard* transpileClipboard::TranspileHtmlFromClipboardToText() {
   if (std::string::npos == code_->find("#htmlFromClipboardToText")) return this;
 
-  std::string replacement =
-      "/home/kay/CLionProjects/shellDo/bin/linux/dosh htmlFromClipboardToText $1";
-
-  std::regex exp(R"(#htmlFromClipboardToText")");
-  *code_ = std::regex_replace(*code_, exp, replacement);
+  helper::String::ReplaceAll(
+      code_,
+      "#htmlFromClipboardToText",
+      "/home/kay/CLionProjects/shellDo/bin/mac/dosh htmlFromClipboardToText");
 
   return this;
 }

@@ -16,6 +16,7 @@ class transpileTerminal {
  private:
   std::string *code_;
 
+  transpileTerminal* TranspileActivate();
   transpileTerminal* TranspileCopyPasteInTerminal();
   transpileTerminal* TranspileHitCopyInTerminal();
   transpileTerminal* TranspileHitFindInTerminal();

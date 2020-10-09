@@ -10,11 +10,12 @@
 namespace doShell {
 class transpileClipboard {
  public:
-  explicit transpileClipboard(std::string *code);
-  static void Transpile(std::string *code);
+  explicit transpileClipboard(std::string *code, std::string *path_binary);
+  static void Transpile(std::string *code, std::string *path_binary);
 
  private:
   std::string *code_;
+  std::string *path_binary_;
 
   transpileClipboard* TranspileSetClipboard();
 

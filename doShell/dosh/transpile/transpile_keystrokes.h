@@ -20,6 +20,7 @@ class transpileKeystrokes {
   transpileKeystrokes* TranspileHitCopy();
   transpileKeystrokes* TranspileHitFind();
   transpileKeystrokes* TranspileCut();
+  transpileKeystrokes* TranspileCopyAll();
   transpileKeystrokes* TranspilePaste();
   transpileKeystrokes* TranspileSelectAll();
 

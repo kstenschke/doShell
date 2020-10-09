@@ -21,7 +21,9 @@ void transpileKeystrokes::Transpile(std::string *code) {
     ->TranspileHitFunctionKeys()
     ->TranspileHitTab()
 
+    ->TranspileCopyAll()
     ->TranspileHitCopy()
+
     ->TranspileCut()
     ->TranspileHitFind()
     ->TranspilePaste()
@@ -73,6 +75,12 @@ transpileKeystrokes* transpileKeystrokes::TranspileCut() {
       "osascript -e 'tell application \"System Events\" to keystroke \"x\" "
       "using command down'");
   #endif
+
+  return this;
+}
+
+transpileKeystrokes* transpileKeystrokes::TranspileCopyAll() {
+  helper::String::ReplaceAll(code_, "#copyAll", "#selectAll\n#hitCopy");
 
   return this;
 }

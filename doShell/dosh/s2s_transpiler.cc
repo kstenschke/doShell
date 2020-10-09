@@ -52,7 +52,7 @@ void S2sTranspiler::TranspileCommands() {
       transpileUrl::Transpile(&source_, path_binary);
 
       transpileRandom::Transpile(&source_);
-      transpileClipboard::Transpile(&source_);
+      transpileClipboard::Transpile(&source_, &path_binary);
       transpileBrowser::Transpile(&source_);
       transpileDialog::Transpile(&source_);
       transpileKeystrokes::Transpile(&source_);

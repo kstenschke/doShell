@@ -396,6 +396,7 @@ manipulation and import / export of text from/to the clipboard.
 
 | Command                           | Description                             |
 | --------------------------------- | --------------------------------------- |
+| ``#activateTerminal``             | Open or bring terminal to front         |
 | ``#openNewTerminal``              |                                         |
 | ``#openNewTerminalTab``           | Hit CTRL+SHIT+T or CMD+T                |
 | ``#editInTerminal FILE``          | Open given file in bash editor          | 
