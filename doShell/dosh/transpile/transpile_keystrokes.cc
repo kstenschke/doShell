@@ -37,13 +37,13 @@ transpileKeystrokes* transpileKeystrokes::TranspileHitCopy() {
   if (std::string::npos == code_->find("#hitCopy")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(code_, "#hitCopy", "xdotool key ctrl+c");
+    helper::String::ReplaceAll(code_, "#hitCopy", "xdotool key ctrl+c\nsleep 0.1");
   #else
     helper::String::ReplaceAll(
         code_,
         "#hitCopy",
         "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
-        "using command down'");
+        "using command down'\nsleep 0.1");
   #endif
 
   return this;
@@ -103,13 +103,18 @@ transpileKeystrokes* transpileKeystrokes::TranspileSelectAll() {
   if (std::string::npos == code_->find("#selectAll")) return this;
 
   #if __linux__
-    helper::String::RXxeplaceAll(code_, "#selectAll", "xdotool key ctrl+a");
+    helper::String::ReplaceAll(
+     code_,
+     "#selectAll",
+     "xdotool key ctrl+a\n
+     sleep 0.1");
   #else
     helper::String::ReplaceAll(
       code_,
       "#selectAll",
       "osascript -e 'tell application \"System Events\" to keystroke \"a\" "
-      "using command down'");
+      "using command down'\n"
+      "sleep 0.1");
   #endif
 
   return this;

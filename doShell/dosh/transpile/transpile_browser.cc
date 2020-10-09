@@ -98,7 +98,7 @@ transpileBrowser* transpileBrowser::TranspileOpenBrowserSource() {
           "to keystroke \"u\" using command down'";
 #endif
 
-  replacement += "\nsleep 0.1";
+  replacement += "\nsleep 0.3";
 
   helper::String::ReplaceAll(code_, "#openBrowserSource", replacement);
 

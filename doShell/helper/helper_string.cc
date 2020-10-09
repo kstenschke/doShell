@@ -333,7 +333,8 @@ std::string String::Repeat(const std::string& str, u_int16_t amount) {
 }
 
 std::string String::HtmlToText(std::string html) {
-
+//  std::regex exp(R"(<[^>]*>)");
+//  html = std::regex_replace(html, exp, "");
 
   return html;
 }
