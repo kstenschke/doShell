@@ -30,6 +30,8 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "getPathFromUrl") return Command_GetPathFromUrl;
   if (command == "getQueryFromUrl") return Command_GetQueryFromUrl;
   if (command == "getSchemeFromUrl") return Command_GetSchemeFromUrl;
+  if (command == "htmlFromClipboardToText") return Command_HtmlFromClipboardToText;
+  if (command == "htmlFromClipboardToMarkdown") return Command_HtmlFromClipboardToMarkdown;
   if (command == "prependToClipboard") return Command_PrependToClipboard;
   if (command == "replaceAfter") return Command_ReplaceAfter;
   if (command == "replaceAll") return Command_ReplaceAll;
@@ -116,6 +118,8 @@ bool AppCommands::IsClipboardCommand(AppCommands::Command command) {
   switch (command) {
     case Command_AppendClipboardToFile:
     case Command_AppendToClipboard:
+    case Command_HtmlFromClipboardToMarkdown:
+    case Command_HtmlFromClipboardToText:
     case Command_PrependToClipboard:
     case Command_SaveClipboardToFile:
     case Command_SetClipboard:

@@ -106,7 +106,7 @@ transpileClipboard* transpileClipboard::TranspileHtmlFromClipboardToText() {
   helper::String::ReplaceAll(
       code_,
       "#htmlFromClipboardToText",
-      "/home/kay/CLionProjects/shellDo/bin/mac/dosh htmlFromClipboardToText");
+      *path_binary_ + " htmlFromClipboardToText");
 
   return this;
 }

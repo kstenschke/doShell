@@ -172,15 +172,15 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
       std::string str;
       clip::get_text(str);
 
-      std::cout << helper::String::HtmlToText(str);
-
-      return true;
+      return shellCommandClipboard::setClipboard(str + argv_[2]);
     }
     case AppCommands::Command_HtmlFromClipboardToText: {  // htmlFromClipboardToText
       std::string str;
       clip::get_text(str);
 
-      return shellCommandClipboard::setClipboard(str + argv_[2]);
+      std::cout << helper::String::HtmlToText(str);
+
+      return true;
     }
     case AppCommands::Command_PrependToClipboard: {  // prependToClipboard
       std::string str;
