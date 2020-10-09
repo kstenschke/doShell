@@ -21,7 +21,8 @@ void transpileBrowser::Transpile(std::string *code) {
     ->TranspileActivateDevConsole()
     ->TranspileRunJs()
     ->TranspileExecDevConsole()
-    ->TranspileClearDevConsole();
+    ->TranspileClearDevConsole()
+    ->TranspileCloseTab();
 
   delete instance;
 }
@@ -64,6 +65,24 @@ transpileBrowser* transpileBrowser::TranspileOpenNewTab() {
   replacement += "\nsleep 0.3";
 
   helper::String::ReplaceAll(code_, "#openNewBrowserTab", replacement);
+
+  return this;
+}
+
+transpileBrowser* transpileBrowser::TranspileCloseTab() {
+  if (std::string::npos == code_->find("#closeBrowserTab")) return this;
+
+#if __linux__
+  std::string replacement = "xdotool key ctrl+w";
+#else
+  std::string replacement =
+      "osascript -e 'tell application \"System Events\" "
+          "to keystroke \"w\" using command down'";
+#endif
+
+  replacement += "\nsleep 0.2";
+
+  helper::String::ReplaceAll(code_, "#closeBrowserTab", replacement);
 
   return this;
 }

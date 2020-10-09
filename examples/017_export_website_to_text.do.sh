@@ -24,6 +24,8 @@ sleep 0.5
 #openBrowserSource
 #copyAll
 sleep 0.3
+#closeBrowserTab
+#closeBrowserTab
 
 #activateTerminal
 #htmlFromClipboardToText
