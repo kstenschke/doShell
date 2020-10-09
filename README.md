@@ -371,6 +371,9 @@ easily adaptable to other web browsers.
 | ``#runJs alert('hello') #end_runJs`` | Open and focus devConsole, paste and execute given script                                   |
 | ``#execDevConsole``                  | Hits CTRL+ENTER or CMD+ENTER                                                                |
 | ``#clearDevConsole``                 | Clears current commands from devConsole                                                     |
+| ``#copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard           |
+
+TODO: implement:  console.log(document.getElementsByTagName('html')[0].innerHTML);
 
 
 #### Interact with DOM elements

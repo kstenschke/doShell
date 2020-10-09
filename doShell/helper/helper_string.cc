@@ -333,10 +333,81 @@ std::string String::Repeat(const std::string& str, u_int16_t amount) {
 }
 
 std::string String::HtmlToText(std::string html) {
-//  std::regex exp(R"(<[^>]*>)");
-//  html = std::regex_replace(html, exp, "");
+  helper::String::ReplaceAll(&html, "\t", " ");
 
-  return html;
+  std::string text;
+  bool is_in_tag = false;
+  bool is_closing_tag = false;
+  bool is_in_child_of_noscript_tag = false;
+  char prev_ch;
+
+  std::string current_tag;
+
+  for (char ch : html) {
+    if (!is_in_tag && ch == '<') {
+      is_in_tag = true;
+      current_tag = "";
+
+      if (!text.empty()) {
+        prev_ch = text[text.length() - 1];
+
+        if (prev_ch != ' ' && prev_ch != '\n')
+        text += ' ';
+      }
+
+      continue;
+    }
+
+    if (is_in_tag) {
+      if (ch == '/' && current_tag.empty()) {
+        is_closing_tag = true;
+
+        continue;
+      }
+
+      if (ch == '>') {
+        is_in_tag = false;
+
+        current_tag = helper::String::Explode(current_tag, ' ')[0];
+
+        if (is_closing_tag) {
+          is_closing_tag = false;
+
+          if (current_tag == "noscript") {
+            is_in_child_of_noscript_tag = false;
+          } else if (text.length() > 0) {
+              if (current_tag == "span") {
+                text += "\n";
+              } else if (current_tag == "title") {
+                text += "\n\n";
+              }
+          }
+        } else if (current_tag == "noscript") {
+          is_in_child_of_noscript_tag = true;
+        }
+
+        continue;
+      }
+
+      current_tag += ch;
+    }
+
+    if (!is_in_tag) {
+      if (is_in_child_of_noscript_tag
+          || current_tag == "link"
+          || current_tag == "meta"
+          || current_tag == "script") continue;
+
+      prev_ch = text[text.length() - 1];
+
+      if (ch == ' '
+          && (prev_ch == ' ' || prev_ch == '\n')) continue;
+
+      text += ch;
+    }
+  }
+
+  return text;
 }
 
 }  // namespace helper
