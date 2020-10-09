@@ -1,25 +1,6 @@
 doShell
 =======
 
-## Stage of Completion
-
-doShell v0.0.1 has not been completed.  This is a rough overview of what does and does not work yet:
-
-| Feature                | Completion   | Comments                                                      |
-| ---------------------- | ------------ | ------------------------------------------------------------- |
-| README / documentation | 90%          | Serves also as roadmap, not everything works as described yet |
-| Import                 | 95%          |                                                               |
-| Runtime flags          | 70%          | Not all flags implemented yet                                 |
-| Inline PHP             | 100%         |                                                               |
-| Macros                 | 80%          | More code/inlining-variations to be tested                    |
-| Automate keystrokes    | 80%          | Needs more stroke identifiers                                 |
-| Conditions             | 80%          | More code/inlining-variations to be tested                    |
-| String commands        | 90%          |                                                               |
-| URL Parsing            | 95%          |                                                               |
-| Clipboard commands     | 90%          |                                                               |
-| UI Dialogs             | 30%          |                                                               |
-
-
 ## Table of Contents
 
 - [DoShell](#doshell)
@@ -43,7 +24,6 @@ doShell v0.0.1 has not been completed.  This is a rough overview of what does an
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
     + [Terminal automation](#terminal-automation)
-    + [Enable/Disable Devices](#enable-disable-devices)
     + [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Third Party References](#third-party-references)
@@ -54,9 +34,10 @@ doShell v0.0.1 has not been completed.  This is a rough overview of what does an
 
 ## What does it do?
 
-doShell script is a superset of shell script, geared towards efficient 
-**headfull interactive UI automation** on Linux and Mac OS, foremost but not limited
-to operations involving browsing the web.
+doShell script is a superset of shell script, geared towards cross-platform 
+(Linux and Mac OS) headfull UI automation, with the ability of scripts for 
+being parameterized via runtime parameters and interactive by the use of UI dialogs.  
+doShell automation is foremost targeted, but not limited, to operations involving browsing the web.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
@@ -85,8 +66,8 @@ also have a glance at the included [script examples](#script-examples).
 1. Ease scripting interactive cross-platform compatible automation
 2. Make it concise: 
    1. Commands should be short, but self-explanatory
-   2. To avoid automation scripts being bloated with ``sleep`` commands,
-   automation commands imply a plausible successive minimum delay 
+   2. To avoid bloating automation scripts with ``sleep`` commands,
+   related commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
    1. Use and combine existing tools  (shell script, xdotool / applescript, 
       php, ...)  
@@ -131,7 +112,6 @@ if existing, an already transpiled intermediary file is overwritten.
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | ``#!browser chromium``                | Sets the browser to be used, e.g. ``chromium`` or ``firefox``                                                      |
 | ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
-| ``#!mouse "ETP/2 Elantech Touchpad"`` | Declares primary mouse device to doShell (named as listed via ``xinput list``) (ATM: Linux only)                   |
 | ``#!remove_transpilation``            | By default, doShell keeps the intermediary code, this flag instructs the runtime system to delete that file        |
 
 
@@ -410,18 +390,6 @@ manipulation and import / export of text from/to the clipboard.
 | ``#copyPasteInTerminal "foo"``    | Copy text to clipboard and invoke paste | 
 | ``#copyPasteInTerminal $VAR``     | Copy text to clipboard and invoke paste |
 | ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
-
-
-### Enable/Disable Devices
-
-**ATM:** Implemented on Linux only.
-
-| Command                               | Description                                                       |
-| ------------------------------------- | ----------------------------------------------------------------- |
-| ``#disableMouse``                     | Disable primary mouse device (see [Runtime flags](#runtime-flags) |
-| ``#enableMouse``                      | Enable primary mouse device                                       |
-| ``#disableDevice "Some device name"`` | Disable given device (Find out device names via ``xinput list``)  |
-| ``#enableDevice "Some device name"``  | Enable given device                                               |
 
 
 ### Functions, iterations, conditions
