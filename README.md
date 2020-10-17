@@ -25,8 +25,8 @@ doShell
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
-    + [Terminal automation](#terminal-automation)
-    + [Functions, iterations, conditions](#functions-iterations-conditions)
+    + [Terminal automation](#terminal-automation)    
+  * [Functions, iterations, conditions](#functions-iterations-conditions)
   * [Script Examples](#script-examples) 
   * [Third Party References](#third-party-references)
   * [Build Instructions](#build-instructions)
@@ -409,7 +409,7 @@ manipulation and import / export of text from/to the clipboard.
 | ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
 
 
-### Functions, iterations, conditions
+## Functions, iterations, conditions
 
 doShell is a superset of shell script:  
 All language constructs of regular shell script can be
