@@ -439,10 +439,7 @@ The following example scripts can be found under [/examples](/examples):
 | [017_export_website_to_markdown.do.sh](/examples/017_export_website_to_markdown.do.sh)   | Get source HTML of website, convert (using Node.js) and output as markdown             |
 | [018_run_js_in_dev_console.do.sh](/examples/018_run_js_in_dev_console.do.sh)             | Open the browser's dev console, insert and run script in it                            |
 | [019_extract_urls_from_web_page.do.sh](/examples/019_extract_urls_from_web_page.do.sh)   | Extract all URLs from HTML source of a web page                                        |
-| [020_export_html_comments.do.sh](/examples/020_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                          |
-| [021_export_urls.do.sh](/examples/021_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                                |
-| [022_swop_domain.do.sh](/examples/022_swop_domain.do.sh)                                 | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load   |
-| [023_iterate_url.do.sh](/examples/023_iterate_url.do.sh)                                 | Open iterated values of an URL parameter in new browser tabs                           |
+| [020_swop_domain.do.sh](/examples/020_swop_domain.do.sh)                                 | Replace any domain loaded in browser by "localhost", maintaining rest of URL           |
 
 
 Third Party References
