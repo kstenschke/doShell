@@ -1,3 +1,15 @@
-# Export all URLs from HTML and all scripts of a web page
+#!/usr/bin/env bash
 
-# TODO(kay): implement
+# Swop domain of current site against "http://localhost"
+
+#activateBrowser
+#focusBrowserURL
+#copyAll
+
+# remove scheme and domain from URL
+#replaceBeforeInClipboard // ""
+#replaceBeforeInClipboard / ""
+
+#paste
+#hitLeft
+#copyPaste 'http://localhost/'

@@ -265,14 +265,16 @@ like:
 All manipulation commands on strings from the clipboard output the resulting string.  
 To over/write the result back to files, you can use the shell redirection operator ``>``. 
 
-| Command                                                    | Description                                             |
-| ---------------------------------------------------------- | ------------------------------------------------------- |
-| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
-| ``#pregMatchAllInClipboard regex``                         | Output all matches of given regex in clipboard content  |
-| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
-| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                 |
+| Command                                                    | Description                                                                   |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after"                       |
+| ``#pregMatchAllInClipboard regex``                         | Output all matches of given regex in clipboard content                        |
+| ``#replaceAfterInClipboard search replace``                | Replace everything after and including the first occurrences of given string  |                                                       |
+| ``#replaceBeforeInClipboard search replace``               | Replace everything before and including the first occurrences of given string |
+| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                                       |
+| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"                        |
+| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                                      |
+| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                                       |
 
 
 ### Dialogs
@@ -292,12 +294,16 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command           | Description                            |
 | ----------------- | -------------------------------------- |  
-| ``#hitBackspace`` |                                        |
-| ``#hitEnter``     |                                        |
-| ``#hitEsc``       |                                        |
-| ``#hitF1``        |                                        |
-| ``#hitTab``       |                                        |
-| ``#hitSpace``     |                                        |
+| ``#hitBackspace`` | Hit backspace key                      |
+| ``#hitDown``      | Hit cursor down key                    |
+| ``#hitEnter``     | Hit enter key                          |
+| ``#hitEsc``       | Hit escape key                         |
+| ``#hitF1``        | Hit F-Key                              |
+| ``#hitLeft``      | Hit cursor left key                    |
+| ``#hitRight``     | Hit cursor right key                   |
+| ``#hitSpace``     | Hit space bar                          |
+| ``#hitTab``       | Hit tabulator key                      |
+| ``#hitUp``        | Hit cursor up key                      |
 
 
 **Stroke key combination:**
