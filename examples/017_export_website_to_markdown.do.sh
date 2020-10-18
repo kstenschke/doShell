@@ -27,5 +27,8 @@ sleep 0.3
 #closeBrowserTab
 #closeBrowserTab
 
-#activateTerminal
-#htmlFromClipboardToText
+#saveClipboard tmp.html
+node ::DIR::/node/turndown.js tmp.html tmp.md
+
+# #activateTerminal
+# #htmlFromClipboardToText

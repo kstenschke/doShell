@@ -247,7 +247,9 @@ like:
 | ------------------------------------------ | ------------------------------------------- |
 | ``#appendToClipboard $value``              | Add string to end of clipboard              |
 | ``#getClipboard``                          | Output clipboard contents                   |
+| ``#loadIntoClipboard filename.txt``        | Load file content into clipboard            |
 | ``#prependToClipboard $value``             | Add string before start of clipboard        |
+| ``#saveClipboard filename.txt``            | Store clipboard content to file             |
 | ``#setClipboard $value``                   | Copy string to clipboard                    |
 | ``#setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
 
@@ -355,11 +357,11 @@ easily adaptable to other web browsers.
 
 #### Load and manipulate URLs
 
-| Command                                               | Description                                          |
-| ----------------------------------------------------- | ---------------------------------------------------- |
-| ``myVar=#getBrowserUrl``                               | Get current URL                                      |
-| ``myVar=#getBrowserReferrer``                          | Get referrer URL                                     |
-| ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab                    |
+| Command                                               | Description                       |
+| ----------------------------------------------------- | --------------------------------- |
+| ``myVar=#getBrowserUrl``                              | Get current URL                   |
+| ``myVar=#getBrowserReferrer``                         | Get referrer URL                  |
+| ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab |
 
 
 #### Use devTools and devConsole
@@ -438,7 +440,7 @@ The following example scripts can be found under [/examples](/examples):
 | [014_dialogs_prompt.do.sh](/examples/014_dialogs_prompt.do.sh)                           | Display and evaluate the input of a prompt popup on the desktop                        |
 | [015_dialogs_select.do.sh](/examples/015_dialogs_select.do.sh)                           | Display and evaluate the choice of a selection popup on the desktop                    |
 | [016_load_url_in_new_browser_tab.do.sh](/examples/016_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                                            |
-| [017_search_with_duckduckgo.do.sh](/examples/017_search_with_duckduckgo.do.sh)           | Html form fill-out and submission                                                      |
+| [017_export_website_to_markdown.do.sh](/examples/017_export_website_to_markdown.do.sh)   | Get source HTML of website, convert and save to markdown file (using Node.js)          |
 | [018_store_clipboard_to_file.do.sh](/examples/018_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                      |
 | [019_use_dev_console.do.sh](/examples/019_use_dev_console.do.sh)                         | Open the browser's dev console, insert and run script in it                            |
 | [020_export_all_script_tags.do.sh](/examples/020_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file        |

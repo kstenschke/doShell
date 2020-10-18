@@ -13,16 +13,17 @@ void transpileClipboard::Transpile(std::string *code, std::string *path_binary) 
   auto *instance = new transpileClipboard(code, path_binary);
 
   instance
-    ->TranspileSetClipboard()
+      ->TranspileSetClipboard()
 
-    ->TranspileCopyPaste()
-    ->TranspileCopyAll()
-    ->TranspileCutAll()
+      ->TranspileCopyPaste()
+      ->TranspileCopyAll()
+      ->TranspileCutAll()
 
-    ->TranspileHtmlFromClipboardToText()
+      ->TranspileHtmlFromClipboardToText()
 
-    ->TranspileAppendClipboardToFile()
-    ->TranspileSaveClipboardToFile();
+      ->TranspileAppendClipboardToFile()
+      ->TranspileLoadClipboard()
+      ->TranspileSaveClipboard();
 
   delete instance;
 }
@@ -53,12 +54,23 @@ transpileClipboard* transpileClipboard::TranspileAppendClipboardToFile() {
   return this;
 }
 
-transpileClipboard* transpileClipboard::TranspileSaveClipboardToFile() {
-  if (std::string::npos == code_->find("#saveClipboardToFile ")) return this;
+transpileClipboard* transpileClipboard::TranspileLoadClipboard() {
+  if (std::string::npos == code_->find("#loadClipboard ")) return this;
 
-  std::string replacement = *path_binary_ + " saveClipboardToFile $1";
+  std::string replacement = *path_binary_ + " loadClipboard $1";
 
-  std::regex exp(R"(#saveClipboardToFile \"(.*)\")");
+  std::regex exp(R"(#loadClipboard \"([a-zA-Z0-9.-_]+)\")");
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
+}
+
+transpileClipboard* transpileClipboard::TranspileSaveClipboard() {
+  if (std::string::npos == code_->find("#saveClipboard ")) return this;
+
+  std::string replacement = *path_binary_ + " saveClipboard $1";
+
+  std::regex exp(R"(#saveClipboard \"([a-zA-Z0-9.-_]+)\")");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;

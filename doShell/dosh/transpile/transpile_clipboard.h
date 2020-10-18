@@ -24,7 +24,8 @@ class transpileClipboard {
   transpileClipboard* TranspileCutAll();
 
   transpileClipboard* TranspileAppendClipboardToFile();
-  transpileClipboard* TranspileSaveClipboardToFile();
+  transpileClipboard* TranspileLoadClipboard();
+  transpileClipboard* TranspileSaveClipboard();
 
   transpileClipboard* TranspileHtmlFromClipboardToText();
 };

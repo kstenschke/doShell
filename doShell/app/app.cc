@@ -174,13 +174,11 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       return shellCommandClipboard::setClipboard(str + argv_[2]);
     }
-    case AppCommands::Command_HtmlFromClipboardToText: {  // htmlFromClipboardToText
+    case AppCommands::Command_LoadIntoClipboard: {  // loadIntoClipboard
       std::string str;
-      clip::get_text(str);
+      helper::File::GetFileContents(argv_[2], &str);
 
-      std::cout << helper::String::HtmlToText(str);
-
-      return true;
+      return shellCommandClipboard::setClipboard(str);
     }
     case AppCommands::Command_PrependToClipboard: {  // prependToClipboard
       std::string str;

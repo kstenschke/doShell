@@ -24,6 +24,10 @@ fs.readFile(filename, 'utf8', function(err, data) {
         throw err;
     }
 
-//    console.log('OK: ' + filename);
-//    console.log(data)
+    var TurndownService = require('turndown');
+
+    var turndownService = new TurndownService();
+    var markdown = turndownService.turndown(data);
+
+    console.log(markdown);
 });
