@@ -17,6 +17,10 @@ class transpileKeystrokes {
  private:
   std::string *code_;
 
+  transpileKeystrokes* TranspileHitKey(const std::string &command,
+                                       const std::string &xdotool_key,
+                                       const std::string &mac_key);
+
   transpileKeystrokes* TranspileHitCopy();
   transpileKeystrokes* TranspileHitFind();
   transpileKeystrokes* TranspileCut();
@@ -24,10 +28,11 @@ class transpileKeystrokes {
   transpileKeystrokes* TranspilePaste();
   transpileKeystrokes* TranspileSelectAll();
 
-  transpileKeystrokes* TranspileHitBackspace();
-  transpileKeystrokes* TranspileHitDelete();
-  transpileKeystrokes* TranspileHitEnter();
-  transpileKeystrokes* TranspileHitEsc();
+  transpileKeystrokes* TranspileHitUp();
+  transpileKeystrokes* TranspileHitRight();
+  transpileKeystrokes* TranspileHitDown();
+  transpileKeystrokes* TranspileHitLeft();
+
   transpileKeystrokes* TranspileHitFunctionKeys();
   transpileKeystrokes* TranspileHitTab();
 
