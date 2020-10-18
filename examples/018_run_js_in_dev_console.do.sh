@@ -12,5 +12,5 @@
 #activateBrowser
 #openUrlInNewBrowserTab "https://duckduckgo.com/"
 #openBrowserDevConsole
-#copyPaste "alert('hello!');"
+#copyPaste "alert(\"hello world!\");"
 #hitEnter

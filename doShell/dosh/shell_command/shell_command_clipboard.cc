@@ -33,7 +33,7 @@ bool shellCommandClipboard::appendClipboardToFile(std::string path_file) {
   std::string value;
   clip::get_text(value);
 
-  return helper::File::AppendToFile(path_file, value);
+  return helper::File::AppendToFile(path_file, value) > 0;
 }
 
 }  // namespace doShell
