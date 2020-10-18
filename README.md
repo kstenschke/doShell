@@ -483,6 +483,13 @@ within doShell scripts).
 | [PHP](https://www.php.net/)                  | Open source general-purpose scripting language | [PHP License](https://www.php.net/license/)                                          |
 
 
+### Third party tools used in examples
+
+| Tool                                                                  | Description                                  | License                                            |
+| --------------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------- |
+| [Turndown](https://github.com/domchristie/turndown) (Node.js package) | Convert HTML into Markdown with JavaScript.  | [MIT License](https://opensource.org/licenses/MIT) |               
+
+
 ## Build tools and libraries
 
 doShell was built using the following third party libraries and tools:
