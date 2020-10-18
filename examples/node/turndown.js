@@ -1,6 +1,6 @@
 /**
  * Convert contents of given html source file into markdown,
- * save to given destination file
+ * output markdown to console
  *
  * @param arv[0] node
  * @param arv[1] tundown.js
