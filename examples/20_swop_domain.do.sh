@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-# Swop domain of current site against "http://localhost"
+# Exchange domain of current site against "http://localhost"
 
 #activateBrowser
 #focusBrowserURL
-#copyAll
+#hitLeft
 
 # remove scheme and domain from URL
-#replaceBeforeInClipboard // ""
-#replaceBeforeInClipboard / ""
+#hitShiftModRight
+#hitShiftModRight
+#hitBackspace
 
-#paste
-#hitLeft
 #copyPaste 'http://localhost/'

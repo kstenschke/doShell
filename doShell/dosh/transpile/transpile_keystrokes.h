@@ -25,6 +25,7 @@ class transpileKeystrokes {
   transpileKeystrokes* TranspileHitFind();
   transpileKeystrokes* TranspileCut();
   transpileKeystrokes* TranspileCopyAll();
+  transpileKeystrokes* TranspileCutAll();
   transpileKeystrokes* TranspilePaste();
   transpileKeystrokes* TranspileSelectAll();
 

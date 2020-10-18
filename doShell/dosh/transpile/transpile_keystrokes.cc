@@ -13,28 +13,68 @@ void transpileKeystrokes::Transpile(std::string *code) {
   auto *instance = new transpileKeystrokes(code);
 
   instance
-    ->TranspileType()
-    ->TranspileHitKey("#hitBackspace", "BackSpace", "51")
-    ->TranspileHitKey("#hitLeft", "Left", "123")
-    ->TranspileHitKey("#hitRight", "Right", "124")
-    ->TranspileHitKey("#hitDown", "Down", "125")
-    ->TranspileHitKey("#hitUp", "Up", "126")
-    ->TranspileHitKey("#hitDelete", "Delete", "51")
-    ->TranspileHitKey("#hitEnter", "KP_Enter", "36")
-    ->TranspileHitKey("#hitEsc", "Escape", "53")
-    ->TranspileHitFunctionKeys()
-    ->TranspileHitTab()
+      ->TranspileType()
+      ->TranspileHitKey("#hitBackspace", "BackSpace", "51")
+      ->TranspileHitKey("#hitLeft", "Left", "123")
+      ->TranspileHitKey("#hitRight", "Right", "124")
+      ->TranspileHitKey("#hitDown", "Down", "125")
+      ->TranspileHitKey("#hitUp", "Up", "126")
+      ->TranspileHitKey("#hitDelete", "Delete", "51")
+      ->TranspileHitKey("#hitEnter", "KP_Enter", "36")
+      ->TranspileHitKey("#hitEsc", "Escape", "53")
 
-    ->TranspileCopyAll()
-    ->TranspileHitCopy()
+      ->TranspileHitKey("#hitModUp", "ctrl+Up", "126 using {option down}")
+      ->TranspileHitKey("#hitModRight", "ctrl+Right", "124 using {option down}")
+      ->TranspileHitKey("#hitModDown", "ctrl+Down", "125 using {option down}")
+      ->TranspileHitKey("#hitModLeft", "ctrl+Left", "123 using {option down}")
 
-    ->TranspileCut()
-    ->TranspileHitFind()
-    ->TranspilePaste()
+      ->TranspileHitKey("#hitShiftModUp",
+                        "Shift_L+ctrl+Up",
+                        "126 using {shift down, option down}")
+      ->TranspileHitKey("#hitShiftModRight",
+                        "Shift_L+ctrl+Right",
+                        "124 using {shift down, option down}")
+      ->TranspileHitKey("#hitShiftModDown",
+                        "Shift_L+ctrl+Down",
+                        "125 using {shift down, option down}")
+      ->TranspileHitKey("#hitShiftModLeft",
+                        "Shift_L+ctrl+Left",
+                        "123 using {shift down, option down}")
 
-    ->TranspileSelectAll();
+      ->TranspileHitFunctionKeys()
+      ->TranspileHitTab()
+
+      ->TranspileCopyAll()
+      ->TranspileCutAll()
+
+      ->TranspileHitCopy()
+
+      ->TranspileCut()
+      ->TranspileHitFind()
+      ->TranspilePaste()
+
+      ->TranspileSelectAll();
 
   delete instance;
+}
+
+transpileKeystrokes* transpileKeystrokes::TranspileHitKey(
+    const std::string &command,
+    const std::string &xdotool_key,
+    const std::string &mac_key) {
+  if (std::string::npos == code_->find(command)) return this;
+
+#if __linux__
+  helper::String::ReplaceAll(code_, command, "xdotool key " + xdotool_key);
+#else
+  helper::String::ReplaceAll(
+      code_,
+      command,
+      "osascript -e 'tell application \"System Events\" to key code "
+          + mac_key + "'");
+#endif
+
+  return this;
 }
 
 transpileKeystrokes* transpileKeystrokes::TranspileHitCopy() {
@@ -89,6 +129,12 @@ transpileKeystrokes* transpileKeystrokes::TranspileCopyAll() {
   return this;
 }
 
+transpileKeystrokes* transpileKeystrokes::TranspileCutAll() {
+  helper::String::ReplaceAll(code_, "#copyAll", "#selectAll\n#hitCut");
+
+  return this;
+}
+
 transpileKeystrokes* transpileKeystrokes::TranspilePaste() {
   #if __linux__
     helper::String::ReplaceAll(code_, "#paste", "xdotool key ctrl+v");
@@ -119,25 +165,6 @@ transpileKeystrokes* transpileKeystrokes::TranspileSelectAll() {
       "osascript -e 'tell application \"System Events\" to keystroke \"a\" "
       "using command down'\n"
       "sleep 0.1");
-  #endif
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspileHitKey(
-    const std::string &command,
-    const std::string &xdotool_key,
-    const std::string &mac_key) {
-  if (std::string::npos == code_->find(command)) return this;
-
-  #if __linux__
-    helper::String::ReplaceAll(code_, command, "xdotool key " + xdotool_key);
-  #else
-    helper::String::ReplaceAll(
-      code_,
-      command,
-      "osascript -e 'tell application \"System Events\" to key code "
-          + mac_key + "'");
   #endif
 
   return this;

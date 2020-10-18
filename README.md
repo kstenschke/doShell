@@ -308,6 +308,22 @@ To over/write the result back to files, you can use the shell redirection operat
 
 **Stroke key combination:**
 
+**Cursor+CTRL (Linux) or cursor+ALT (Mac), w/ and w/o shift pressed:**
+
+| Command                 | Description                    |
+| ----------------------- | ------------------------------ |
+| ``#hitModUp``           |                                |
+| ``#hitShiftModUp``      |                                |
+| ``#hitModRight``        |                                |
+| ``#hitShiftModRight``   |                                |
+| ``#hitModDown``         |                                |
+| ``#hitShiftModDown``    |                                |
+| ``#hitModLeft``         |                                |
+| ``#hitShiftModLeft``    |                                |
+
+
+**Common funcitonal shortcuts:**
+
 | Command                 | Description                    |
 | ----------------------- | ------------------------------ |   
 | ``#hitCopy``            | Hit CTRL+C or CMD+c            |
