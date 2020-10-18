@@ -16,7 +16,6 @@ doShell
     + [String manipulation](#string-manipulation)
       + [General](#general)
       + [URL parsing](#url-parsing)
-      + [HTML parsing](#html-parsing)
     + [Random values](#random-values)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
@@ -224,14 +223,6 @@ like:
 | ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
 | ``#urlEncode $URL``        | URL-Encode given string                                          |
 | ``#urlDecode $URL``        | URL-Decode given string                                          |
-
-
-#### HTML parsing
-
-| Command                           | Description                                    |
-| --------------------------------- | ---------------------------------------------- |
-| ``#htmlFromClipboardToText``      | Convert HTML from clipboard to plain text      |
-| ``#htmlFromClipboardToMarkdown``  | Convert HTML from clipboard to markdown        |
 
 
 ### Random values
