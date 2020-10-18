@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# Load duckduckgo in new browser tab,
-# enter search term and invoke the search
-# wait for results being loaded
-# copy results
-# convert results to plaintext
+# Load wikipedia in new browser tab,
+# enter search term and invoke search
+# wait for page being loaded
+# copy page source HTML
+# convert source HTML to plaintext
 # output text to console
 
 #if_is_linux
@@ -16,7 +16,7 @@
 #endif_is_mac
 
 #activateBrowser
-#openUrlInNewBrowserTab "https://duckduckgo.com/"
+#openUrlInNewBrowserTab "https://www.wikipedia.org/"
 #copyPaste "foo"
 #hitEnter
 sleep 0.5
@@ -28,7 +28,8 @@ sleep 0.3
 #closeBrowserTab
 
 #saveClipboard ::DIR::/tmp.html
-node ::DIR::/node/turndown.js ::DIR::/tmp.html ::DIR::/tmp.md
+node ::DIR::/node/turndown.js ::DIR::/tmp.html
 
-# #activateTerminal
-# #htmlFromClipboardToText
+rm ::DIR::/tmp.html
+
+#activateTerminal

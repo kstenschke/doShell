@@ -9,9 +9,9 @@
  */
 
 // Make sure we got a filename on the command line.
-if (process.argv.length < 4) {
+if (process.argv.length < 3) {
     console.log('Usage: node ' + process.argv[1]
-        + ' html_in_filename' + ' markdown_out_filename');
+        + ' html_source_filename');
     process.exit(1);
 }
 
@@ -27,7 +27,8 @@ fs.readFile(filename, 'utf8', function(err, data) {
     var TurndownService = require('turndown');
 
     var turndownService = new TurndownService();
-    var markdown = turndownService.turndown(data);
+    turndownService.remove('meta');
+    turndownService.remove('script');
 
-    console.log(markdown);
+    console.log(turndownService.turndown(data));
 });
