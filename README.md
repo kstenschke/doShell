@@ -445,7 +445,7 @@ The following example scripts can be found under [/examples](/examples):
 | [015_dialogs_select.do.sh](/examples/015_dialogs_select.do.sh)                           | Display and evaluate the choice of a selection popup on the desktop                    |
 | [016_perform_google_search.do.sh](/examples/016_perform_google_search.do.sh)             | Open google in a new browser tab enter a search term and invoke search                 |
 | [017_export_website_to_markdown.do.sh](/examples/017_export_website_to_markdown.do.sh)   | Get source HTML of website, convert (using Node.js) and output as markdown             |
-| [018_use_dev_console.do.sh](/examples/018_use_dev_console.do.sh)                         | Open the browser's dev console, insert and run script in it                            |
+| [018_run_js_in_dev_console.do.sh](/examples/018_run_js_in_dev_console.do.sh)             | Open the browser's dev console, insert and run script in it                            |
 | [019_export_all_script_tags.do.sh](/examples/019_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file        |
 | [020_export_html_comments.do.sh](/examples/020_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                          |
 | [021_export_urls.do.sh](/examples/021_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                                |
