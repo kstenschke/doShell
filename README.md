@@ -19,7 +19,7 @@ doShell
     + [Random values](#random-values)
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
-    + [Send keystrokes](#send-keyboard-events)
+    + [Send keystrokes](#send-keystrokes)
     + [Browser automation](#web-browser-automation)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
