@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Load google.com in new browser tab
-
 #if_is_linux
   #!browser chromium
 #endif_is_linux

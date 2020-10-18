@@ -59,7 +59,7 @@ transpileClipboard* transpileClipboard::TranspileLoadClipboard() {
 
   std::string replacement = *path_binary_ + " loadClipboard $1";
 
-  std::regex exp(R"(#loadClipboard \"([a-zA-Z0-9.-_]+)\")");
+  std::regex exp(R"(#loadClipboard ([a-zA-Z0-9.-_]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
@@ -70,7 +70,7 @@ transpileClipboard* transpileClipboard::TranspileSaveClipboard() {
 
   std::string replacement = *path_binary_ + " saveClipboard $1";
 
-  std::regex exp(R"(#saveClipboard \"([a-zA-Z0-9.-_]+)\")");
+  std::regex exp(R"(#saveClipboard ([a-zA-Z0-9.-_]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;

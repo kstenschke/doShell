@@ -443,7 +443,7 @@ The following example scripts can be found under [/examples](/examples):
 | [013_dialogs_confirm.do.sh](/examples/013_dialogs_confirm.do.sh)                         | Display and evaluate the choice of an ok- or cancel- confirmation popup on the desktop |
 | [014_dialogs_prompt.do.sh](/examples/014_dialogs_prompt.do.sh)                           | Display and evaluate the input of a prompt popup on the desktop                        |
 | [015_dialogs_select.do.sh](/examples/015_dialogs_select.do.sh)                           | Display and evaluate the choice of a selection popup on the desktop                    |
-| [016_load_url_in_new_browser_tab.do.sh](/examples/016_load_url_in_new_browser_tab.do.sh) | Open a new browser tab and load a URL in it                                            |
+| [016_perform_google_search.do.sh](/examples/016_perform_google_search.do.sh)             | Open google in a new browser tab enter a search term and invoke search                 |
 | [017_export_website_to_markdown.do.sh](/examples/017_export_website_to_markdown.do.sh)   | Get source HTML of website, convert and save to markdown file (using Node.js)          |
 | [018_store_clipboard_to_file.do.sh](/examples/018_store_clipboard_to_file.do.sh)         | Copy text from browser, than save the clipboard content to a file                      |
 | [019_use_dev_console.do.sh](/examples/019_use_dev_console.do.sh)                         | Open the browser's dev console, insert and run script in it                            |
