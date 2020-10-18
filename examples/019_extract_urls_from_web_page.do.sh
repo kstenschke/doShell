@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-# Load wikipedia in new browser tab,
-# enter search term and invoke search
-# wait for page being loaded
-# copy page source HTML
-# convert source HTML to plaintext
-# output text to console
+# Extract all URLs from web page
 
 #if_is_linux
   #!browser chromium
@@ -27,9 +22,6 @@ sleep 0.3
 #closeBrowserTab
 #closeBrowserTab
 
-#saveClipboard ::DIR::/tmp.html
-node ::DIR::/scripts/node/turndown.js ::DIR::/tmp.html
-
-rm ::DIR::/tmp.html
+#pregMatchAllInClipboard "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
 
 #activateTerminal

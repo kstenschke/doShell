@@ -268,6 +268,7 @@ To over/write the result back to files, you can use the shell redirection operat
 | Command                                                    | Description                                             |
 | ---------------------------------------------------------- | ------------------------------------------------------- |
 | ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after" |
+| ``#pregMatchAllInClipboard regex``                         | Output all matches of given regex in clipboard content  |
 | ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                 |
 | ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"  |
 | ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                |
@@ -437,7 +438,7 @@ The following example scripts can be found under [/examples](/examples):
 | [016_perform_google_search.do.sh](/examples/016_perform_google_search.do.sh)             | Open google in a new browser tab enter a search term and invoke search                 |
 | [017_export_website_to_markdown.do.sh](/examples/017_export_website_to_markdown.do.sh)   | Get source HTML of website, convert (using Node.js) and output as markdown             |
 | [018_run_js_in_dev_console.do.sh](/examples/018_run_js_in_dev_console.do.sh)             | Open the browser's dev console, insert and run script in it                            |
-| [019_export_all_script_tags.do.sh](/examples/019_export_all_script_tags.do.sh)           | Extract all <script> tags from a page loaded in browser and save them to a file        |
+| [019_extract_urls_from_web_page.do.sh](/examples/019_extract_urls_from_web_page.do.sh)   | Extract all URLs from HTML source of a web page                                        |
 | [020_export_html_comments.do.sh](/examples/020_export_html_comments.do.sh)               | Export all commented-out HTML from a web page                                          |
 | [021_export_urls.do.sh](/examples/021_export_urls.do.sh)                                 | Export all URLs from HTML and all scripts of a web page                                |
 | [022_swop_domain.do.sh](/examples/022_swop_domain.do.sh)                                 | Replace any domain loaded in browser by localhost, maintain rest of URL, invoke load   |

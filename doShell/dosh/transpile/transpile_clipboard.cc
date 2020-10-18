@@ -19,11 +19,11 @@ void transpileClipboard::Transpile(std::string *code, std::string *path_binary) 
       ->TranspileCopyAll()
       ->TranspileCutAll()
 
-      ->TranspileHtmlFromClipboardToText()
+      ->TranspilePregMatchAllInClipboard()
 
-      ->TranspileAppendClipboardToFile()
-      ->TranspileLoadClipboard()
-      ->TranspileSaveClipboard();
+      ->TranspilePregMatchAllInClipboard()
+      ->TranspilePregMatchAllInClipboard()
+      ->TranspilePregMatchAllInClipboard();
 
   delete instance;
 }
@@ -112,13 +112,13 @@ transpileClipboard* transpileClipboard::TranspileCutAll() {
   return this;
 }
 
-transpileClipboard* transpileClipboard::TranspileHtmlFromClipboardToText() {
-  if (std::string::npos == code_->find("#htmlFromClipboardToText")) return this;
+transpileClipboard* transpileClipboard::TranspilePregMatchAllInClipboard() {
+  if (std::string::npos == code_->find("#pregMatchAllInClipboard")) return this;
 
   helper::String::ReplaceAll(
       code_,
-      "#htmlFromClipboardToText",
-      *path_binary_ + " htmlFromClipboardToText");
+      "#pregMatchAllInClipboard",
+      *path_binary_ + " pregMatchAllInClipboard");
 
   return this;
 }

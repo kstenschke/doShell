@@ -27,7 +27,7 @@ class transpileClipboard {
   transpileClipboard* TranspileLoadClipboard();
   transpileClipboard* TranspileSaveClipboard();
 
-  transpileClipboard* TranspileHtmlFromClipboardToText();
+  transpileClipboard* TranspilePregMatchAllInClipboard();
 };
 }  // namespace doShell
 

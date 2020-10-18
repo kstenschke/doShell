@@ -186,6 +186,10 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       return shellCommandClipboard::setClipboard(argv_[2] + str);
     }
+    case AppCommands::Command_PregMatchAllInClipboard: {
+      // pregMatchAllInClipboard
+      return shellCommandClipboard::pregMatchAll(argv_[2]);
+    }
     case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
       std::string path_file = argv_[2];
 
