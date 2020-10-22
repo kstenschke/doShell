@@ -308,19 +308,26 @@ To over/write the result back to files, you can use the shell redirection operat
 
 **Stroke key combination:**
 
-**Cursor+CTRL (Linux) or cursor+ALT (Mac), w/ and w/o shift pressed:**
+**Cursor combos:**
 
-| Command                 | Description                    |
-| ----------------------- | ------------------------------ |
-| ``#hitModUp``           |                                |
-| ``#hitShiftModUp``      |                                |
-| ``#hitModRight``        |                                |
-| ``#hitShiftModRight``   |                                |
-| ``#hitModDown``         |                                |
-| ``#hitShiftModDown``    |                                |
-| ``#hitModLeft``         |                                |
-| ``#hitShiftModLeft``    |                                |
-
+| Command                   | Linux             | Mac             |
+| ------------------------- | ----------------- | --------------- |
+| ``#hitModDown``           |                   |                 |
+| ``#hitModLeft``           |                   |                 |
+| ``#hitModRight``          |                   |                 |
+| ``#hitModUp``             | CTRL + cursor up  | ALT + cursor up |
+| ``#hitShiftModDown``      |                   |                 |
+| ``#hitShiftModLeft``      |                   |                 |
+| ``#hitShiftModRight``     |                   |                 |
+| ``#hitShiftModUp``        |                   |                 |
+| ``#hitShiftSuperDown``    |                   |                 |
+| ``#hitShiftSuperLeft``    |                   |                 |
+| ``#hitShiftSuperRight``   |                   |                 |
+| ``#hitShiftSuperUp``      |                   |                 |
+| ``#hitSuperDown``         |                   |                 |
+| ``#hitSuperLeft``         |                   |                 |
+| ``#hitSuperRight``        |                   |                 |
+| ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up |
 
 **Common funcitonal shortcuts:**
 

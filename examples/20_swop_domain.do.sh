@@ -4,11 +4,12 @@
 
 #activateBrowser
 #focusBrowserURL
-#hitLeft
+#copyAll
 
 # remove scheme and domain from URL
-#hitShiftModRight
-#hitShiftModRight
-#hitBackspace
+#replaceBeforeFromClipboard // ""
+#replaceBeforeFromClipboard / ""
+#paste
 
+#hitSuperLeft
 #copyPaste 'http://localhost/'
