@@ -249,15 +249,15 @@ like:
 
 | Command                                 | Description                             |
 | --------------------------------------- | --------------------------------------- |
-| ``#copyAll``                            | Select all, than copy                   |
+| ``#hitCopyAll``                            | Select all, than copy                   |
 | ``#copyLine``                           | Select caret line, than copy            |
 | ``#copyLineInTerminal``                 | Select caret line, than copy            |
 | ``#copyInTerminal``                     | Varies by OS                            |
 | ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
 | ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
 | ``#cutAll``                             | Select all, than cut                    |
-| ``#paste``                              |                                         |
-| ``#pasteInTerminal``                    | Varies by OS                            |
+| ``#hitPaste``                              |                                         |
+| ``#hitPasteInTerminal``                    | Varies by OS                            |
 
 
 **Manipulate strings from clipboard**  
@@ -338,9 +338,9 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#hitFind``            | Hit CTRL+F or CMD+F            | 
 | ``#copyInTerminal``     | Varies by OS                   |
 | ``#cut``                | Hit CTRL+X or CMD+x            |
-| ``#paste``              | Hit CTRL+V or CMD+V            |
-| ``#pasteInTerminal``    | Varies by OS                   |
-| ``#selectAll``          | Hit CTRL+A or CMD+A            |
+| ``#hitPaste``              | Hit CTRL+V or CMD+V            |
+| ``#hitPasteInTerminal``    | Varies by OS                   |
+| ``#hitSelectAll``          | Hit CTRL+A or CMD+A            |
 
 
 **Type text:**

@@ -196,7 +196,7 @@ transpileBrowser* transpileBrowser::TranspileClearDevConsole() {
 
   std::string replacement =
       "#openBrowserDevConsole\n"
-      "#selectAll\n"
+      "#hitSelectAll\n"
       "#hitBackspace\n";
 
   helper::String::ReplaceAll(code_, "#clearDevConsole", replacement);

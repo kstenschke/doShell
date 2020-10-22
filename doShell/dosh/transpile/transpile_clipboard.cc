@@ -99,15 +99,15 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
 }
 
 transpileClipboard* transpileClipboard::TranspileCopyAll() {
-  if (std::string::npos == code_->find("#copyAll")) return this;
+  if (std::string::npos == code_->find("#hitCopyAll")) return this;
 
-  helper::String::ReplaceAll(code_, "#selectAll\n#hitCopy", "xdotool type ");
+  helper::String::ReplaceAll(code_, "#hitSelectAll\n#hitCopy", "xdotool type ");
 
   return this;
 }
 
 transpileClipboard* transpileClipboard::TranspileCutAll() {
-  helper::String::ReplaceAll(code_, "#cutAll", "#selectAll\n#hitCut");
+  helper::String::ReplaceAll(code_, "#cutAll", "#hitSelectAll\n#hitCut");
 
   return this;
 }

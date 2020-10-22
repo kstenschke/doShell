@@ -21,13 +21,8 @@ class transpileKeystrokes {
                                        const std::string &xdotool_key,
                                        const std::string &mac_key);
 
-  transpileKeystrokes* TranspileHitCopy();
-  transpileKeystrokes* TranspileHitFind();
-  transpileKeystrokes* TranspileCut();
-  transpileKeystrokes* TranspileCopyAll();
-  transpileKeystrokes* TranspileCutAll();
-  transpileKeystrokes* TranspilePaste();
-  transpileKeystrokes* TranspileSelectAll();
+  transpileKeystrokes* TranspileHitCopyAll();
+  transpileKeystrokes* TranspileHitCutAll();
 
   transpileKeystrokes* TranspileHitUp();
   transpileKeystrokes* TranspileHitRight();
@@ -35,7 +30,6 @@ class transpileKeystrokes {
   transpileKeystrokes* TranspileHitLeft();
 
   transpileKeystrokes* TranspileHitFunctionKeys();
-  transpileKeystrokes* TranspileHitTab();
 
   transpileKeystrokes* TranspileType();
 };

@@ -22,7 +22,7 @@
 sleep 0.5
 
 #openBrowserSource
-#copyAll
+#hitCopyAll
 sleep 0.3
 #closeBrowserTab
 #closeBrowserTab

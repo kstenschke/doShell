@@ -101,14 +101,14 @@ transpileTerminal* transpileTerminal::TranspileHitCopyInTerminal() {
 }
 
 transpileTerminal* transpileTerminal::TranspilePasteInTerminal() {
-  if (std::string::npos == code_->find("#pasteInTerminal ")) return this;
+  if (std::string::npos == code_->find("#hitPasteInTerminal ")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(code, "#pasteInTerminal", "xdotool key ctrl+shift+v");
+    helper::String::ReplaceAll(code, "#hitPasteInTerminal", "xdotool key ctrl+shift+v");
   #else
     helper::String::ReplaceAll(
       code_,
-      "#pasteInTerminal",
+      "#hitPasteInTerminal",
       "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
       "using {command down, option down}'");
   #endif

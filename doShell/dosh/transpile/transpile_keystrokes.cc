@@ -14,46 +14,64 @@ void transpileKeystrokes::Transpile(std::string *code) {
 
   instance
       ->TranspileType()
-      ->TranspileHitKey("#hitBackspace", "BackSpace", "51")
-      ->TranspileHitKey("#hitLeft", "Left", "123")
-      ->TranspileHitKey("#hitRight", "Right", "124")
-      ->TranspileHitKey("#hitDown", "Down", "125")
-      ->TranspileHitKey("#hitUp", "Up", "126")
-      ->TranspileHitKey("#hitDelete", "Delete", "51")
-      ->TranspileHitKey("#hitEnter", "KP_Enter", "36")
-      ->TranspileHitKey("#hitEsc", "Escape", "53")
+      ->TranspileHitKey("#hitBackspace", "BackSpace", " code 51")
 
-      ->TranspileHitKey("#hitModUp", "ctrl+Up", "126 using {option down}")
-      ->TranspileHitKey("#hitModRight", "ctrl+Right", "124 using {option down}")
-      ->TranspileHitKey("#hitModDown", "ctrl+Down", "125 using {option down}")
-      ->TranspileHitKey("#hitModLeft", "ctrl+Left", "123 using {option down}")
+      ->TranspileHitKey("#hitLeft", "Left", " code 123")
+      ->TranspileHitKey("#hitRight", "Right", " code 124")
+      ->TranspileHitKey("#hitDown", "Down", " code 125")
+      ->TranspileHitKey("#hitUp", "Up", " code 126")
+
+      ->TranspileHitKey("#hitDelete", "Delete", " code 51")
+      ->TranspileHitKey("#hitEnter", "KP_Enter", " code 36")
+      ->TranspileHitKey("#hitEsc", "Escape", " code 53")
+
+      ->TranspileHitKey("#hitModUp",
+                        "ctrl+Up",
+                        " code 126 using {option down}")
+
+      ->TranspileHitKey("#hitModRight",
+                        "ctrl+Right",
+                        " code 124 using {option down}")
+
+      ->TranspileHitKey("#hitModDown",
+                        "ctrl+Down",
+                        " code 125 using {option down}")
+
+      ->TranspileHitKey("#hitModLeft",
+                        "ctrl+Left",
+                        " code 123 using {option down}")
 
       ->TranspileHitKey("#hitShiftModUp",
                         "Shift_L+ctrl+Up",
-                        "126 using {shift down, option down}")
+                        " code 126 using {shift down, option down}")
+
       ->TranspileHitKey("#hitShiftModRight",
                         "Shift_L+ctrl+Right",
-                        "124 using {shift down, option down}")
+                        " code 124 using {shift down, option down}")
+
       ->TranspileHitKey("#hitShiftModDown",
                         "Shift_L+ctrl+Down",
-                        "125 using {shift down, option down}")
+                        " code 125 using {shift down, option down}")
+
       ->TranspileHitKey("#hitShiftModLeft",
                         "Shift_L+ctrl+Left",
-                        "123 using {shift down, option down}")
+                        " code 123 using {shift down, option down}")
 
       ->TranspileHitFunctionKeys()
-      ->TranspileHitTab()
 
-      ->TranspileCopyAll()
-      ->TranspileCutAll()
+      ->TranspileHitKey("#hitTab", "Tab", "stroke (ASCII character 9)")
 
-      ->TranspileHitCopy()
+      ->TranspileHitCopyAll()
+      ->TranspileHitCutAll()
 
-      ->TranspileCut()
-      ->TranspileHitFind()
-      ->TranspilePaste()
+      ->TranspileHitKey("#hitCut", "ctrl+x", "stroke \"x\" using command down")
+      ->TranspileHitKey("#hitCopy", "ctrl+c", "stroke \"c\" using command down")
+      ->TranspileHitKey("#hitFind", "ctrl+f", "stroke \"f\" using command down")
+      ->TranspileHitKey("#hitPaste", "ctrl+v", "stroke \"v\" using command down")
 
-      ->TranspileSelectAll();
+      ->TranspileHitKey("#hitSelectAll",
+                        "ctrl+a",
+                        "stroke \"a\" using command down");
 
   delete instance;
 }
@@ -70,118 +88,21 @@ transpileKeystrokes* transpileKeystrokes::TranspileHitKey(
   helper::String::ReplaceAll(
       code_,
       command,
-      "osascript -e 'tell application \"System Events\" to key code "
+      "osascript -e 'tell application \"System Events\" to key"
           + mac_key + "'");
 #endif
 
   return this;
 }
 
-transpileKeystrokes* transpileKeystrokes::TranspileHitCopy() {
-  if (std::string::npos == code_->find("#hitCopy")) return this;
-
-  #if __linux__
-    helper::String::ReplaceAll(code_, "#hitCopy", "xdotool key ctrl+c\nsleep 0.1");
-  #else
-    helper::String::ReplaceAll(
-        code_,
-        "#hitCopy",
-        "osascript -e 'tell application \"System Events\" to keystroke \"c\" "
-        "using command down'\nsleep 0.1");
-  #endif
+transpileKeystrokes* transpileKeystrokes::TranspileHitCopyAll() {
+  helper::String::ReplaceAll(code_, "#hitCopyAll", "#hitSelectAll\n#hitCopy");
 
   return this;
 }
 
-transpileKeystrokes* transpileKeystrokes::TranspileHitFind() {
-  if (std::string::npos == code_->find("#hitFind")) return this;
-
-  #if __linux__
-    helper::String::ReplaceAll(code_, "#hitFind", "xdotool key ctrl+f");
-  #else
-    helper::String::ReplaceAll(
-      code_,
-      "#hitFind",
-      "osascript -e 'tell application \"System Events\" to keystroke \"f\" "
-      "using command down'");
-  #endif
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspileCut() {
-  #if __linux__
-    helper::String::ReplaceAll(code_, "#cut", "xdotool key ctrl+x");
-  #else
-    helper::String::ReplaceAll(
-      code_,
-      "#cut",
-      "osascript -e 'tell application \"System Events\" to keystroke \"x\" "
-      "using command down'");
-  #endif
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspileCopyAll() {
-  helper::String::ReplaceAll(code_, "#copyAll", "#selectAll\n#hitCopy");
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspileCutAll() {
-  helper::String::ReplaceAll(code_, "#copyAll", "#selectAll\n#hitCut");
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspilePaste() {
-  #if __linux__
-    helper::String::ReplaceAll(code_, "#paste", "xdotool key ctrl+v");
-  #else
-    helper::String::ReplaceAll(
-      code_,
-      "#paste",
-      "osascript -e 'tell application \"System Events\" to keystroke \"v\" "
-      "using command down'");
-  #endif
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspileSelectAll() {
-  if (std::string::npos == code_->find("#selectAll")) return this;
-
-  #if __linux__
-    helper::String::ReplaceAll(
-     code_,
-     "#selectAll",
-     "xdotool key ctrl+a\n
-     sleep 0.1");
-  #else
-    helper::String::ReplaceAll(
-      code_,
-      "#selectAll",
-      "osascript -e 'tell application \"System Events\" to keystroke \"a\" "
-      "using command down'\n"
-      "sleep 0.1");
-  #endif
-
-  return this;
-}
-
-transpileKeystrokes* transpileKeystrokes::TranspileHitTab() {
-  if (std::string::npos == code_->find("#hitTab")) return this;
-
-  #if __linux__
-    helper::String::ReplaceAll(code_, "#hitTab", "xdotool key Tab");
-  #else
-    helper::String::ReplaceAll(
-      code_,
-      "#hitTab",
-      "osascript -e 'tell application \"System Events\" "
-      "to keystroke (ASCII character 9)'");
-  #endif
+transpileKeystrokes* transpileKeystrokes::TranspileHitCutAll() {
+  helper::String::ReplaceAll(code_, "#hitCutAll", "#hitSelectAll\n#hitCut");
 
   return this;
 }
