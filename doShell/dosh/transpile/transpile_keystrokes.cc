@@ -64,10 +64,21 @@ void transpileKeystrokes::Transpile(std::string *code) {
       ->TranspileHitCopyAll()
       ->TranspileHitCutAll()
 
-      ->TranspileHitKey("#hitCut", "ctrl+x", "stroke \"x\" using command down")
-      ->TranspileHitKey("#hitCopy", "ctrl+c", "stroke \"c\" using command down")
-      ->TranspileHitKey("#hitFind", "ctrl+f", "stroke \"f\" using command down")
-      ->TranspileHitKey("#hitPaste", "ctrl+v", "stroke \"v\" using command down")
+      ->TranspileHitKey("#hitCut",
+                        "ctrl+x",
+                        "stroke \"x\" using command down")
+
+      ->TranspileHitKey("#hitCopy",
+                        "ctrl+c",
+                        "stroke \"c\" using command down")
+
+      ->TranspileHitKey("#hitFind",
+                        "ctrl+f",
+                        "stroke \"f\" using command down")
+
+      ->TranspileHitKey("#hitPaste",
+                        "ctrl+v",
+                        "stroke \"v\" using command down")
 
       ->TranspileHitKey("#hitSelectAll",
                         "ctrl+a",
@@ -96,13 +107,13 @@ transpileKeystrokes* transpileKeystrokes::TranspileHitKey(
 }
 
 transpileKeystrokes* transpileKeystrokes::TranspileHitCopyAll() {
-  helper::String::ReplaceAll(code_, "#hitCopyAll", "#hitSelectAll\n#hitCopy");
+  helper::String::ReplaceAll(code_, "#copyAll", "#hitSelectAll\n#hitCopy");
 
   return this;
 }
 
 transpileKeystrokes* transpileKeystrokes::TranspileHitCutAll() {
-  helper::String::ReplaceAll(code_, "#hitCutAll", "#hitSelectAll\n#hitCut");
+  helper::String::ReplaceAll(code_, "#cutAll", "#hitSelectAll\n#hitCut");
 
   return this;
 }

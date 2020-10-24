@@ -4,12 +4,14 @@
 #include <doShell/dosh/transpile/transpile_clipboard.h>
 
 namespace doShell {
-transpileClipboard::transpileClipboard(std::string *code, std::string *path_binary) {
+transpileClipboard::transpileClipboard(std::string *code,
+                                       std::string *path_binary) {
   code_ = code;
   path_binary_ = path_binary;
 }
 
-void transpileClipboard::Transpile(std::string *code, std::string *path_binary) {
+void transpileClipboard::Transpile(std::string *code,
+                                   std::string *path_binary) {
   auto *instance = new transpileClipboard(code, path_binary);
 
   instance
@@ -21,11 +23,32 @@ void transpileClipboard::Transpile(std::string *code, std::string *path_binary) 
 
       ->TranspilePregMatchAllInClipboard()
 
-      ->TranspilePregMatchAllInClipboard()
-      ->TranspilePregMatchAllInClipboard()
-      ->TranspilePregMatchAllInClipboard();
+      ->TranspileExtractBetween()
+//      ->TranspileReplaceAll()
+//      ->TranspileReplaceBetween()
+//      ->TranspileReplaceFirstIn()
+//      ->TranspileReplaceLast()
+
+      ->TranspileAppendClipboardToFile()
+      ->TranspileLoadClipboard()
+      ->TranspileSaveClipboard();
 
   delete instance;
+}
+
+transpileClipboard* transpileClipboard::TranspileExtractBetween() {
+  std::string command = "#extractBetweenFromClipboard ";
+
+  if (!helper::String::Contains(*code_, command)) return this;
+
+  std::regex exp(command + "(.*) (.*)");
+
+  std::string replacement =
+      "$(" + *path_binary_ + " " + command.substr(1) + "$1 $2)";
+
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
+  return this;
 }
 
 transpileClipboard* transpileClipboard::TranspileSetClipboard() {
@@ -37,7 +60,17 @@ transpileClipboard* transpileClipboard::TranspileSetClipboard() {
     std::string replacement = "osascript -e 'set the clipboard to \"$1\"'";
   #endif
 
-  std::regex exp(R"(#setClipboard \"(.*)\")");
+  if (std::string::npos != code_->find("#setClipboard \"")) {
+    std::regex exp(R"(#setClipboard \"([a-zA-Z0-9.-_:/?&= ]+)\")");
+    *code_ = std::regex_replace(*code_, exp, replacement);
+  }
+
+  if (std::string::npos != code_->find("#setClipboard '")) {
+    std::regex exp(R"(#setClipboard '([a-zA-Z0-9.-_:/?&= ]+)')");
+    *code_ = std::regex_replace(*code_, exp, replacement);
+  }
+
+  std::regex exp(R"(#setClipboard ([a-zA-Z0-9.-_:/?&=]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
@@ -59,7 +92,7 @@ transpileClipboard* transpileClipboard::TranspileLoadClipboard() {
 
   std::string replacement = *path_binary_ + " loadClipboard $1";
 
-  std::regex exp(R"(#loadClipboard ([a-zA-Z0-9.-_]+))");
+  std::regex exp(R"(#loadClipboard ([a-zA-Z0-9.-_:/?&=]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
@@ -87,7 +120,8 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
       std::string replacement =
           "osascript -e 'set the clipboard to \"$1\"'\n"
           "sleep 0.1\n"
-          "osascript -e 'tell app \"System Events\" to keystroke \"v\" using command down'\n"
+          "osascript -e 'tell app \"System Events\" "
+          "to keystroke \"v\" using command down'\n"
           "sleep 0.1\n";
   #endif
 
@@ -99,7 +133,7 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
 }
 
 transpileClipboard* transpileClipboard::TranspileCopyAll() {
-  if (std::string::npos == code_->find("#hitCopyAll")) return this;
+  if (std::string::npos == code_->find("#copyAll")) return this;
 
   helper::String::ReplaceAll(code_, "#hitSelectAll\n#hitCopy", "xdotool type ");
 

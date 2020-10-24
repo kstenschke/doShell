@@ -28,6 +28,8 @@ class transpileClipboard {
   transpileClipboard* TranspileSaveClipboard();
 
   transpileClipboard* TranspilePregMatchAllInClipboard();
+
+  transpileClipboard* TranspileExtractBetween();
 };
 }  // namespace doShell
 

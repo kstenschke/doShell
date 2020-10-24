@@ -27,12 +27,21 @@ class shellCommandClipboard {
 
   virtual ~shellCommandClipboard();
 
-  static bool appendClipboardToFile(std::string path_file);
-  static bool pregMatchAll(std::string pattern);
-  static bool saveClipboardToFile(std::string path_file);
-  static bool setClipboard(std::string str);
+  static bool AppendClipboardToFile(std::string path_file);
+  static bool PregMatchAll(std::string pattern);
+  static bool SaveClipboardToFile(std::string path_file);
+  static bool SetClipboard(std::string str);
 
- private:
+  bool ExtractBetween() const;
+  bool ReplaceAll() const;
+  bool ReplaceAfter() const;
+  bool ReplaceBefore() const;
+  bool ReplaceBetween() const;
+  bool ReplaceFirst() const;
+  bool ReplaceLast() const;
+
+
+    private:
   int argc_;
   std::vector<std::string> argv_;
 };

@@ -249,15 +249,15 @@ like:
 
 | Command                                 | Description                             |
 | --------------------------------------- | --------------------------------------- |
-| ``#hitCopyAll``                            | Select all, than copy                   |
+| ``#copyAll``                            | Select all, than copy                   |
 | ``#copyLine``                           | Select caret line, than copy            |
 | ``#copyLineInTerminal``                 | Select caret line, than copy            |
 | ``#copyInTerminal``                     | Varies by OS                            |
 | ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
 | ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
 | ``#cutAll``                             | Select all, than cut                    |
-| ``#hitPaste``                              |                                         |
-| ``#hitPasteInTerminal``                    | Varies by OS                            |
+| ``#hitPaste``                           |                                         |
+| ``#hitPasteInTerminal``                 | Varies by OS                            |
 
 
 **Manipulate strings from clipboard**  

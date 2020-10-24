@@ -161,52 +161,119 @@ bool App::ProcessFileCommand(AppCommands::Command command) {
 }
 
 bool App::ProcessClipboardCommand(AppCommands::Command command) {
+  bool result;
+  auto *ClipboardCommands = new shellCommandClipboard(argc_, argv_);
+
   switch (command) {
+    //TODO(kay): add commands
+
     case AppCommands::Command_AppendClipboardToFile: {
       // appendClipboardToFile
       std::string path_file = argv_[2];
 
-      return shellCommandClipboard::appendClipboardToFile(path_file);
+      result = shellCommandClipboard::AppendClipboardToFile(path_file);
+
+      break;
     }
     case AppCommands::Command_AppendToClipboard: {  // appendToClipboard
       std::string str;
       clip::get_text(str);
 
-      return shellCommandClipboard::setClipboard(str + argv_[2]);
+      result = shellCommandClipboard::SetClipboard(str + argv_[2]);
+
+      break;
+    }
+    case AppCommands::Command_ExtractBetweenFromClipboard: {
+      // extractBetweenFromClipboard
+
+      result = ClipboardCommands->ExtractBetween();
+
+      break;
     }
     case AppCommands::Command_LoadIntoClipboard: {  // loadIntoClipboard
       std::string str;
       helper::File::GetFileContents(argv_[2], &str);
 
-      return shellCommandClipboard::setClipboard(str);
+      result = shellCommandClipboard::SetClipboard(str);
+
+      break;
     }
     case AppCommands::Command_PrependToClipboard: {  // prependToClipboard
       std::string str;
       clip::get_text(str);
 
-      return shellCommandClipboard::setClipboard(argv_[2] + str);
+      result = shellCommandClipboard::SetClipboard(argv_[2] + str);
+
+      break;
     }
     case AppCommands::Command_PregMatchAllInClipboard: {
       // pregMatchAllInClipboard
-      return shellCommandClipboard::pregMatchAll(argv_[2]);
+      result = shellCommandClipboard::PregMatchAll(argv_[2]);
+
+      break;
+    }
+    case AppCommands::Command_ReplaceAfterInClipboard: {
+      // replaceAfterInClipboard
+      result = ClipboardCommands->ReplaceAfter();
+
+      break;
+    }
+    case AppCommands::Command_ReplaceAllInClipboard: { // replaceAllInClipboard
+      result = ClipboardCommands->ReplaceAll();
+
+      break;
+    }
+    case AppCommands::Command_ReplaceBeforeInClipboard: {
+      // replaceBeforeInClipboard
+      result = ClipboardCommands->ReplaceBefore();
+
+      break;
+    }
+    case AppCommands::Command_ReplaceBetweenInClipboard: {
+      // replaceBeforeInClipboard
+      result = ClipboardCommands->ReplaceBetween();
+
+      break;
+    }
+    case AppCommands::Command_ReplaceFirstInClipboard: {
+      // replaceBeforeInClipboard
+      result = ClipboardCommands->ReplaceFirst();
+
+      break;
+    }
+    case AppCommands::Command_ReplaceLastInClipboard: {
+      // replaceBeforeInClipboard
+      result = ClipboardCommands->ReplaceLast();
+
+      break;
     }
     case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
       std::string path_file = argv_[2];
 
-      return shellCommandClipboard::saveClipboardToFile(path_file);
+      result = shellCommandClipboard::SaveClipboardToFile(path_file);
+
+      break;
     }
     case AppCommands::Command_SetClipboard: {  // setClipboard
-      return shellCommandClipboard::setClipboard(argv_[2]);
+      result = shellCommandClipboard::SetClipboard(argv_[2]);
+
+      break;
     }
     case AppCommands::Command_SetClipboardFromFile: {  // setClipboardFromFile
       std::string str;
       helper::File::GetFileContents(argv_[2], &str);
 
-      return shellCommandClipboard::setClipboard(str);
+      result = shellCommandClipboard::SetClipboard(str);
+
+      break;
     }
     default:
-      return false;
+      result = false;
   }
+
+  delete ClipboardCommands;
+
+  return result;
 }
 
 bool App::ProcessTranspilerCommand(AppCommands::Command command) {

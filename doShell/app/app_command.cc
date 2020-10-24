@@ -26,6 +26,8 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "compile" || command == "-c") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
   if (command == "extractBetweenFromFile") return Command_ExtractBetweenFromFile;
+  if (command == "extractBetweenFromClipboard") return
+        Command_ExtractBetweenFromClipboard;
   if (command == "getHostFromUrl") return Command_GetHostFromUrl;
   if (command == "getPathFromUrl") return Command_GetPathFromUrl;
   if (command == "getQueryFromUrl") return Command_GetQueryFromUrl;
@@ -36,15 +38,22 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "prependToClipboard") return Command_PrependToClipboard;
   if (command == "replaceAfter") return Command_ReplaceAfter;
   if (command == "replaceAll") return Command_ReplaceAll;
+  if (command == "replaceAllInnClipboard") return Command_ReplaceAllInClipboard;
+  if (command == "replaceAllInClipboard") return Command_ReplaceAllInClipboard;
   if (command == "replaceBefore") return Command_ReplaceBefore;
+  if (command == "replaceBeforeInClipboard") return Command_ReplaceBeforeInClipboard;
   if (command == "replaceBetween") return Command_ReplaceBetween;
+  if (command == "replaceBetweenInClipboard") return Command_ReplaceBetweenInClipboard;
   if (command == "replaceFirst") return Command_ReplaceFirst;
+  if (command == "replaceFirstInClipboard")
+    return Command_ReplaceFirstInClipboard;
   if (command == "replaceLast") return Command_ReplaceLast;
   if (command == "replaceAfterFromFile") return Command_ReplaceAfterFromFile;
   if (command == "replaceAllFromFile") return Command_ReplaceAllFromFile;
   if (command == "replaceBeforeFromFile") return Command_ReplaceBeforeFromFile;
   if (command == "replaceFirstFromFile") return Command_ReplaceFirstFromFile;
   if (command == "replaceLastFromFile") return Command_ReplaceLastFromFile;
+  if (command == "replaceLastInClipboard") return Command_ReplaceLastInClipboard;
   if (command == "replaceBetweenFromFile") return Command_ReplaceBetweenFromFile;
   if (command == "run" || command == "-r") return Command_Run;
   if (command == "runClean" || command == "-rc") return Command_RunClean;
@@ -119,9 +128,16 @@ bool AppCommands::IsClipboardCommand(AppCommands::Command command) {
   switch (command) {
     case Command_AppendClipboardToFile:
     case Command_AppendToClipboard:
+    case Command_ExtractBetweenFromClipboard:
     case Command_LoadIntoClipboard:
     case Command_PregMatchAllInClipboard:
     case Command_PrependToClipboard:
+    case Command_ReplaceAfterInClipboard:
+    case Command_ReplaceAllInClipboard:
+    case Command_ReplaceBeforeInClipboard:
+    case Command_ReplaceBetweenInClipboard:
+    case Command_ReplaceFirstInClipboard:
+    case Command_ReplaceLastInClipboard:
     case Command_SaveClipboardToFile:
     case Command_SetClipboard:
     case Command_SetClipboardFromFile:
