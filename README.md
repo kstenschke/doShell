@@ -12,7 +12,7 @@ doShell
   * [Macros](#macros)  
   * [Commands](#commands)
     + [Import](#import)
-    + [Inline PHP](#inline-php) 
+    + [Ivoke PHP and Node.js](#invoke-php-and-node-js) 
     + [String manipulation](#string-manipulation)
       + [General](#general)
       + [URL parsing](#url-parsing)
@@ -176,13 +176,17 @@ therefor must be surrounded by single or double quotes.
 Import a specified file: ``#import another_file.do.sh``  
 
 
-### Inline PHP
+### Invoke PHP and Node.js
 
 doShell script can contain inlined PHP (processed during pre-execution parsing, 
 see [functional flow diagram](#functional-flow)) 
 
 like:  
 ``#!php echo time() ?>``  
+
+Related script example: ``examples/09_parse_php.do.sh
+
+Script example for embedding Node.js within doShell:  ``examples/17_export_website_to_markdown.do.sh``
 
 
 ### String manipulation
