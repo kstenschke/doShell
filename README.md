@@ -12,7 +12,7 @@ doShell
   * [Macros](#macros)  
   * [Commands](#commands)
     + [Import](#import)
-    + [Ivoke PHP and Node.js](#invoke-php-and-node-js) 
+    + [Ivoke PHP and Node.js](#invoke-php-and-node.js) 
     + [String manipulation](#string-manipulation)
       + [General](#general)
       + [URL parsing](#url-parsing)
@@ -184,7 +184,7 @@ see [functional flow diagram](#functional-flow))
 like:  
 ``#!php echo time() ?>``  
 
-Related script example: ``examples/09_parse_php.do.sh
+Script example on embedding PHP with doShell: ``examples/09_parse_php.do.sh``
 
 Script example for embedding Node.js within doShell:  ``examples/17_export_website_to_markdown.do.sh``
 
