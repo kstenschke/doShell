@@ -17,6 +17,7 @@ class transpileClipboard {
   std::string *code_;
   std::string *path_binary_;
 
+  transpileClipboard* TranspileGetClipboard();
   transpileClipboard* TranspileSetClipboard();
 
   transpileClipboard* TranspileCopyPaste();
@@ -29,7 +30,8 @@ class transpileClipboard {
 
   transpileClipboard* TranspilePregMatchAllInClipboard();
 
-  transpileClipboard* TranspileExtractBetween();
+  transpileClipboard* TranspileCommand(const std::string &command,
+                                       int amount_args = 2);
 };
 }  // namespace doShell
 

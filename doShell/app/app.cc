@@ -184,9 +184,19 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
       break;
     }
     case AppCommands::Command_ExtractBetweenFromClipboard: {
-      // extractBetweenFromClipboard
+      // extractBetweeninClipboard
 
       result = ClipboardCommands->ExtractBetween();
+
+      break;
+    }
+    case AppCommands::Command_GetClipboard: { // getClipboard
+      std::string str;
+      clip::get_text(str);
+
+      std::cout << str;
+
+      result = true;
 
       break;
     }
@@ -206,42 +216,42 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       break;
     }
-    case AppCommands::Command_PregMatchAllInClipboard: {
+    case AppCommands::Command_PregMatchAllFromClipboard: {
       // pregMatchAllInClipboard
       result = shellCommandClipboard::PregMatchAll(argv_[2]);
 
       break;
     }
-    case AppCommands::Command_ReplaceAfterInClipboard: {
+    case AppCommands::Command_ReplaceAfterFromClipboard: {
       // replaceAfterInClipboard
       result = ClipboardCommands->ReplaceAfter();
 
       break;
     }
-    case AppCommands::Command_ReplaceAllInClipboard: { // replaceAllInClipboard
+    case AppCommands::Command_ReplaceAllFromClipboard: { // replaceAllInClipboard
       result = ClipboardCommands->ReplaceAll();
 
       break;
     }
-    case AppCommands::Command_ReplaceBeforeInClipboard: {
+    case AppCommands::Command_ReplaceBeforeFromClipboard: {
       // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceBefore();
 
       break;
     }
-    case AppCommands::Command_ReplaceBetweenInClipboard: {
+    case AppCommands::Command_ReplaceBetweenFromClipboard: {
       // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceBetween();
 
       break;
     }
-    case AppCommands::Command_ReplaceFirstInClipboard: {
+    case AppCommands::Command_ReplaceFirstFromClipboard: {
       // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceFirst();
 
       break;
     }
-    case AppCommands::Command_ReplaceLastInClipboard: {
+    case AppCommands::Command_ReplaceLastFromClipboard: {
       // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceLast();
 

@@ -168,7 +168,7 @@ bool shellCommandClipboard::ReplaceBetween() const {
   std::string kHaystack;
   clip::get_text(kHaystack);
 
-  int arg_offset_before = 3, arg_offset_after = 4, arg_offset_replacement = 5;
+  int arg_offset_before = 2, arg_offset_after = 3, arg_offset_replacement = 4;
 
   const std::string kBefore = argv_[arg_offset_before];
   const std::string kAfter = argv_[arg_offset_after];

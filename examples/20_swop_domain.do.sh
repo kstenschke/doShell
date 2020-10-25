@@ -7,8 +7,8 @@
 #hitCopyAll
 
 # remove scheme and domain from URL
-#replaceBeforeFromClipboard // ""
-#replaceBeforeFromClipboard / ""
+#replaceBeforeinClipboard // ""
+#replaceBeforeinClipboard / ""
 #hitPaste
 
 #hitSuperLeft

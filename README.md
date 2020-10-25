@@ -267,14 +267,14 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command                                                    | Description                                                                   |
 | ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ``#extractBetweenInClipboard before after``                | Extract text excluding but between "before" and "after"                       |
-| ``#pregMatchAllInClipboard regex``                         | Output all matches of given regex in clipboard content                        |
-| ``#replaceAfterInClipboard search replace``                | Replace everything after and including the first occurrences of given string  |                                                       |
-| ``#replaceBeforeInClipboard search replace``               | Replace everything before and including the first occurrences of given string |
-| ``#replaceAllInClipboard search replace``                  | Replace all occurrences of given string                                       |
-| ``#replaceBetweenInClipboard before after replacement ``   | Remove text including and between "before" and "after"                        |
-| ``#replaceFirstInClipboard search replace``                | Replace first occurrence of given string                                      |
-| ``#replaceLastInClipboard search replace``                 | Replace last occurrence of given string                                       |
+| ``#extractBetweenFromClipboard before after``              | Extract text excluding but between "before" and "after"                       |
+| ``#pregMatchAllFromClipboard regex``                       | Output all matches of given regex in clipboard content                        |
+| ``#replaceAfterFromClipboard search replace``              | Replace everything after and including the first occurrences of given string  |                                                       |
+| ``#replaceBeforeFromClipboard search replace``             | Replace everything before and including the first occurrences of given string |
+| ``#replaceAllFromClipboard search replace``                | Replace all occurrences of given string                                       |
+| ``#replaceBetweenFromClipboard before after replacement `` | Remove text including and between "before" and "after"                        |
+| ``#replaceFirstFromClipboard search replace``              | Replace first occurrence of given string                                      |
+| ``#replaceLastFromClipboard search replace``               | Replace last occurrence of given string                                       |
 
 
 ### Dialogs
