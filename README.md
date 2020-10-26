@@ -11,6 +11,7 @@ doShell
     + [Conditional blocks](#conditional-blocks)
   * [Macros](#macros)  
   * [Commands](#commands)
+    + [Mute doShell output](#mute-doshell-output)
     + [Import](#import)
     + [Ivoke PHP and Node.js](#invoke-php-and-node.js) 
     + [String manipulation](#string-manipulation)
@@ -172,6 +173,21 @@ therefor must be surrounded by single or double quotes.
 
 ## Commands
 
+
+### Mute doShell output
+
+To prevent otherwise verbose doShell commands, from putting out their result,
+you can append the ```::MUTE::``` [modifier macro](#macros) 
+(which is simply a shorthand for ``&>/dev/null``). 
+
+**Example:**  
+
+````
+#setClipboard "https://www.test.com/foo-bar-baz-qux"
+#replaceBeforeFromClipboard // '' ::MUTE::
+````
+
+
 ### Import
 
 Import a specified file: ``#import another_file.do.sh``  
@@ -280,19 +296,6 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#replaceBetweenFromClipboard before after replacement `` | Replace text including and between "before" and "after"                       |
 | ``#replaceFirstFromClipboard search replace``              | Replace first occurrence of given string                                      |
 | ``#replaceLastFromClipboard search replace``               | Replace last occurrence of given string                                       |
-
-### Mute doShell output
-
-To prevent otherwise verbose doShell commands, from putting out their result you
-can append the ```::MUTE::``` modifier macro (which is simply a shorthand for 
-``&>/dev/null``). 
-
-**Example:**  
-
-````
-#setClipboard "https://www.test.com/foo-bar-baz-qux"
-#replaceBeforeFromClipboard // '' ::MUTE::
-````
 
 
 ### Dialogs
