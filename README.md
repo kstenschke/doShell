@@ -7,7 +7,7 @@ doShell
   * [What does it do?](#idea---wat-does-(will)-it-do?)
   * [Functional Flow](#functional-flow) 
   * [Runtime options](#runtime-options)
-    + [Runtime flags](#runtime-flags)
+    + [Flags](#Flags)
     + [Conditional blocks](#conditional-blocks)
   * [Macros](#macros)  
   * [Commands](#commands)
@@ -108,7 +108,7 @@ if existing, an already transpiled intermediary file is overwritten.
 
 ## Runtime options
 
-### Runtime flags
+### Flags
 
 | Flag                                  | Description                                                                                                        |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
