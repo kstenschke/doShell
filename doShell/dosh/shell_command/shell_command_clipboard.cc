@@ -177,12 +177,12 @@ bool shellCommandClipboard::ReplaceBetween() const {
                                    ? ""
                                    : argv_[arg_offset_replacement];
 
-  auto out = helper::String::ReplaceBetween(
-      kHaystack, kBefore, kAfter, kReplacement);
+  kHaystack =
+      helper::String::ReplaceBetween(kHaystack, kBefore, kAfter, kReplacement);
 
-  if (out.empty()) return false;
+  if (kHaystack.empty()) return false;
 
-  std::cout << out;
+  std::cout << kHaystack;
 
   clip::set_text(kHaystack);
 
@@ -220,7 +220,7 @@ bool shellCommandClipboard::ReplaceLast() const {
   std::string kHaystack;
   clip::get_text(kHaystack);
 
-  int arg_offset_needle = 3, arg_offset_replacement = 4;
+  int arg_offset_needle = 2, arg_offset_replacement = 3;
 
   const std::string kNeedle = argv_[arg_offset_needle];
 

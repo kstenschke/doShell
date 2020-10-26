@@ -18,7 +18,7 @@ printf "\nreplaceBefore: "
 echo #replaceBefore "thingummibob bar baz qux" bar "foo bar"
 
 printf "\nreplaceBetween: "
-echo #replaceBetween "foo bar thingummibob qux" bar qux " bar baz "
+echo #replaceBetween "foo bar thingummibob qux" bar qux " bar baz qux"
 
 printf "\nreplaceFirst: "
 echo #replaceFirst "bar bar baz qux" bar foo
