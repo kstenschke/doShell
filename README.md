@@ -7,7 +7,7 @@ doShell
   * [What does it do?](#idea---wat-does-(will)-it-do?)
   * [Functional Flow](#functional-flow) 
   * [Runtime options](#runtime-options)
-    + [Runtime flags](#runtime-flags)
+    + [Flags](#Flags)
     + [Conditional blocks](#conditional-blocks)
   * [Macros](#macros)  
   * [Commands](#commands)
@@ -108,7 +108,7 @@ if existing, an already transpiled intermediary file is overwritten.
 
 ## Runtime options
 
-### Runtime flags
+### Flags
 
 | Flag                                  | Description                                                                                                        |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -166,7 +166,7 @@ therefor must be surrounded by single or double quotes.
 | ``::DIR_EXEC::``    | Directory path from where doShell was invoked                     | Runtime          |
 | ``::FILE::``        | Absolute path of current file including the filename              | Transpilation    |
 | ``::LINE::``        | Line number in current file                                       | Transpilation    |
-| ``::MUTE::``        | ``&>/dev/null`` = redirects any output (to nowhere)               | Runtime          |
+| ``::MUTE::``        | ``&>/dev/null`` = silences the preceeding command's output        | Runtime          |
 | ``::OS::``          | ``linux`` or ``mac``                                              | Runtime          |
 | ``::TIMESTAMP::``   | Current UNIX timestamp                                            | Runtime          |
 
@@ -261,7 +261,7 @@ Script example for embedding Node.js within doShell:  ``examples/17_export_websi
 | ``#getClipboard``                          | Output clipboard contents                   |
 | ``#loadIntoClipboard filename.txt``        | Load file content into clipboard            |
 | ``#prependToClipboard $value``             | Add string before start of clipboard        |
-| ``#saveClipboard filename.txt``            | Store clipboard content to file             |
+| ``#saveClipboard filename.txt``            | Store text from clipboard to file           |
 | ``#setClipboard $value``                   | Copy string to clipboard                    |
 | ``#setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
 
@@ -356,7 +356,7 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#moveCaretToLineStart`` | Home              | CMD + cursor left  |
 | ``#moveCaretToLineEnd``   | End               | CMD + cursor right |
 
-**Common funcitonal shortcuts:**
+**Common functional shortcuts:**
 
 | Command                 | Description                    |
 | ----------------------- | ------------------------------ |   

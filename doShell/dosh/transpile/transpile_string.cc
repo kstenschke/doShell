@@ -59,7 +59,9 @@ transpileString* transpileString::TranspileReplaceAfter() {
   if (!helper::String::Contains(*code_, command)) return this;
 
   std::regex exp(command + "(.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
+
+  std::string replacement =
+      "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
@@ -72,7 +74,9 @@ transpileString* transpileString::TranspileReplaceAll() {
   if (!helper::String::Contains(*code_, command)) return this;
 
   std::regex exp(command + "(.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
+
+  std::string replacement =
+      "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
@@ -85,7 +89,9 @@ transpileString* transpileString::TranspileReplaceBefore() {
   if (!helper::String::Contains(*code_, command)) return this;
 
   std::regex exp(command + "(.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
+
+  std::string replacement =
+      "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
@@ -98,7 +104,9 @@ transpileString* transpileString::TranspileReplaceBetween() {
   if (!helper::String::Contains(*code_, command)) return this;
 
   std::regex exp(command + "(.*) (.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3 $4)";
+
+  std::string replacement =
+      "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3 $4)";
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
@@ -111,7 +119,9 @@ transpileString* transpileString::TranspileReplaceFirst() {
   if (!helper::String::Contains(*code_, command)) return this;
 
   std::regex exp(command + "(.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
+
+  std::string replacement =
+      "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
@@ -124,7 +134,9 @@ transpileString* transpileString::TranspileReplaceLast() {
   if (!helper::String::Contains(*code_, command)) return this;
 
   std::regex exp(command + "(.*) (.*) (.*)");
-  std::string replacement = "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
+
+  std::string replacement =
+      "$(" + path_binary_ + " " + command.substr(1) + "$1 $2 $3)";
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 

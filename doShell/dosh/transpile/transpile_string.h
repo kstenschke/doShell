@@ -10,8 +10,10 @@
 namespace doShell {
 class transpileString {
  public:
-
-  transpileString(std::string *code, std::string path_binary, std::string from = "");
+  transpileString(
+      std::string *code,
+      std::string path_binary,
+      std::string from = "");
 
   static void Transpile(std::string *code,
                         const std::string &path_binary,

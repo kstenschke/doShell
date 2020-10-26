@@ -4,7 +4,7 @@
 #ifndef DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_
 #define DOSHELL_DOSH_TRANSPILE_TRANSPILE_BROWSER_H_
 
-#include "transpile_clipboard.h"
+#include <doShell/dosh/transpile/transpile_clipboard.h>
 #include <doShell/helper/helper_string.h>
 #include <string>
 

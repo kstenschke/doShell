@@ -41,7 +41,7 @@ bool App::Process() {
     result = ProcessClipboardCommand(command);
   } else {
     switch (command) {
-      case AppCommands::Command_Help: {  // h - output help
+      case AppCommands::Command_Help: {
         AppCommands::Command kCommand;
         std::string command_identifier;
 
@@ -55,7 +55,7 @@ bool App::Process() {
         result = AppHelp::PrintHelp(true, kCommand, command_identifier);
       }
         break;
-      case AppCommands::Command_Version:  // v - output version
+      case AppCommands::Command_Version:
         result = AppHelp::PrintVersion();
         break;
       case AppCommands::Command_Invalid:
@@ -72,31 +72,31 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
   auto *StringCommands = new shellCommandString(argc_, argv_);
 
   switch (command) {
-    case AppCommands::Command_ReplaceAfter:  // replaceAfter
+    case AppCommands::Command_ReplaceAfter:
       result = StringCommands->ReplaceAfter();
 
       break;
-    case AppCommands::Command_ReplaceAll:  // replaceAll
+    case AppCommands::Command_ReplaceAll:
       result = StringCommands->ReplaceAll();
 
       break;
-    case AppCommands::Command_ReplaceBefore:  // replaceBefore
+    case AppCommands::Command_ReplaceBefore:
       result = StringCommands->ReplaceBefore();
 
       break;
-    case AppCommands::Command_ReplaceBetween:  // replaceBetween
+    case AppCommands::Command_ReplaceBetween:
       result = StringCommands->ReplaceBetween();
 
       break;
-    case AppCommands::Command_ExtractBetween:  // extractBetween
+    case AppCommands::Command_ExtractBetween:
       result = StringCommands->ExtractBetween();
 
       break;
-    case AppCommands::Command_ReplaceFirst:  // replaceFirst
+    case AppCommands::Command_ReplaceFirst:
       result = StringCommands->ReplaceFirst();
 
       break;
-    case AppCommands::Command_ReplaceLast:  // replaceLast
+    case AppCommands::Command_ReplaceLast:
       result = StringCommands->ReplaceLast();
 
       break;
@@ -123,31 +123,31 @@ bool App::ProcessFileCommand(AppCommands::Command command) {
   }
 
   switch (command) {
-    case AppCommands::Command_ReplaceAfterFromFile:  // replaceAfterFromFile
+    case AppCommands::Command_ReplaceAfterFromFile:
       result = StringCommands->ReplaceAfter(file_content);
 
       break;
-    case AppCommands::Command_ReplaceAllFromFile:  // replaceAllFromFile
+    case AppCommands::Command_ReplaceAllFromFile:
       result = StringCommands->ReplaceAll(file_content);
 
       break;
-    case AppCommands::Command_ReplaceBeforeFromFile:  // replaceBeforeFromFile
+    case AppCommands::Command_ReplaceBeforeFromFile:
       result = StringCommands->ReplaceBefore(file_content);
 
       break;
-    case AppCommands::Command_ReplaceBetweenFromFile:  // replaceBetweenFromFile
+    case AppCommands::Command_ReplaceBetweenFromFile:
       result = StringCommands->ReplaceBetween(file_content);
 
       break;
-    case AppCommands::Command_ExtractBetweenFromFile:  // extractBetweenFromFile
+    case AppCommands::Command_ExtractBetweenFromFile:
       result = StringCommands->ExtractBetween(file_content);
 
       break;
-    case AppCommands::Command_ReplaceFirstFromFile:  // replaceFirstFromFile
+    case AppCommands::Command_ReplaceFirstFromFile:
       result = StringCommands->ReplaceFirst(file_content);
 
       break;
-    case AppCommands::Command_ReplaceLastFromFile:  // replaceLastFromFile
+    case AppCommands::Command_ReplaceLastFromFile:
       result = StringCommands->ReplaceLast(file_content);
 
       break;
@@ -165,17 +165,16 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
   auto *ClipboardCommands = new shellCommandClipboard(argc_, argv_);
 
   switch (command) {
-    //TODO(kay): add commands
+    // TODO(kay): add commands
 
     case AppCommands::Command_AppendClipboardToFile: {
-      // appendClipboardToFile
       std::string path_file = argv_[2];
 
       result = shellCommandClipboard::AppendClipboardToFile(path_file);
 
       break;
     }
-    case AppCommands::Command_AppendToClipboard: {  // appendToClipboard
+    case AppCommands::Command_AppendToClipboard: {
       std::string str;
       clip::get_text(str);
 
@@ -184,13 +183,11 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
       break;
     }
     case AppCommands::Command_ExtractBetweenFromClipboard: {
-      // extractBetweeninClipboard
-
       result = ClipboardCommands->ExtractBetween();
 
       break;
     }
-    case AppCommands::Command_GetClipboard: { // getClipboard
+    case AppCommands::Command_GetClipboard: {
       std::string str;
       clip::get_text(str);
 
@@ -200,7 +197,7 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       break;
     }
-    case AppCommands::Command_LoadIntoClipboard: {  // loadIntoClipboard
+    case AppCommands::Command_LoadIntoClipboard: {
       std::string str;
       helper::File::GetFileContents(argv_[2], &str);
 
@@ -208,7 +205,7 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       break;
     }
-    case AppCommands::Command_PrependToClipboard: {  // prependToClipboard
+    case AppCommands::Command_PrependToClipboard: {
       std::string str;
       clip::get_text(str);
 
@@ -217,59 +214,53 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
       break;
     }
     case AppCommands::Command_PregMatchAllFromClipboard: {
-      // pregMatchAllInClipboard
       result = shellCommandClipboard::PregMatchAll(argv_[2]);
 
       break;
     }
     case AppCommands::Command_ReplaceAfterFromClipboard: {
-      // replaceAfterInClipboard
       result = ClipboardCommands->ReplaceAfter();
 
       break;
     }
-    case AppCommands::Command_ReplaceAllFromClipboard: { // replaceAllInClipboard
+    case AppCommands::Command_ReplaceAllFromClipboard: {
       result = ClipboardCommands->ReplaceAll();
 
       break;
     }
     case AppCommands::Command_ReplaceBeforeFromClipboard: {
-      // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceBefore();
 
       break;
     }
     case AppCommands::Command_ReplaceBetweenFromClipboard: {
-      // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceBetween();
 
       break;
     }
     case AppCommands::Command_ReplaceFirstFromClipboard: {
-      // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceFirst();
 
       break;
     }
     case AppCommands::Command_ReplaceLastFromClipboard: {
-      // replaceBeforeInClipboard
       result = ClipboardCommands->ReplaceLast();
 
       break;
     }
-    case AppCommands::Command_SaveClipboardToFile: {  // saveClipboardToFile
+    case AppCommands::Command_SaveClipboardToFile: {
       std::string path_file = argv_[2];
 
       result = shellCommandClipboard::SaveClipboardToFile(path_file);
 
       break;
     }
-    case AppCommands::Command_SetClipboard: {  // setClipboard
+    case AppCommands::Command_SetClipboard: {
       result = shellCommandClipboard::SetClipboard(argv_[2]);
 
       break;
     }
-    case AppCommands::Command_SetClipboardFromFile: {  // setClipboardFromFile
+    case AppCommands::Command_SetClipboardFromFile: {
       std::string str;
       helper::File::GetFileContents(argv_[2], &str);
 
@@ -293,14 +284,14 @@ bool App::ProcessTranspilerCommand(AppCommands::Command command) {
   result = compiler->Compile(command == AppCommands::Command_RunClean);
 
   switch (command) {
-    case AppCommands::Command_Compile: {  // c - compile
+    case AppCommands::Command_Compile: {
       delete compiler;
 
       return result;
     }
     case AppCommands::Command_Run:case AppCommands::Command_RunClean: {
-      // r - transpile (if intermediary transpiled file exists: skip) and run
-      // rc - transpile (if intermediary transpiled file exists: overwrite) and run
+      // r - transpile (if transpiled file exists: skip) and run
+      // rc - transpile (if transpiled file exists: overwrite) and run
       if (!result) {
         delete compiler;
 
@@ -325,27 +316,27 @@ bool App::ProcessUrlParserCommand(AppCommands::Command command) {
   auto *UrlParser = new shellCommandUrl(argc_, argv_);
 
   switch (command) {
-    case AppCommands::Command_GetSchemeFromUrl:  // getSchemeFromUrl
+    case AppCommands::Command_GetSchemeFromUrl:
       result = UrlParser->GetSchemeFromUrl();
 
       break;
-    case AppCommands::Command_GetHostFromUrl:  // getHostFromUrl
+    case AppCommands::Command_GetHostFromUrl:
       result = UrlParser->GetHostFromUrl();
 
       break;
-    case AppCommands::Command_GetPathFromUrl:  // getPathFromUrl
+    case AppCommands::Command_GetPathFromUrl:
       result = UrlParser->GetPathFromUrl();
 
       break;
-    case AppCommands::Command_GetQueryFromUrl:  // getQueryFromUrl
+    case AppCommands::Command_GetQueryFromUrl:
       result = UrlParser->GetQueryFromUrl();
 
       break;
-    case AppCommands::Command_UrlEncode:  // urlEncode
+    case AppCommands::Command_UrlEncode:
       result = UrlParser->Encode();
 
       break;
-    case AppCommands::Command_UrlDecode:  // urlDecode
+    case AppCommands::Command_UrlDecode:
       result = UrlParser->Encode();
 
       break;

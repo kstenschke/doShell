@@ -34,7 +34,7 @@ transpileTerminal* transpileTerminal::TranspileActivate() {
 //          "    me=$SUDO_USER\n"
 //          "    sudo -u $me nohup terminal > /dev/null &\n"
         "    nohup terminal > /dev/null &\n"
-        "fi"
+        "fi";
 #else
   std::string replacement =
       "osascript -e 'tell application \"Terminal\" to activate'";
@@ -72,7 +72,10 @@ transpileTerminal* transpileTerminal::TranspileHitFindInTerminal() {
   if (std::string::npos == code_->find("#hitFindInTerminal")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(code, "#hitFindInTerminal", "xdotool key ctrl+shift+f");
+    helper::String::ReplaceAll(
+        code_,
+        "#hitFindInTerminal",
+        "xdotool key ctrl+shift+f");
   #else
     helper::String::ReplaceAll(
       code_,
@@ -88,7 +91,10 @@ transpileTerminal* transpileTerminal::TranspileHitCopyInTerminal() {
   if (std::string::npos == code_->find("#copyInTerminal ")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(code, "#copyInTerminal", "xdotool key ctrl+shift+c");
+    helper::String::ReplaceAll(
+        code_,
+        "#copyInTerminal",
+        "xdotool key ctrl+shift+c");
   #else
     helper::String::ReplaceAll(
       code_,
@@ -104,7 +110,10 @@ transpileTerminal* transpileTerminal::TranspilePasteInTerminal() {
   if (std::string::npos == code_->find("#hitPasteInTerminal ")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(code, "#hitPasteInTerminal", "xdotool key ctrl+shift+v");
+    helper::String::ReplaceAll(
+        code_,
+        "#hitPasteInTerminal",
+        "xdotool key ctrl+shift+v");
   #else
     helper::String::ReplaceAll(
       code_,
