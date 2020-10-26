@@ -261,7 +261,7 @@ Script example for embedding Node.js within doShell:  ``examples/17_export_websi
 | ``#getClipboard``                          | Output clipboard contents                   |
 | ``#loadIntoClipboard filename.txt``        | Load file content into clipboard            |
 | ``#prependToClipboard $value``             | Add string before start of clipboard        |
-| ``#saveClipboard filename.txt``            | Store clipboard content to file             |
+| ``#saveClipboard filename.txt``            | Store text from clipboard to file           |
 | ``#setClipboard $value``                   | Copy string to clipboard                    |
 | ``#setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
 
