@@ -5,7 +5,7 @@
 
 namespace doShell {
 transpileBrowser::transpileBrowser(std::string *code) {
-  code_ = code;  
+  code_ = code;
 }
 
 void transpileBrowser::Transpile(std::string *code) {
@@ -38,7 +38,7 @@ transpileBrowser* transpileBrowser::TranspileActivate() {
 //          "    me=$SUDO_USER\n"
 //          "    sudo -u $me nohup firefox > /dev/null &\n"
         "    nohup firefox > /dev/null &\n"
-        "fi"
+        "fi";
   #else
     std::string replacement =
         "osascript -e 'tell application \"Firefox\" to activate'";

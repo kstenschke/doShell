@@ -26,7 +26,7 @@ transpilePlatform* transpilePlatform::transpilePlatformConditions() {
 
   #if __linux__
     while (helper::String::Contains(*code_, "#if_is_mac")) {
-      *code =
+      *code_ =
           helper::String::ReplaceBetween(*code_, "#if_is_mac", "#endif_is_mac");
     }
   #else

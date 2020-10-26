@@ -25,42 +25,62 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "appendToClipboard") return Command_AppendToClipboard;
   if (command == "compile" || command == "-c") return Command_Compile;
   if (command == "extractBetween") return Command_ExtractBetween;
-  if (command == "extractBetweenFromFile") return Command_ExtractBetweenFromFile;
-  if (command == "extractBetweenFromClipboard") return
-        Command_ExtractBetweenFromClipboard;
+
+  if (command == "extractBetweenFromFile")
+    return Command_ExtractBetweenFromFile;
+
+  if (command == "extractBetweenFromClipboard")
+    return Command_ExtractBetweenFromClipboard;
+
   if (command == "getClipboard") return Command_GetClipboard;
   if (command == "getHostFromUrl") return Command_GetHostFromUrl;
   if (command == "getPathFromUrl") return Command_GetPathFromUrl;
   if (command == "getQueryFromUrl") return Command_GetQueryFromUrl;
   if (command == "getSchemeFromUrl") return Command_GetSchemeFromUrl;
   if (command == "loadIntoClipboard") return Command_LoadIntoClipboard;
+
   if (command == "pregMatchAllFromClipboard")
     return Command_PregMatchAllFromClipboard;
+
   if (command == "prependToClipboard") return Command_PrependToClipboard;
   if (command == "replaceAfter") return Command_ReplaceAfter;
+
   if (command == "replaceAfterFromClipboard")
     return Command_ReplaceAfterFromClipboard;
+
   if (command == "replaceAll") return Command_ReplaceAll;
+
   if (command == "replaceAllFromClipboard")
     return Command_ReplaceAllFromClipboard;
+
   if (command == "replaceBefore") return Command_ReplaceBefore;
+
   if (command == "replaceBeforeFromClipboard")
     return Command_ReplaceBeforeFromClipboard;
+
   if (command == "replaceBetween") return Command_ReplaceBetween;
+
   if (command == "replaceBetweenFromClipboard")
     return Command_ReplaceBetweenFromClipboard;
+
   if (command == "replaceFirst") return Command_ReplaceFirst;
+
   if (command == "replaceFirstFromClipboard")
     return Command_ReplaceFirstFromClipboard;
+
   if (command == "replaceLast") return Command_ReplaceLast;
   if (command == "replaceAfterFromFile") return Command_ReplaceAfterFromFile;
   if (command == "replaceAllFromFile") return Command_ReplaceAllFromFile;
   if (command == "replaceBeforeFromFile") return Command_ReplaceBeforeFromFile;
   if (command == "replaceFirstFromFile") return Command_ReplaceFirstFromFile;
   if (command == "replaceLastFromFile") return Command_ReplaceLastFromFile;
+
   if (command == "replaceLastFromClipboard")
     return Command_ReplaceLastFromClipboard;
-  if (command == "replaceBetweenFromFile") return Command_ReplaceBetweenFromFile;
+
+  if (command == "replaceBetweenFromFile")
+    return Command_ReplaceBetweenFromFile;
+
   if (command == "run" || command == "-r") return Command_Run;
   if (command == "runClean" || command == "-rc") return Command_RunClean;
   if (command == "saveClipboard") return Command_SaveClipboardToFile;
@@ -68,6 +88,7 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "setClipboardFromFile") return Command_SetClipboardFromFile;
   if (command == "urlEncode") return Command_UrlEncode;
   if (command == "urlDecode") return Command_UrlDecode;
+
   if (command == "help" || command == "-h" || command == "?")
     return Command_Help;
   if (command == "-v" || command == "version") return Command_Version;

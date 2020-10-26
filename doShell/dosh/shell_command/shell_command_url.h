@@ -41,6 +41,7 @@ class shellCommandUrl {
 
   bool Decode();
   bool Encode();
+
  private:
   int argc_;
   std::vector<std::string> argv_;

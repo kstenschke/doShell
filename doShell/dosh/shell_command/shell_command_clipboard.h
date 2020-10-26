@@ -40,8 +40,7 @@ class shellCommandClipboard {
   bool ReplaceFirst() const;
   bool ReplaceLast() const;
 
-
-    private:
+ private:
   int argc_;
   std::vector<std::string> argv_;
 };

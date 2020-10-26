@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
-#ifndef DOSHELL_DOSH_RUNTIME_H_
-#define DOSHELL_DOSH_RUNTIME_H_
+#ifndef DOSHELL_DOSH_S2S_TRANSPILER_H_
+#define DOSHELL_DOSH_S2S_TRANSPILER_H_
 
 #include <doShell/app/app_command.h>
 #include <doShell/app/app_help.h>
@@ -88,4 +88,4 @@ class S2sTranspiler {
 
 }  // namespace doShell
 
-#endif  // DOSHELL_DOSH_RUNTIME_H_
+#endif  // DOSHELL_DOSH_S2S_TRANSPILER_H_

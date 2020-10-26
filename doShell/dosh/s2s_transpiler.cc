@@ -112,9 +112,9 @@ void S2sTranspiler::TranspileRuntimeVariables() {
   }
 
   // Split offsets into vector
-  offsets_comma_separated = 
+  offsets_comma_separated =
       offsets_comma_separated.substr(0, offsets_comma_separated.length() - 1);
-  
+
   auto offsets = helper::String::Explode(offsets_comma_separated, ',');
   unsigned long amount_offsets = offsets.size();
 
@@ -130,7 +130,8 @@ void S2sTranspiler::TranspileRuntimeVariables() {
     offset_start = std::atoi(offsets[i + 2].c_str()) + 1;
     offset_end = std::atoi(offsets[i + 3].c_str());
 
-    std::string value = argv_[3].substr(offset_start, offset_end - offset_start);
+    std::string value =
+        argv_[3].substr(offset_start, offset_end - offset_start);
 
     // Replace within code
     helper::String::ReplaceAll(&source_, key, value);

@@ -26,13 +26,15 @@ transpileDialog* transpileDialog::TranspileNotify() {
   if (std::string::npos == code_->find("#notify ")) return this;
 
   #if __linux__
-    return helper::String::ReplaceAll(
-        code,
+    helper::String::ReplaceAll(
+        code_,
         "#notify",
         "gxmessage -center -ontop ") > 0;
   #else
     // transpile: #notify $message
-    std::string replacement = "osascript -e \"display notification \\\"$1\\\"\"";
+    std::string replacement =
+        "osascript -e \"display notification \\\"$1\\\"\"";
+
     std::regex exp(R"(#notify (\$[a-zA-z]+))");
 
     *code_ = std::regex_replace(*code_, exp, replacement);
@@ -51,7 +53,7 @@ transpileDialog* transpileDialog::TranspileAlert() {
 
   #if __linux__
     helper::String::ReplaceAll(
-        code,
+        code_,
         "#alert",
         "gxmessage -center -ontop -bg red hello -title Alert ");
   #else
@@ -72,9 +74,9 @@ transpileDialog* transpileDialog::TranspileConfirm() {
 
   #if __linux__
     helper::String::ReplaceAll(
-        code,
+        code_,
         "#confirm ",
-        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ";
+        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
   #else
     std::regex exp(R"(#confirm \"*(.*)\")");
 
@@ -92,13 +94,13 @@ transpileDialog* transpileDialog::TranspilePrompt() {
 
   #if __linux__
     helper::String::ReplaceAll(
-        code,
+        code_,
         "#confirm ",
         "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
   #else
-   std::regex exp(R"(#prompt \"*(.*)\")");
+    std::regex exp(R"(#prompt \"*(.*)\")");
 
-   std::string replacement =
+    std::string replacement =
       "$("
         "osascript -e 'set T to text returned of ("
           "display dialog \"$1\" "
@@ -108,7 +110,7 @@ transpileDialog* transpileDialog::TranspilePrompt() {
         ")'"
       ")";
 
-   *code_ = std::regex_replace(*code_, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
   #endif
 
   return this;
@@ -119,22 +121,22 @@ transpileDialog* transpileDialog::TranspileSelect() {
 
   #if __linux__
     helper::String::ReplaceAll(
-        code,
+        code_,
         "#confirm ",
         "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
   #else
-   std::regex exp(R"(#select \"(.*)\" (\{\".*\"(, )*\})+)");
+    std::regex exp(R"(#select \"(.*)\" (\{\".*\"(, )*\})+)");
 
-   std::string replacement =
-      "$(osascript <<EOF\n"
-        "set doshOptions to $2\n"
-        "set doshChoice to "
-          "choose from list doshOptions "
-          "with prompt \"$1\" "
-          "default items {\"Apple\"}\n"
-      "EOF)\n";
+    std::string replacement =
+       "$(osascript <<EOF\n"
+         "set doshOptions to $2\n"
+         "set doshChoice to "
+           "choose from list doshOptions "
+           "with prompt \"$1\" "
+           "default items {\"Apple\"}\n"
+       "EOF)\n";
 
-   *code_ = std::regex_replace(*code_, exp, replacement);
+    *code_ = std::regex_replace(*code_, exp, replacement);
   #endif
 
   return this;
