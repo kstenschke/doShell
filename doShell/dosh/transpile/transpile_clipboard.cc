@@ -151,6 +151,10 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
+  exp = (R"(#copyPaste \'(.*)\')");
+
+  *code_ = std::regex_replace(*code_, exp, replacement);
+
   return this;
 }
 

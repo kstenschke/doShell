@@ -318,9 +318,13 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#hitBackspace`` | Hit backspace key                      |
 | ``#hitDown``      | Hit cursor down key                    |
 | ``#hitEnter``     | Hit enter key                          |
+| ``#hitEnd``       | Hit end key                            |
 | ``#hitEsc``       | Hit escape key                         |
 | ``#hitF1``        | Hit F-Key                              |
+| ``#hitHome``      | Hit home key                           |
 | ``#hitLeft``      | Hit cursor left key                    |
+| ``#hitPageDown``  | Hit pageDown key                       |
+| ``#hitPageUp``    | Hit pageUp key                         |
 | ``#hitRight``     | Hit cursor right key                   |
 | ``#hitSpace``     | Hit space bar                          |
 | ``#hitTab``       | Hit tabulator key                      |
@@ -331,24 +335,26 @@ To over/write the result back to files, you can use the shell redirection operat
 
 **Cursor combos:**
 
-| Command                   | Linux             | Mac             |
-| ------------------------- | ----------------- | --------------- |
-| ``#hitModDown``           |                   |                 |
-| ``#hitModLeft``           |                   |                 |
-| ``#hitModRight``          |                   |                 |
-| ``#hitModUp``             | CTRL + cursor up  | ALT + cursor up |
-| ``#hitShiftModDown``      |                   |                 |
-| ``#hitShiftModLeft``      |                   |                 |
-| ``#hitShiftModRight``     |                   |                 |
-| ``#hitShiftModUp``        |                   |                 |
-| ``#hitShiftSuperDown``    |                   |                 |
-| ``#hitShiftSuperLeft``    |                   |                 |
-| ``#hitShiftSuperRight``   |                   |                 |
-| ``#hitShiftSuperUp``      |                   |                 |
-| ``#hitSuperDown``         |                   |                 |
-| ``#hitSuperLeft``         |                   |                 |
-| ``#hitSuperRight``        |                   |                 |
-| ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up |
+| Command                   | Linux             | Mac                |
+| ------------------------- | ----------------- | ------------------ |
+| ``#hitModDown``           |                   |                    |
+| ``#hitModLeft``           |                   |                    |
+| ``#hitModRight``          |                   |                    |
+| ``#hitModUp``             | CTRL + cursor up  | ALT + cursor up    |
+| ``#hitShiftModDown``      |                   |                    |
+| ``#hitShiftModLeft``      |                   |                    |
+| ``#hitShiftModRight``     |                   |                    |
+| ``#hitShiftModUp``        |                   |                    |
+| ``#hitShiftSuperDown``    |                   |                    |
+| ``#hitShiftSuperLeft``    |                   |                    |
+| ``#hitShiftSuperRight``   |                   |                    |
+| ``#hitShiftSuperUp``      |                   |                    |
+| ``#hitSuperDown``         |                   |                    |
+| ``#hitSuperLeft``         |                   |                    |
+| ``#hitSuperRight``        |                   |                    |
+| ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up    |
+| ``#moveCaretToLineStart`` | Home              | CMD + cursor left  |
+| ``#moveCaretToLineEnd``   | End               | CMD + cursor right |
 
 **Common funcitonal shortcuts:**
 

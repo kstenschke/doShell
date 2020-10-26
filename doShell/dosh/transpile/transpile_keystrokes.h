@@ -19,7 +19,8 @@ class transpileKeystrokes {
 
   transpileKeystrokes* TranspileHitKey(const std::string &command,
                                        const std::string &xdotool_key,
-                                       const std::string &mac_key);
+                                       const std::string &mac_key,
+                                       const std::string &sleep = "");
 
   transpileKeystrokes* TranspileHitCopyAll();
   transpileKeystrokes* TranspileHitCutAll();
