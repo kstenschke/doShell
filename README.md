@@ -166,7 +166,7 @@ therefor must be surrounded by single or double quotes.
 | ``::DIR_EXEC::``    | Directory path from where doShell was invoked                     | Runtime          |
 | ``::FILE::``        | Absolute path of current file including the filename              | Transpilation    |
 | ``::LINE::``        | Line number in current file                                       | Transpilation    |
-| ``::MUTE::``        | ``&>/dev/null`` = redirects any output (to nowhere)               | Runtime          |
+| ``::MUTE::``        | ``&>/dev/null`` = silences the preceeding command's output        | Runtime          |
 | ``::OS::``          | ``linux`` or ``mac``                                              | Runtime          |
 | ``::TIMESTAMP::``   | Current UNIX timestamp                                            | Runtime          |
 
