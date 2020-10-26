@@ -116,4 +116,8 @@ transpileTerminal* transpileTerminal::TranspilePasteInTerminal() {
   return this;
 }
 
+void transpileTerminal::TranspileMute(std::string *code) {
+  helper::String::ReplaceAll(code, "::MUTE::", "&>/dev/null");
+}
+
 }  // namespace doShell

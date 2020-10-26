@@ -12,6 +12,7 @@ class transpileTerminal {
  public:
   explicit transpileTerminal(std::string *code);
   static void Transpile(std::string *code);
+  static void TranspileMute(std::string *code);
 
  private:
   std::string *code_;

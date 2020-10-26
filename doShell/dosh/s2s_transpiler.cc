@@ -63,6 +63,8 @@ void S2sTranspiler::TranspileCommands() {
       ++runs;
     }
   } while (contains_commands && runs < 5);
+
+  transpileTerminal::TranspileMute(&source_);
 }
 
 bool S2sTranspiler::SourceContainsCommands() {

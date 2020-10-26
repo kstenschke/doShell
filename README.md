@@ -165,6 +165,7 @@ therefor must be surrounded by single or double quotes.
 | ``::DIR_EXEC::``    | Directory path from where doShell was invoked                     | Runtime          |
 | ``::FILE::``        | Absolute path of current file including the filename              | Transpilation    |
 | ``::LINE::``        | Line number in current file                                       | Transpilation    |
+| ``::MUTE::``        | ``&>/dev/null`` = redirects any output (to nowhere)               | Runtime          |
 | ``::OS::``          | ``linux`` or ``mac``                                              | Runtime          |
 | ``::TIMESTAMP::``   | Current UNIX timestamp                                            | Runtime          |
 
@@ -276,9 +277,22 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#replaceAfterFromClipboard search replace``              | Replace everything after and including the first occurrences of given string  |                                                       |
 | ``#replaceBeforeFromClipboard search replace``             | Replace everything before and including the first occurrences of given string |
 | ``#replaceAllFromClipboard search replace``                | Replace all occurrences of given string                                       |
-| ``#replaceBetweenFromClipboard before after replacement `` | Remove text including and between "before" and "after"                        |
+| ``#replaceBetweenFromClipboard before after replacement `` | Replace text including and between "before" and "after"                       |
 | ``#replaceFirstFromClipboard search replace``              | Replace first occurrence of given string                                      |
 | ``#replaceLastFromClipboard search replace``               | Replace last occurrence of given string                                       |
+
+### Mute doShell output
+
+To prevent otherwise verbose doShell commands, from putting out their result you
+can append the ```::MUTE::``` modifier macro (which is simply a shorthand for 
+``&>/dev/null``). 
+
+**Example:**  
+
+````
+#setClipboard "https://www.test.com/foo-bar-baz-qux"
+#replaceBeforeFromClipboard // '' ::MUTE::
+````
 
 
 ### Dialogs
