@@ -350,7 +350,7 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#hitSuperRight``        |                   |                 |
 | ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up |
 
-**Common funcitonal shortcuts:**
+**Common functional shortcuts:**
 
 | Command                 | Description                    |
 | ----------------------- | ------------------------------ |   
