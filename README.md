@@ -16,7 +16,7 @@ doShell
     + [Conditional blocks](#conditional-blocks)
   * [Macros](#macros)  
   * [Commands](#commands)
-    + [Mute doShell output](#mute-doshell-output)
+    + [Mute output](#mute-output)
     + [Import](#import)
     + [Ivoke PHP and Node.js](#invoke-php-and-node.js) 
     + [String manipulation](#string-manipulation)
@@ -179,9 +179,9 @@ therefor must be surrounded by single or double quotes.
 ## Commands
 
 
-### Mute doShell output
+### Mute output
 
-To prevent otherwise verbose doShell commands, from printing their result
+To prevent otherwise verbose commands, from printing their result
 into the shell, the ```::MUTE::``` [modifier macro](#macros)
 (which is simply a shorthand for ``&>/dev/null``). 
 can be appended to otherwise verbose commands.
