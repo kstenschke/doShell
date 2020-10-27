@@ -181,9 +181,10 @@ therefor must be surrounded by single or double quotes.
 
 ### Mute doShell output
 
-To prevent otherwise verbose doShell commands, from putting out their result,
-you can append the ```::MUTE::``` [modifier macro](#macros) 
+To prevent otherwise verbose doShell commands, from printing their result
+into the shell, the ```::MUTE::``` [modifier macro](#macros)
 (which is simply a shorthand for ``&>/dev/null``). 
+can be appended to otherwise verbose commands.
 
 **Example:**  
 
