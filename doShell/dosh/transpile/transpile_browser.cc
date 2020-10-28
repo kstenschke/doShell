@@ -6,6 +6,12 @@
 namespace doShell {
 transpileBrowser::transpileBrowser(std::string *code) {
   code_ = code;
+
+  char *browser = getenv("DOSH_BROWSER");
+
+  *browser_ = nullptr == browser || strlen(browser) == 0
+      ? "firefox"
+      : browser;
 }
 
 void transpileBrowser::Transpile(std::string *code) {
@@ -32,16 +38,16 @@ transpileBrowser* transpileBrowser::TranspileActivate() {
 
   #if __linux__
   std::string replacement =
-        "if pidof -s firefox > /dev/null; then\n"
-        "    wmctrl -a Firefox\n"
+        "if pidof -s " + *browser_ + " > /dev/null; then\n"
+        "    wmctrl -a " + *browser_ + "\n"
         "else\n"
 //          "    me=$SUDO_USER\n"
-//          "    sudo -u $me nohup firefox > /dev/null &\n"
-        "    nohup firefox > /dev/null &\n"
+//          "    sudo -u $me nohup " + *browser_ + " > /dev/null &\n"
+        "    nohup " + *browser_ + " > /dev/null &\n"
         "fi";
   #else
     std::string replacement =
-        "osascript -e 'tell application \"Firefox\" to activate'";
+        "osascript -e 'tell application \"" + *browser_ + "\" to activate'";
   #endif
 
   replacement += "\nsleep 0.3";
@@ -238,11 +244,3 @@ transpileBrowser* transpileBrowser::TranspilePostFormData() {
 }
 }  // namespace doShell
 
-/*
-(()=>{
-data=new FormData();
-data.set('html',document.documentElement.innerHTML);
-req=new XMLHttpRequest();
-req.open("POST", 'http://localhost:8765', true);
-req.send(data);
-})()*/

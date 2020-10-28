@@ -4,7 +4,7 @@
 
 #activateBrowser
 #focusBrowserURL
-#hitCopyAll
+#hitCopy
 
 # remove scheme and domain from URL
 #replaceBeforeinClipboard // ""

@@ -16,6 +16,7 @@ class transpileBrowser {
 
  private:
   std::string *code_;
+  std::string *browser_;
 
   transpileBrowser* TranspileActivate();
 
