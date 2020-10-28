@@ -7,9 +7,9 @@
 #hitCopy
 
 # remove scheme and domain from URL
-#replaceBeforeinClipboard // ""
-#replaceBeforeinClipboard / ""
+#replaceBeforeFromClipboard // "" ::MUTE::
+#replaceBeforeFromClipboard / "" ::MUTE::
 #hitPaste
 
-#hitSuperLeft
+#moveCaretToLineStart
 #copyPaste 'http://localhost/'

@@ -1,3 +1,8 @@
+[![Platform](https://img.shields.io/badge/platform-osx%2Flinux-green)](#)
+[![License](https://img.shields.io/badge/License-MIT%20-yellowgreen)](https://github.com/kstenschke/doShell/blob/master/LICENSE.md)  
+[![Written in C++](https://img.shields.io/badge/written%20in-C++-lightblue)](#)
+
+
 doShell
 =======
 
@@ -11,7 +16,7 @@ doShell
     + [Conditional blocks](#conditional-blocks)
   * [Macros](#macros)  
   * [Commands](#commands)
-    + [Mute doShell output](#mute-doshell-output)
+    + [Mute output](#mute-output)
     + [Import](#import)
     + [Ivoke PHP and Node.js](#invoke-php-and-node.js) 
     + [String manipulation](#string-manipulation)
@@ -174,11 +179,12 @@ therefor must be surrounded by single or double quotes.
 ## Commands
 
 
-### Mute doShell output
+### Mute output
 
-To prevent otherwise verbose doShell commands, from putting out their result,
-you can append the ```::MUTE::``` [modifier macro](#macros) 
+To prevent otherwise verbose commands, from printing their result
+into the shell, the ```::MUTE::``` [modifier macro](#macros)
 (which is simply a shorthand for ``&>/dev/null``). 
+can be appended to otherwise verbose commands.
 
 **Example:**  
 
@@ -318,9 +324,13 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``#hitBackspace`` | Hit backspace key                      |
 | ``#hitDown``      | Hit cursor down key                    |
 | ``#hitEnter``     | Hit enter key                          |
+| ``#hitEnd``       | Hit end key                            |
 | ``#hitEsc``       | Hit escape key                         |
 | ``#hitF1``        | Hit F-Key                              |
+| ``#hitHome``      | Hit home key                           |
 | ``#hitLeft``      | Hit cursor left key                    |
+| ``#hitPageDown``  | Hit pageDown key                       |
+| ``#hitPageUp``    | Hit pageUp key                         |
 | ``#hitRight``     | Hit cursor right key                   |
 | ``#hitSpace``     | Hit space bar                          |
 | ``#hitTab``       | Hit tabulator key                      |
@@ -331,24 +341,26 @@ To over/write the result back to files, you can use the shell redirection operat
 
 **Cursor combos:**
 
-| Command                   | Linux             | Mac             |
-| ------------------------- | ----------------- | --------------- |
-| ``#hitModDown``           |                   |                 |
-| ``#hitModLeft``           |                   |                 |
-| ``#hitModRight``          |                   |                 |
-| ``#hitModUp``             | CTRL + cursor up  | ALT + cursor up |
-| ``#hitShiftModDown``      |                   |                 |
-| ``#hitShiftModLeft``      |                   |                 |
-| ``#hitShiftModRight``     |                   |                 |
-| ``#hitShiftModUp``        |                   |                 |
-| ``#hitShiftSuperDown``    |                   |                 |
-| ``#hitShiftSuperLeft``    |                   |                 |
-| ``#hitShiftSuperRight``   |                   |                 |
-| ``#hitShiftSuperUp``      |                   |                 |
-| ``#hitSuperDown``         |                   |                 |
-| ``#hitSuperLeft``         |                   |                 |
-| ``#hitSuperRight``        |                   |                 |
-| ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up |
+| Command                   | Linux             | Mac                |
+| ------------------------- | ----------------- | ------------------ |
+| ``#hitModDown``           |                   |                    |
+| ``#hitModLeft``           |                   |                    |
+| ``#hitModRight``          |                   |                    |
+| ``#hitModUp``             | CTRL + cursor up  | ALT + cursor up    |
+| ``#hitShiftModDown``      |                   |                    |
+| ``#hitShiftModLeft``      |                   |                    |
+| ``#hitShiftModRight``     |                   |                    |
+| ``#hitShiftModUp``        |                   |                    |
+| ``#hitShiftSuperDown``    |                   |                    |
+| ``#hitShiftSuperLeft``    |                   |                    |
+| ``#hitShiftSuperRight``   |                   |                    |
+| ``#hitShiftSuperUp``      |                   |                    |
+| ``#hitSuperDown``         |                   |                    |
+| ``#hitSuperLeft``         |                   |                    |
+| ``#hitSuperRight``        |                   |                    |
+| ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up    |
+| ``#moveCaretToLineStart`` | Home              | CMD + cursor left  |
+| ``#moveCaretToLineEnd``   | End               | CMD + cursor right |
 
 **Common functional shortcuts:**
 
