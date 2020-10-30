@@ -141,10 +141,11 @@ void S2sTranspiler::TranspileRuntimeVariables() {
 }
 
 bool S2sTranspiler::ParsePhp() {
-  if (!helper::String::Contains(source_, "<?php")) return false;
+  if (!helper::String::Contains(source_, "#php")) return false;
 
   std::string phtml = source_;
-  helper::String::ReplaceAll(&phtml, "#<?php", "<?php");
+  helper::String::ReplaceAll(&phtml, "#php", "<?php");
+  helper::String::ReplaceAll(&phtml, "#/php", "?>");
 
   InitPathPhtml();
 

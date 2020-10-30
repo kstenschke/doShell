@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 #!keep_runtime_file
 
-RESULT=#confirm "Ok or Cancel?"
+RESULT=#confirm "Do you agree?"
 RESULT=#replaceBefore "$RESULT" ':' ''
-MESSAGE="You clicked: $RESULT"
-#notify $MESSAGE
+
+if [ $RESULT == "Ok" ]; then
+  MESSAGE="You agreed."
+else
+  MESSAGE="You disagreed."
+fi
+
+#notify "$MESSAGE"

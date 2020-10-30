@@ -204,8 +204,7 @@ Import a specified file: ``#import another_file.do.sh``
 doShell script can contain inlined PHP (processed during pre-execution parsing, 
 see [functional flow diagram](#functional-flow)) 
 
-like:  
-``#!php echo time() ?>``  
+like: ``#php echo time() #/php``  
 
 Script example on embedding PHP with doShell: ``examples/09_parse_php.do.sh``
 
@@ -306,13 +305,13 @@ To over/write the result back to files, you can use the shell redirection operat
 
 ### Dialogs
 
-| Command                                                         | Description                       |
-| --------------------------------------------------------------- | --------------------------------- |
-| ``#notify "MESSAGE"``                                           | Display notification              |
-| ``#alert "MESSAGE"``                                            | Show alert popup                  |
-| ``var=#confirm "MESSAGE"``                                      | Open Ok/Cancel Dialog             |
-| ``var=#prompt "MESSAGE"``                                       | Popup with input field            |
-| ``var=#select "Take your pick:" {"Apple", "Banana", "Orange"}`` | Popup with options to select from |
+| Command                                                         | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- |
+| ``#notify "MESSAGE"``                                           | Display notification                                            |
+| ``#alert "MESSAGE"``                                            | Show alert popup                                                |
+| ``var=#confirm "MESSAGE"``                                      | Open Ok/Cancel Dialog, ``$var`` contains "Ok" or "Cancel" after |
+| ``var=#prompt "MESSAGE"``                                       | Popup with input field                                          |
+| ``var=#select "Take your pick:" {"Apple", "Banana", "Orange"}`` | Popup with options to select from                               |
 
 
 ### Send keystrokes
@@ -516,14 +515,14 @@ within doShell scripts).
 
 ### Runtime tools on Linux 
 
-| Tool                                                                       | Description                                                                             | License                                                                              |
-| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) | Simulate keyboard input and mouse activity, move and resize windows, etc.               | [New BSD license](https://opensource.org/licenses/BSD-3-Clause)                      |
-| [gxMessage](https://trmusson.dreamhosters.com/programs.html#gxmessage)     | GTK-based dialog windows interface for any terminal program                             | [GNU General Public License version 2](https://directory.fsf.org/wiki/License:GPLv2) |
-| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)                              | UNIX/Linux command line tool to interact with an EWMH/NetWM compatible X Window Manager | [GNU General Public License](https://opensource.org/licenses/gpl-license)            |
-| [xclip](https://linux.die.net/man/1/xclip)                                 |                                                                           |                                                                                      |
-| [xsel](https://linux.die.net/man/1/xsel)                                   |                                                                           |                                                                                      |
-| [PHP](https://www.php.net/)                                                | Open source general-purpose scripting language                            | [PHP License](https://www.php.net/license/)                                          |
+| Tool                                                                       | Description                                                                             | License                                                                                              |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [PHP](https://www.php.net/)                                                | Open source general-purpose scripting language                                          | [PHP License](https://www.php.net/license/)                                                          |
+| [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)                              | UNIX/Linux command line tool to interact with an EWMH/NetWM compatible X Window Manager | [GNU General Public License](https://opensource.org/licenses/gpl-license)                            |
+| [xclip](https://linux.die.net/man/1/xclip)                                 |                                                                                         |                                                                                                      |
+| [xddotool](http://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) | Simulate keyboard input and mouse activity, move and resize windows, etc.               | [New BSD license](https://opensource.org/licenses/BSD-3-Clause)                                      |
+| [xsel](https://linux.die.net/man/1/xsel)                                   |                                                                                         |                                                                                                      |
+| [zenity](https://wiki.gnome.org/Projects/Zenity)                           | Execution of GTK dialog boxes from command-line and shell scripts                       | [Gnu Lesser General Public License](https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License) |
 
                                                         
 ### Runtime tools on Mac 

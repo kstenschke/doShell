@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #!keep_runtime_file
 
-RES=#prompt "What do you think?"
-#alert $RES
+RESULT=#prompt "What do you think?"
+#alert $RESULT

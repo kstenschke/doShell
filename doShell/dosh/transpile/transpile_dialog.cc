@@ -26,10 +26,7 @@ transpileDialog* transpileDialog::TranspileNotify() {
   if (std::string::npos == code_->find("#notify ")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(
-        code_,
-        "#notify",
-        "gxmessage -center -ontop ") > 0;
+    helper::String::ReplaceAll(code_, "#notify", "notify-send ");
   #else
     // transpile: #notify $message
     std::string replacement =
@@ -52,10 +49,12 @@ transpileDialog* transpileDialog::TranspileAlert() {
   if (std::string::npos == code_->find("#alert ")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(
-        code_,
-        "#alert",
-        "gxmessage -center -ontop -bg red hello -title Alert ");
+    std::regex exp(R"(#alert (\$.*))");
+    std::string replacement = "zenity --warning --no-wrap --text=\"$1\" ::MUTE::";
+    *code_ = std::regex_replace(*code_, exp, replacement);
+
+    exp = (R"(#alert \"(.*)\")");
+    *code_ = std::regex_replace(*code_, exp, replacement);
   #else
     std::regex exp(R"(#alert (\$.*))");
     std::string replacement = "osascript -e \"display alert \\\"$1\\\"\"";
@@ -72,14 +71,17 @@ transpileDialog* transpileDialog::TranspileAlert() {
 transpileDialog* transpileDialog::TranspileConfirm() {
   if (std::string::npos == code_->find("#confirm ")) return this;
 
-  #if __linux__
-    helper::String::ReplaceAll(
-        code_,
-        "#confirm ",
-        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
-  #else
-    std::regex exp(R"(#confirm \"*(.*)\")");
+  std::regex exp(R"(#confirm \"*(.*)\")");
 
+  #if __linux__
+    std::string replacement =
+        "$("
+          "zenity --question --no-wrap --text=\"$1\" ::MUTE:: ; "
+          "if [ \"$?\" -eq 0 ]; then echo 'Ok'; else echo 'Cancel'; fi"
+        ")";
+
+    *code_ = std::regex_replace(*code_, exp, replacement);
+  #else
     std::string replacement =
         R"($(osascript -e 'display alert "$1" buttons {"Cancel", "Ok"}'))";
 
@@ -94,9 +96,17 @@ transpileDialog* transpileDialog::TranspilePrompt() {
 
   #if __linux__
     helper::String::ReplaceAll(
+        // TODO(kay): implement using zenity
         code_,
-        "#confirm ",
-        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
+        "#prompt ",
+        "$("
+          "gxmessage -center -geometry 400x200 "
+            "-name \"some name\" "
+            "-title \"Some Title\" "
+            "-buttons \"Ok:1,Cancel:01\" "
+            "-default \"Cancel\" "
+            "\"...\""
+        ")");
   #else
     std::regex exp(R"(#prompt \"*(.*)\")");
 
