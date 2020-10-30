@@ -94,22 +94,16 @@ transpileDialog* transpileDialog::TranspileConfirm() {
 transpileDialog* transpileDialog::TranspilePrompt() {
   if (std::string::npos == code_->find("#prompt ")) return this;
 
-  #if __linux__
-    helper::String::ReplaceAll(
-        // TODO(kay): implement using zenity
-        code_,
-        "#prompt ",
-        "$("
-          "gxmessage -center -geometry 400x200 "
-            "-name \"some name\" "
-            "-title \"Some Title\" "
-            "-buttons \"Ok:1,Cancel:01\" "
-            "-default \"Cancel\" "
-            "\"...\""
-        ")");
-  #else
-    std::regex exp(R"(#prompt \"*(.*)\")");
+  std::regex exp(R"(#prompt \"*(.*)\")");
 
+  #if __linux__
+    std::string replacement =
+        "$("
+          "zenity --entry --text=\"$1\" 2> /dev/null"
+        ")";
+
+    *code_ = std::regex_replace(*code_, exp, replacement);
+  #else
     std::string replacement =
       "$("
         "osascript -e 'set T to text returned of ("
