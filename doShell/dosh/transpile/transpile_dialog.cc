@@ -99,7 +99,7 @@ transpileDialog* transpileDialog::TranspilePrompt() {
   #if __linux__
     std::string replacement =
         "$("
-          "zenity --entry --text=\"$1\" ::MUTE-2::"
+          "zenity --entry --text=\"$1\" ::MUTE_2::"
         ")";
 
     *code_ = std::regex_replace(*code_, exp, replacement);
