@@ -514,9 +514,6 @@ to perform automation, display dialogs, etc.
 These vary by platform, not all tools are mandatory (depending on options used 
 within doShell scripts).  
 
-As these third party tools are not bundled in any form into doShell, their
-license liabilities are not affecting doShell.
-
 
 ### Runtime tools on Linux 
 
@@ -537,6 +534,8 @@ license liabilities are not affecting doShell.
 | AppleScript (osascript)                      | **Note:** Assistive access must be enabled     | Proprietary (parts available under [APSL](https://opensource.org/licenses/APSL-2.0)) |               
 | [PHP](https://www.php.net/)                  | Open source general-purpose scripting language | [PHP License](https://www.php.net/license/)                                          |
 
+As these third party runtime tools are not bundled in any form into doShell, 
+their license liabilities are not affecting doShell.
 
 ### Third party tools used in examples
 
