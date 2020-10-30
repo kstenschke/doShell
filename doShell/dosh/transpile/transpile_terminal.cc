@@ -127,6 +127,7 @@ transpileTerminal* transpileTerminal::TranspilePasteInTerminal() {
 
 void transpileTerminal::TranspileMute(std::string *code) {
   helper::String::ReplaceAll(code, "::MUTE::", "&>/dev/null");
+  helper::String::ReplaceAll(code, "::MUTE_2::", "2>/dev/null");
 }
 
 }  // namespace doShell

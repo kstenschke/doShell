@@ -164,16 +164,17 @@ therefor must be surrounded by single or double quotes.
 
 ### Macros
 
-| Macro               | Replaced by                                                       | Replaced during  |
-| ------------------- | ----------------------------------------------------------------- | ---------------- |
-| ``::DIR::``         | Absolute path of current file w/o filename                        | Transpilation    |
-| ``::DIR_DOSH::``    | Absolute path of current running doShell executable w/o filename  | Runtime          |
-| ``::DIR_EXEC::``    | Directory path from where doShell was invoked                     | Runtime          |
-| ``::FILE::``        | Absolute path of current file including the filename              | Transpilation    |
-| ``::LINE::``        | Line number in current file                                       | Transpilation    |
-| ``::MUTE::``        | ``&>/dev/null`` = silences the preceeding command's output        | Runtime          |
-| ``::OS::``          | ``linux`` or ``mac``                                              | Runtime          |
-| ``::TIMESTAMP::``   | Current UNIX timestamp                                            | Runtime          |
+| Macro               | Replaced by                                                                  | Replaced during  |
+| ------------------- | ---------------------------------------------------------------------------- | ---------------- |
+| ``::DIR::``         | Absolute path of current file w/o filename                                   | Transpilation    |
+| ``::DIR_DOSH::``    | Absolute path of current running doShell executable w/o filename             | Runtime          |
+| ``::DIR_EXEC::``    | Directory path from where doShell was invoked                                | Runtime          |
+| ``::FILE::``        | Absolute path of current file including the filename                         | Transpilation    |
+| ``::LINE::``        | Line number in current file                                                  | Transpilation    |
+| ``::MUTE::``        | ``&>/dev/null`` = silences the preceeding command's STDOUT and STDERR output | Runtime          |
+| ``::MUTE_2::``      | ``2>/dev/null`` = silences the preceeding command's file descriptor output   | Runtime          |
+| ``::OS::``          | ``linux`` or ``mac``                                                         | Runtime          |
+| ``::TIMESTAMP::``   | Current UNIX timestamp                                                       | Runtime          |
 
 
 ## Commands
