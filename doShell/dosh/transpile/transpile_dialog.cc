@@ -124,10 +124,23 @@ transpileDialog* transpileDialog::TranspileSelect() {
   if (std::string::npos == code_->find("#select ")) return this;
 
   #if __linux__
-    helper::String::ReplaceAll(
-        code_,
-        "#confirm ",
-        "gxmessage -center -ontop -buttons \"Ok:1,Cancel:0\" ");
+    // step 1: transform into zenity list command
+    std::regex exp(R"(#select \"(.*)\" \{(\".*\"(, )*)+\})");
+
+    std::string replacement =
+        "$("
+          "column_names=(--column=Item); "
+          "row=($2); "
+          "zenity --width=520 --height=300 "
+          "--list --title=\"list\" "
+          "\"${column_names[@]}\" \"${row[@]}\""
+        ")";
+
+    *code_ = std::regex_replace(*code_, exp, replacement);
+
+    // step 2: remove undesired commas between row items
+    // TODO(kay) implement
+
   #else
     std::regex exp(R"(#select \"(.*)\" (\{\".*\"(, )*\})+)");
 
@@ -136,8 +149,8 @@ transpileDialog* transpileDialog::TranspileSelect() {
          "set doshOptions to $2\n"
          "set doshChoice to "
            "choose from list doshOptions "
-           "with prompt \"$1\" "
-           "default items {\"Apple\"}\n"
+           "with prompt \"$1\" \n"
+//           "default items {\"Apple\"}\n"
        "EOF)\n";
 
     *code_ = std::regex_replace(*code_, exp, replacement);
