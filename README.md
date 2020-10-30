@@ -509,9 +509,10 @@ Third Party References
 
 ## Runtime tools 
 
-doShell uses existing tools from third parties (and some doShell built-in commands) to peform automation, 
-display dialogs, etc. The third party tools vary by platform, not all tools are mandatory (depending on options used 
-within doShell scripts). 
+doShell invokes existing third party tools (and some doShell built-in commands)
+to perform automation, display dialogs, etc.  
+These tools (are not bundled in any form into doShell and) vary by platform,
+not all tools are mandatory (depending on options used within doShell scripts). 
 
 
 ### Runtime tools on Linux 
