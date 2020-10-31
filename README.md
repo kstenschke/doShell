@@ -45,9 +45,10 @@ Shell wrapper/macro language for rapid automation scripting on linux/macOS
 
 ## What does it do?
 
-doShell provides a superset of shell script, geared towards cross-platform 
+doShell provides a superset of shell script, geared towards rapid cross-platform 
 (Linux and Mac OS) headfull UI automation.    
-doShell automation is foremost targeted, but not limited, to operations involving browsing the web.
+doShell is foremost targeted, but not limited, to automation of operations involving
+browsing the web.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
