@@ -62,7 +62,7 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 * Commands for invoking GUI dialogs (alert, notify, confirm, prompt, select)
 * Scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
-* Browser automation is done by fake user interaction, 
+* For infoSec researchers: Browser automation is done by fake user interaction, 
   therefor a completely unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
