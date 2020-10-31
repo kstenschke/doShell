@@ -51,7 +51,10 @@ transpileDialog* transpileDialog::TranspileAlert() {
 
   #if __linux__
     std::regex exp(R"(#alert (\$.*))");
-    std::string replacement = "zenity --warning --no-wrap --text=\"$1\" ::MUTE::";
+
+    std::string replacement =
+        "zenity --warning --no-wrap --text=\"$1\" ::MUTE::";
+
     *code_ = std::regex_replace(*code_, exp, replacement);
 
     exp = (R"(#alert \"(.*)\")");
@@ -138,7 +141,7 @@ transpileDialog* transpileDialog::TranspileSelect() {
           "row=($2); "
           "zenity --width=520 --height=300 "
           "--list --title=\"list\" "
-          "\"${column_names[@]}\" \"${row[@]}\""
+          "\"${column_names[@]}\" \"${row[@]}\" ::MUTE_2::"
         ")";
 
     *code_ = std::regex_replace(*code_, exp1, replacement);
