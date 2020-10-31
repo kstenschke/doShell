@@ -58,7 +58,7 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 * Mimick user-interaction / UI control of (foremost) web browsing operations
 * Shorthand commands to ease operations that differ per platform or are not 
-  easily memorable in plain shell script
+  easily memorable in plain shell script, xDoTool/appleScript, etc.
 * Commands for invoking GUI dialogs (alert, notify, confirm, prompt, select)
 * Scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
