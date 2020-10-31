@@ -124,6 +124,7 @@ if existing, an already transpiled intermediary file is overwritten.
 | ``#!browser chromium``                | Sets the browser to be used, e.g. ``chromium`` or ``firefox``. Default: ``firefox``                                |
 | ``#!keep_runtime_file``               | By default, doShell removes the temporary execution code, this flag instructs the runtime system to keep that file |
 | ``#!remove_transpilation``            | By default, doShell keeps the intermediary code, this flag instructs the runtime system to delete that file        |
+| ``#!terminal xterm``                  | Linux only: on mac the default terminal is used. Sets the terminal to be used, default: ``gnome-terminal``         |
 
 
 ### Conditional blocks

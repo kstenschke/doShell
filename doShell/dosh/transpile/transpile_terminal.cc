@@ -7,6 +7,12 @@ namespace doShell {
 
 transpileTerminal::transpileTerminal(std::string *code) {
   code_ = code;
+
+  char *terminal = getenv("DOSH_TERMINAL");
+
+  *terminal_ = nullptr == terminal || strlen(terminal) == 0
+    ? "gnome-terminal"
+    : terminal;
 }
 
 void transpileTerminal::Transpile(std::string *code) {
@@ -28,12 +34,12 @@ transpileTerminal* transpileTerminal::TranspileActivate() {
 
 #if __linux__
   std::string replacement =
-        "if pidof -s terminal > /dev/null; then\n"
-        "    wmctrl -a terminal\n"
+        "if pidof -s " + *terminal_ + " > /dev/null; then\n"
+        "    wmctrl -a " + *terminal_ + "\n"
         "else\n"
 //          "    me=$SUDO_USER\n"
 //          "    sudo -u $me nohup terminal > /dev/null &\n"
-        "    nohup terminal > /dev/null &\n"
+        "    nohup " + *terminal_ + " > /dev/null &\n"
         "fi";
 #else
   std::string replacement =
