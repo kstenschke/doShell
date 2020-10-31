@@ -6,6 +6,10 @@
 doShell
 =======
 
+
+Shell wrapper/macro language for rapid automation scripting on linux/macOS  
+
+
 ## Table of Contents
 
 - [DoShell](#doshell)
@@ -41,9 +45,8 @@ doShell
 
 ## What does it do?
 
-doShell script is a superset of shell script, geared towards cross-platform 
-(Linux and Mac OS) headfull UI automation, with the ability of scripts for 
-being parameterized via runtime parameters and interactive by the use of UI dialogs.  
+doShell provides a superset of shell script, geared towards cross-platform 
+(Linux and Mac OS) headfull UI automation.    
 doShell automation is foremost targeted, but not limited, to operations involving browsing the web.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
@@ -55,11 +58,11 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
 
 * Mimick user-interaction / UI control of (foremost) web browsing operations
 * Shorthand commands to ease operations that differ per platform or are not 
-  easily memorable in plain shell script
+  easily memorable in plain shell script, xDoTool/appleScript, etc.
 * Commands for invoking GUI dialogs (alert, notify, confirm, prompt, select)
 * Scripts can be parameterized via JSON passed at execution time
 * Separation of Concerns/DRY: doShell can import code from other files
-* Browser automation is done by fake user interaction, 
+* For infoSec researchers: Browser automation is done by fake user interaction, 
   therefor a completely unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
