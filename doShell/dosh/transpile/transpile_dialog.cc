@@ -2,6 +2,7 @@
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #include <doShell/dosh/transpile/transpile_dialog.h>
+#include <iostream>
 
 namespace doShell {
 
@@ -124,8 +125,12 @@ transpileDialog* transpileDialog::TranspileSelect() {
   if (std::string::npos == code_->find("#select ")) return this;
 
   #if __linux__
-    // step 1: transform into zenity list command
-    std::regex exp(R"(#select \"(.*)\" \{(\".*\"(, )*)+\})");
+    // step 1: remove undesired commas between row items
+    // (needed only for mac os / appleScript)
+    RemoveCommasBetweenRowItems();
+
+    // step 2: transform into zenity list command
+    std::regex exp1(R"(#select \"(.*)\" \{(\".*\"( )*)+\})");
 
     std::string replacement =
         "$("
@@ -136,12 +141,8 @@ transpileDialog* transpileDialog::TranspileSelect() {
           "\"${column_names[@]}\" \"${row[@]}\""
         ")";
 
-    *code_ = std::regex_replace(*code_, exp, replacement);
-
-    // step 2: remove undesired commas between row items
-    // TODO(kay) implement
-
-  #else
+    *code_ = std::regex_replace(*code_, exp1, replacement);
+#else
     std::regex exp(R"(#select \"(.*)\" (\{\".*\"(, )*\})+)");
 
     std::string replacement =
@@ -157,6 +158,44 @@ transpileDialog* transpileDialog::TranspileSelect() {
   #endif
 
   return this;
+}
+
+// transform lines like: #select "Take your pick:" {"Apple", "Banana", "Orange"}
+//                 into: #select "Take your pick:" {"Apple" "Banana" "Orange"}
+void transpileDialog::RemoveCommasBetweenRowItems() const {
+  int offset_select = 0;
+  auto len_code = code_->length();
+
+  do {
+    offset_select = code_->find("#select ", offset_select + 8);
+
+    if (offset_select == std::string::npos || offset_select >= len_code) break;
+
+    auto offset_in_items = code_->find("{", offset_select);
+    auto offset_newline = code_->find("\n", offset_select + 1);
+
+    if (offset_in_items != std::string::npos) {
+      ++offset_in_items;
+
+      char ch = '{';
+      char ch_prev;
+
+      bool is_within_item = false;
+
+      do {
+        ch_prev = ch;
+        ch = code_->operator[](offset_in_items);
+
+        if (ch == '"' && ch_prev != '\\')
+          is_within_item = !is_within_item;
+        else if (!is_within_item && ch == ',')
+          code_->operator[](offset_in_items) = ' ';
+
+        ++offset_in_items;
+      } while (
+          ch != '\n' && offset_in_items < offset_newline);
+    }
+  } while (offset_select != std::string::npos && offset_select >= len_code);
 }
 
 }  // namespace doShell

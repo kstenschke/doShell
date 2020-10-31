@@ -21,6 +21,8 @@ class transpileDialog {
   transpileDialog* TranspileConfirm();
   transpileDialog* TranspilePrompt();
   transpileDialog* TranspileSelect();
+
+  void RemoveCommasBetweenRowItems() const;
 };
 }  // namespace doShell
 
