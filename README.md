@@ -6,6 +6,10 @@
 doShell
 =======
 
+
+Shell wrapper/macro language for rapid automation scripting on linux/macOS  
+
+
 ## Table of Contents
 
 - [DoShell](#doshell)
