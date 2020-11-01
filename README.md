@@ -6,7 +6,6 @@
 doShell
 =======
 
-
 Shell wrapper/macro language for rapid automation scripting on linux/macOS  
 
 
@@ -47,8 +46,8 @@ Shell wrapper/macro language for rapid automation scripting on linux/macOS
 
 doShell provides a superset of shell script, geared towards rapid cross-platform 
 (Linux and Mac OS) headfull UI automation.    
-doShell is foremost targeted, but not limited, to automation of operations involving
-browsing the web.
+doShell is foremost targeted, but not limited, to automation of operations
+involving browsing the web.
 
 This project is a source-to-source (S2S) transpiler and runtime system.  
 
@@ -99,8 +98,8 @@ script to a new intermediary file ``script.do.x.sh``
 
 doShell transpiles to intermediary shell script files,
 which are stored for better performance  when repeatedly running
-the same script. Additional to conventional shell script code, they can contain runtime macros: 
-placeholder-strings for generic content, and runtime variables.
+the same script. Additional to conventional shell script code, they can contain 
+runtime macros: placeholder-strings for generic content, and runtime variables.  
 The doShell runtime system replaces runtime macros, -variables and -conditional
 blocks before the eventual execution.  
 
@@ -129,8 +128,8 @@ if existing, an already transpiled intermediary file is overwritten.
 
 ### Conditional blocks
 
-Though its own commands are cross-platform compatible, doShell provides shorthand commands
-to easily implement platform specific script variations.
+Though its own commands are cross-platform compatible, doShell provides
+shorthand commands to easily implement platform specific script variations.
 
 **Example:**
 
@@ -152,7 +151,8 @@ to easily implement platform specific script variations.
 ### Runtime variables
 
 Arbitrary string replacements to be done at runtime, can be passed
-JSON-formatted when invoking the doShell interpreter to run a ``*.do.x.sh`` file. 
+JSON-formatted when invoking the doShell interpreter to run a ``*.do.x.sh`` 
+file. 
 
 **Example**
 
@@ -488,12 +488,12 @@ manipulation and import / export of text from/to the clipboard.
 ## Functions, iterations, conditions, extensions
 
 doShell is a superset of shell script:  
-All language constructs of regular shell script can be
-used within doShell script. 
+All language constructs of regular shell script can be used within doShell 
+script. 
 
-DoShell can invoke all scripts that regular
-shell scripts can. Therefor there is no limit to extend 
-doShell with arbitrary tools, native or of any language.
+DoShell can invoke all scripts that regular shell scripts can.
+Therefor there is no limit to extend doShell with arbitrary tools, native or of
+any language.
 
 
 ## Script Examples
