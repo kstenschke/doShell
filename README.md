@@ -221,8 +221,8 @@ Script example on embedding PHP with doShell: ``examples/09_parse_php.do.sh``
 Script example for embedding node.js modules within doShell:  
   ``examples/17_export_website_to_markdown.do.sh``  
 
-Prior to using node modules from within doShell, ensure you must of course 
-install the used dependencies, e.g. when using 
+Prior to using node modules from within doShell, install
+the used dependencies, e.g. when using 
 [turndown](https://github.com/domchristie/turndown) as in 
 ``examples/17_export_website_to_markdown.do.sh``:
 
