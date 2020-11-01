@@ -207,6 +207,8 @@ Import a specified file: ``#import another_file.do.sh``
 
 ### Invoke PHP and Node.js
 
+**Inline PHP:**  
+
 doShell script can contain inlined PHP (processed during pre-execution parsing, 
 see [functional flow diagram](#functional-flow)) 
 
@@ -214,7 +216,20 @@ like: ``#php echo time() #/php``
 
 Script example on embedding PHP with doShell: ``examples/09_parse_php.do.sh``
 
-Script example for embedding Node.js within doShell:  ``examples/17_export_website_to_markdown.do.sh``
+**Use nodeJS modules from within doShell:**  
+
+Script example for embedding Node.js within doShell:  
+  ``examples/17_export_website_to_markdown.do.sh``  
+
+Prior to using node modules from within doShell, ensure you must of course 
+install the used dependencies, e.g. when using 
+[turndown](https://github.com/domchristie/turndown) as in 
+``examples/17_export_website_to_markdown.do.sh``:
+
+````
+npm init
+npm install turndown
+````
 
 
 ### String manipulation

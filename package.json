@@ -1,0 +1,15 @@
+{
+  "name": "shelldo-npm-dependencies",
+  "version": "1.0.0",
+  "description": "Optional node modules to be used from within doShell, see examples/17",
+  "main": "index.js",
+  "directories": {},
+  "scripts": {},
+  "repository": {},
+  "author": "Kay Stenschke",
+  "license": "MIT",
+  "homepage": "https://github.com/kstenschke/shellDo",
+  "dependencies": {
+    "turndown": "^7.0.0"
+  }
+}
