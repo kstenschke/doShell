@@ -13,7 +13,7 @@ Shell wrapper/macro language for rapid automation scripting on linux/macOS
 ## Table of Contents
 
 - [DoShell](#doshell)
-  * [What does it do?](#idea---wat-does-(will)-it-do?)
+  * [What does it do?](#what-does-it-do?)
   * [Functional Flow](#functional-flow) 
   * [Runtime options](#runtime-options)
     + [Flags](#Flags)
@@ -22,7 +22,7 @@ Shell wrapper/macro language for rapid automation scripting on linux/macOS
   * [Commands](#commands)
     + [Mute output](#mute-output)
     + [Import](#import)
-    + [Ivoke PHP and Node.js](#invoke-php-and-node.js) 
+    + [Ivoke PHP and Node.js](#invoke-php-and-nodejs) 
     + [String manipulation](#string-manipulation)
       + [General](#general)
       + [URL parsing](#url-parsing)
@@ -216,9 +216,9 @@ like: ``#php echo time() #/php``
 
 Script example on embedding PHP with doShell: ``examples/09_parse_php.do.sh``
 
-**Use nodeJS modules from within doShell:**  
+**Use node.js modules from within doShell:**  
 
-Script example for embedding Node.js within doShell:  
+Script example for embedding node.js modules within doShell:  
   ``examples/17_export_website_to_markdown.do.sh``  
 
 Prior to using node modules from within doShell, ensure you must of course 
