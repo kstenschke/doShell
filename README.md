@@ -79,8 +79,8 @@ also have a glance at the included [script examples](#script-examples).
    2. To avoid bloating automation scripts with ``sleep`` commands,
    related commands imply a plausible successive minimum delay 
 3. Don't reinvent the wheel:  
-   1. Use and combine existing tools  (shell script, xdotool / applescript, 
-      php, ...)  
+   1. Use and combine existing tools  (shell script, applescript / xdotool + wmCtrl + zenity, 
+      php, node.js)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
    (mask doShell commands as shell script comments)   
