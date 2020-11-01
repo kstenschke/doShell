@@ -18,6 +18,8 @@ class transpileTerminal {
   std::string *code_;
   std::string *terminal_;
 
+  bool has_terminal_window_id = false;
+
   transpileTerminal* TranspileActivate();
   transpileTerminal* TranspileCopyPasteInTerminal();
   transpileTerminal* TranspileHitCopyInTerminal();

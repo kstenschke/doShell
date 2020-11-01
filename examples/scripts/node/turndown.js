@@ -8,7 +8,7 @@
  * @param arv[3] destination file (markdown)
  */
 
-// Make sure we got a filename on the command line.
+// Make sure we got a filename on the command line
 if (process.argv.length < 3) {
     console.log('Usage: node ' + process.argv[1]
         + ' html_source_filename');

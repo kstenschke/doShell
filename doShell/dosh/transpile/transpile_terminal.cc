@@ -20,11 +20,36 @@ void transpileTerminal::Transpile(std::string *code) {
 
   auto *instance = new transpileTerminal(code);
 
+#if __linux__
+  // linux only: remember from which terminal doShell was invoked initially
+  // for #activateTerminal to know which terminal instance to re-focus
+  // via:  xdotool windowactivate $DOSH_TERMINAL
+  // (mac os does that by itself)
+  instance->has_terminal_window_id = true;
+
+  std::string remember_terminal =
+      "DOSH_TERMINAL=$(xdotool getactivewindow)\n";
+
+  auto offset_insert = instance->code_->find("#!/usr/bin/env");
+
+  if (offset_insert == std::string::npos) {
+    *(instance->code_) = remember_terminal + *(instance->code_);
+  } else {
+    offset_insert = instance->code_->find("\n");
+
+    *(instance->code_) =
+        instance->code_->substr(0, offset_insert)
+        + "\n\n" + remember_terminal
+        + instance->code_->substr(offset_insert + 1);
+  }
+#endif
+
   instance
       ->TranspileActivate()
-      ->TranspileActivate()
-      ->TranspileActivate()
-      ->TranspileActivate();
+      ->TranspileCopyPasteInTerminal()
+      ->TranspileHitCopyInTerminal()
+      ->TranspileHitFindInTerminal()
+      ->TranspilePasteInTerminal();
 
   delete instance;
 }
@@ -32,22 +57,28 @@ void transpileTerminal::Transpile(std::string *code) {
 transpileTerminal* transpileTerminal::TranspileActivate() {
   if (std::string::npos == code_->find("#activateTerminal")) return this;
 
+  std::string replacement;
+
 #if __linux__
-  std::string replacement =
+  if (has_terminal_window_id) {
+    // doShell runs initially from within a terminal window to return to
+    replacement = "xdotool windowactivate \"$DOSH_TERMINAL\"\n";
+  } else {
+    // fallback: find/activate terminal window
+    replacement =
         "if pidof -s " + *terminal_ + " > /dev/null; then\n"
-        "    wmctrl -a " + *terminal_ + "\n"
+          "    wmctrl -a " + *terminal_ + "\n"
         "else\n"
 //          "    me=$SUDO_USER\n"
 //          "    sudo -u $me nohup terminal > /dev/null &\n"
-        "    nohup " + *terminal_ + " > /dev/null &\n"
+          "    nohup " + *terminal_ + " > /dev/null &\n"
         "fi";
+  }
 #else
-  std::string replacement =
-      "osascript -e 'tell application \"Terminal\" to activate'";
+  replacement = "osascript -e 'tell application \"Terminal\" to activate'";
 #endif
 
   replacement += "\nsleep 0.2";
-
   helper::String::ReplaceAll(code_, "#activateTerminal", replacement);
 
   return this;

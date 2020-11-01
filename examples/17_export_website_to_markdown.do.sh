@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-# Load wikipedia in new browser tab,
-# enter search term and invoke search
-# wait for page being loaded
-# copy page source HTML
-# convert source HTML to Markdown
-# output text to console
+# Load wikipedia in new browser tab, enter search term and invoke search
+# wait for page being loaded, copy page source HTML,
+# convert source HTML to Markdown. Finally output Markdown to console
 
 #activateBrowser
 #openUrlInNewBrowserTab "https://www.wikipedia.org/"
