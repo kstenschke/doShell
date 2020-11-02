@@ -49,7 +49,8 @@ doShell provides a superset of shell script, geared towards rapid cross-platform
 doShell is foremost targeted, but not limited, to automation of operations
 involving browsing the web.
 
-This project is a source-to-source (S2S) transpiler and runtime system.  
+This project is a source-to-source (S2S) transpiler (for allowing, unlike to if
+implemented as purely an iterpreter, manual script refinements) and runtime system.  
 
 **What about Windows?**
 On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
