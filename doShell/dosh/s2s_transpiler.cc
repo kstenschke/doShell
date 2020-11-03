@@ -68,7 +68,7 @@ void S2sTranspiler::TranspileCommands() {
 }
 
 bool S2sTranspiler::SourceContainsCommands() {
-  std::regex exp("#[a-zA-Z]");
+  std::regex exp("_[a-zA-Z]");
 
   return 0 < std::distance(  // Count the number of matches inside the iterator
       std::sregex_iterator(source_.begin(), source_.end(), exp),

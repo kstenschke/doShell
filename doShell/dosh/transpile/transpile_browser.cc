@@ -52,7 +52,7 @@ transpileBrowser* transpileBrowser::TranspileActivate() {
 
   replacement += "\nsleep 0.3";
 
-  helper::String::ReplaceAll(code_, "#activateBrowser", replacement);
+  helper::String::ReplaceAll(code_, "_activateBrowser", replacement);
 
   return this;
 }

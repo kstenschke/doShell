@@ -55,7 +55,7 @@ void transpileTerminal::Transpile(std::string *code) {
 }
 
 transpileTerminal* transpileTerminal::TranspileActivate() {
-  if (std::string::npos == code_->find("#activateTerminal")) return this;
+  if (std::string::npos == code_->find("_activateTerminal")) return this;
 
   std::string replacement;
 
@@ -79,7 +79,7 @@ transpileTerminal* transpileTerminal::TranspileActivate() {
 #endif
 
   replacement += "\nsleep 0.2";
-  helper::String::ReplaceAll(code_, "#activateTerminal", replacement);
+  helper::String::ReplaceAll(code_, "_activateTerminal", replacement);
 
   return this;
 }

@@ -512,28 +512,29 @@ any language.
 
 The following example scripts can be found under [/examples](/examples):
 
-| File                                                                                   | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [01_import.do.sh](/examples/01_import.do.sh)                                           | Import scripts from other file                                                         |
-| [02_macros.do.sh](/examples/02_macros.do.sh)                                           | Use transpiler- and runtime macros                                                     |
-| [03_platform_conditions.do.sh](/examples/03_platform_conditions.do.sh)                 | Vary code per platform                                                                 |
-| [04_random.do.sh](/examples/04_random.do.sh)                                           | Random value generation                                                                |
-| [05_strings.do.sh](/examples/05_strings.do.sh)                                         | String manipulation                                                                    |
-| [06_strings_from_files.do.sh](/examples/06_strings_from_files.do.sh)                   | Manipulation of strings from files                                                     |
-| [07_clipboard_strings.do.sh](/examples/07_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                        |
-| [08_parse_url.do.sh](/examples/08_parse_url.do.sh)                                     | Parse and encode/decode URL parts                                                      |
-| [09_parse_php.do.sh](/examples/09_parse_php.do.sh)                                     | Use PHP within doShell script                                                          |
-| [10_runtime_variables.do.sh](/examples/10_runtime_variables.do.sh)                     | Use of dynamic runtime variables                                                       |
-| [11_dialogs_alert.do.sh](/examples/11_dialogs_alert.do.sh)                             | Display an alert popup on the desktop                                                  |
-| [12_dialogs_notify.do.sh](/examples/12_dialogs_notify.do.sh)                           | Display a notification on the desktop                                                  |
-| [13_dialogs_confirm.do.sh](/examples/13_dialogs_confirm.do.sh)                         | Display and evaluate the choice of an ok- or cancel- confirmation popup on the desktop |
-| [14_dialogs_prompt.do.sh](/examples/14_dialogs_prompt.do.sh)                           | Display and evaluate the input of a prompt popup on the desktop                        |
-| [15_dialogs_select.do.sh](/examples/15_dialogs_select.do.sh)                           | Display and evaluate the choice of a selection popup on the desktop                    |
-| [16_perform_google_search.do.sh](/examples/16_perform_google_search.do.sh)             | Open google in a new browser tab enter a search term and invoke search                 |
-| [17_export_website_to_markdown.do.sh](/examples/17_export_website_to_markdown.do.sh)   | Get source HTML of website, convert (using Node.js) and output as markdown             |
-| [18_run_js_in_dev_console.do.sh](/examples/18_run_js_in_dev_console.do.sh)             | Open the browser's dev console, insert and run script in it                            |
-| [19_extract_urls_from_web_page.do.sh](/examples/19_extract_urls_from_web_page.do.sh)   | Extract all URLs from HTML source of a web page                                        |
-| [20_swop_domain.do.sh](/examples/20_swop_domain.do.sh)                                 | Replace any domain loaded in browser by "localhost", maintaining rest of URL           |
+| File                                                                                   | Description                                                                                  |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [01_import.do.sh](/examples/01_import.do.sh)                                           | Import scripts from other file                                                               |
+| [02_macros.do.sh](/examples/02_macros.do.sh)                                           | Use transpiler- and runtime macros                                                           |
+| [03_platform_conditions.do.sh](/examples/03_platform_conditions.do.sh)                 | Vary code per platform                                                                       |
+| [04_random.do.sh](/examples/04_random.do.sh)                                           | Random value generation                                                                      |
+| [05_strings.do.sh](/examples/05_strings.do.sh)                                         | String manipulation                                                                          |
+| [06_strings_from_files.do.sh](/examples/06_strings_from_files.do.sh)                   | Manipulation of strings from files                                                           |
+| [07_clipboard_strings.do.sh](/examples/07_clipboard_strings.do.sh)                     | Clipboard manipulation commands                                                              |
+| [08_parse_url.do.sh](/examples/08_parse_url.do.sh)                                     | Parse and encode/decode URL parts                                                            |
+| [09_parse_php.do.sh](/examples/09_parse_php.do.sh)                                     | Use PHP within doShell script                                                                |
+| [10_runtime_variables.do.sh](/examples/10_runtime_variables.do.sh)                     | Use of dynamic runtime variables                                                             |
+| [11_dialogs_alert.do.sh](/examples/11_dialogs_alert.do.sh)                             | Display an alert popup on the desktop                                                        |
+| [12_dialogs_notify.do.sh](/examples/12_dialogs_notify.do.sh)                           | Display a notification on the desktop                                                        |
+| [13_dialogs_confirm.do.sh](/examples/13_dialogs_confirm.do.sh)                         | Display and evaluate the choice of an ok- or cancel- confirmation popup on the desktop       |
+| [14_dialogs_prompt.do.sh](/examples/14_dialogs_prompt.do.sh)                           | Display and evaluate the input of a prompt popup on the desktop                              |
+| [15_dialogs_select.do.sh](/examples/15_dialogs_select.do.sh)                           | Display and evaluate the choice of a selection popup on the desktop                          |
+| [16_perform_google_search.do.sh](/examples/16_perform_google_search.do.sh)             | Open google in a new browser tab enter a search term and invoke search                       |
+| [17_export_website_to_markdown.do.sh](/examples/17_export_website_to_markdown.do.sh)   | Get source HTML of website, convert (using Node.js) and output as markdown                   |
+| [18_run_js_in_dev_console.do.sh](/examples/18_run_js_in_dev_console.do.sh)             | Open the browser's dev console, insert and run script in it                                  |
+| [19_extract_urls_from_web_page.do.sh](/examples/19_extract_urls_from_web_page.do.sh)   | Extract all URLs from HTML source of a web page                                              |
+| [20_swop_domain_to_localhost.do.sh](/examples/20_swop_domain_to_localhost.do.sh)       | Replace any domain loaded in browser by "localhost", maintaining rest of URL                 |
+| [21_swop_to_selected_domain.do.sh](/examples/[21_swop_to_selected_domain.do.sh)        | Replace any domain loaded in browser by  domain selected from popup, maintaining rest of URL |
 
 
 Third Party References
