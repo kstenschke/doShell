@@ -2,9 +2,9 @@
 #!keep_runtime_file
 
 #if_is_linux
-  #notify "Hello Linux!"
+  _notify "Hello Linux!"
 #endif_is_linux
 
 #if_is_mac
-  #notify "Hello Mac!"
+  _notify "Hello Mac!"
 #endif_is_mac

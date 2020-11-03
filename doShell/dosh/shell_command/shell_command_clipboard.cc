@@ -6,6 +6,9 @@
 
 namespace doShell {
 
+// TODO(kay): implement/test loadIntoClipboard
+// TODO(kay): implement/test prependClipboard
+
 // Constructor: init (resolve) command and arguments
 shellCommandClipboard::shellCommandClipboard(
     int argc, const std::vector<std::string> &argv) {

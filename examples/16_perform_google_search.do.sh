@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#activateBrowser
-#openUrlInNewBrowserTab "https://www.google.com/"
-#copyPaste "foo"
-#hitEnter
+_activateBrowser
+_openUrlInNewBrowserTab "https://www.google.com/"
+_copyPaste "foo"
+_hitEnter

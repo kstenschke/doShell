@@ -23,7 +23,7 @@ void transpileUrl::Transpile(std::string *code, std::string path_binary) {
         ->TranspileGetHost();
   }
 
-  if (!helper::String::Contains(*code, "#url")) {
+  if (!helper::String::Contains(*code, "_url")) {
     delete instance;
 
     return;
@@ -37,9 +37,9 @@ void transpileUrl::Transpile(std::string *code, std::string path_binary) {
 }
 
 transpileUrl* transpileUrl::TranspileDecode() {
-  if (!helper::String::Contains(*code_, "#urlDecode")) return this;
+  if (!helper::String::Contains(*code_, "_urlDecode")) return this;
 
-  std::regex exp2("#urlDecode (.*)");
+  std::regex exp2("_urlDecode (.*)");
   std::string replacement = "$(" + path_binary_ + " urlDecode $1)";
 
   *code_ = std::regex_replace(*code_, exp2, replacement);
@@ -48,9 +48,9 @@ transpileUrl* transpileUrl::TranspileDecode() {
 }
 
 transpileUrl* transpileUrl::TranspileEncode() {
-  if (!helper::String::Contains(*code_, "#urlEncode")) return this;
+  if (!helper::String::Contains(*code_, "_urlEncode")) return this;
 
-  std::regex exp2("#urlEncode (.*)");
+  std::regex exp2("_urlEncode (.*)");
   std::string replacement = "$(" + path_binary_ + " urlEncode $1)";
 
   *code_ = std::regex_replace(*code_, exp2, replacement);
@@ -59,9 +59,9 @@ transpileUrl* transpileUrl::TranspileEncode() {
 }
 
 transpileUrl* transpileUrl::TranspileGetHost() {
-  if (!helper::String::Contains(*code_, "#getHostFromUrl")) return this;
+  if (!helper::String::Contains(*code_, "_getHostFromUrl")) return this;
 
-  std::regex exp2("#getHostFromUrl (.*)");
+  std::regex exp2("_getHostFromUrl (.*)");
   std::string replacement = "$(" + path_binary_ + " getHostFromUrl $1)";
 
   *code_ = std::regex_replace(*code_, exp2, replacement);
@@ -70,9 +70,9 @@ transpileUrl* transpileUrl::TranspileGetHost() {
 }
 
 transpileUrl* transpileUrl::TranspileGetPath() {
-  if (!helper::String::Contains(*code_, "#getPathFromUrl")) return this;
+  if (!helper::String::Contains(*code_, "_getPathFromUrl")) return this;
 
-  std::regex exp2("#getPathFromUrl (.*)");
+  std::regex exp2("_getPathFromUrl (.*)");
   std::string replacement = "$(" + path_binary_ + " getPathFromUrl $1)";
 
   *code_ = std::regex_replace(*code_, exp2, replacement);
@@ -81,9 +81,9 @@ transpileUrl* transpileUrl::TranspileGetPath() {
 }
 
 transpileUrl* transpileUrl::TranspileGetQuery() {
-  if (!helper::String::Contains(*code_, "#getQueryFromUrl")) return this;
+  if (!helper::String::Contains(*code_, "_getQueryFromUrl")) return this;
 
-  std::regex exp2("#getQueryFromUrl (.*)");
+  std::regex exp2("_getQueryFromUrl (.*)");
   std::string replacement = "$(" + path_binary_ + " getQueryFromUrl $1)";
 
   *code_ = std::regex_replace(*code_, exp2, replacement);
@@ -93,9 +93,9 @@ transpileUrl* transpileUrl::TranspileGetQuery() {
 
 
 transpileUrl* transpileUrl::TranspileGetScheme() {
-  if (!helper::String::Contains(*code_, "#getSchemeFromUrl")) return this;
+  if (!helper::String::Contains(*code_, "_getSchemeFromUrl")) return this;
 
-  std::regex exp2("#getSchemeFromUrl (.*)");
+  std::regex exp2("_getSchemeFromUrl (.*)");
   std::string replacement = "$(" + path_binary_ + " getSchemeFromUrl $1)";
 
   *code_ = std::regex_replace(*code_, exp2, replacement);

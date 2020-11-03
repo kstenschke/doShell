@@ -9,9 +9,9 @@
   #BROWSER=firefox
 #ENDIF
 
-#activateBrowser
-#openUrlInNewBrowserTab "https://duckduckgo.com/"
+_activateBrowser
+_openUrlInNewBrowserTab "https://duckduckgo.com/"
 
-#openBrowserDevConsole
-#copyPaste "alert(\"hello world!\");"
-#hitEnter
+_openBrowserDevConsole
+_copyPaste "alert(\"hello world!\");"
+_hitEnter

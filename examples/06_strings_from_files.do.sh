@@ -2,22 +2,22 @@
 # All file helper command examples output: foo bar baz qux
 
 printf "extractBetweenFromFile: "
-echo #extractBetweenFromFile ::DIR::assets/extractBetween.txt start end
+echo _extractBetweenFromFile ::DIR::assets/extractBetween.txt start end
 
 printf "\nreplaceAfterFromFile: "
-echo #replaceAfterFromFile ::DIR::assets/replaceAfter.txt bar "bar baz qux"
+echo _replaceAfterFromFile ::DIR::assets/replaceAfter.txt bar "bar baz qux"
 
 printf "\nreplaceAllFromFile: "
-echo #replaceAllFromFile ::DIR::assets/replaceAll.txt e a
+echo _replaceAllFromFile ::DIR::assets/replaceAll.txt e a
 
 printf "\nreplaceBeforeFromFile: "
-echo #replaceBeforeFromFile ::DIR::assets/replaceBefore.txt bar 'foo bar'
+echo _replaceBeforeFromFile ::DIR::assets/replaceBefore.txt bar 'foo bar'
 
 printf "\nreplaceBetweenFromFile: "
-echo #replaceBetweenFromFile ::DIR::assets/replaceBetween.txt bar qux " bar baz qux"
+echo _replaceBetweenFromFile ::DIR::assets/replaceBetween.txt bar qux " bar baz qux"
 
 printf "\nreplaceFirstFromFile: "
-echo #replaceFirstFromFile ::DIR::assets/replaceFirst.txt bar foo
+echo _replaceFirstFromFile ::DIR::assets/replaceFirst.txt bar foo
 
 printf "\nreplaceLastFromFile: "
-echo #replaceLastFromFile ::DIR::assets/replaceLast.txt bar qux
+echo _replaceLastFromFile ::DIR::assets/replaceLast.txt bar qux

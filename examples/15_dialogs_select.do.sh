@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-CHOICE=#select "Take your pick:" {"Apple", "Banana", "Orange"}
+CHOICE=_select "Take your pick:" {"Apple", "Banana", "Orange"}
 
-#notify $CHOICE
+_notify $CHOICE

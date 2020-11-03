@@ -22,7 +22,7 @@ void transpileString::Transpile(std::string *code,
 
   instance->TranspileExtractBetween();
 
-  if (!helper::String::Contains(*code, "#replace")) {
+  if (!helper::String::Contains(*code, "_replace")) {
     delete instance;
 
     return;
@@ -40,7 +40,7 @@ void transpileString::Transpile(std::string *code,
 }
 
 transpileString* transpileString::TranspileExtractBetween() {
-  std::string command = "#extractBetween" + from_ + " ";
+  std::string command = "_extractBetween" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 
@@ -54,7 +54,7 @@ transpileString* transpileString::TranspileExtractBetween() {
 }
 
 transpileString* transpileString::TranspileReplaceAfter() {
-  std::string command = "#replaceAfter" + from_ + " ";
+  std::string command = "_replaceAfter" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 
@@ -69,7 +69,7 @@ transpileString* transpileString::TranspileReplaceAfter() {
 }
 
 transpileString* transpileString::TranspileReplaceAll() {
-  std::string command = "#replaceAll" + from_ + " ";
+  std::string command = "_replaceAll" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 
@@ -84,7 +84,7 @@ transpileString* transpileString::TranspileReplaceAll() {
 }
 
 transpileString* transpileString::TranspileReplaceBefore() {
-  std::string command = "#replaceBefore" + from_ + " ";
+  std::string command = "_replaceBefore" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 
@@ -99,7 +99,7 @@ transpileString* transpileString::TranspileReplaceBefore() {
 }
 
 transpileString* transpileString::TranspileReplaceBetween() {
-  std::string command = "#replaceBetween" + from_ + " ";
+  std::string command = "_replaceBetween" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 
@@ -114,7 +114,7 @@ transpileString* transpileString::TranspileReplaceBetween() {
 }
 
 transpileString* transpileString::TranspileReplaceFirst() {
-  std::string command = "#replaceFirst" + from_ + " ";
+  std::string command = "_replaceFirst" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 
@@ -129,7 +129,7 @@ transpileString* transpileString::TranspileReplaceFirst() {
 }
 
 transpileString* transpileString::TranspileReplaceLast() {
-  std::string command = "#replaceLast" + from_ + " ";
+  std::string command = "_replaceLast" + from_ + " ";
 
   if (!helper::String::Contains(*code_, command)) return this;
 

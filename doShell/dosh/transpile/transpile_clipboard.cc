@@ -24,17 +24,17 @@ void transpileClipboard::Transpile(std::string *code,
 
       ->TranspilePregMatchAllInClipboard()
 
-      ->TranspileCommand("#extractBetweenFromClipboard ")
-      ->TranspileCommand("#replaceAfterFromClipboard ")
-      ->TranspileCommand("#replaceAllFromClipboard ")
-      ->TranspileCommand("#replaceBeforeFromClipboard ")
-      ->TranspileCommand("#replaceBetweenFromClipboard ", 3)
-      ->TranspileCommand("#replaceFirstFromClipboard ")
-      ->TranspileCommand("#replaceLastFromClipboard ")
+      ->TranspileCommand("_extractBetweenFromClipboard ")
+      ->TranspileCommand("_replaceAfterFromClipboard ")
+      ->TranspileCommand("_replaceAllFromClipboard ")
+      ->TranspileCommand("_replaceBeforeFromClipboard ")
+      ->TranspileCommand("_replaceBetweenFromClipboard ", 3)
+      ->TranspileCommand("_replaceFirstFromClipboard ")
+      ->TranspileCommand("_replaceLastFromClipboard ")
 
       ->TranspileAppendClipboardToFile()
-      ->TranspileLoadClipboard()
-      ->TranspileSaveClipboard();
+      ->TranspileLoadIntoClipboard()
+      ->TranspileLoadIntoClipboard();
 
   delete instance;
 }
@@ -61,7 +61,7 @@ transpileClipboard* transpileClipboard::TranspileCommand(
 }
 
 transpileClipboard* transpileClipboard::TranspileSetClipboard() {
-  if (std::string::npos == code_->find("#setClipboard ")) return this;
+  if (std::string::npos == code_->find("_setClipboard ")) return this;
 
   #if __linux__
     std::string replacement = "echo '$1' | xclip -sel clip #";
@@ -69,28 +69,28 @@ transpileClipboard* transpileClipboard::TranspileSetClipboard() {
     std::string replacement = "osascript -e 'set the clipboard to \"$1\"'";
   #endif
 
-  if (std::string::npos != code_->find("#setClipboard \"")) {
-    std::regex exp(R"(#setClipboard \"([a-zA-Z0-9.\-_:\/?&= ]+)\")");
+  if (std::string::npos != code_->find("_setClipboard \"")) {
+    std::regex exp(R"(_setClipboard \"([a-zA-Z0-9.\-_:\/?&= ]+)\")");
     *code_ = std::regex_replace(*code_, exp, replacement);
   }
 
-  if (std::string::npos != code_->find("#setClipboard '")) {
-    std::regex exp(R"(#setClipboard '([a-zA-Z0-9.\-_:\/?&= ]+)')");
+  if (std::string::npos != code_->find("_setClipboard '")) {
+    std::regex exp(R"(_setClipboard '([a-zA-Z0-9.\-_:\/?&= ]+)')");
     *code_ = std::regex_replace(*code_, exp, replacement);
   }
 
-  std::regex exp(R"(#setClipboard ([a-zA-Z0-9.\-_:\/?&= ]+))");
+  std::regex exp(R"(_setClipboard ([a-zA-Z0-9.\-_:\/?&= ]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
 }
 
 transpileClipboard* transpileClipboard::TranspileGetClipboard() {
-  if (std::string::npos == code_->find("#getClipboard")) return this;
+  if (std::string::npos == code_->find("_getClipboard")) return this;
 
   helper::String::ReplaceAll(
       code_,
-      "#getClipboard",
+      "_getClipboard",
       "$(" + *path_binary_ + " getClipboard)");
 
   return this;
@@ -99,40 +99,40 @@ transpileClipboard* transpileClipboard::TranspileGetClipboard() {
 // TODO(kay): refactor: use single parametric method
 //            instead of multiple hard-coded dedicated methods
 transpileClipboard* transpileClipboard::TranspileAppendClipboardToFile() {
-  if (std::string::npos == code_->find("#appendClipboardToFile ")) return this;
+  if (std::string::npos == code_->find("_appendClipboardToFile ")) return this;
 
   std::string replacement = *path_binary_ + " appendClipboardToFile $1";
 
-  std::regex exp(R"(#appendClipboardToFile \"(.*)\")");
+  std::regex exp(R"(_appendClipboardToFile \"(.*)\")");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
 }
 
-transpileClipboard* transpileClipboard::TranspileLoadClipboard() {
-  if (std::string::npos == code_->find("#loadClipboard ")) return this;
+transpileClipboard* transpileClipboard::TranspileLoadIntoClipboard() {
+  if (std::string::npos == code_->find("_loadIntoClipboard ")) return this;
 
-  std::string replacement = *path_binary_ + " loadClipboard $1";
+  std::string replacement = *path_binary_ + " loadIntoClipboard $1";
 
-  std::regex exp(R"(#loadClipboard ([a-zA-Z0-9.-_:/?&=]+))");
+  std::regex exp(R"(_loadIntoClipboard ([a-zA-Z0-9.-_:/?&=]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
 }
 
 transpileClipboard* transpileClipboard::TranspileSaveClipboard() {
-  if (std::string::npos == code_->find("#saveClipboard ")) return this;
+  if (std::string::npos == code_->find("_saveClipboard ")) return this;
 
   std::string replacement = *path_binary_ + " saveClipboard $1";
 
-  std::regex exp(R"(#saveClipboard ([a-zA-Z0-9.-_]+))");
+  std::regex exp(R"(_saveClipboard ([a-zA-Z0-9.-_]+))");
   *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
 }
 
 transpileClipboard* transpileClipboard::TranspileCopyPaste() {
-  if (std::string::npos == code_->find("#copyPaste ")) return this;
+  if (std::string::npos == code_->find("_copyPaste ")) return this;
 
   #if __linux__
     std::string replacement =
@@ -147,11 +147,11 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
           "sleep 0.1\n";
   #endif
 
-  std::regex exp(R"(#copyPaste \"(.*)\")");
+  std::regex exp(R"(_copyPaste \"(.*)\")");
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
-  exp = (R"(#copyPaste \'(.*)\')");
+  exp = (R"(_copyPaste \'(.*)\')");
 
   *code_ = std::regex_replace(*code_, exp, replacement);
 
@@ -159,25 +159,25 @@ transpileClipboard* transpileClipboard::TranspileCopyPaste() {
 }
 
 transpileClipboard* transpileClipboard::TranspileCopyAll() {
-  if (std::string::npos == code_->find("#copyAll")) return this;
+  if (std::string::npos == code_->find("_copyAll")) return this;
 
-  helper::String::ReplaceAll(code_, "#hitSelectAll\n#hitCopy", "xdotool type ");
+  helper::String::ReplaceAll(code_, "_hitSelectAll\n_hitCopy", "xdotool type ");
 
   return this;
 }
 
 transpileClipboard* transpileClipboard::TranspileCutAll() {
-  helper::String::ReplaceAll(code_, "#cutAll", "#hitSelectAll\n#hitCut");
+  helper::String::ReplaceAll(code_, "_cutAll", "_hitSelectAll\n_hitCut");
 
   return this;
 }
 
 transpileClipboard* transpileClipboard::TranspilePregMatchAllInClipboard() {
-  if (std::string::npos == code_->find("#pregMatchAllInClipboard")) return this;
+  if (std::string::npos == code_->find("_pregMatchAllInClipboard")) return this;
 
   helper::String::ReplaceAll(
       code_,
-      "#pregMatchAllInClipboard",
+      "_pregMatchAllInClipboard",
       *path_binary_ + " pregMatchAllInClipboard");
 
   return this;

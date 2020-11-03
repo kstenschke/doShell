@@ -2,14 +2,14 @@
 
 # Exchange domain of current site against "http://localhost"
 
-#activateBrowser
-#focusBrowserURL
-#hitCopy
+_activateBrowser
+_focusBrowserURL
+_hitCopy
 
 # remove scheme and domain from URL
-#replaceBeforeFromClipboard // "" ::MUTE::
-#replaceBeforeFromClipboard / "" ::MUTE::
-#hitPaste
+_replaceBeforeFromClipboard // "" ::MUTE::
+_replaceBeforeFromClipboard / "" ::MUTE::
+_hitPaste
 
-#moveCaretToLineStart
-#copyPaste 'http://localhost/'
+_moveCaretToLineStart
+_copyPaste 'http://localhost/'

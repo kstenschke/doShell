@@ -25,7 +25,7 @@ class transpileClipboard {
   transpileClipboard* TranspileCutAll();
 
   transpileClipboard* TranspileAppendClipboardToFile();
-  transpileClipboard* TranspileLoadClipboard();
+  transpileClipboard* TranspileLoadIntoClipboard();
   transpileClipboard* TranspileSaveClipboard();
 
   transpileClipboard* TranspilePregMatchAllInClipboard();

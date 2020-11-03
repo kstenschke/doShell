@@ -2,29 +2,29 @@
 # All clipboard helper command examples output: foo bar baz qux
 
 printf "extractBetweenFromClipboard: "
-#setClipboard "start foo bar baz qux end"
-echo #extractBetweenFromClipboard start end
+_setClipboard "start foo bar baz qux end"
+echo _extractBetweenFromClipboard start end
 
 printf "\nreplaceAfterFromClipboard: "
-#setClipboard "foo bar xxx xxx"
-echo #replaceAfterFromClipboard bar "bar baz qux"
+_setClipboard "foo bar xxx xxx"
+echo _replaceAfterFromClipboard bar "bar baz qux"
 
 printf "\nreplaceAllFromClipboard: "
-#setClipboard "foo ber bez qux"
-echo #replaceAllFromClipboard e a
+_setClipboard "foo ber bez qux"
+echo _replaceAllFromClipboard e a
 
 printf "\nreplaceBeforeFromClipboard: "
-#setClipboard "thingummibob bar baz qux"
-echo #replaceBeforeFromClipboard bar 'foo bar'
+_setClipboard "thingummibob bar baz qux"
+echo _replaceBeforeFromClipboard bar 'foo bar'
 
 printf "\nreplaceBetweenFromClipboard: "
-#setClipboard "foo bar thingummibob qux"
-echo #replaceBetweenFromClipboard bar qux " bar baz qux"
+_setClipboard "foo bar thingummibob qux"
+echo _replaceBetweenFromClipboard bar qux " bar baz qux"
 
 printf "\nreplaceFirstFromClipboard: "
-#setClipboard "bar bar baz qux"
-echo #replaceFirstFromClipboard bar foo
+_setClipboard "bar bar baz qux"
+echo _replaceFirstFromClipboard bar foo
 
 printf "\nreplaceLastFromClipboard: "
-#setClipboard "foo bar baz bar"
-echo #replaceLastFromClipboard bar qux
+_setClipboard "foo bar baz bar"
+echo _replaceLastFromClipboard bar qux

@@ -12,4 +12,4 @@ echo $"Path of this file: ::DIR::"
 echo "Working dir is: ::DIR_EXEC::"
 echo "Path to doShell exectable is: ::DIR_DOSH::"
 
-#import include/001_echo_hello.sh
+_import include/001_echo_hello.sh

@@ -134,7 +134,7 @@ shorthand commands to easily implement platform specific script variations.
 
 **Example:**
 
-````
+````bash
 #!/usr/bin/env bash
 
 #if_is_linux
@@ -159,7 +159,10 @@ file.
 
 Replace all occurences of ``::FOO::`` by ``bar`` before
 running the given file:  
-``shdo -r script.do.x.sh "{\"::FOO::\":\"bar\"}"``  
+
+````bash
+shdo -r script.do.x.sh "{\"::FOO::\":\"bar\"}"
+````  
 
 **Note:** For an optimal ratio of performance and a small
 file size of the doShell executable, doShell provides only
@@ -195,15 +198,18 @@ can be appended to otherwise verbose commands.
 
 **Example:**  
 
-````
-#setClipboard "https://www.test.com/foo-bar-baz-qux"
-#replaceBeforeFromClipboard // '' ::MUTE::
+````bash
+_setClipboard "https://www.test.com/foo-bar-baz-qux"
+_replaceBeforeFromClipboard // '' ::MUTE::
 ````
 
 
 ### Import
 
-Import a specified file: ``#import another_file.do.sh``  
+Import a specified file: 
+````bash
+_import another_file.do.sh
+````  
 
 
 ### Invoke PHP and Node.js
@@ -213,7 +219,11 @@ Import a specified file: ``#import another_file.do.sh``
 doShell script can contain inlined PHP (processed during pre-execution parsing, 
 see [functional flow diagram](#functional-flow)) 
 
-like: ``#php echo time() #/php``  
+like: 
+
+````bash
+_php echo time() _/php
+````  
 
 Script example on embedding PHP with doShell: ``examples/09_parse_php.do.sh``
 
@@ -227,7 +237,7 @@ the used dependencies, e.g. when using
 [turndown](https://github.com/domchristie/turndown) as in 
 ``examples/17_export_website_to_markdown.do.sh``:
 
-````
+````bash
 npm init
 npm install turndown
 ````
@@ -239,38 +249,38 @@ npm install turndown
 
 | Command                                           | Description                                                                   |
 | ------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ``#extractBetween $VAR before after``             | Extract text excluding but between "before" and "after".**\***                |
-| ``#replaceAfter $VAR search replace``             | Replace everything after and including the first occurrences of given string  |
-| ``#replaceAll $VAR search replace``               | Replace all occurrences of given string                                       |
-| ``#replaceBefore $VAR search replace``            | Replace everything before and including the first occurrences of given string |
-| ``#replaceBetween $VAR before after replacement`` | Replace text including and between "before" and "after"                       |
-| ``#replaceFirst $VAR search replace``             | Replace first occurrence of given string                                      |
-| ``#replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
+| ``_extractBetween $VAR before after``             | Extract text excluding but between "before" and "after".**\***                |
+| ``_replaceAfter $VAR search replace``             | Replace everything after and including the first occurrences of given string  |
+| ``_replaceAll $VAR search replace``               | Replace all occurrences of given string                                       |
+| ``_replaceBefore $VAR search replace``            | Replace everything before and including the first occurrences of given string |
+| ``_replaceBetween $VAR before after replacement`` | Replace text including and between "before" and "after"                       |
+| ``_replaceFirst $VAR search replace``             | Replace first occurrence of given string                                      |
+| ``_replaceLast $VAR search replace``              | Replace last occurrence of given string                                       |
 
 
 **Strings from files** 
 
 | Command                                                           | Description                                             |
 | ----------------------------------------------------------------- | ------------------------------------------------------- |
-| ``#extractBetweenFromFile path/file before after``                | Extract text excluding but between "before" and "after" |
-| ``#replaceAfterFromFile path/file search replace``                |                                                         |
-| ``#replaceAllFromFile path/file search replace``                  | Replace all occurrences of given string                 |
-| ``#replaceBeforeFromFile path/file search replace``               |                                                         |
-| ``#replaceBetweenFromFile path/file before after replacement ``   | Replace text including and between "before" and "after" |
-| ``#replaceFirstFromFile path/file search replace``                | Replace first occurrence of given string                |
-| ``#replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
+| ``_extractBetweenFromFile path/file before after``                | Extract text excluding but between "before" and "after" |
+| ``_replaceAfterFromFile path/file search replace``                |                                                         |
+| ``_replaceAllFromFile path/file search replace``                  | Replace all occurrences of given string                 |
+| ``_replaceBeforeFromFile path/file search replace``               |                                                         |
+| ``_replaceBetweenFromFile path/file before after replacement ``   | Replace text including and between "before" and "after" |
+| ``_replaceFirstFromFile path/file search replace``                | Replace first occurrence of given string                |
+| ``_replaceLastFromFile path/file search replace``                 | Replace last occurrence of given string                 |
 
 
 #### URL parsing
 
 | Command                    | Description                                                      |
 | -------------------------- | ---------------------------------------------------------------- |
-| ``#getSchemeFromUrl $URL`` | Extract scheme from given URL, e.g. ``http`` or ``https``        |
-| ``#getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
-| ``#getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
-| ``#getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
-| ``#urlEncode $URL``        | URL-Encode given string                                          |
-| ``#urlDecode $URL``        | URL-Decode given string                                          |
+| ``_getSchemeFromUrl $URL`` | Extract scheme from given URL, e.g. ``http`` or ``https``        |
+| ``_getHostFromUrl $URL``   | Extract host from given URL, e.g. ``www.example.com``            |
+| ``_getPathFromUrl $URL``   | Extract path from given URL, e.g. ``/foo/bar``                   |
+| ``_getQueryFromUrl $URL``  | Extract query from given URL, e.g. ``hat=bowler&accessory=cane`` |
+| ``_urlEncode $URL``        | URL-Encode given string                                          |
+| ``_urlDecode $URL``        | URL-Decode given string                                          |
 
 
 ### Random values
@@ -284,28 +294,28 @@ npm install turndown
 
 | Command                                    | Description                                 |
 | ------------------------------------------ | ------------------------------------------- |
-| ``#appendToClipboard $value``              | Add string to end of clipboard              |
-| ``#getClipboard``                          | Output clipboard contents                   |
-| ``#loadIntoClipboard filename.txt``        | Load file content into clipboard            |
-| ``#prependToClipboard $value``             | Add string before start of clipboard        |
-| ``#saveClipboard filename.txt``            | Store text from clipboard to file           |
-| ``#setClipboard $value``                   | Copy string to clipboard                    |
-| ``#setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
+| ``_appendToClipboard $value``              | Add string to end of clipboard              |
+| ``_getClipboard``                          | Output clipboard contents                   |
+| ``_loadIntoClipboard filename.txt``        | Load file content into clipboard            |
+| ``_prependToClipboard $value``             | Add string before start of clipboard        |
+| ``_saveClipboard filename.txt``            | Store text from clipboard to file           |
+| ``_setClipboard $value``                   | Copy string to clipboard                    |
+| ``_setClipboardFromFile path/to/file.txt`` | Copy content of file to clipboard           |
 
 
 **Invoke copy/paste related key combos**
 
 | Command                                 | Description                             |
 | --------------------------------------- | --------------------------------------- |
-| ``#copyAll``                            | Select all, than copy                   |
-| ``#copyLine``                           | Select caret line, than copy            |
-| ``#copyLineInTerminal``                 | Select caret line, than copy            |
-| ``#copyInTerminal``                     | Varies by OS                            |
-| ``#copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
-| ``#copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
-| ``#cutAll``                             | Select all, than cut                    |
-| ``#hitPaste``                           |                                         |
-| ``#hitPasteInTerminal``                 | Varies by OS                            |
+| ``_copyAll``                            | Select all, than copy                   |
+| ``_copyLine``                           | Select caret line, than copy            |
+| ``_copyLineInTerminal``                 | Select caret line, than copy            |
+| ``_copyInTerminal``                     | Varies by OS                            |
+| ``_copyPaste "foo"``                    | Copy text to clipboard and invoke paste |
+| ``_copyPasteInTerminal "foo"``          | Copy text to clipboard and invoke paste |
+| ``_cutAll``                             | Select all, than cut                    |
+| ``_hitPaste``                           |                                         |
+| ``_hitPasteInTerminal``                 | Varies by OS                            |
 
 
 **Manipulate strings from clipboard**  
@@ -315,25 +325,25 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command                                                    | Description                                                                   |
 | ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ``#extractBetweenFromClipboard before after``              | Extract text excluding but between "before" and "after"                       |
-| ``#pregMatchAllFromClipboard regex``                       | Output all matches of given regex in clipboard content                        |
-| ``#replaceAfterFromClipboard search replace``              | Replace everything after and including the first occurrences of given string  |                                                       |
-| ``#replaceBeforeFromClipboard search replace``             | Replace everything before and including the first occurrences of given string |
-| ``#replaceAllFromClipboard search replace``                | Replace all occurrences of given string                                       |
-| ``#replaceBetweenFromClipboard before after replacement `` | Replace text including and between "before" and "after"                       |
-| ``#replaceFirstFromClipboard search replace``              | Replace first occurrence of given string                                      |
-| ``#replaceLastFromClipboard search replace``               | Replace last occurrence of given string                                       |
+| ``_extractBetweenFromClipboard before after``              | Extract text excluding but between "before" and "after"                       |
+| ``_pregMatchAllFromClipboard regex``                       | Output all matches of given regex in clipboard content                        |
+| ``_replaceAfterFromClipboard search replace``              | Replace everything after and including the first occurrences of given string  |                                                       |
+| ``_replaceBeforeFromClipboard search replace``             | Replace everything before and including the first occurrences of given string |
+| ``_replaceAllFromClipboard search replace``                | Replace all occurrences of given string                                       |
+| ``_replaceBetweenFromClipboard before after replacement `` | Replace text including and between "before" and "after"                       |
+| ``_replaceFirstFromClipboard search replace``              | Replace first occurrence of given string                                      |
+| ``_replaceLastFromClipboard search replace``               | Replace last occurrence of given string                                       |
 
 
 ### Dialogs
 
 | Command                                                         | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| ``#notify "MESSAGE"``                                           | Display notification                                            |
-| ``#alert "MESSAGE"``                                            | Show alert popup                                                |
-| ``var=#confirm "MESSAGE"``                                      | Open Ok/Cancel Dialog, ``$var`` contains "Ok" or "Cancel" after |
-| ``var=#prompt "MESSAGE"``                                       | Popup with input field                                          |
-| ``var=#select "Take your pick:" {"Apple", "Banana", "Orange"}`` | Popup with options to select from                               |
+| ``_notify "MESSAGE"``                                           | Display notification                                            |
+| ``_alert "MESSAGE"``                                            | Show alert popup                                                |
+| ``var=_confirm "MESSAGE"``                                      | Open Ok/Cancel Dialog, ``$var`` contains "Ok" or "Cancel" after |
+| ``var=_prompt "MESSAGE"``                                       | Popup with input field                                          |
+| ``var=_select "Take your pick:" {"Apple", "Banana", "Orange"}`` | Popup with options to select from                               |
 
 
 ### Send keystrokes
@@ -342,20 +352,20 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command           | Description                            |
 | ----------------- | -------------------------------------- |  
-| ``#hitBackspace`` | Hit backspace key                      |
-| ``#hitDown``      | Hit cursor down key                    |
-| ``#hitEnter``     | Hit enter key                          |
-| ``#hitEnd``       | Hit end key                            |
-| ``#hitEsc``       | Hit escape key                         |
-| ``#hitF1``        | Hit F-Key                              |
-| ``#hitHome``      | Hit home key                           |
-| ``#hitLeft``      | Hit cursor left key                    |
-| ``#hitPageDown``  | Hit pageDown key                       |
-| ``#hitPageUp``    | Hit pageUp key                         |
-| ``#hitRight``     | Hit cursor right key                   |
-| ``#hitSpace``     | Hit space bar                          |
-| ``#hitTab``       | Hit tabulator key                      |
-| ``#hitUp``        | Hit cursor up key                      |
+| ``_hitBackspace`` | Hit backspace key                      |
+| ``_hitDown``      | Hit cursor down key                    |
+| ``_hitEnter``     | Hit enter key                          |
+| ``_hitEnd``       | Hit end key                            |
+| ``_hitEsc``       | Hit escape key                         |
+| ``_hitF1``        | Hit F-Key                              |
+| ``_hitHome``      | Hit home key                           |
+| ``_hitLeft``      | Hit cursor left key                    |
+| ``_hitPageDown``  | Hit pageDown key                       |
+| ``_hitPageUp``    | Hit pageUp key                         |
+| ``_hitRight``     | Hit cursor right key                   |
+| ``_hitSpace``     | Hit space bar                          |
+| ``_hitTab``       | Hit tabulator key                      |
+| ``_hitUp``        | Hit cursor up key                      |
 
 
 **Stroke key combination:**
@@ -364,45 +374,45 @@ To over/write the result back to files, you can use the shell redirection operat
 
 | Command                   | Linux             | Mac                |
 | ------------------------- | ----------------- | ------------------ |
-| ``#hitModDown``           |                   |                    |
-| ``#hitModLeft``           |                   |                    |
-| ``#hitModRight``          |                   |                    |
-| ``#hitModUp``             | CTRL + cursor up  | ALT + cursor up    |
-| ``#hitShiftModDown``      |                   |                    |
-| ``#hitShiftModLeft``      |                   |                    |
-| ``#hitShiftModRight``     |                   |                    |
-| ``#hitShiftModUp``        |                   |                    |
-| ``#hitShiftSuperDown``    |                   |                    |
-| ``#hitShiftSuperLeft``    |                   |                    |
-| ``#hitShiftSuperRight``   |                   |                    |
-| ``#hitShiftSuperUp``      |                   |                    |
-| ``#hitSuperDown``         |                   |                    |
-| ``#hitSuperLeft``         |                   |                    |
-| ``#hitSuperRight``        |                   |                    |
-| ``#hitSuperUp``           | WIN + cursor up   | CMD + cursor up    |
-| ``#moveCaretToLineStart`` | Home              | CMD + cursor left  |
-| ``#moveCaretToLineEnd``   | End               | CMD + cursor right |
+| ``_hitModDown``           |                   |                    |
+| ``_hitModLeft``           |                   |                    |
+| ``_hitModRight``          |                   |                    |
+| ``_hitModUp``             | CTRL + cursor up  | ALT + cursor up    |
+| ``_hitShiftModDown``      |                   |                    |
+| ``_hitShiftModLeft``      |                   |                    |
+| ``_hitShiftModRight``     |                   |                    |
+| ``_hitShiftModUp``        |                   |                    |
+| ``_hitShiftSuperDown``    |                   |                    |
+| ``_hitShiftSuperLeft``    |                   |                    |
+| ``_hitShiftSuperRight``   |                   |                    |
+| ``_hitShiftSuperUp``      |                   |                    |
+| ``_hitSuperDown``         |                   |                    |
+| ``_hitSuperLeft``         |                   |                    |
+| ``_hitSuperRight``        |                   |                    |
+| ``_hitSuperUp``           | WIN + cursor up   | CMD + cursor up    |
+| ``_moveCaretToLineStart`` | Home              | CMD + cursor left  |
+| ``_moveCaretToLineEnd``   | End               | CMD + cursor right |
 
 **Common functional shortcuts:**
 
 | Command                 | Description                    |
 | ----------------------- | ------------------------------ |   
-| ``#hitCopy``            | Hit CTRL+C or CMD+c            |
-| ``#hitFindInTerminal``  | Hit CTRL+SHIFT+F or CMD+F      | 
-| ``#hitFind``            | Hit CTRL+F or CMD+F            | 
-| ``#copyInTerminal``     | Varies by OS                   |
-| ``#cut``                | Hit CTRL+X or CMD+x            |
-| ``#hitPaste``              | Hit CTRL+V or CMD+V            |
-| ``#hitPasteInTerminal``    | Varies by OS                   |
-| ``#hitSelectAll``          | Hit CTRL+A or CMD+A            |
+| ``_hitCopy``            | Hit CTRL+C or CMD+c            |
+| ``_hitFindInTerminal``  | Hit CTRL+SHIFT+F or CMD+F      | 
+| ``_hitFind``            | Hit CTRL+F or CMD+F            | 
+| ``_copyInTerminal``     | Varies by OS                   |
+| ``_cut``                | Hit CTRL+X or CMD+x            |
+| ``_hitPaste``              | Hit CTRL+V or CMD+V            |
+| ``_hitPasteInTerminal``    | Varies by OS                   |
+| ``_hitSelectAll``          | Hit CTRL+A or CMD+A            |
 
 
 **Type text:**
 
 | Command               | Description                                    |
 | --------------------- | ---------------------------------------------- |  
-| ``#type "TEXT"``      | Simulate typing given text on keyboard         |
-| ``#copyPaste "foo"``  | Copy text to clipboard and invoke paste. ``*`` |
+| ``_copyPaste "foo"``  | Copy text to clipboard and invoke paste. ``*`` |
+| ``_type "TEXT"``      | Simulate typing given text on keyboard         |
 
 ``* Oftentimes a faster alternative over typing``  
 
@@ -417,38 +427,38 @@ easily adaptable to other web browsers.
 
 | Command                      | Description                                                                                 |
 | ---------------------------- | ------------------------------------------------------------------------------------------- |
-| ``#activateBrowser``         | Launch or bring browser window to front                                                     | 
-| ``#closeBrowserTab``         | Hits CTRL+W or CMD+W                                                                        |
-| ``#focusBrowserURL``         | Hits CTRL+L or CMD+L                                                                        |
-| ``#focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                                                                    |
-| ``#focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
-| ``#openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
-| ``#openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``#openBrowserSettings``     | Hits CTRL+Comma or CMD+Comma                                                                |
-| ``#openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
+| ``_activateBrowser``         | Launch or bring browser window to front                                                     | 
+| ``_closeBrowserTab``         | Hits CTRL+W or CMD+W                                                                        |
+| ``_focusBrowserURL``         | Hits CTRL+L or CMD+L                                                                        |
+| ``_focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                                                                    |
+| ``_focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
+| ``_openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
+| ``_openBrowserDevTools``     | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
+| ``_openBrowserSettings``     | Hits CTRL+Comma or CMD+Comma                                                                |
+| ``_openNewBrowserTab``       | Hits CTRL+T or CMD+T                                                                        |
 | ``#reopenBrowserTab``        | Hits CTRL+SHIFT+W or CMD+SHIFT+W                                                            |
-| ``#openBrowserSource``       | Hits CTRL+U or CMD+U                                                                        |
+| ``_openBrowserSource``       | Hits CTRL+U or CMD+U                                                                        |
 
 
 #### Load and manipulate URLs
 
 | Command                                               | Description                       |
 | ----------------------------------------------------- | --------------------------------- |
-| ``myVar=#getBrowserUrl``                              | Get current URL                   |
-| ``myVar=#getBrowserReferrer``                         | Get referrer URL                  |
-| ``#openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab |
+| ``myVar=_getBrowserUrl``                              | Get current URL                   |
+| ``myVar=_getBrowserReferrer``                         | Get referrer URL                  |
+| ``_openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab |
 
 
 #### Use devTools and devConsole
 
 | Command                              | Description                                                                                 |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- |
-| ``#openBrowserDevConsole``           | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
-| ``#openBrowserDevTools``             | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``#runJs alert('hello') #end_runJs`` | Open and focus devConsole, paste and execute given script                                   |
-| ``#execDevConsole``                  | Hits CTRL+ENTER or CMD+ENTER                                                                |
-| ``#clearDevConsole``                 | Clears current commands from devConsole                                                     |
-| ``#copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard           |
+| ``_openBrowserDevConsole``           | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
+| ``_openBrowserDevTools``             | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
+| ``_runJs alert('hello') #end_runJs`` | Open and focus devConsole, paste and execute given script                                   |
+| ``_execDevConsole``                  | Hits CTRL+ENTER or CMD+ENTER                                                                |
+| ``_clearDevConsole``                 | Clears current commands from devConsole                                                     |
+| ``_copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard           |
 
 TODO: implement:  console.log(document.getElementsByTagName('html')[0].innerHTML);
 
@@ -457,12 +467,12 @@ TODO: implement:  console.log(document.getElementsByTagName('html')[0].innerHTML
 
 | Command                                        | Description                            |
 | ---------------------------------------------- | -------------------------------------- |
-| ``#focusDomElementById "someId"``              |                                        |
-| ``#focusDomElementByQuery "#id .someClass"``   |                                        |
-| ``#clickDomElementById "someId"``              | Invokes mouse click on given element   |
-| ``#clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
-| ``#clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
-| ``#clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
+| ``_focusDomElementById "someId"``              |                                        |
+| ``_focusDomElementByQuery "#id .someClass"``   |                                        |
+| ``_clickDomElementById "someId"``              | Invokes mouse click on given element   |
+| ``_clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
+| ``_clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
+| ``_clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
 
 
 #### Communication from browser to runtime system
@@ -476,14 +486,13 @@ manipulation and import / export of text from/to the clipboard.
 
 | Command                           | Description                             |
 | --------------------------------- | --------------------------------------- |
-| ``#activateTerminal``             | Open or bring terminal to front         |
-| ``#openNewTerminal``              |                                         |
-| ``#openNewTerminalTab``           | Hit CTRL+SHIT+T or CMD+T                |
-| ``#editInTerminal FILE``          | Open given file in bash editor          | 
-| ``#hitFindInTerminal``            | Hit CTRL+SHIFT+F or CMD+F               |
-| ``#copyPasteInTerminal "foo"``    | Copy text to clipboard and invoke paste | 
-| ``#copyPasteInTerminal $VAR``     | Copy text to clipboard and invoke paste |
-| ``#runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
+| ``_activateTerminal``             | Open or bring terminal to front         |
+| ``_openNewTerminal``              |                                         |
+| ``_openNewTerminalTab``           | Hit CTRL+SHIT+T or CMD+T                | 
+| ``_hitFindInTerminal``            | Hit CTRL+SHIFT+F or CMD+F               |
+| ``_copyPasteInTerminal "foo"``    | Copy text to clipboard and invoke paste | 
+| ``_copyPasteInTerminal $VAR``     | Copy text to clipboard and invoke paste |
+| ``_runInNewTerminal "ls"``        | Run given shell script in new terminal  | 
 
 
 ## Functions, iterations, conditions, extensions

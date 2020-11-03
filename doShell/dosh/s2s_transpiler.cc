@@ -141,11 +141,11 @@ void S2sTranspiler::TranspileRuntimeVariables() {
 }
 
 bool S2sTranspiler::ParsePhp() {
-  if (!helper::String::Contains(source_, "#php")) return false;
+  if (!helper::String::Contains(source_, "_php")) return false;
 
   std::string phtml = source_;
-  helper::String::ReplaceAll(&phtml, "#php", "<?php");
-  helper::String::ReplaceAll(&phtml, "#/php", "?>");
+  helper::String::ReplaceAll(&phtml, "_php", "<?php");
+  helper::String::ReplaceAll(&phtml, "_/php", "?>");
 
   InitPathPhtml();
 
@@ -244,7 +244,7 @@ bool S2sTranspiler::ResolveImports() {
 
   ReplaceLineNumberMacros(&source_);
 
-  while ((offset_start = source_.find("#import ")) != std::string::npos) {
+  while ((offset_start = source_.find("_import ")) != std::string::npos) {
     auto offset_end = source_.find('\n', offset_start);
 
     if (offset_end == std::string::npos) offset_end = source_.length();

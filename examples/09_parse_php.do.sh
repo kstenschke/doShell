@@ -2,6 +2,6 @@
 
 # Example of inline PHP
 
-echo "Current UNIX timestamp: #php echo time() #/php.
-      A reversed string: #php echo strrev('foo') #/php.
-      A repeared character: #php echo str_repeat('-', 13) #/php "
+echo "Current UNIX timestamp: _php echo time() _/php.
+      A reversed string: _php echo strrev('foo') _/php.
+      A repeared character: _php echo str_repeat('-', 13) _/php "

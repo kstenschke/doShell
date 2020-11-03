@@ -3,7 +3,7 @@
 load _helper
 
 # TODO assert output from imported sub-script shows up in execution output
-test "$BATS_TEST_NUMBER: \"#import - imports given file" {
+test "$BATS_TEST_NUMBER: \"_import - imports given file" {
 #  run "${DOSH_BINARY}" -rc "examples/001_import.do.sh"
 #  [ "$status" -ne 0 ]
 }

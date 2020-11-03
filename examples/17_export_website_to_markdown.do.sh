@@ -4,21 +4,21 @@
 # wait for page being loaded, copy page source HTML,
 # convert source HTML to Markdown. Finally output Markdown to console
 
-#activateBrowser
-#openUrlInNewBrowserTab "https://www.wikipedia.org/"
-#copyPaste "foo"
-#hitEnter
+_activateBrowser
+_openUrlInNewBrowserTab "https://www.wikipedia.org/"
+_copyPaste "foo"
+_hitEnter
 sleep 0.5
 
-#openBrowserSource
-#copyAll
+_openBrowserSource
+_copyAll
 sleep 0.3
-#closeBrowserTab
-#closeBrowserTab
+_closeBrowserTab
+_closeBrowserTab
 
-#saveClipboard ::DIR::/tmp.html
+_saveClipboard ::DIR::/tmp.html
 node ::DIR::/scripts/node/turndown.js ::DIR::/tmp.html
 
 rm ::DIR::/tmp.html
 
-#activateTerminal
+_activateTerminal
