@@ -18,10 +18,14 @@
 #include <utility>
 #include <vector>
 
-namespace helper {
-namespace String {
+namespace helper::String {
 
 extern bool IsJson(const std::string &str);
+
+extern bool IsWhiteSpaceOrEmpty(const std::string &str);
+
+// line is not empty, not commented and no shebang line?
+extern bool IsExecutableBashLine(const std::string &str);
 
 // Check whether given string ends w/ given string
 bool EndsWith(std::string const &str, std::string const &ending);
@@ -99,7 +103,6 @@ extern u_int32_t GetMaxLength(const std::vector<std::string>& str_1);
 extern std::string Repeat(const std::string& str, u_int16_t amount);
 
 extern std::string HtmlToText(std::string html);
-}  // namespace String
 }  // namespace helper
 
 #endif  // DOSHELL_HELPER_HELPER_STRING_H_

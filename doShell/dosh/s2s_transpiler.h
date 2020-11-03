@@ -80,6 +80,7 @@ class S2sTranspiler {
   bool ParsePhp();
 
   void CleanupSource();
+  void TranspileSlowMotion();
   void MakeRuntimeScriptExecutable() const;
   void SaveSourceToRuntimeScript();
   bool RemoveTemporaryExecutionFile();

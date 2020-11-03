@@ -19,6 +19,25 @@ bool String::IsJson(const std::string &str) {
          && helper::String::EndsWith(kStr, "}");
 }
 
+bool String::IsWhiteSpaceOrEmpty(const std::string &str) {
+  if (str.empty()) return true;
+
+  for (char c : str)
+    if (c != ' ' && c != '\n' && c != '\r' && c != '\t') return false;
+
+  return true;
+}
+
+// line is not empty, not commented and no shebang line?
+bool String::IsExecutableBashLine(const std::string &str) {
+  if (str.empty()) return false;
+
+  for (char c : str)
+    if (c != '#') return false;
+
+  return true;
+}
+
 // Check whether given string starts w/ given prefix
 bool String::StartsWith(const char *str, const char *prefix) {
   return 0 == strncmp(str, prefix, strlen(prefix));

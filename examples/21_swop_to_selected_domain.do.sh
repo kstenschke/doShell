@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#!slow_motion
 
 # Exchange domain of current site against selected option:
 # http://localhost / 'dev' / 'stage' / 'production'
@@ -10,10 +11,19 @@ _activateBrowser
 _focusBrowserURL
 _hitCopy
 
-# remove scheme and domain from URL
-_replaceBeforeFromClipboard // "" ::MUTE::
+tmp=_getClipboard
+
+if [[ $tmp == *"http"* ]]; then
+  # remove given scheme from URL
+  _replaceBeforeFromClipboard // "" ::MUTE::
+fi
+
+# remove domain from URL
 _replaceBeforeFromClipboard / "" ::MUTE::
+
+# paste URL w/o scheme and domain
 _hitPaste
 
+# prepend seleted domain before URL
 _moveCaretToLineStart
 _hitPaste

@@ -30,6 +30,7 @@ bool S2sTranspiler::Compile(bool overwrite_intermediary_file) {
   TranspileCommands();
 
   CleanupSource();
+  TranspileSlowMotion();
   helper::File::WriteToNewFile(path_compiled_file_abs_, source_);
 
   return true;
@@ -374,10 +375,8 @@ void S2sTranspiler::CleanupSource() {
 
   bool prev_line_was_empty = false;
 
-  for (auto line : lines) {
-    helper::String::Trim(&line);
-
-    if (line.empty()) {
+  for (auto &line : lines) {
+    if (helper::String::IsWhiteSpaceOrEmpty(line)) {
       if (!prev_line_was_empty) clean += line + "\n";
       prev_line_was_empty = true;
     } else {
@@ -387,6 +386,22 @@ void S2sTranspiler::CleanupSource() {
   }
 
   source_ = clean;
+}
+
+void S2sTranspiler::TranspileSlowMotion() {
+  if (std::string::npos == (&source_)->find("#!slow_motion")) return;
+
+  auto lines = helper::String::Explode(source_, '\n');
+  std::string slow_source;
+
+  for (auto &line : lines) {
+    slow_source += line + "\n";
+
+    if (helper::String::IsExecutableBashLine(line))
+      slow_source += "sleep 0.5\n";
+  }
+
+  source_ = slow_source;
 }
 
 S2sTranspiler::~S2sTranspiler() {
