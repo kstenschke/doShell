@@ -3,18 +3,15 @@
 # Exchange domain of current site against "http://localhost"
 
 _activateBrowser
-_focusBrowserURL
-_hitCopy
+_copyBrowserUrl
 
 tmp=_getClipboard
 
-if [[ $tmp == *"http"* ]]; then
-  # remove given scheme from URL
+if [[ $tmp == *"http"* ]]; then  # remove given scheme from URL
   _replaceBeforeFromClipboard // "" ::MUTE::
 fi
 
-# remove domain from URL
-_replaceBeforeFromClipboard / "" ::MUTE::
+_replaceBeforeFromClipboard / "" ::MUTE::  # remove domain from URL
 
 _hitPaste
 

@@ -4,8 +4,7 @@
 # http://localhost / 'dev' / 'stage' / 'production'
 
 _activateBrowser
-_focusBrowserURL
-_hitCopy
+_copyBrowserUrl
 
 tmp=_getClipboard
 

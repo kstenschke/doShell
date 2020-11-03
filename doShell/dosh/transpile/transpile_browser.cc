@@ -18,6 +18,8 @@ void transpileBrowser::Transpile(std::string *code) {
   auto *instance = new transpileBrowser(code);
 
   instance
+    ->TranspileComboCommands()
+
     ->TranspileActivate()
     ->TranspileOpenUrlInNewBrowserTab()
     ->TranspileOpenNewTab()
@@ -31,6 +33,16 @@ void transpileBrowser::Transpile(std::string *code) {
     ->TranspileCloseTab();
 
   delete instance;
+}
+
+// Transpile wrapper-commands resolving to multiple other doShell commands
+transpileBrowser* transpileBrowser::TranspileComboCommands() {
+  helper::String::ReplaceAll(
+      code_,
+      "_copyBrowserUrl",
+      "_focusBrowserUrl\n_hitCopy");
+
+  return this;
 }
 
 transpileBrowser* transpileBrowser::TranspileActivate() {
@@ -116,7 +128,7 @@ transpileBrowser* transpileBrowser::TranspileOpenUrlInNewBrowserTab() {
 
   std::string replacement =
       "_openNewBrowserTab\n"
-      "_focusBrowserURL\n"
+      "_focusBrowserUrl\n"
       "_copyPaste \"$1/\"\n"
       "sleep 0.2\n"
       "_hitEnter\n"
@@ -211,7 +223,7 @@ transpileBrowser* transpileBrowser::TranspileClearDevConsole() {
 }
 
 transpileBrowser* transpileBrowser::TranspileFocusUrl() {
-  if (std::string::npos == code_->find("_focusBrowserURL")) return this;
+  if (std::string::npos == code_->find("_focusBrowserUrl")) return this;
 
   #if __linux__
     std::string replacement = "xdotool key ctrl+l";
@@ -223,7 +235,7 @@ transpileBrowser* transpileBrowser::TranspileFocusUrl() {
 
   replacement += "\nsleep 0.1";
 
-  helper::String::ReplaceAll(code_, "_focusBrowserURL", replacement);
+  helper::String::ReplaceAll(code_, "_focusBrowserUrl", replacement);
 
   return this;
 }

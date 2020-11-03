@@ -18,6 +18,9 @@ class transpileBrowser {
   std::string *code_;
   std::string *browser_;
 
+  // Transpile wrapper-commands resolving to multiple other doShell commands
+  transpileBrowser* TranspileComboCommands();
+
   transpileBrowser* TranspileActivate();
 
   transpileBrowser* TranspileOpenNewTab();

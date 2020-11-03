@@ -29,7 +29,7 @@ Shell wrapper/macro language for rapid automation scripting on Linux and Mac OS
     + [Clipboard](#clipboard)
     + [Dialogs](#dialogs)
     + [Send keystrokes](#send-keystrokes)
-    + [Browser automation](#web-browser-automation)
+    + [Browser automation](#browser-automation)
       * [Toggle browser panels](#toggle-browser-panels)
       * [Load and manipulate URLs](#load-and-manipulate-urls)
       * [Interact with DOM elements](#interact-with-dom-elements)
@@ -420,7 +420,7 @@ To over/write the result back to files, you can use the shell redirection operat
 ``* Oftentimes a faster alternative over typing``  
 
 
-### Web Browser automation  
+### Browser automation  
 
 **Note:** At the time being doShell was tested using Firefox, but should be 
 easily adaptable to other web browsers. 
@@ -432,7 +432,7 @@ easily adaptable to other web browsers.
 | ---------------------------- | ------------------------------------------------------------------------------------------- |
 | ``_activateBrowser``         | Launch or bring browser window to front                                                     | 
 | ``_closeBrowserTab``         | Hits CTRL+W or CMD+W                                                                        |
-| ``_focusBrowserURL``         | Hits CTRL+L or CMD+L                                                                        |
+| ``_focusBrowserUrl``         | Hits CTRL+L or CMD+L                                                                        |
 | ``_focusNextBrowserTab``     | Hits CTRL+TAB or CMD+TAB                                                                    |
 | ``_focusPreviousBrowserTab`` | Hits CTRL+SHIFT+TAB or CMD+OPT+TAB                                                          |
 | ``_openBrowserDevConsole``   | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
@@ -445,11 +445,11 @@ easily adaptable to other web browsers.
 
 #### Load and manipulate URLs
 
-| Command                                               | Description                       |
-| ----------------------------------------------------- | --------------------------------- |
-| ``myVar=_getBrowserUrl``                              | Get current URL                   |
-| ``myVar=_getBrowserReferrer``                         | Get referrer URL                  |
-| ``_openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab |
+| Command                                               | Description                               |
+| ----------------------------------------------------- | ----------------------------------------- |
+| ``_copyBrowserUrl``                                   | Focus URL, than fire copy key-combination |
+| ``myVar=_getBrowserUrl``                              | Get current URL                           |
+| ``_openUrlInNewBrowserTab "https://duckduckgo.com/"`` | Load given URL in new browser tab         |
 
 
 #### Use devTools and devConsole
