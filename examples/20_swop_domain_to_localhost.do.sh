@@ -6,6 +6,8 @@ _activateBrowser
 _focusBrowserURL
 _hitCopy
 
+tmp=_getClipboard
+
 if [[ $tmp == *"http"* ]]; then
   # remove given scheme from URL
   _replaceBeforeFromClipboard // "" ::MUTE::

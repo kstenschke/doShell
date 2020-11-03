@@ -100,7 +100,7 @@ void transpileKeystrokes::Transpile(std::string *code) {
       ->TranspileHitKey("_moveCaretToLineStart",
                         "Home",
                         " code 123 using {command down}",
-                        "0.1");
+                        "0.2");
 
   delete instance;
 }

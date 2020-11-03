@@ -63,24 +63,16 @@ transpileClipboard* transpileClipboard::TranspileCommand(
 transpileClipboard* transpileClipboard::TranspileSetClipboard() {
   if (std::string::npos == code_->find("_setClipboard ")) return this;
 
-  #if __linux__
-    std::string replacement = "echo '$1' | xclip -sel clip #";
-  #else
-    std::string replacement = "osascript -e 'set the clipboard to \"$1\"'";
-  #endif
+  auto offset_start = code_->find("_setClipboard");
+  auto offset_newline = code_->find("\n", offset_start);
 
-  if (std::string::npos != code_->find("_setClipboard \"")) {
-    std::regex exp(R"(_setClipboard \"([a-zA-Z0-9.\-_:\/?&= ]+)\")");
-    *code_ = std::regex_replace(*code_, exp, replacement);
-  }
+  std::string arguments =
+      code_->substr(offset_start + 13, offset_newline - (offset_start + 13));
 
-  if (std::string::npos != code_->find("_setClipboard '")) {
-    std::regex exp(R"(_setClipboard '([a-zA-Z0-9.\-_:\/?&= ]+)')");
-    *code_ = std::regex_replace(*code_, exp, replacement);
-  }
-
-  std::regex exp(R"(_setClipboard ([a-zA-Z0-9.\-_:\/?&= ]+))");
-  *code_ = std::regex_replace(*code_, exp, replacement);
+  *code_ =
+      code_->substr(0, offset_start)
+          + *path_binary_ + " setClipboard" + arguments
+          + code_->substr(offset_newline);
 
   return this;
 }
