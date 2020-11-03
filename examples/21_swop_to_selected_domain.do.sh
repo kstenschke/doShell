@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#!slow_motion
 
 # Exchange domain of current site against selected option:
 # http://localhost / 'dev' / 'stage' / 'production'
@@ -11,10 +10,10 @@ _activateBrowser
 _focusBrowserURL
 _hitCopy
 
-tmp=_getClipboard
+tmp=$(_getClipboard)
 
 if [[ $tmp == *"http"* ]]; then
-  # remove given scheme from URL
+  # remove "http://" or "https://" from URL
   _replaceBeforeFromClipboard // "" ::MUTE::
 fi
 

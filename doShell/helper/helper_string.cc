@@ -32,8 +32,11 @@ bool String::IsWhiteSpaceOrEmpty(const std::string &str) {
 bool String::IsExecutableBashLine(const std::string &str) {
   if (str.empty()) return false;
 
-  for (char c : str)
-    if (c != '#') return false;
+  for (char c : str) {
+    if (c == '#') return false;
+
+    if (c != ' ' && c != '\n' && c != '\r' && c != '\t') return true;
+  }
 
   return true;
 }

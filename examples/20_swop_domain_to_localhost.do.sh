@@ -6,9 +6,14 @@ _activateBrowser
 _focusBrowserURL
 _hitCopy
 
-# remove scheme and domain from URL
-_replaceBeforeFromClipboard // "" ::MUTE::
+if [[ $tmp == *"http"* ]]; then
+  # remove given scheme from URL
+  _replaceBeforeFromClipboard // "" ::MUTE::
+fi
+
+# remove domain from URL
 _replaceBeforeFromClipboard / "" ::MUTE::
+
 _hitPaste
 
 _moveCaretToLineStart
