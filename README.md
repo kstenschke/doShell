@@ -49,8 +49,7 @@ doShell provides a superset of shell script, geared towards rapid cross-platform
 doShell is foremost targeted, but not limited, to automation of operations
 involving browsing the web.
 
-This project is a source-to-source (S2S) transpiler (for allowing, unlike to if
-implemented purely as an iterpreter, manual script refinements) and runtime system.  
+This project is a source-to-source (S2S) transpiler and runtime system.  
 
 **What about Windows?**
 On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.com/) 
@@ -67,8 +66,11 @@ On Windows, i recommend using the excellent [AutoHotKey](https://www.autohotkey.
   therefor a completely unsuspicious "vanilla" browser useragent and -footprint 
   (no traces of Selenium in JS window object) is sent while performing automated
   browser operations
+* As doShell transpiles scripts (instead of just being an interpreter) scripts can 
+  also thereafter be improved and extended manually if needed
 
-To rapidly get an idea of doShell's syntax and some of it's abilities, 
+
+For quickly getting an idea of doShell's syntax and some of it's abilities, 
 also have a glance at the included [script examples](#script-examples). 
 
 
