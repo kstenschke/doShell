@@ -86,7 +86,6 @@ also have a glance at the included [script examples](#script-examples).
       php, node.js)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
-   (mask doShell commands as shell script comments)   
 
 
 ## Functional Flow
