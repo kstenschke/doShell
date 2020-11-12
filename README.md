@@ -463,10 +463,10 @@ easily adaptable to other web browsers.
 | ``_clearDevConsole``                 | Clears current commands from devConsole                                                     |
 | ``_copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard           |
 
-TODO: implement:  console.log(document.getElementsByTagName('html')[0].innerHTML);
-
 
 #### Interact with DOM elements
+
+**Note: Planned / Not implemented yet**
 
 | Command                                        | Description                            |
 | ---------------------------------------------- | -------------------------------------- |
