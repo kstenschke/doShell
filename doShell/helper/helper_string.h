@@ -103,6 +103,6 @@ extern u_int32_t GetMaxLength(const std::vector<std::string>& str_1);
 extern std::string Repeat(const std::string& str, u_int16_t amount);
 
 extern std::string HtmlToText(std::string html);
-}  // namespace helper
+}  // namespace helper::String
 
 #endif  // DOSHELL_HELPER_HELPER_STRING_H_

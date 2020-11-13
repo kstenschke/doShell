@@ -1,4 +1,4 @@
-// Copyright (c) 2020 gyselroth GmbH
+// Copyright (c) 2020 Kay Stenschke
 // Licensed under the MIT License - https://opensource.org/licenses/MIT
 
 #ifndef DOSHELL_CONFIG_H_
