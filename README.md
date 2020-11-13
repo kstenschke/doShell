@@ -1,6 +1,8 @@
 [![Platform](https://img.shields.io/badge/platform-osx%2Flinux-green)](#)
-[![License](https://img.shields.io/badge/License-MIT%20-yellowgreen)](https://github.com/kstenschke/doShell/blob/master/LICENSE.md)  
 [![Written in C++](https://img.shields.io/badge/written%20in-C++-lightblue)](#)
+[![License](https://img.shields.io/badge/License-MIT%20-yellowgreen)](https://github.com/kstenschke/doShell/blob/master/LICENSE.md)  
+[![Build Status](https://travis-ci.org/kst/doShell.svg?branch=master)](https://travis-ci.org/kstenschke/doShell)
+[![CodeFactor](https://www.codefactor.io/repository/github/kstenschke/doShell/badge)](https://www.codefactor.io/repository/github/kstenschke/doShell)
 
 
 doShell
@@ -86,7 +88,6 @@ also have a glance at the included [script examples](#script-examples).
       php, node.js)  
    2. While there is no dedicated editor, linter or syntax highlightning
    for doShell: Enable IDEs to identify doShell as shell script 
-   (mask doShell commands as shell script comments)   
 
 
 ## Functional Flow
@@ -463,10 +464,10 @@ easily adaptable to other web browsers.
 | ``_clearDevConsole``                 | Clears current commands from devConsole                                                     |
 | ``_copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard           |
 
-TODO: implement:  console.log(document.getElementsByTagName('html')[0].innerHTML);
-
 
 #### Interact with DOM elements
+
+**Note: Planned / Not implemented yet**
 
 | Command                                        | Description                            |
 | ---------------------------------------------- | -------------------------------------- |
