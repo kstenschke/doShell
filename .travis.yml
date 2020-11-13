@@ -17,6 +17,7 @@ matrix:
         - sudo pip install cpplint
         - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install build-essential; fi
         - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install valgrind; fi
+        - git clone https://github.com/dacap/clip.git ./vendor/clip
       script:
         # build doShell
         - cmake CMakeLists.txt && make
