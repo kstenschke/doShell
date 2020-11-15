@@ -338,6 +338,35 @@ To over/write the result back to files, you can use the shell redirection operat
 | ``_replaceLastFromClipboard search replace``               | Replace last occurrence of given string                                       |
 
 
+#### Paste dynamically rendered content
+
+The ``_pasteRenderedFromFile`` command enables doShell to render dynamic content
+from template files, useful for example for inserting parametric JavaScript into
+the browser console.
+
+**Example**
+
+
+````
+#!/usr/bin/env bash
+
+_activateBrowser
+_openBrowserDevConsole
+_pasteRenderedFromFile ::DIR::/alert.js {"<alert_text>":"hello"}
+_hitEnter
+````
+
+alert.js containing: ``alert('<alert_text>');``
+
+will:
+* activate the browser
+* open and focus the dev console
+* load alert.js, replace the string "<alert_text>" by "hello", copy it to the clipboard
+* paste the clipboard (the rendered alert-script) into the dev console
+* run the inserted script from within the console
+* **=>** raise the dynamically scripted alert popup
+
+
 ### Dialogs
 
 | Command                                                         | Description                                                     |
@@ -454,28 +483,15 @@ easily adaptable to other web browsers.
 
 #### Use devTools and devConsole
 
-| Command                              | Description                                                                                 |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- |
-| ``_openBrowserDevConsole``           | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium |
-| ``_openBrowserDevTools``             | Hits CTRL+SHIFT+I or CMD+OPT+I                                                              |
-| ``_runJs alert('hello') #end_runJs`` | Open and focus devConsole, paste and execute given script                                   |
-| ``_execDevConsole``                  | Hits CTRL+ENTER or CMD+ENTER                                                                |
-| ``_clearDevConsole``                 | Clears current commands from devConsole                                                     |
-| ``_copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard           |
-
-
-#### Interact with DOM elements
-
-**Note: Planned / Not implemented yet**
-
-| Command                                        | Description                            |
-| ---------------------------------------------- | -------------------------------------- |
-| ``_focusDomElementById "someId"``              |                                        |
-| ``_focusDomElementByQuery "#id .someClass"``   |                                        |
-| ``_clickDomElementById "someId"``              | Invokes mouse click on given element   |
-| ``_clickDomElementByQuery "#id .someClass"``   | Invokes mouse click on given element   |
-| ``_clickButtonContainingText "Hit me!"``       | Invokes mouse click on given button    |
-| ``_clickLinkContainingText "Hit me!"``         | Invokes mouse click on given link      |
+| Command                              | Description                                                                                           |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| ``_openBrowserDevConsole``           | Hits CTRL+SHIFT+J or CMD+SHIFT+J (firefox) or CTRL+SHIFT+P / CMD+SHIFT+P in Chrome/Chromium           |
+| ``_openBrowserDevTools``             | Hits CTRL+SHIFT+I or CMD+OPT+I                                                                        |
+| ``_runJs alert('hello') #end_runJs`` | Open and focus devConsole, paste and execute given script                                             |
+| ``_execDevConsole``                  | Hits CTRL+ENTER or CMD+ENTER                                                                          |
+| ``_clearDevConsole``                 | Clears current commands from devConsole                                                               |
+| ``_copyRenderedBrowserHtml``         | Open devConsole and run JavaScript to retrieve and copy current HTML to clipboard                     |
+| ``_pasteRenderedFromFile``           | Helpful for rendering JavaScript dynamically, see rel. [example](#paste-dynamically-rendered-content) |
 
 
 #### Communication from browser to runtime system
