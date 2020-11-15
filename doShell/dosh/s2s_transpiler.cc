@@ -302,7 +302,7 @@ std::string S2sTranspiler::GetBasePathBySourceFile() const {
       helper::String::Explode(path_source_file_abs_, '/');
 
   int index = 0;
-  unsigned long amount_parts = parts.size();
+  uint64_t amount_parts = parts.size();
 
   std::string path_file;
 
