@@ -117,19 +117,19 @@ void S2sTranspiler::TranspileRuntimeVariables() {
       offsets_comma_separated.substr(0, offsets_comma_separated.length() - 1);
 
   auto offsets = helper::String::Explode(offsets_comma_separated, ',');
-  unsigned long amount_offsets = offsets.size();
+  u_long amount_offsets = offsets.size();
 
   uint32_t i = 0;
 
   while (i < amount_offsets) {
     // Extract key/value tuples
-    int offset_start = std::atoi(offsets[i].c_str()) + 1;
-    int offset_end = std::atoi(offsets[i + 1].c_str());
+    auto offset_start = static_cast<u_long>(std::atoi(offsets[i].c_str()) + 1);
+    auto offset_end = static_cast<u_long>(std::atoi(offsets[i + 1].c_str()));
 
     std::string key = argv_[3].substr(offset_start, offset_end - offset_start);
 
-    offset_start = std::atoi(offsets[i + 2].c_str()) + 1;
-    offset_end = std::atoi(offsets[i + 3].c_str());
+    offset_start = static_cast<u_long>(std::atoi(offsets[i + 2].c_str()) + 1);
+    offset_end = static_cast<u_long>(std::atoi(offsets[i + 3].c_str()));
 
     std::string value =
         argv_[3].substr(offset_start, offset_end - offset_start);
