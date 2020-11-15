@@ -39,6 +39,8 @@ AppCommands::Command AppCommands::ResolveCommandByName(
   if (command == "getSchemeFromUrl") return Command_GetSchemeFromUrl;
   if (command == "loadIntoClipboard") return Command_LoadIntoClipboard;
 
+  if (command == "pasteRenderedFromFile")return Command_PasteRenderedFromFile;
+
   if (command == "pregMatchAllFromClipboard")
     return Command_PregMatchAllFromClipboard;
 
@@ -158,8 +160,8 @@ bool AppCommands::IsClipboardCommand(AppCommands::Command command) {
     case Command_ExtractBetweenFromClipboard:
     case Command_GetClipboard:
     case Command_LoadIntoClipboard:
+    case Command_PasteRenderedFromFile:
     case Command_PregMatchAllFromClipboard:
-    case Command_PrependToClipboard:
     case Command_ReplaceAfterFromClipboard:
     case Command_ReplaceAllFromClipboard:
     case Command_ReplaceBeforeFromClipboard:
@@ -170,6 +172,7 @@ bool AppCommands::IsClipboardCommand(AppCommands::Command command) {
     case Command_SetClipboard:
     case Command_SetClipboardFromFile:
       return true;
+    case Command_PrependToClipboard:
     default:
       return false;
   }

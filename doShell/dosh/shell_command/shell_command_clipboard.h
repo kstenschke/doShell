@@ -27,6 +27,9 @@ class shellCommandClipboard {
 
   virtual ~shellCommandClipboard();
 
+  static bool PasteRenderedFromFile(const std::string &templateFile,
+                                    const std::string &json_replacements);
+
   static bool AppendClipboardToFile(std::string path_file);
   static bool PregMatchAll(std::string pattern);
   static bool SaveClipboardToFile(std::string path_file);

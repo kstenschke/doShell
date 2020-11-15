@@ -28,6 +28,8 @@ class transpileClipboard {
   transpileClipboard* TranspileLoadIntoClipboard();
   transpileClipboard* TranspileSaveClipboard();
 
+  transpileClipboard* TranspilePasteRenderedFromFile();
+
   transpileClipboard* TranspilePregMatchAllInClipboard();
 
   transpileClipboard* TranspileCommand(const std::string &command,

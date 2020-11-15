@@ -213,6 +213,13 @@ bool App::ProcessClipboardCommand(AppCommands::Command command) {
 
       break;
     }
+    case AppCommands::Command_PasteRenderedFromFile: {
+      result = argc_ < 3
+               ? false
+               : shellCommandClipboard::PasteRenderedFromFile(argv_[2],
+                                                              argv_[3]);
+      break;
+    }
     case AppCommands::Command_PregMatchAllFromClipboard: {
       result = shellCommandClipboard::PregMatchAll(argv_[2]);
 

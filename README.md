@@ -349,13 +349,12 @@ the browser console.
 
 **Example**
 
-
 ````
 #!/usr/bin/env bash
 
 _activateBrowser
 _openBrowserDevConsole
-_pasteRenderedFromFile ::DIR::/alert.js {"<alert_text>":"hello"}
+_pasteRenderedFromFile ::DIR::/alert.js "{\"<alert_text>\":\"hello\"}"
 _hitEnter
 ````
 
@@ -364,7 +363,8 @@ alert.js containing: ``alert('<alert_text>');``
 will:
 * activate the browser
 * open and focus the dev console
-* load alert.js, replace the string "<alert_text>" by "hello", copy it to the clipboard
+* load alert.js, replace the string "<alert_text>" by "hello", copy it to the 
+  clipboard
 * paste the clipboard (the rendered alert-script) into the dev console
 * run the inserted script from within the console
 * **=>** raise the dynamically scripted alert popup

@@ -64,6 +64,31 @@ bool shellCommandClipboard::AppendClipboardToFile(std::string path_file) {
   return helper::File::AppendToFile(path_file, value) > 0;
 }
 
+bool shellCommandClipboard::PasteRenderedFromFile(
+    const std::string &templateFile, const std::string &json_replacements) {
+
+  if (!helper::File::FileExists(templateFile)) {
+    std::cerr << "File not found: " + templateFile + "\n";
+
+    return false;
+  }
+
+//  if (!helper::String::IsJson(json_replacements)) {
+//    std::cerr << "Not valid JSON: " + json_replacements + "\n";
+//
+//    return false;
+//  }
+
+  std::string tmpl;
+  helper::File::GetFileContents(templateFile, &tmpl);
+
+  // TODO(kay): replace from json tuples
+
+  clip::set_text(tmpl);
+
+  return true;
+}
+
 bool shellCommandClipboard::PregMatchAll(std::string pattern) {
   std::string str;
   clip::get_text(str);

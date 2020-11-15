@@ -22,6 +22,7 @@ void transpileClipboard::Transpile(std::string *code,
       ->TranspileCopyAll()
       ->TranspileCutAll()
 
+      ->TranspilePasteRenderedFromFile()
       ->TranspilePregMatchAllInClipboard()
 
       ->TranspileCommand("_extractBetweenFromClipboard ")
@@ -160,6 +161,20 @@ transpileClipboard* transpileClipboard::TranspileCopyAll() {
 
 transpileClipboard* transpileClipboard::TranspileCutAll() {
   helper::String::ReplaceAll(code_, "_cutAll", "_hitSelectAll\n_hitCut");
+
+  return this;
+}
+
+transpileClipboard* transpileClipboard::TranspilePasteRenderedFromFile() {
+  if (std::string::npos == code_->find("_pasteRenderedFromFile ")) return this;
+
+  std::string replacement =
+      *path_binary_ + " pasteRenderedFromFile $1\n"
+      "sleep 0.1\n"
+      "_hitPaste\n";
+
+  std::regex exp(R"(_pasteRenderedFromFile (.+?)(?=\n))");
+  *code_ = std::regex_replace(*code_, exp, replacement);
 
   return this;
 }

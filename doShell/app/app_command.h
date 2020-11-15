@@ -26,6 +26,7 @@ class AppCommands {
     Command_Help,
     Command_Invalid,
     Command_LoadIntoClipboard,
+    Command_PasteRenderedFromFile,
     Command_PrependToClipboard,
     Command_PregMatchAllFromClipboard,
     Command_ReplaceAfter,

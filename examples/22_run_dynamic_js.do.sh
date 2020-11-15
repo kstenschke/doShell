@@ -9,5 +9,5 @@ _openUrlInNewBrowserTab "https://www.wikipedia.org/"
 sleep 0.2
 
 _openBrowserDevConsole
-_pasteRenderedFromFile ::DIR::/scripts/js/click_tag_by_contained_text.js {"<tag_name>":"span","<search_text>","Commons"}
+_pasteRenderedFromFile ::DIR::scripts/click_tag_by_contained_text.js "{'<tag_name>':'span','<search_text>','Commons'}"
 _hitEnter
