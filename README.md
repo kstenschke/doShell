@@ -2,6 +2,7 @@
 [![Written in C++](https://img.shields.io/badge/written%20in-C++-lightblue)](#)
 [![License](https://img.shields.io/badge/License-MIT%20-yellowgreen)](https://github.com/kstenschke/doShell/blob/master/LICENSE.md)  
 [![cpplint](https://github.com/kstenschke/doShell/workflows/cpplint/badge.svg)](https://github.com/kstenschke/doShell/actions)
+[![cppcheck](https://github.com/kstenschke/doShell/workflows/cppcheck-action/badge.svg)](https://github.com/kstenschke/doShell/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/kstenschke/doShell/badge)](https://www.codefactor.io/repository/github/kstenschke/doShell)
 
 
