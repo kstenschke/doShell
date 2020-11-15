@@ -1,6 +1,7 @@
 [![Platform](https://img.shields.io/badge/platform-osx%2Flinux-green)](#)
 [![Written in C++](https://img.shields.io/badge/written%20in-C++-lightblue)](#)
 [![License](https://img.shields.io/badge/License-MIT%20-yellowgreen)](https://github.com/kstenschke/doShell/blob/master/LICENSE.md)  
+![cpplint](https://github.com/kstenschke/doShell/workflows/cpplint/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/kstenschke/doShell/badge)](https://www.codefactor.io/repository/github/kstenschke/doShell)
 
 
