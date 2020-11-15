@@ -30,6 +30,7 @@ Shell wrapper/macro language for rapid automation scripting on Linux and Mac OS
       + [URL parsing](#url-parsing)
     + [Random values](#random-values)
     + [Clipboard](#clipboard)
+      + [Paste dynamically rendered content](#paste-dynamically-rendered-content)
     + [Dialogs](#dialogs)
     + [Send keystrokes](#send-keystrokes)
     + [Browser automation](#browser-automation)
