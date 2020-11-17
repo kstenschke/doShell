@@ -19,6 +19,7 @@
 #include <doShell/dosh/transpile/transpile_url.h>
 #include <doShell/helper/helper_cli.h>
 #include <doShell/helper/helper_file.h>
+#include <doShell/helper/helper_json.h>
 
 #include <cstring>
 #include <iostream>

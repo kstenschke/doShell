@@ -101,7 +101,7 @@ bool App::ProcessStringCommand(AppCommands::Command command) {
 
       break;
     default:
-      return false;
+      result = false;
   }
 
   delete StringCommands;
@@ -152,7 +152,7 @@ bool App::ProcessFileCommand(AppCommands::Command command) {
 
       break;
     default:
-      return false;
+      result = false;
   }
 
   delete StringCommands;
@@ -314,12 +314,14 @@ bool App::ProcessTranspilerCommand(AppCommands::Command command) {
       return result;
     }
     default:
+      delete compiler;
+
       return false;
   }
 }
 
 bool App::ProcessUrlParserCommand(AppCommands::Command command) {
-  bool result = false;
+  bool result;
   auto *UrlParser = new shellCommandUrl(argc_, argv_);
 
   switch (command) {

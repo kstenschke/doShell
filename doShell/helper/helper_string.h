@@ -20,8 +20,6 @@
 
 namespace helper::String {
 
-extern bool IsJson(const std::string &str);
-
 extern bool IsWhiteSpaceOrEmpty(const std::string &str);
 
 // line is not empty, not commented and no shebang line?
@@ -33,16 +31,9 @@ bool EndsWith(std::string const &str, std::string const &ending);
 // Check whether given string starts w/ given prefix
 extern bool StartsWith(const char *str, const char *prefix);
 extern bool StartsWith(const std::string *str, const char *prefix);
-extern bool StartsWith(const std::string *str, const std::string *prefix);
-
-extern bool StartsNumeric(const char *str);
 
 extern bool Contains(const std::string &haystack, const char *needle);
 extern bool Contains(const std::string &haystack, const std::string& needle);
-
-extern int SubStrCount(const std::string &haystack,
-                       const std::string& needle,
-                       size_t offset = 0);
 
 int FindLast(const std::string &str,
              const std::string &needle,
@@ -77,10 +68,6 @@ extern std::string GetSubStrBetween(const std::string &str,
                                     const char *rhs,
                                     u_int32_t *offset);
 
-extern std::string GetSubStrAfter(const std::string &str,
-                                  const char *lhs,
-                                  u_int32_t *offset = 0);
-
 extern std::string GetSubStrBetween(const std::string &str,
                                     const char *lhs,
                                     const char *rhs);
@@ -96,7 +83,6 @@ extern void RTrim(std::string *s);
 extern void Trim(std::string *s);
 
 extern std::string ToLower(std::string str);
-extern std::string ToUpper(const std::string &str);
 
 extern u_int32_t GetMaxLength(const std::vector<std::string>& str_1);
 

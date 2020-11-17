@@ -70,6 +70,8 @@ add_executable(dosh
         doShell/helper/helper_cli.h
         doShell/helper/helper_file.cc
         doShell/helper/helper_file.h
+        doShell/helper/helper_json.cc
+        doShell/helper/helper_json.h
         doShell/helper/helper_string.cc
         doShell/helper/helper_string.h
         )

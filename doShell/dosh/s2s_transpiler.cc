@@ -77,68 +77,9 @@ bool S2sTranspiler::SourceContainsCommands() {
 }
 
 void S2sTranspiler::TranspileRuntimeVariables() {
-  if (argc_ < 4 || !helper::String::IsJson(argv_[3])) return;
+  if (argc_ < 4 || !helper::Json::IsJson(argv_[3])) return;
 
-  // 1. find offsets of single and double quote delimiters
-  //    around JSON keys and values
-  std::string offsets_comma_separated;
-
-  bool prev_was_backslash = false;
-  bool is_in_string = false;
-  char prev_quote = '"';
-  int index = -1;
-
-  for (char c : argv_[3]) {
-    ++index;
-
-    if (prev_was_backslash) {
-      prev_was_backslash = c == '\\';
-      continue;
-    }
-
-    if (c == '\\') {
-      prev_was_backslash = true;
-      continue;
-    }
-
-    if (!is_in_string
-        && (c == '"' || c == '\'')) {
-      is_in_string = true;
-      prev_quote = c;
-      offsets_comma_separated += std::to_string(index) + ",";
-    } else if (c == prev_quote) {
-      is_in_string = false;
-      offsets_comma_separated += std::to_string(index) + ",";
-    }
-  }
-
-  // Split offsets into vector
-  offsets_comma_separated =
-      offsets_comma_separated.substr(0, offsets_comma_separated.length() - 1);
-
-  auto offsets = helper::String::Explode(offsets_comma_separated, ',');
-  u_long amount_offsets = offsets.size();
-
-  uint32_t i = 0;
-
-  while (i < amount_offsets) {
-    // Extract key/value tuples
-    auto offset_start = static_cast<u_long>(std::atoi(offsets[i].c_str()) + 1);
-    auto offset_end = static_cast<u_long>(std::atoi(offsets[i + 1].c_str()));
-
-    std::string key = argv_[3].substr(offset_start, offset_end - offset_start);
-
-    offset_start = static_cast<u_long>(std::atoi(offsets[i + 2].c_str()) + 1);
-    offset_end = static_cast<u_long>(std::atoi(offsets[i + 3].c_str()));
-
-    std::string value =
-        argv_[3].substr(offset_start, offset_end - offset_start);
-
-    // Replace within code
-    helper::String::ReplaceAll(&source_, key, value);
-
-    i+= 4;
-  }
+  helper::Json::stringReplaceByJsonTuples(&source_, argv_[3]);
 }
 
 bool S2sTranspiler::ParsePhp() {

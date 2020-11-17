@@ -9,16 +9,6 @@
 
 namespace helper {
 
-bool String::IsJson(const std::string &str) {
-  if (str.empty() || str[0] != '{') return false;
-
-  const char *kStr = str.c_str();
-
-  return helper::String::Contains(kStr, "\"")
-         && helper::String::Contains(kStr, ":")
-         && helper::String::EndsWith(kStr, "}");
-}
-
 bool String::IsWhiteSpaceOrEmpty(const std::string &str) {
   if (str.empty()) return true;
 
@@ -50,10 +40,6 @@ bool String::StartsWith(const std::string *str, const char *prefix) {
   return str->substr(0, strlen(prefix)) == prefix;
 }
 
-bool String::StartsWith(const std::string *str, const std::string *prefix) {
-  return str->find(*prefix) == 0;
-}
-
 // Check whether given string ends w/ given string
 bool String::EndsWith(std::string const &str, std::string const &ending) {
   return ending.empty()
@@ -67,20 +53,6 @@ bool String::Contains(const std::string &haystack, const char *needle) {
 
 bool String::Contains(const std::string &haystack, const std::string& needle) {
   return std::string::npos != haystack.find(needle);
-}
-
-int String::SubStrCount(const std::string &haystack,
-                        const std::string& needle,
-                        size_t offset) {
-  auto len_needle = needle.length();
-  int occurrences = 0;
-
-  while ((offset = haystack.find(needle, offset)) != std::string::npos) {
-    ++occurrences;
-    offset += len_needle;
-  }
-
-  return occurrences;
 }
 
 int String::FindLast(const std::string &str,
@@ -217,21 +189,6 @@ std::string String::GetSubStrBetween(const std::string &str,
   return str.substr(offsetStart, offsetEnd - offsetStart);
 }
 
-std::string String::GetSubStrAfter(const std::string &str,
-                                   const char *lhs,
-                                   u_int32_t *offset) {
-  size_t offsetStart = str.find(lhs, *offset);
-
-  if (std::string::npos == offsetStart) return "";
-
-  // Exclude LHS
-  offsetStart += strlen(lhs);
-
-  *offset = offsetStart;
-
-  return str.substr(offsetStart);
-}
-
 std::string String::GetSubStrBetween(const std::string &str,
                                      const char *lhs,
                                      const char *rhs) {
@@ -325,14 +282,6 @@ std::string String::ToLower(std::string str) {
       });
 
   return str;
-}
-
-std::string String::ToUpper(const std::string& str) {
-  std::string upper;
-
-  for (auto c : str) upper += toupper(c);
-
-  return upper;
 }
 
 u_int32_t String::GetMaxLength(const std::vector<std::string>& strings) {
