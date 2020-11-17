@@ -1,3 +1,3 @@
 [doShell/dosh/transpile/transpile_dialog.cc:184]: (style) The scope of the variable 'ch_prev' can be reduced.
-[doShell/helper/helper_string.cc:26]: (style) Consider using std::any_of algorithm instead of a raw loop.
+[doShell/helper/helper_string.cc:16]: (style) Consider using std::any_of algorithm instead of a raw loop.
 (information) Cppcheck cannot find all the include files (use --check-config for details)
