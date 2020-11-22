@@ -13,7 +13,6 @@ configure_file ("doShell/config.h.in" "doShell/config.h")
 
 set(CMAKE_CXX_STANDARD 17)
 
-
 if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
     # Use libc++ explicitly so we can compile for
     # CMAKE_OSX_DEPLOYMENT_TARGET=10.7 or 10.8
@@ -24,7 +23,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin/mac)
 else()
     # Linux
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin/linux)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin/linux)
 endif()
 
 add_executable(dosh

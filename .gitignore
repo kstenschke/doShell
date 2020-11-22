@@ -1,3 +1,4 @@
 .idea
 cmake-build-debug
 node_modules
+cppcheck_report.txt
