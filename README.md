@@ -40,6 +40,7 @@ Shell wrapper/macro language for rapid automation scripting on Linux and Mac OS
     + [Terminal automation](#terminal-automation)    
   * [Functions, iterations, conditions, extensions](#functions-iterations-conditions-extensions)
   * [Script Examples](#script-examples) 
+  * [Changelog](#changelog)
   * [Third Party References](#third-party-references)
   * [Build Instructions](#build-instructions)
   * [Code Convention](#code-convention)
@@ -556,6 +557,12 @@ The following example scripts can be found under [/examples](/examples):
 | [20_swop_domain_to_localhost.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/20_swop_domain_to_localhost.do.sh)       | Replace any domain loaded in browser by "localhost", maintaining rest of URL                 |
 | [21_swop_to_selected_domain.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/21_swop_to_selected_domain.do.sh)        | Replace any domain loaded in browser by  domain selected from popup, maintaining rest of URL |
 | [22_run_dynamic_js.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/22_run_dynamic_js.do.sh)                          | Load JavaScript template from file, replace contained markers, execute it in browser devConsole      |
+
+
+Changelog
+---------
+
+See [CHANGELOG.md](https://github.com/kstenschke/doShell/blob/master/CHANGELOG.md)
 
 
 Third Party References
