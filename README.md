@@ -554,8 +554,8 @@ The following example scripts can be found under [/examples](/examples):
 | [18_run_js_in_dev_console.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/18_run_js_in_dev_console.do.sh)             | Open the browser's dev console, insert and run script in it                                  |
 | [19_extract_urls_from_web_page.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/19_extract_urls_from_web_page.do.sh)   | Extract all URLs from HTML source of a web page                                              |
 | [20_swop_domain_to_localhost.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/20_swop_domain_to_localhost.do.sh)       | Replace any domain loaded in browser by "localhost", maintaining rest of URL                 |
-| [21_swop_to_selected_domain.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/[21_swop_to_selected_domain.do.sh)        | Replace any domain loaded in browser by  domain selected from popup, maintaining rest of URL |
-| [22_run_dynamic_js.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/[22_run_dynamic_js.do.sh)                          | Load JavaScript template from file, replace contained markers, execute it in devConsole      |
+| [21_swop_to_selected_domain.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/21_swop_to_selected_domain.do.sh)        | Replace any domain loaded in browser by  domain selected from popup, maintaining rest of URL |
+| [22_run_dynamic_js.do.sh](https://github.com/kstenschke/doShell/blob/master/examples/22_run_dynamic_js.do.sh)                          | Load JavaScript template from file, replace contained markers, execute it in devConsole      |
 
 
 Third Party References
