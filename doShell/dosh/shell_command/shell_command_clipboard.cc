@@ -73,16 +73,16 @@ bool shellCommandClipboard::PasteRenderedFromFile(
     return false;
   }
 
-//  if (!helper::String::IsJson(json_replacements)) {
-//    std::cerr << "Not valid JSON: " + json_replacements + "\n";
-//
-//    return false;
-//  }
+  if (!helper::Json::IsJson(json_replacements)) {
+    std::cerr << "Not valid JSON: " + json_replacements + "\n";
+
+    return false;
+  }
 
   std::string tmpl;
   helper::File::GetFileContents(templateFile, &tmpl);
 
-  // TODO(kay): replace from json tuples
+  helper::Json::stringReplaceByJsonTuples(&tmpl, json_replacements);
 
   clip::set_text(tmpl);
 
