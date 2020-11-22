@@ -11,11 +11,6 @@ int main(int argc, char **argv) {
   std::vector<std::string> arguments;
   arguments.reserve(argc);
 
-//  argc = 3;
-//  argv[1] = "-rc";
-//  argv[2] =
-//      "/Users/kay/CLionProjects/robo/examples/006_file_manipulation.do.sh";
-
   for (int index = 0; index < argc; ++index)
     arguments.emplace_back(argv[index]);
 
